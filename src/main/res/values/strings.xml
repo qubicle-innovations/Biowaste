@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Biowaste</string>
+    <string name="regex_phone">^\\(?\\d{3}[\\)?|-]\\d{3}[- ]\\d{4}((\\s=?)(ext\\.|x)\\d{1,4})?$</string>
+
 </resources>
