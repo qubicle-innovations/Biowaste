@@ -52,18 +52,25 @@ public class LoginTask extends
 				 pass1.setValue(params[1]);
 				 pass1.setType(String.class);
 				 request.addProperty(pass1);
+
+				 PropertyInfo id = new PropertyInfo();
+				 id.setName("RegistrationID");
+				 id.setValue("");
+				 id.setType(String.class);
+				 request.addProperty(id);
+
 				 SoapSerializationEnvelope	 envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
 				 envelope.dotNet = true;
 				 envelope.setOutputSoapObject(request);
- 					 HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.USER_LOGIN);
-					 if(envelope != null) {
-						 androidHttpTransport.call(Constants.SOAP_ACTION + Constants.METHOD_VALIDATE_USER, envelope);
-						 response.setResponseContent(((SoapPrimitive) envelope.getResponse()).toString()) ;
-						 Log.d("response",((SoapPrimitive)envelope.getResponse()).toString());
- 					 }else{
-						 Log.d("response","reponse");
 
-					 }
+				 HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.USER_LOGIN);
+				 if(envelope != null) {
+					 androidHttpTransport.call(Constants.SOAP_ACTION + Constants.METHOD_VALIDATE_USER, envelope);
+					 response.setResponseContent(((SoapPrimitive) envelope.getResponse()).toString()) ;
+					 Log.d("response",((SoapPrimitive)envelope.getResponse()).toString());
+				 }else{
+					 Log.d("response","reponse");
+				 }
 
 			 } catch (IOException e) {
 				 e.printStackTrace();

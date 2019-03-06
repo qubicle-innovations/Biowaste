@@ -15,6 +15,7 @@ import uems.biowaste.utils.Utils;
 import uems.biowaste.utils.ZValidation;
 import uems.biowaste.vo.TResponse;
 import uems.biowaste.vo.UserPojo;
+
 public class LoginActivity extends BaseActivity {
 
     @Override
@@ -27,8 +28,8 @@ public class LoginActivity extends BaseActivity {
                 login();
             }
         });
-
     }
+
     public void login(){
         EditText etUsername = (EditText) findViewById(R.id.etUsername);
         EditText etPassword = (EditText) findViewById(R.id.etPassword);
@@ -43,8 +44,6 @@ public class LoginActivity extends BaseActivity {
             showError("Enter valid password", etUsername);
             etPassword.requestFocus();
             return;
-
-
         }
 
         new LoginTask(context).execute(new String[]{Utils.getText(etUsername),Utils.getText(etPassword)});
@@ -75,8 +74,6 @@ public class LoginActivity extends BaseActivity {
                      showError("Invalid username or password",findViewById(R.id.btLogin));
                  }
 
-
-
             } catch (Exception e) {
                 showError("please try later", findViewById(R.id.btLogin));
 
@@ -84,7 +81,5 @@ public class LoginActivity extends BaseActivity {
             }
         }
     }
-
-
 
 }
