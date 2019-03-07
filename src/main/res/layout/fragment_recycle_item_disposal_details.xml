@@ -93,7 +93,7 @@
         app:layout_constraintTop_toTopOf="@+id/frameLayout2" />
 
     <TextView
-        android:id="@+id/detailsTotalDisposaFeeTextView"
+        android:id="@+id/itemDisposalTotalTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
@@ -188,10 +188,9 @@
         app:layout_constraintGuide_percent="0.85" />
 
     <TextView
-        android:id="@+id/detailsDisposalFeeTextView"
+        android:id="@+id/itemDisposalPlasticTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:layout_marginEnd="24dp"
         android:background="@color/backgroundGray"
         android:fontFamily="@font/montserrat_semi_bold"
@@ -201,14 +200,13 @@
         android:textColor="@color/textBlack"
         app:layout_constraintBottom_toBottomOf="@+id/textView8"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView7"
+        app:layout_constraintStart_toStartOf="@+id/itemDisposalCansTextView"
         app:layout_constraintTop_toTopOf="@+id/textView8" />
 
     <TextView
-        android:id="@+id/detailsHuelageChargeTextView"
+        android:id="@+id/itemDisposalCansTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:layout_marginEnd="24dp"
         android:background="@color/backgroundGray"
         android:fontFamily="@font/montserrat_semi_bold"
@@ -218,11 +216,11 @@
         android:textColor="@color/textBlack"
         app:layout_constraintBottom_toBottomOf="@+id/textView7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView7"
+        app:layout_constraintStart_toStartOf="@+id/itemDisposalPaperTextView"
         app:layout_constraintTop_toTopOf="@+id/textView7" />
 
     <TextView
-        android:id="@+id/detailsWeightTextView"
+        android:id="@+id/itemDisposalPaperTextView"
         android:layout_width="0dp"
         android:layout_height="20dp"
         android:layout_marginStart="32dp"
@@ -235,14 +233,13 @@
         android:textColor="@color/textBlack"
         app:layout_constraintBottom_toBottomOf="@+id/textView6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView7"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toTopOf="@+id/textView6" />
 
     <TextView
-        android:id="@+id/detailsNoOfHaulageTextView"
+        android:id="@+id/itemDisposalCarbonBoxTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:layout_marginEnd="24dp"
         android:background="@color/backgroundGray"
         android:fontFamily="@font/montserrat_semi_bold"
@@ -252,7 +249,7 @@
         android:textColor="@color/textBlack"
         app:layout_constraintBottom_toBottomOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView7"
+        app:layout_constraintStart_toStartOf="@+id/itemDisposalPaperTextView"
         app:layout_constraintTop_toTopOf="@+id/textView5" />
 
     <TextView
@@ -262,7 +259,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/montserrat_semi_bold"
-        android:text="@string/disposal_fee"
+        android:text="@string/plastic"
         app:layout_constraintStart_toStartOf="@+id/frameLayout3"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
@@ -273,7 +270,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/montserrat_semi_bold"
-        android:text="@string/hualage_charge"
+        android:text="@string/cans"
         app:layout_constraintStart_toStartOf="@+id/frameLayout3"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -284,7 +281,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/montserrat_semi_bold"
-        android:text="@string/no_of_haulage"
+        android:text="@string/carbon_box"
         app:layout_constraintStart_toStartOf="@+id/frameLayout3"
         app:layout_constraintTop_toTopOf="@+id/frameLayout3" />
 
@@ -295,7 +292,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/montserrat_semi_bold"
-        android:text="@string/total_weight"
+        android:text="@string/paper"
         app:layout_constraintStart_toStartOf="@+id/frameLayout3"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 

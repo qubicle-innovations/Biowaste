@@ -29,6 +29,13 @@
     <string name="biowaste_disposal">Biowaste disposal</string>
     <string name="monthly_patients_forms">Monthly patients form</string>
     <string name="logout">Logout</string>
+    <string name="total_bin">Total bin</string>
+    <string name="total_cost">Total cost $</string>
+
+    <string name="carbon_box">Carbon Box (KG)</string>
+    <string name="paper">Paper (KG)</string>
+    <string name="cans">Cans (KG)</string>
+    <string name="plastic">Plastic (KG)</string>
 
     <string name="food_and_general_waste">Food &amp; general waste</string>
     <string name="biowaste">Biowaste</string>
