@@ -11,13 +11,21 @@ public class UserVo implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String UserID;
-	private String RoleID ;
+	private String Role;
+	private String UserID ;
 	private String UserName ;
-	private String FullName ;
-	private String RoleName ;
-	private String Status ;
+	private String EmailID ;
+	private String AllowNotification ;
+	private String CustomerID ;
+	private String CustomerName ;
 
+	public String getRole() {
+		return Role;
+	}
+
+	public void setRole(String role) {
+		Role = role;
+	}
 
 	public String getUserID() {
 		return UserID;
@@ -25,14 +33,6 @@ public class UserVo implements Serializable {
 
 	public void setUserID(String userID) {
 		UserID = userID;
-	}
-
-	public String getRoleID() {
-		return RoleID;
-	}
-
-	public void setRoleID(String roleID) {
-		RoleID = roleID;
 	}
 
 	public String getUserName() {
@@ -43,27 +43,35 @@ public class UserVo implements Serializable {
 		UserName = userName;
 	}
 
-	public String getFullName() {
-		return FullName;
+	public String getEmailID() {
+		return EmailID;
 	}
 
-	public void setFullName(String fullName) {
-		FullName = fullName;
+	public void setEmailID(String emailID) {
+		EmailID = emailID;
 	}
 
-	public String getRoleName() {
-		return RoleName;
+	public String getAllowNotification() {
+		return AllowNotification;
 	}
 
-	public void setRoleName(String roleName) {
-		RoleName = roleName;
+	public void setAllowNotification(String allowNotification) {
+		AllowNotification = allowNotification;
 	}
 
-	public String getStatus() {
-		return Status;
+	public String getCustomerID() {
+		return CustomerID;
 	}
 
-	public void setStatus(String status) {
-		Status = status;
+	public void setCustomerID(String customerID) {
+		CustomerID = customerID;
+	}
+
+	public String getCustomerName() {
+		return CustomerName;
+	}
+
+	public void setCustomerName(String customerName) {
+		CustomerName = customerName;
 	}
 }

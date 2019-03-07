@@ -21,6 +21,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import uems.biowaste.utils.Constants;
 import uems.biowaste.utils.Utils;
 import uems.biowaste.vo.UserVo;
 
@@ -43,7 +44,10 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         context = this;
         me = Utils.getUser(context);
-
+        String url = Utils.getSharedPreference(context,"url");
+        if(url!=null){
+            Constants.SERVER_URL = url;
+        }
          //  checkPermissions();
 
     }
@@ -165,28 +169,28 @@ public class BaseActivity extends AppCompatActivity {
             public void onClick(View view) {
                 showMenu();
                 logout();
-              /*  Intent intent =  new Intent(StaffJobActivity.this,LoginActivity.class);
+               Intent intent =  new Intent(BaseActivity.this,LoginActivity.class);
                 startActivity(intent);
                 mDrawerLayout.closeDrawers();
                 Utils.setUser(context,null);
-                finishAffinity();*/
+                finishAffinity();
 
             }
         });
-       /* findViewById(R.id.llReturned).setOnClickListener(new View.OnClickListener() {
+       findViewById(R.id.llGWaste).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showMenu();
-                startActivity(new Intent(context, ReturnListActivity.class));
+                startActivity(new Intent(context, GWasteListActivity.class));
                 finish();
 
             }
         });
-        findViewById(R.id.llIssue).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.llBioWaste).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showMenu();
-                startActivity(new Intent(context, IssueListActivity.class));
+                startActivity(new Intent(context, BioWasteListActivity.class));
                 finish();
 
             }
@@ -201,10 +205,10 @@ public class BaseActivity extends AppCompatActivity {
             }
         });
 
-        tvUsername.setText(Utils.toTitleCase(me.getFullName()));
-        tvEmpID.setText(me.getRoleID());
+        tvUsername.setText(Utils.toTitleCase(me.getCustomerName()));
+        tvEmpID.setText(me.getRole());
 
-*/
+
     }
 
     @Override

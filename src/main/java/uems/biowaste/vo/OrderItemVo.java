@@ -19,7 +19,7 @@ public class OrderItemVo implements Serializable {
 	private String TrollyNo;
 	private String CreatedBy ;
 	private String LocationID ;
-	private List<ItemVo> ListItems ;
+	private List<GWasteItemVo> ListItems ;
 
 	public String getReturnID() {
 		return ReturnID;
@@ -61,11 +61,11 @@ public class OrderItemVo implements Serializable {
 		LocationID = locationID;
 	}
 
-	public List<ItemVo> getListItems() {
+	public List<GWasteItemVo> getListItems() {
 		return ListItems;
 	}
 
-	public void setListItems(List<ItemVo> listItems) {
+	public void setListItems(List<GWasteItemVo> listItems) {
 		ListItems = listItems;
 	}
 

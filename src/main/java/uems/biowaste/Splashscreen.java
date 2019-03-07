@@ -60,7 +60,7 @@ public class Splashscreen extends BaseActivity {
 
 
     public void doLogin(){
-          startActivity(new Intent(Splashscreen.this,LoginActivity.class) );
+          startActivity(new Intent(Splashscreen.this,Dashboard.class) );
          finish();
     }
 }

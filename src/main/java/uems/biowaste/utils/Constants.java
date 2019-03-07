@@ -11,16 +11,15 @@ public class Constants {
     public static final String NAMESPACE = "http://Coleague.com/";
     public static final String SOAP_ACTION = "http://Coleague.com/";
 
-    //public static String SERVER_URL =" http://test.baqaala.com/";
-    public static String SERVER_URL ="http://119.82.97.221/LinenKKHV1/api/LinenService/";
+    public static String SERVER_URL ="http://119.82.97.221/HPBSBiowaste/api/Service";
 
    public static String USER_LOGIN ="http://119.82.97.221/HPBSMasterAppWS/HPBSMasterAppService.asmx";
-   public static String FETCH_COUNT=SERVER_URL+"GetIssueReturnCount";;
+   public static String FETCH_COUNT=SERVER_URL+"/GetMonthlyDetails";;
     public static String GET_TROLLEY_NO =SERVER_URL+"GetTrolleyNo";
     public static String GET_RETURN_LIST =SERVER_URL+"GetReturnList";
-    public static String GET_ISSUE_LIST =SERVER_URL+"GetIssueList";
-    public static String GET_ISSUE_DETAILS =SERVER_URL+"GetIssueDetails";
-    public static String GET_ISSUE_ITEMS =SERVER_URL+"GetIssueItems";
+    public static String GET_GWASTE_LIST =SERVER_URL+"/GetFoodandGeneralwaste";
+    public static String GET_BIOWASTE_LIST =SERVER_URL+"/GetBiowaste";
+    public static String GET_RECYCLED_LIST =SERVER_URL+"/GetRecycleditems";
     public static String GET_RETURN_DETAILS =SERVER_URL+"GetReturnDetails";
     public static String GET_RETURN_ITEMS =SERVER_URL+"GetReturnItems";
     public static String SAVE_RETURN_ITEMS =SERVER_URL+"SaveReturnItems";

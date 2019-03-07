@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <ImageView
+        android:id="@+id/imDate"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:padding="5dp"
+        android:src="@drawable/ic_list_date" />
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_toStartOf="@+id/imArrow"
+        android:textColor="@color/textBlack"
+        android:layout_toEndOf="@+id/imDate"
+        android:fontFamily="@font/regular"
+        android:gravity="center_vertical"
+        android:text="User name"
+        android:textSize="16sp" />
+
+
+    <ImageView
+        android:id="@+id/imArrow"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_list_arrow" />
+
+    <ImageView
+        android:id="@+id/imMonth"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/imDate"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp"
+        android:padding="5dp"
+        android:src="@drawable/ic_list_month" />
+
+    <TextView
+        android:id="@+id/tvMonth"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_below="@+id/imDate"
+        android:layout_marginStart="10dp"
+        android:layout_toStartOf="@+id/imArrow"
+        android:textColor="@color/textBlack"
+        android:layout_toEndOf="@+id/imDate"
+        android:fontFamily="@font/regular"
+        android:gravity="center_vertical"
+        android:text="User name"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/imKg"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/imMonth"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp"
+        android:padding="5dp"
+        android:src="@drawable/ic_list_user_kg" />
+
+    <TextView
+        android:id="@+id/tvKg"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_below="@+id/imMonth"
+        android:layout_marginStart="10dp"
+        android:layout_toStartOf="@+id/imArrow"
+        android:textColor="@color/textBlack"
+        android:layout_toEndOf="@+id/imDate"
+        android:fontFamily="@font/regular"
+        android:gravity="center_vertical"
+        android:text="User name"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/imUser"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/imKg"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp"
+        android:padding="5dp"
+        android:src="@drawable/ic_list_user" />
+
+    <TextView
+        android:id="@+id/tvUser"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_below="@+id/imKg"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/textBlack"
+        android:layout_toStartOf="@+id/imArrow"
+        android:layout_toEndOf="@+id/imDate"
+        android:fontFamily="@font/regular"
+        android:gravity="center_vertical"
+        android:text="User name"
+        android:textSize="16sp" />
+
+    <View
+        android:id="@+id/borderView"
+        android:layout_width="5dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imDate"
+        android:layout_alignBottom="@+id/tvUser"
+        android:layout_alignParentStart="true"
+        android:background="@color/colorPrimary" />
+</RelativeLayout>

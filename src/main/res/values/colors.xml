@@ -7,9 +7,10 @@
     <color name="backgroundGray">#d8d8d8</color>
     <color name="textGray">#aab0be</color>
     <color name="textBlack">#4D4D4D</color>
-    <color name="orange">#FF9524</color>
-    <color name="violet">#7D54F4</color>
-    <color name="green">#19C4A3</color>
+    <color name="orange">#E19923</color>
+    <color name="violet">#953BA5</color>
+    <color name="green">#4B972D</color>
+    <color name="pink">#D4517B</color>
     <color name="white">#ffffff</color>
 
 </resources>
