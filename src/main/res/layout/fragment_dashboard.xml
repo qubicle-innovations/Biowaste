@@ -429,7 +429,7 @@
         android:text="@string/sample_date"
         android:textColor="@color/textBlack"
         app:layout_constraintBottom_toBottomOf="@+id/cardGeneralWaste"
-        app:layout_constraintEnd_toEndOf="@+id/cardGeneralWaste"
+        app:layout_constraintEnd_toEndOf="@+id/roundGeneralWaste"
         app:layout_constraintStart_toStartOf="@+id/roundGeneralWaste" />
 
     <android.support.constraint.Guideline

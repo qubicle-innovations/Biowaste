@@ -56,7 +56,7 @@
           <entry key="png" value="14" />
           <entry key="properties" value="2" />
           <entry key="ttf" value="5" />
-          <entry key="xml" value="91" />
+          <entry key="xml" value="94" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -67,7 +67,7 @@
           <entry key="Image" value="14" />
           <entry key="JAVA" value="21" />
           <entry key="Properties" value="2" />
-          <entry key="XML" value="91" />
+          <entry key="XML" value="94" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -90,7 +90,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_item_list.xml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer2" />
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_item.xml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="1275">
+              <caret line="75" column="29" selection-start-line="75" selection-start-column="29" selection-end-line="75" selection-end-column="29" />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
@@ -100,6 +120,16 @@
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_dashboard.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="45" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2" />
         </entry>
       </file>
     </leaf>
@@ -279,6 +309,14 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="res" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Biowaste" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Biowaste" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="layout" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -286,7 +324,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="da&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/layout/fragment_dashboard.xml&#10;Das&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/Dashboard.java&#10;list&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/layout/fragment_item_list.xml&#10;str&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/values/strings.xml&#10;strin&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/values/strings.xml&#10;Ad&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/MyItemRecyclerViewAdapter.java&#10;st&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/values/styles.xml&#10;style&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/values/styles.xml&#10;hea&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/layout/header_layout.xml&#10;he&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/layout/header_layout.xml&#10;f&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/layout/fragment_details.xml&#10;de&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/layout/fragment_details.xml&#10;fra&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/layout/fragment_details.xml&#10;lig&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/drawable/green_light_bg.xml&#10;gre&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/drawable/green_bg.xml&#10;login&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/layout/loginactivity.xml&#10;fr&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/layout/fragment_dashboard.xml&#10;log&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/layout/loginactivity.xml&#10;col&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/values/colors.xml&#10;d&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/layout/fragment_dashboard.xml" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/layout/fragment_item_list.xml&#10;da&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/layout/fragment_dashboard.xml&#10;Das&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/Dashboard.java&#10;list&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/layout/fragment_item_list.xml&#10;str&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/values/strings.xml&#10;strin&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/values/strings.xml&#10;Ad&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/MyItemRecyclerViewAdapter.java&#10;st&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/values/styles.xml&#10;style&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/values/styles.xml&#10;hea&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/layout/header_layout.xml&#10;he&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/layout/header_layout.xml&#10;f&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/layout/fragment_details.xml&#10;de&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/layout/fragment_details.xml&#10;fra&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/layout/fragment_details.xml&#10;lig&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/drawable/green_light_bg.xml&#10;gre&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/drawable/green_bg.xml&#10;login&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/layout/loginactivity.xml&#10;fr&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/layout/fragment_dashboard.xml&#10;log&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/layout/loginactivity.xml&#10;col&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/values/colors.xml&#10;d&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/layout/fragment_dashboard.xml" />
     <property name="android.sdk.path" value="G:/Android-SDK/sdk" />
     <property name="device.picker.selection" value="DRGID18100101180" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
@@ -447,7 +485,7 @@
     <layout>
       <window_info id="Captures" order="0" sideWeight="0.5010142" side_tool="true" weight="0.24583964" />
       <window_info id="Designer" order="1" />
-      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.4989858" visible="true" weight="0.30937973" />
+      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.4989858" weight="0.30937973" />
       <window_info id="Structure" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" weight="0.32980332" />
       <window_info id="Image Layers" order="5" />
@@ -455,7 +493,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="1" weight="0.3295082" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="2" visible="true" weight="0.26065573" />
+      <window_info anchor="bottom" id="Terminal" order="2" weight="0.26065573" />
       <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Build" order="4" weight="0.25737706" />
       <window_info anchor="bottom" id="Logcat" order="5" weight="0.23278688" />
@@ -482,7 +520,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="1" weight="0.3295082" />
-      <window_info anchor="bottom" id="Terminal" order="2" weight="0.26065573" />
+      <window_info anchor="bottom" id="Terminal" order="2" visible="true" weight="0.26065573" />
       <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Build" order="4" weight="0.25737706" />
       <window_info anchor="bottom" id="Logcat" order="5" weight="0.23278688" />
@@ -751,14 +789,6 @@
       </provider>
       <provider editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_item.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="75" column="29" selection-start-line="75" selection-start-column="29" selection-end-line="75" selection-end-column="29" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_home.xml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="312">
@@ -835,14 +865,6 @@
       </provider>
       <provider selected="true" editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_item_list.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/HomeActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
@@ -857,20 +879,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_dashboard.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="45" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/Dashboard.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="31" column="49" selection-start-line="31" selection-start-column="49" selection-end-line="31" selection-end-column="49" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_dashboard.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="45" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -881,6 +903,22 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_item_list.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_item.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="75" column="29" selection-start-line="75" selection-start-column="29" selection-end-line="75" selection-end-column="29" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
     </entry>
   </component>
 </project>
