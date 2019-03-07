@@ -93,11 +93,11 @@
           <provider selected="true" editor-type-id="android-designer2" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_recycle_item_disposal_details.xml">
           <provider editor-type-id="text-editor">
-            <state relative-caret-position="499">
-              <caret line="323" column="46" selection-start-line="323" selection-start-column="46" selection-end-line="323" selection-end-column="46" />
+            <state relative-caret-position="157">
+              <caret line="95" column="50" selection-start-line="95" selection-start-column="50" selection-end-line="95" selection-end-column="50" />
               <folding>
                 <element signature="e#2754#2776#0" expanded="true" />
                 <element signature="e#3355#3383#0" expanded="true" />
@@ -109,12 +109,12 @@
                 <element signature="e#7063#7080#0" expanded="true" />
                 <element signature="e#7983#8011#0" expanded="true" />
                 <element signature="e#8720#8748#0" expanded="true" />
-                <element signature="e#9442#9461#0" expanded="true" />
-                <element signature="e#10168#10191#0" expanded="true" />
-                <element signature="e#10770#10792#0" expanded="true" />
-                <element signature="e#11220#11244#0" expanded="true" />
-                <element signature="e#11672#11695#0" expanded="true" />
-                <element signature="e#12123#12145#0" expanded="true" />
+                <element signature="e#9401#9420#0" expanded="true" />
+                <element signature="e#10088#10111#0" expanded="true" />
+                <element signature="e#10693#10710#0" expanded="true" />
+                <element signature="e#11138#11152#0" expanded="true" />
+                <element signature="e#11580#11600#0" expanded="true" />
+                <element signature="e#12028#12043#0" expanded="true" />
                 <element signature="e#12710#12726#0" expanded="true" />
               </folding>
             </state>
@@ -131,14 +131,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_details.xml">
-          <provider selected="true" editor-type-id="text-editor">
+          <provider editor-type-id="text-editor">
             <state relative-caret-position="272">
               <caret line="16" column="38" lean-forward="true" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
             </state>
           </provider>
-          <provider editor-type-id="android-designer2" />
+          <provider selected="true" editor-type-id="android-designer2" />
         </entry>
       </file>
     </leaf>
@@ -168,9 +168,20 @@
       <find>tvDate</find>
       <find>general_waste</find>
       <find>textView9</find>
+      <find>detailsNoOfHaulageTextView</find>
+      <find>detailsWeightTextView</find>
+      <find>detailsHuelageChargeTextView</find>
+      <find>detailsDisposalFeeTextView</find>
+      <find>itemDispos</find>
+      <find>detailsTotalDisposaFeeTextView</find>
     </findStrings>
     <replaceStrings>
       <replace>navigationNameTextView</replace>
+      <replace>itemDisposalCarbonBoxTextView</replace>
+      <replace>itemDisposalPaperTextView</replace>
+      <replace>itemDisposalCansTextView</replace>
+      <replace>itemDisposalPlasticTextView</replace>
+      <replace>itemDisposalTotalTextView</replace>
     </replaceStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -198,9 +209,9 @@
         <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/MyItemRecyclerViewAdapter.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/fragment_item.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/fragment_biowaste_details.xml" />
-        <option value="$PROJECT_DIR$/src/main/res/layout/fragment_details.xml" />
         <option value="$PROJECT_DIR$/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/fragment_recycle_item_disposal_details.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/fragment_details.xml" />
       </list>
     </option>
   </component>
@@ -486,7 +497,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" sideWeight="0.5010142" side_tool="true" weight="0.24583964" />
       <window_info id="Designer" order="1" />
@@ -498,7 +508,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="1" weight="0.3295082" />
-      <window_info anchor="bottom" id="Terminal" order="2" weight="0.34754097" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="2" visible="true" weight="0.34754097" />
       <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Build" order="4" weight="0.25737706" />
       <window_info anchor="bottom" id="Logcat" order="5" weight="0.23278688" />
@@ -881,14 +891,6 @@
       <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_details.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="38" lean-forward="true" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
@@ -898,8 +900,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_recycle_item_disposal_details.xml">
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="323" column="46" selection-start-line="323" selection-start-column="46" selection-end-line="323" selection-end-column="46" />
+        <state relative-caret-position="157">
+          <caret line="95" column="50" selection-start-line="95" selection-start-column="50" selection-end-line="95" selection-end-column="50" />
           <folding>
             <element signature="e#2754#2776#0" expanded="true" />
             <element signature="e#3355#3383#0" expanded="true" />
@@ -911,14 +913,22 @@
             <element signature="e#7063#7080#0" expanded="true" />
             <element signature="e#7983#8011#0" expanded="true" />
             <element signature="e#8720#8748#0" expanded="true" />
-            <element signature="e#9442#9461#0" expanded="true" />
-            <element signature="e#10168#10191#0" expanded="true" />
-            <element signature="e#10770#10792#0" expanded="true" />
-            <element signature="e#11220#11244#0" expanded="true" />
-            <element signature="e#11672#11695#0" expanded="true" />
-            <element signature="e#12123#12145#0" expanded="true" />
+            <element signature="e#9401#9420#0" expanded="true" />
+            <element signature="e#10088#10111#0" expanded="true" />
+            <element signature="e#10693#10710#0" expanded="true" />
+            <element signature="e#11138#11152#0" expanded="true" />
+            <element signature="e#11580#11600#0" expanded="true" />
+            <element signature="e#12028#12043#0" expanded="true" />
             <element signature="e#12710#12726#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_details.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="38" lean-forward="true" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
         </state>
       </provider>
       <provider selected="true" editor-type-id="android-designer2" />
