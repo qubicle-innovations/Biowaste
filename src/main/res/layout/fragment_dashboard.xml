@@ -5,6 +5,7 @@
     android:id="@+id/constrainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundGray"
     tools:context=".fragments.Dashboard">
 
 
@@ -12,6 +13,7 @@
         android:id="@+id/cardPatients"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
@@ -76,32 +78,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/montserrat_semi_bold"
         android:text="@string/total_patients"
         android:textColor="@color/textBlack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/cardPatients"
-        app:layout_constraintTop_toTopOf="@+id/cardRecycleItemDisposal" />
+        app:layout_constraintTop_toTopOf="@+id/cardPatients" />
 
     <TextView
         android:id="@+id/recycleItemDateTextView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:fontFamily="@font/montserrat_semi_bold"
         android:text="@string/sample_date"
         android:textColor="@color/textBlack"
         app:layout_constraintBottom_toBottomOf="@+id/cardPatients"
-        app:layout_constraintEnd_toEndOf="@+id/cardPatients"
-        app:layout_constraintStart_toStartOf="@+id/cardPatients" />
+        app:layout_constraintEnd_toEndOf="@+id/cardRecycleItem2"
+        app:layout_constraintStart_toStartOf="@+id/cardRecycleItem2" />
 
     <FrameLayout
         android:id="@+id/cardRecycleItemDisposal"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
@@ -150,7 +153,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/montserrat_regular"
-        android:text="@string/unit_dollar"
+        android:text="@string/unit_kg"
         android:textColor="@color/colorPrimary"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="@+id/cardRecycleItem"
@@ -180,13 +183,13 @@
     <TextView
         android:id="@+id/recycleItemTextView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/montserrat_semi_bold"
         android:text="@string/recycle_item_disposal"
         android:textColor="@color/textBlack"
-        app:layout_constraintEnd_toEndOf="@+id/cardRecycleItemDisposal"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/cardRecycleItem"
+        app:layout_constraintStart_toStartOf="@+id/cardRecycleItem"
         app:layout_constraintTop_toTopOf="@+id/cardRecycleItemDisposal" />
 
     <TextView
@@ -194,20 +197,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:fontFamily="@font/montserrat_semi_bold"
         android:text="@string/sample_date"
         android:textColor="@color/textBlack"
         app:layout_constraintBottom_toBottomOf="@+id/cardRecycleItemDisposal"
-        app:layout_constraintEnd_toEndOf="@+id/cardRecycleItemDisposal"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/cardRecycleItem"
+        app:layout_constraintStart_toStartOf="@+id/cardRecycleItem" />
 
     <FrameLayout
         android:id="@+id/cardDisposalCost"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
@@ -288,23 +290,21 @@
         android:fontFamily="@font/montserrat_semi_bold"
         android:text="@string/general_waste"
         android:textColor="@color/textBlack"
-        app:layout_constraintEnd_toEndOf="@+id/cardDisposalCost"
-        app:layout_constraintStart_toStartOf="@+id/cardDisposalCost"
+        app:layout_constraintEnd_toEndOf="@+id/disposalCostWaste"
+        app:layout_constraintStart_toStartOf="@+id/disposalCostWaste"
         app:layout_constraintTop_toTopOf="@+id/cardGeneralWaste" />
 
     <TextView
         android:id="@+id/disposalCostDateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/montserrat_semi_bold"
         android:text="@string/sample_date"
         android:textColor="@color/textBlack"
         app:layout_constraintBottom_toBottomOf="@+id/cardDisposalCost"
         app:layout_constraintEnd_toEndOf="@+id/disposalCostWaste"
-        app:layout_constraintStart_toStartOf="@+id/cardDisposalCost" />
+        app:layout_constraintStart_toStartOf="@+id/disposalCostWaste" />
 
     <TextView
         android:id="@+id/tvDate2"
@@ -334,7 +334,7 @@
         android:id="@+id/cardGeneralWaste"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
@@ -429,8 +429,8 @@
         android:text="@string/sample_date"
         android:textColor="@color/textBlack"
         app:layout_constraintBottom_toBottomOf="@+id/cardGeneralWaste"
-        app:layout_constraintEnd_toEndOf="@+id/cardGeneralWaste"
-        app:layout_constraintStart_toStartOf="@+id/cardGeneralWaste" />
+        app:layout_constraintEnd_toEndOf="@+id/roundGeneralWaste"
+        app:layout_constraintStart_toStartOf="@+id/roundGeneralWaste" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline4"
@@ -441,20 +441,20 @@
         app:layout_constraintGuide_percent="0.1" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp"
-        app:layout_constraintGuide_percent="0.7" />
-
-    <android.support.constraint.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="20dp"
         app:layout_constraintGuide_percent="0.4" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintGuide_percent="0.7" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"

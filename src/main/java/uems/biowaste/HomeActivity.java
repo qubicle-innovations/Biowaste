@@ -16,12 +16,13 @@ import android.view.SubMenu;
 import android.view.View;
 import android.widget.ImageView;
 
+import uems.biowaste.fragments.Dashboard;
 import uems.biowaste.fragments.DetailsFragment;
 import uems.biowaste.fragments.ItemFragment;
 import uems.biowaste.fragments.dummy.DummyContent;
 import uems.biowaste.utils.CustomTypefaceSpan;
 
-public class HomeActivity extends AppCompatActivity implements ItemFragment.OnListFragmentInteractionListener, DetailsFragment.OnFragmentInteractionListener {
+public class HomeActivity extends AppCompatActivity implements ItemFragment.OnListFragmentInteractionListener, DetailsFragment.OnFragmentInteractionListener,Dashboard.OnFragmentInteractionListener {
 
 
     private DrawerLayout drawerLayout;
@@ -33,7 +34,7 @@ public class HomeActivity extends AppCompatActivity implements ItemFragment.OnLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, ItemFragment.newInstance(1)).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container,new Dashboard()).commit();
 
         init();
         setUpNavigation();
