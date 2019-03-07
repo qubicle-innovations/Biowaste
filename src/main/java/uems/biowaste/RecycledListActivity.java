@@ -17,8 +17,6 @@ import android.widget.TextView;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.gun0912.tedpermission.PermissionListener;
-import com.gun0912.tedpermission.TedPermission;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -65,7 +63,7 @@ public class RecycledListActivity extends BaseActivity {
         findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                checkPermissions();
+           //     checkPermissions();
             }
         });
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
@@ -165,7 +163,7 @@ public class RecycledListActivity extends BaseActivity {
     }
 
 
-    public void checkPermissions() {
+  /*  public void checkPermissions() {
         PermissionListener permissionlistener = new PermissionListener() {
             @Override
             public void onPermissionGranted() {
@@ -188,7 +186,7 @@ public class RecycledListActivity extends BaseActivity {
                 .setPermissions(android.Manifest.permission.INTERNET, android.Manifest.permission.CAMERA, android.Manifest.permission.WAKE_LOCK, android.Manifest.permission.READ_EXTERNAL_STORAGE, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 .check();
     }
-
+*/
     public void timerTask() {
         scheduleTaskExecutor.scheduleAtFixedRate(new Runnable() {
             public void run() {

@@ -16,6 +16,7 @@ public class BioWasteItemVo implements Serializable {
     private String TotalCost;
     private String CreatedBy;
     private String ItemID;
+    private String TotalBin;
 
     public String getDate() {
         return Date;
@@ -55,5 +56,13 @@ public class BioWasteItemVo implements Serializable {
 
     public void setItemID(String itemID) {
         ItemID = itemID;
+    }
+
+    public String getTotalBin() {
+        return TotalBin;
+    }
+
+    public void setTotalBin(String totalBin) {
+        TotalBin = totalBin;
     }
 }

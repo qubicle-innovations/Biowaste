@@ -19,6 +19,7 @@ public class Constants {
     public static String GET_RETURN_LIST =SERVER_URL+"GetReturnList";
     public static String GET_GWASTE_LIST =SERVER_URL+"/GetFoodandGeneralwaste";
     public static String GET_BIOWASTE_LIST =SERVER_URL+"/GetBiowaste";
+    public static String GET_BIOWASTE_DETAILS =SERVER_URL+"/GetBiowasteList";
     public static String GET_RECYCLED_LIST =SERVER_URL+"/GetRecycleditems";
     public static String GET_PATIENT_LIST =SERVER_URL+"/GetMonthlypatients";
     public static String GET_RETURN_ITEMS =SERVER_URL+"GetReturnItems";

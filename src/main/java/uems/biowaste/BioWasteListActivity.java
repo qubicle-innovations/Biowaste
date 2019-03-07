@@ -1,6 +1,7 @@
 package uems.biowaste;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -16,8 +17,6 @@ import android.widget.TextView;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.gun0912.tedpermission.PermissionListener;
-import com.gun0912.tedpermission.TedPermission;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -64,7 +63,7 @@ public class BioWasteListActivity extends BaseActivity {
         findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                checkPermissions();
+             //   checkPermissions();
             }
         });
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
@@ -136,9 +135,9 @@ public class BioWasteListActivity extends BaseActivity {
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                            Intent intent = new Intent(context,IssueDetailsActivity.class);
-//                            intent.putExtra("vo",adapter.getProduct(position));
-//                            startActivity(intent);
+                            Intent intent = new Intent(context,BiowasteDetailsActivity.class);
+                            intent.putExtra("vo",adapter.getProduct(position));
+                            startActivity(intent);
                         }
                     });
                 } else {
@@ -164,7 +163,7 @@ public class BioWasteListActivity extends BaseActivity {
     }
 
 
-    public void checkPermissions() {
+   /* public void checkPermissions() {
         PermissionListener permissionlistener = new PermissionListener() {
             @Override
             public void onPermissionGranted() {
@@ -187,7 +186,7 @@ public class BioWasteListActivity extends BaseActivity {
                 .setPermissions(android.Manifest.permission.INTERNET, android.Manifest.permission.CAMERA, android.Manifest.permission.WAKE_LOCK, android.Manifest.permission.READ_EXTERNAL_STORAGE, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 .check();
     }
-
+*/
     public void timerTask() {
         scheduleTaskExecutor.scheduleAtFixedRate(new Runnable() {
             public void run() {
