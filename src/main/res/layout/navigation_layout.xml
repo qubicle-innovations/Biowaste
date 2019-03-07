@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="@string/monthly_patients_forms"
+        app:layout_constraintBottom_toBottomOf="@+id/navigationMonthlyPatientFrameLayout"
+        app:layout_constraintStart_toStartOf="@+id/textView14"
+        app:layout_constraintTop_toTopOf="@+id/navigationMonthlyPatientFrameLayout" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="@string/logout"
+        app:layout_constraintBottom_toBottomOf="@+id/navigationLogoutFrameLayout"
+        app:layout_constraintStart_toStartOf="@+id/textView10"
+        app:layout_constraintTop_toTopOf="@+id/navigationLogoutFrameLayout" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="@string/recycle_item_disposal"
+        app:layout_constraintBottom_toBottomOf="@+id/navigationRecycleItemsFrameLayout"
+        app:layout_constraintStart_toStartOf="@+id/textView11"
+        app:layout_constraintTop_toTopOf="@+id/navigationRecycleItemsFrameLayout" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="@string/biowaste_disposal"
+        app:layout_constraintBottom_toBottomOf="@+id/navigationBioWasteDisposalFrameLayout"
+        app:layout_constraintStart_toStartOf="@+id/textView12"
+        app:layout_constraintTop_toTopOf="@+id/navigationBioWasteDisposalFrameLayout" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="@string/general_waste"
+        app:layout_constraintBottom_toBottomOf="@+id/navigationGeneralWasteFrameLayout"
+        app:layout_constraintStart_toStartOf="@+id/textView9"
+        app:layout_constraintTop_toTopOf="@+id/navigationGeneralWasteFrameLayout" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="@string/dashboard"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="@+id/imageView3" />
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/header_layout" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="wrap_content"
+        android:layout_height="13dp"
+        android:layout_marginStart="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/navigationLogoutFrameLayout"
+        app:layout_constraintStart_toStartOf="@+id/navigationLogoutFrameLayout"
+        app:layout_constraintTop_toTopOf="@+id/navigationLogoutFrameLayout"
+        app:srcCompat="@drawable/ic_logout" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/navigationMonthlyPatientFrameLayout"
+        app:layout_constraintStart_toStartOf="@+id/navigationMonthlyPatientFrameLayout"
+        app:layout_constraintTop_toTopOf="@+id/navigationMonthlyPatientFrameLayout"
+        app:srcCompat="@drawable/ic_patient" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/navigationRecycleItemsFrameLayout"
+        app:layout_constraintStart_toStartOf="@+id/navigationRecycleItemsFrameLayout"
+        app:layout_constraintTop_toTopOf="@+id/navigationRecycleItemsFrameLayout"
+        app:srcCompat="@drawable/ic_navigation_recycle" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/navigationBioWasteDisposalFrameLayout"
+        app:layout_constraintStart_toStartOf="@+id/navigationBioWasteDisposalFrameLayout"
+        app:layout_constraintTop_toTopOf="@+id/navigationBioWasteDisposalFrameLayout"
+        app:srcCompat="@drawable/ic_bio_waste" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include"
+        app:srcCompat="@drawable/ic_dashboard" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/navigationBioWasteDisposalFrameLayout"
+        app:layout_constraintStart_toStartOf="@+id/navigationGeneralWasteFrameLayout"
+        app:layout_constraintTop_toTopOf="@+id/navigationGeneralWasteFrameLayout"
+        app:srcCompat="@drawable/ic_general_waste" />
+
+    <FrameLayout
+        android:id="@+id/navigationLogoutFrameLayout"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/navigationMonthlyPatientFrameLayout">
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/navigationMonthlyPatientFrameLayout"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/navigationRecycleItemsFrameLayout">
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/navigationRecycleItemsFrameLayout"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/navigationBioWasteDisposalFrameLayout">
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/navigationBioWasteDisposalFrameLayout"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/navigationGeneralWasteFrameLayout">
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/navigationDashboardFrameLayout"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView3">
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/navigationGeneralWasteFrameLayout"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/navigationDashboardFrameLayout">
+
+    </FrameLayout>
+
+
+</android.support.constraint.ConstraintLayout>

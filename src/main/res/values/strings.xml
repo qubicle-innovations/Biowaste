@@ -47,9 +47,9 @@
     <string name="recycled_items_details">Recycled items details</string>
     <string name="monthly_payments_details">Monthly payments details</string>
 
-    <string name="general_waste">General Waste</string>
+    <string name="general_waste">General saste</string>
     <string name="biowaste_disposal_cost">Biowaste disposal cost</string>
-    <string name="recycle_item_disposal">Recycle items disposal</string>
+    <string name="recycle_item_disposal">Recycled items disposal</string>
     <string name="total_patients">Total patients</string>
 
     <!-- TODO: Remove or change this placeholder text -->
