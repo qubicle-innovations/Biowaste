@@ -119,7 +119,7 @@ public class BaseActivity extends AppCompatActivity {
         TextView tvDrawerTitle = (TextView) findViewById(R.id.tvDrawerTitle);
     //    TextView toolbarTitle = (TextView) findViewById(R.id.toolbarTitle);
         tvDrawerTitle.setTextColor(Color.WHITE);
-        SpannableStringBuilder sb = new SpannableStringBuilder("UETrack™ - Biowaste");
+        SpannableStringBuilder sb = new SpannableStringBuilder("UETrack™ - ic_bio_waste");
         StyleSpan iss = new StyleSpan(Typeface.BOLD_ITALIC); //Span to make text italic
         StyleSpan bss = new StyleSpan(Typeface.BOLD); //Span to make text italic
         sb.setSpan(iss, 0, 2, Spannable.SPAN_INCLUSIVE_INCLUSIVE); // make first 4 characters Bold
@@ -188,7 +188,7 @@ public class BaseActivity extends AppCompatActivity {
         });
         findViewById(R.id.llBioWaste).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View ic_view) {
                 showMenu();
                 startActivity(new Intent(context, BioWasteListActivity.class));
                 finish();
@@ -197,7 +197,7 @@ public class BaseActivity extends AppCompatActivity {
         });
         findViewById(R.id.llRecycled).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View ic_view) {
                 showMenu();
                 startActivity(new Intent(context, RecycledListActivity.class));
                 finish();
@@ -215,7 +215,7 @@ public class BaseActivity extends AppCompatActivity {
         });
         findViewById(R.id.llDashboard).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View ic_view) {
                 showMenu();
                 startActivity(new Intent(context, Dashboard.class));
                 finish();

@@ -55,7 +55,7 @@ public class DateUtil {
 	        TimeUnit.HOURS.toMillis(1),
 	        TimeUnit.MINUTES.toMillis(1),
 	        TimeUnit.SECONDS.toMillis(1) );
-	public static final List<String> timesString = Arrays.asList("year","month","day","hour","minute","second");
+	public static final List<String> timesString = Arrays.asList("year","ic_month","day","hour","minute","second");
 
 	public static Calendar stringToDateOnlyCalendar(String dateString, String pattern){
     	Date date = stringToDate(dateString, pattern);
@@ -142,14 +142,14 @@ public class DateUtil {
     }
     
     /**
-     * function to check whether the current device date is in between the given two dates 
+     * function to check whether the current device ic_date is in between the given two dates
      * @param startDate -  date1  
      * @param endDate - date2
-     * @return returns true if current  date is in between the given two dates 
+     * @return returns true if current  ic_date is in between the given two dates
      */
     public static boolean isInBeetweenDates(Date startDate , Date endDate){
     	Calendar cal= Calendar.getInstance();
-		cal.setTime(new Date()); // current date
+		cal.setTime(new Date()); // current ic_date
 		Calendar date1 = Calendar.getInstance();
 		Calendar date2 =  Calendar.getInstance();
 		date1.setTime(startDate);
@@ -346,7 +346,7 @@ public class DateUtil {
 			
 		}else if(month>0) {
 			if(month==1){
-				days = month+" month ago";
+				days = month+" ic_month ago";
 			}else{
 				days = month+" months ago";
 			}
@@ -535,9 +535,9 @@ public class DateUtil {
     }
 
     /**
-     * <p>Checks if a calendar date is today.</p>
+     * <p>Checks if a calendar ic_date is today.</p>
      * @param cal  the calendar, not altered, not null
-     * @return true if cal date is today
+     * @return true if cal ic_date is today
      * @throws IllegalArgumentException if the calendar is <code>null</code>
      */
     public static boolean isToday(Calendar cal) {

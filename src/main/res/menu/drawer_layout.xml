@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_dashboard"
+            android:icon="@drawable/ic_dashboard"
+            android:title="@string/dashboard" />
+        <item
+            android:id="@+id/nav_general_waste"
+            android:icon="@drawable/ic_general_waste"
+            android:title="@string/general_waste" />
+        <item
+            android:id="@+id/nav_biowaste"
+            android:icon="@drawable/ic_bio_waste"
+            android:title="@string/biowaste" />
+        <item
+            android:id="@+id/nav_recycle_item_disposal"
+            android:icon="@drawable/ic_recycle"
+            android:title="@string/recycle_item_disposal" />
+        <item
+            android:id="@+id/nav_monthly_patients_forms"
+            android:icon="@drawable/ic_patient"
+            android:title="@string/monthly_patients_forms" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_logout"
+            android:title="@string/logout" />
+
+    </group>
+</menu>

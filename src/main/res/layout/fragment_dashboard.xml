@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constrainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.Dashboard">
+
+
+    <FrameLayout
+        android:id="@+id/cardPatients"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/ic_dashboard_box_bg"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        app:layout_constraintVertical_bias="0.0">
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/recycleItemIcon2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/ic_menu_patient"
+        app:layout_constraintBottom_toBottomOf="@+id/cardRecycleItem2"
+        app:layout_constraintEnd_toEndOf="@+id/cardRecycleItem2"
+        app:layout_constraintStart_toStartOf="@+id/cardRecycleItem2"
+        app:layout_constraintTop_toBottomOf="@+id/recycleItemValueTextView2" />
+
+    <ImageView
+        android:id="@+id/cardRecycleItem2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/green_circle_bg"
+        app:layout_constraintBottom_toTopOf="@+id/recycleItemDateTextView2"
+        app:layout_constraintEnd_toEndOf="@+id/cardPatients"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/cardPatients"
+        app:layout_constraintTop_toBottomOf="@+id/recycleItemTextView2"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/recycleItemValueTextView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/sample_number"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/cardRecycleItem2"
+        app:layout_constraintEnd_toEndOf="@+id/cardRecycleItem2"
+        app:layout_constraintStart_toStartOf="@+id/cardRecycleItem2"
+        app:layout_constraintTop_toBottomOf="@+id/recycleItemTextView2" />
+
+    <TextView
+        android:id="@+id/recycleItemTextView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="@string/total_patients"
+        android:textColor="@color/textBlack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/cardPatients"
+        app:layout_constraintTop_toTopOf="@+id/cardRecycleItemDisposal" />
+
+    <TextView
+        android:id="@+id/recycleItemDateTextView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="@string/sample_date"
+        android:textColor="@color/textBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/cardPatients"
+        app:layout_constraintEnd_toEndOf="@+id/cardPatients"
+        app:layout_constraintStart_toStartOf="@+id/cardPatients" />
+
+    <FrameLayout
+        android:id="@+id/cardRecycleItemDisposal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/ic_dashboard_box_bg"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        app:layout_constraintVertical_bias="0.0">
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/recycleItemIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/ic_dashboard_recycle"
+        app:layout_constraintBottom_toBottomOf="@+id/cardRecycleItem"
+        app:layout_constraintEnd_toEndOf="@+id/cardRecycleItem"
+        app:layout_constraintStart_toStartOf="@+id/cardRecycleItem"
+        app:layout_constraintTop_toBottomOf="@+id/recycleItemValueTextView" />
+
+    <ImageView
+        android:id="@+id/cardRecycleItem"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/green_circle_bg"
+        app:layout_constraintBottom_toTopOf="@+id/recycleItemDateTextView"
+        app:layout_constraintEnd_toEndOf="@+id/cardRecycleItemDisposal"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/cardRecycleItemDisposal"
+        app:layout_constraintTop_toBottomOf="@+id/recycleItemTextView"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/recycleItemUnitTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="@string/unit_dollar"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/cardRecycleItem"
+        app:layout_constraintEnd_toEndOf="@+id/cardRecycleItem"
+        app:layout_constraintStart_toEndOf="@+id/recycleItemValueTextView"
+        app:layout_constraintTop_toBottomOf="@+id/recycleItemTextView" />
+
+    <TextView
+        android:id="@+id/recycleItemValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/sample_number"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/cardRecycleItem"
+        app:layout_constraintEnd_toStartOf="@+id/recycleItemUnitTextView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@+id/cardRecycleItem"
+        app:layout_constraintStart_toStartOf="@+id/cardRecycleItem"
+        app:layout_constraintTop_toBottomOf="@+id/recycleItemTextView" />
+
+    <TextView
+        android:id="@+id/recycleItemTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="@string/recycle_item_disposal"
+        android:textColor="@color/textBlack"
+        app:layout_constraintEnd_toEndOf="@+id/cardRecycleItemDisposal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cardRecycleItemDisposal" />
+
+    <TextView
+        android:id="@+id/recycleItemDateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="@string/sample_date"
+        android:textColor="@color/textBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/cardRecycleItemDisposal"
+        app:layout_constraintEnd_toEndOf="@+id/cardRecycleItemDisposal"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/cardDisposalCost"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/ic_dashboard_box_bg"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/guideline4"
+        app:layout_constraintVertical_bias="0.0">
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/disposalCostIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/ic_bio_waste"
+        app:layout_constraintBottom_toBottomOf="@+id/disposalCostWaste"
+        app:layout_constraintEnd_toEndOf="@+id/disposalCostWaste"
+        app:layout_constraintStart_toStartOf="@+id/disposalCostWaste"
+        app:layout_constraintTop_toBottomOf="@+id/disposalCostValueTextView" />
+
+    <ImageView
+        android:id="@+id/disposalCostWaste"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/green_circle_bg"
+        app:layout_constraintBottom_toTopOf="@+id/disposalCostDateTextView"
+        app:layout_constraintEnd_toEndOf="@+id/cardDisposalCost"
+        app:layout_constraintStart_toStartOf="@+id/cardDisposalCost"
+        app:layout_constraintTop_toBottomOf="@+id/generalWasteTextView" />
+
+    <TextView
+        android:id="@+id/disposalCostUnitTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="@string/unit_dollar"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/disposalCostWaste"
+        app:layout_constraintEnd_toEndOf="@+id/disposalCostWaste"
+        app:layout_constraintStart_toEndOf="@+id/disposalCostValueTextView"
+        app:layout_constraintTop_toTopOf="@+id/disposalCostWaste" />
+
+    <TextView
+        android:id="@+id/disposalCostValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/sample_number"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/disposalCostWaste"
+        app:layout_constraintEnd_toStartOf="@+id/disposalCostUnitTextView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@+id/disposalCostWaste"
+        app:layout_constraintStart_toStartOf="@+id/disposalCostWaste"
+        app:layout_constraintTop_toTopOf="@+id/disposalCostWaste" />
+
+    <TextView
+        android:id="@+id/disposalCostTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="@string/general_waste"
+        android:textColor="@color/textBlack"
+        app:layout_constraintEnd_toEndOf="@+id/cardDisposalCost"
+        app:layout_constraintStart_toStartOf="@+id/cardDisposalCost"
+        app:layout_constraintTop_toTopOf="@+id/cardGeneralWaste" />
+
+    <TextView
+        android:id="@+id/disposalCostDateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="@string/sample_date"
+        android:textColor="@color/textBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/cardDisposalCost"
+        app:layout_constraintEnd_toEndOf="@+id/disposalCostWaste"
+        app:layout_constraintStart_toStartOf="@+id/cardDisposalCost" />
+
+    <TextView
+        android:id="@+id/tvDate2"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/blue_bt_bg"
+        android:drawableEnd="@drawable/ic_arrow_down"
+        android:drawablePadding="5dp"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:gravity="center"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:text="@string/sample_date"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/cardGeneralWaste"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/ic_dashboard_box_bg"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline4"
+        app:layout_constraintVertical_bias="0.0">
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/generalWasteIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/ic_dashboard_general_waste"
+        app:layout_constraintBottom_toBottomOf="@+id/roundGeneralWaste"
+        app:layout_constraintEnd_toEndOf="@+id/roundGeneralWaste"
+        app:layout_constraintStart_toStartOf="@+id/roundGeneralWaste"
+        app:layout_constraintTop_toBottomOf="@+id/generalWasteValueTextView" />
+
+    <ImageView
+        android:id="@+id/roundGeneralWaste"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/green_circle_bg"
+        app:layout_constraintBottom_toTopOf="@+id/generalWasteDateTextView"
+        app:layout_constraintEnd_toEndOf="@+id/cardGeneralWaste"
+        app:layout_constraintStart_toStartOf="@+id/cardGeneralWaste"
+        app:layout_constraintTop_toBottomOf="@+id/generalWasteTextView" />
+
+    <TextView
+        android:id="@+id/generalWasteUnitTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="@string/unit_kg"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/roundGeneralWaste"
+        app:layout_constraintEnd_toEndOf="@+id/roundGeneralWaste"
+        app:layout_constraintStart_toEndOf="@+id/generalWasteValueTextView"
+        app:layout_constraintTop_toTopOf="@+id/roundGeneralWaste" />
+
+    <TextView
+        android:id="@+id/generalWasteValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/sample_number"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/roundGeneralWaste"
+        app:layout_constraintEnd_toStartOf="@+id/generalWasteUnitTextView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@+id/roundGeneralWaste"
+        app:layout_constraintTop_toTopOf="@+id/roundGeneralWaste" />
+
+    <TextView
+        android:id="@+id/generalWasteTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="@string/general_waste"
+        android:textColor="@color/textBlack"
+        app:layout_constraintEnd_toEndOf="@+id/roundGeneralWaste"
+        app:layout_constraintStart_toStartOf="@+id/roundGeneralWaste"
+        app:layout_constraintTop_toTopOf="@+id/cardGeneralWaste" />
+
+    <TextView
+        android:id="@+id/generalWasteDateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="@string/sample_date"
+        android:textColor="@color/textBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/cardGeneralWaste"
+        app:layout_constraintEnd_toEndOf="@+id/cardGeneralWaste"
+        app:layout_constraintStart_toStartOf="@+id/cardGeneralWaste" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintGuide_percent="0.7" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintGuide_percent="0.5" />
+
+</android.support.constraint.ConstraintLayout>

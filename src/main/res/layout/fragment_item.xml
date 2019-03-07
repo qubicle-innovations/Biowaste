@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="@drawable/white_etbg"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/itemTextViewWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:gravity="center_vertical"
+        android:text="@string/sample_kg"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imUser"
+        app:layout_constraintStart_toEndOf="@+id/imUser"
+        app:layout_constraintTop_toTopOf="@+id/imUser" />
+
+    <ImageView
+        android:id="@+id/imUser2"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:padding="5dp"
+        android:src="@drawable/ic_doneby"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imUser" />
+
+    <ImageView
+        android:id="@+id/imArrow"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imTrolley"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:padding="5dp"
+        android:src="@drawable/ic_date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/itemTextViewDate"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:gravity="center_vertical"
+        android:text="@string/sample_date_2"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/imCal"
+        app:layout_constraintStart_toEndOf="@+id/imTrolley"
+        app:layout_constraintTop_toTopOf="@+id/imTrolley" />
+
+    <ImageView
+        android:id="@+id/imCal"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="5dp"
+        android:padding="5dp"
+        android:src="@drawable/ic_month"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imTrolley" />
+
+
+    <TextView
+        android:id="@+id/itemTextViewMonth"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:gravity="center_vertical"
+        android:text="@string/sample_month"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imCal"
+        app:layout_constraintStart_toEndOf="@+id/imCal"
+        app:layout_constraintTop_toTopOf="@+id/imCal" />
+
+
+    <ImageView
+        android:id="@+id/imUser"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="5dp"
+        android:padding="5dp"
+        android:src="@drawable/ic_killogram"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imCal" />
+
+    <TextView
+        android:id="@+id/itemTextViewName"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:gravity="center_vertical"
+        android:text="@string/sample_name"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imUser2"
+        app:layout_constraintStart_toEndOf="@+id/imUser"
+        app:layout_constraintTop_toTopOf="@+id/imUser2" />
+</android.support.constraint.ConstraintLayout>

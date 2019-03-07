@@ -315,14 +315,14 @@ public static UserVo getUser(Context context){
         //	event.gets
         Calendar beginTime = Calendar.getInstance();
         beginTime.setTime(eventDate);
-        beginTime.add(Calendar.HOUR_OF_DAY, temp.get(Calendar.HOUR_OF_DAY));
-        beginTime.add(Calendar.MINUTE, temp.get(Calendar.MINUTE));
+        beginTime.ic_add(Calendar.HOUR_OF_DAY, temp.get(Calendar.HOUR_OF_DAY));
+        beginTime.ic_add(Calendar.MINUTE, temp.get(Calendar.MINUTE));
         startMillis = beginTime.getTimeInMillis();
         Calendar endTime = Calendar.getInstance();
         endTime.setTime(eventDate);
         // temp.setTime(eventEndTime);
-        endTime.add(Calendar.HOUR_OF_DAY, temp.get(Calendar.HOUR_OF_DAY));
-        endTime.add(Calendar.MINUTE, temp.get(Calendar.MINUTE));
+        endTime.ic_add(Calendar.HOUR_OF_DAY, temp.get(Calendar.HOUR_OF_DAY));
+        endTime.ic_add(Calendar.MINUTE, temp.get(Calendar.MINUTE));
         endMillis = endTime.getTimeInMillis();
 
 
