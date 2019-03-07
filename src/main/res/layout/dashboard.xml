@@ -19,7 +19,7 @@
 
 
         <TextView
-            android:id="@+id/tvDate"
+            android:id="@+id/itemTextViewMonth"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_below="@+id/toolbar"
@@ -38,7 +38,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tvDate"
+            android:layout_below="@+id/itemTextViewMonth"
             android:layout_alignParentBottom="true"
             android:layout_margin="20dp"
             android:orientation="horizontal">

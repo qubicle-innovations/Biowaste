@@ -265,7 +265,7 @@ public class RestURLClient {
 		}else {
 			try {
 				this.jobject.put(name, value);
-				Log.e("add paramter", name +" added to "+ value);
+				Log.e("ic_add paramter", name +" added to "+ value);
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -277,7 +277,7 @@ public class RestURLClient {
 
 			try {
 				this.jobject.put(name, value);
-				Log.e("add paramter", name +" added to "+ jobject.toString());
+				Log.e("ic_add paramter", name +" added to "+ jobject.toString());
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

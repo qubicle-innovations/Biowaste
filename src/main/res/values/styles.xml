@@ -32,4 +32,5 @@
         <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
     </style>
 
+
 </resources>

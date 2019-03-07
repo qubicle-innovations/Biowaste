@@ -2,4 +2,49 @@
     <string name="app_name">Biowaste</string>
     <string name="regex_phone">^\\(?\\d{3}[\\)?|-]\\d{3}[- ]\\d{4}((\\s=?)(ext\\.|x)\\d{1,4})?$</string>
 
+    <string name="sample_number">35</string>
+    <string name="sample_date">Feb 19</string>
+    <string name="sample_date_2">19/02/2019</string>
+    <string name="sample_month">February</string>
+    <string name="sample_kg">10 kg</string>
+    <string name="sample_name">Asarai</string>
+    <string name="sample_name_dollar">200 $</string>
+
+    <string name="by_month">By month</string>
+    <string name="by_date">By date</string>
+
+    <string name="unit_kg">Kg</string>
+    <string name="unit_dollar">$</string>
+    <string name="month">Month</string>
+    <string name="date">Date</string>
+    <string name="done_by">Done by</string>
+    <string name="no_of_haulage">No of Haulage</string>
+    <string name="total_weight">Total weight (KG)</string>
+    <string name="hualage_charge">Hualage charge $</string>
+    <string name="disposal_fee">Disposal Fee $</string>
+    <string name="total_disposal_fee">Total disposal fee</string>
+    <string name="submit">Submit</string>
+
+    <string name="dashboard">Dashboard</string>
+    <string name="biowaste_disposal">Biowaste disposal</string>
+    <string name="monthly_patients_forms">Monthly patients form</string>
+    <string name="logout">Logout</string>
+
+    <string name="food_and_general_waste">Food &amp; general waste</string>
+    <string name="biowaste">Biowaste</string>
+    <string name="recycled_items">Recycled items</string>
+    <string name="monthly_payments">Monthly payments</string>
+    <string name="food_and_general_waste_details">Navigation food and general waste details</string>
+    <string name="biowaste_details">Biowaste details</string>
+    <string name="recycled_items_details">Recycled items details</string>
+    <string name="monthly_payments_details">Monthly payments details</string>
+
+    <string name="general_waste">General Waste</string>
+    <string name="biowaste_disposal_cost">Biowaste disposal cost</string>
+    <string name="recycle_item_disposal">Recycle items disposal</string>
+    <string name="total_patients">Total patients</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

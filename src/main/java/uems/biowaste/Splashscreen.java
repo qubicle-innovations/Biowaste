@@ -48,7 +48,7 @@ public class Splashscreen extends BaseActivity {
                 } else {
                     runOnUiThread(new Runnable() {
                         public void run() {
-                            startActivity(new Intent(Splashscreen.this,LoginActivity.class) );
+                            startActivity(new Intent(Splashscreen.this,HomeActivity.class) );
                             finish();
                         }
                     });
