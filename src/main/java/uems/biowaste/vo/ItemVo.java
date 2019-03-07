@@ -18,6 +18,17 @@ public class ItemVo implements Serializable {
 	private  String ItemID ;
 	private String TotalPatients;
 
+	private String NoOfHaulage ;
+	private String HualageCharge ;
+	private  String DisposalFee ;
+	private String TotalDisposalFee;
+
+	private String CartonBox;
+	private String Paper;
+	private String Cans;
+	private String Plastic;
+
+
 	public String getDate() {
 		return Date;
 	}
@@ -64,5 +75,69 @@ public class ItemVo implements Serializable {
 
 	public void setTotalPatients(String totalPatients) {
 		TotalPatients = totalPatients;
+	}
+
+	public String getNoOfHaulage() {
+		return NoOfHaulage;
+	}
+
+	public void setNoOfHaulage(String noOfHaulage) {
+		NoOfHaulage = noOfHaulage;
+	}
+
+	public String getHualageCharge() {
+		return HualageCharge;
+	}
+
+	public void setHualageCharge(String hualageCharge) {
+		HualageCharge = hualageCharge;
+	}
+
+	public String getDisposalFee() {
+		return DisposalFee;
+	}
+
+	public void setDisposalFee(String disposalFee) {
+		DisposalFee = disposalFee;
+	}
+
+	public String getTotalDisposalFee() {
+		return TotalDisposalFee;
+	}
+
+	public void setTotalDisposalFee(String totalDisposalFee) {
+		TotalDisposalFee = totalDisposalFee;
+	}
+
+	public String getCartonBox() {
+		return CartonBox;
+	}
+
+	public void setCartonBox(String cartonBox) {
+		CartonBox = cartonBox;
+	}
+
+	public String getPaper() {
+		return Paper;
+	}
+
+	public void setPaper(String paper) {
+		Paper = paper;
+	}
+
+	public String getCans() {
+		return Cans;
+	}
+
+	public void setCans(String cans) {
+		Cans = cans;
+	}
+
+	public String getPlastic() {
+		return Plastic;
+	}
+
+	public void setPlastic(String plastic) {
+		Plastic = plastic;
 	}
 }

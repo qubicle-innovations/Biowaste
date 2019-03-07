@@ -1,6 +1,7 @@
 package uems.biowaste;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -135,9 +136,9 @@ public class GWasteListActivity extends BaseActivity {
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                            Intent intent = new Intent(context,IssueDetailsActivity.class);
-//                            intent.putExtra("vo",adapter.getProduct(position));
-//                            startActivity(intent);
+                            Intent intent = new Intent(context,GwasteDetailsActivity.class);
+                            intent.putExtra("vo",adapter.getProduct(position));
+                            startActivity(intent);
                         }
                     });
                 } else {
