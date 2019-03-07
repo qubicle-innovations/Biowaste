@@ -195,6 +195,24 @@ public class BaseActivity extends AppCompatActivity {
 
             }
         });
+        findViewById(R.id.llRecycled).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showMenu();
+                startActivity(new Intent(context, RecycledListActivity.class));
+                finish();
+
+            }
+        });
+        findViewById(R.id.llPatients).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showMenu();
+                startActivity(new Intent(context, PatientListActivity.class));
+                finish();
+
+            }
+        });
         findViewById(R.id.llDashboard).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

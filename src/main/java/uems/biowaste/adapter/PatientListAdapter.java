@@ -15,18 +15,16 @@ import uems.biowaste.R;
 import uems.biowaste.vo.ItemVo;
 
 
-public class GwasteListAdapter extends BaseAdapter {
+public class PatientListAdapter extends BaseAdapter {
 
 
     private ArrayList<ItemVo> pList;
     private Context context;
     private LayoutInflater inflater;
-    private int color;
 
-    public GwasteListAdapter(Context context, ArrayList<ItemVo> pList, int color) {
+    public PatientListAdapter(Context context, ArrayList<ItemVo> pList) {
         this.pList = pList;
         this.context = context;
-        this.color =color;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -69,7 +67,7 @@ public class GwasteListAdapter extends BaseAdapter {
             v = (ViewHolder) convertView.getTag();
         } else {
 
-            convertView = inflater.inflate(R.layout.gwaste_item, null);
+            convertView = inflater.inflate(R.layout.biowaste_item, null);
             TextView tvTitle, tvDate, tvUser;
             ImageView imCal, imArrow, imUser;
             v = new ViewHolder();
@@ -77,11 +75,13 @@ public class GwasteListAdapter extends BaseAdapter {
             v.tvDate = (TextView) convertView.findViewById(R.id.tvDate);
             v.tvUser = (TextView) convertView.findViewById(R.id.tvUser);
             v.tvKg = (TextView) convertView.findViewById(R.id.tvKg);
+            v.imKg = (ImageView) convertView.findViewById(R.id.imKg);
             v.borderView =  convertView.findViewById(R.id.borderView);
+            v.imKg.setImageResource(R.drawable.ic_list_patient);
             convertView.setTag(v);
         }
         if (position % 2 == 0) {
-            v.borderView.setBackgroundColor(color);
+            v.borderView.setBackgroundColor(ContextCompat.getColor(context, R.color.pink));
         } else {
             v.borderView.setBackgroundColor(ContextCompat.getColor(context, R.color.backgroundGray));
 
@@ -89,13 +89,14 @@ public class GwasteListAdapter extends BaseAdapter {
         v.tvMonth.setText(pList.get(position).getMonth());
         v.tvDate.setText(pList.get(position).getDate());
         v.tvUser.setText(pList.get(position).getCreatedBy());
-        v.tvKg.setText(pList.get(position).getTotalWeight() +" Kg");
+        v.tvKg.setText( pList.get(position).getTotalPatients()  );
         return convertView;
     }
 
 
     public class ViewHolder {
         TextView tvMonth, tvDate, tvUser, tvKg;
+        ImageView imKg;
         View borderView;
      }
 

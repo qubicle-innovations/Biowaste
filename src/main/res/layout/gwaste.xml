@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/llTopbar"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="1dp"
             android:background="@android:color/white"
             android:divider="@color/borderGray"
             android:dividerHeight="1dp">

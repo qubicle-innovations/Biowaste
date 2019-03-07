@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class GWasteItemVo implements Serializable {
+public class ItemVo implements Serializable {
 	
 	/**
 	 * 
@@ -15,7 +15,8 @@ public class GWasteItemVo implements Serializable {
 	private String Month ;
 	private String TotalWeight ;
 	private String CreatedBy ;
-	private String ItemID ;
+	private  String ItemID ;
+	private String TotalPatients;
 
 	public String getDate() {
 		return Date;
@@ -55,5 +56,13 @@ public class GWasteItemVo implements Serializable {
 
 	public void setItemID(String itemID) {
 		ItemID = itemID;
+	}
+
+	public String getTotalPatients() {
+		return TotalPatients;
+	}
+
+	public void setTotalPatients(String totalPatients) {
+		TotalPatients = totalPatients;
 	}
 }

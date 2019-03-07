@@ -3,7 +3,6 @@ package uems.biowaste;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.PopupMenu;
 import android.util.Log;
@@ -30,14 +29,14 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-import uems.biowaste.adapter.GwasteListAdapter;
-import uems.biowaste.async.FetchGWasteListTask;
+import uems.biowaste.adapter.PatientListAdapter;
+import uems.biowaste.async.FetchPatientListTask;
 import uems.biowaste.utils.DateUtil;
 import uems.biowaste.utils.Utils;
 import uems.biowaste.vo.ItemVo;
 import uems.biowaste.vo.TResponse;
 
-public class GWasteListActivity extends BaseActivity {
+public class PatientListActivity extends BaseActivity {
     private Calendar startDate;
     private String date = "";
     private ScheduledExecutorService scheduleTaskExecutor;
@@ -54,7 +53,7 @@ public class GWasteListActivity extends BaseActivity {
 
     public void initLayout() {
 
-        new FetchGWasteListTask(context).execute(new String[]{date, me.getEmailID(), ""});
+        new FetchPatientListTask(context).execute(new String[]{date, me.getEmailID(), ""});
         findViewById(R.id.tvMonth).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,7 +73,7 @@ public class GWasteListActivity extends BaseActivity {
             public void onRefresh() {
                 swipeRefreshLayout.setRefreshing(true);
 
-                new FetchGWasteListTask(context).execute(new String[]{date, me.getEmailID(), ""});
+                new FetchPatientListTask(context).execute(new String[]{date, me.getEmailID(), ""});
 
 
             }
@@ -101,7 +100,7 @@ public class GWasteListActivity extends BaseActivity {
                         date = DateUtil.dateToString(startDate.getTime(), DateUtil.DATE_START_DATE);
                         TextView textView = (TextView) findViewById(R.id.tvDate);
                         textView.setText(date);
-                        new FetchGWasteListTask(context).execute(new String[]{date, me.getEmailID(), ""});
+                        new FetchPatientListTask(context).execute(new String[]{date, me.getEmailID(), ""});
 
 
                     }
@@ -124,7 +123,7 @@ public class GWasteListActivity extends BaseActivity {
             ListView listView = (ListView) findViewById(R.id.listView);
             try {
                 JSONObject jsonObject = new JSONObject(result.getResponseContent());
-                JSONArray jsonArray = jsonObject.getJSONArray("ListGetFoodandGeneralwaste");
+                JSONArray jsonArray = jsonObject.getJSONArray("ListMonthlypatients");
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.enable(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES);
                 List<ItemVo> ad = mapper.readValue(jsonArray.toString(), new TypeReference<List<ItemVo>>() {
@@ -132,7 +131,7 @@ public class GWasteListActivity extends BaseActivity {
 
                 if (ad != null && ad != null && !ad.isEmpty()) {
 
-                    final GwasteListAdapter adapter = new GwasteListAdapter(context, (ArrayList<ItemVo>) ad,ContextCompat.getColor(context, R.color.orange));
+                    final PatientListAdapter adapter = new PatientListAdapter(context, (ArrayList<ItemVo>) ad);
                     listView.setAdapter(adapter);
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
@@ -143,7 +142,7 @@ public class GWasteListActivity extends BaseActivity {
                         }
                     });
                 } else {
-                    GwasteListAdapter adapter = new GwasteListAdapter(context, new ArrayList<ItemVo>(), ContextCompat.getColor(context, R.color.orange));
+                    PatientListAdapter adapter = new PatientListAdapter(context, new ArrayList<ItemVo>());
                     listView.setAdapter(adapter);
                     showError("No record found", findViewById(R.id.listView));
                 }
@@ -192,11 +191,11 @@ public class GWasteListActivity extends BaseActivity {
     public void timerTask() {
         scheduleTaskExecutor.scheduleAtFixedRate(new Runnable() {
             public void run() {
-                GWasteListActivity.this.runOnUiThread(new Runnable() {
+                PatientListActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         if (Utils.haveNetworkConnection(context)) {
-                            new FetchGWasteListTask(context).execute(new String[]{date, me.getEmailID(), ""});
+                            new FetchPatientListTask(context).execute(new String[]{date, me.getEmailID(), ""});
                         }
                     }
                 });
@@ -245,7 +244,7 @@ public class GWasteListActivity extends BaseActivity {
                     date = "";
                 else
                     date = item.getTitle().toString();
-                new FetchGWasteListTask(context).execute(new String[]{date, me.getEmailID(), ""});
+                new FetchPatientListTask(context).execute(new String[]{date, me.getEmailID(), ""});
 
                 return false;
             }

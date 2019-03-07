@@ -26,10 +26,9 @@ import uems.biowaste.vo.TResponse;
 
 public class Dashboard extends BaseActivity implements View.OnClickListener {
 
-    private Calendar startDate;
-
     public ActionBarDrawerToggle mDrawerToggle;
     public DrawerLayout mDrawerLayout;
+    private Calendar startDate;
     private ScheduledExecutorService scheduleTaskExecutor;
 
     @Override
@@ -134,16 +133,19 @@ public class Dashboard extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.rlBioWaste:
                 startActivity(new Intent(context, BioWasteListActivity.class));
-                finish();                break;
+                finish();
+                break;
             case R.id.rlGwaste:
                 startActivity(new Intent(context, GWasteListActivity.class));
                 finish();
                 break;
             case R.id.rlPatients:
-                showIssueList();
+                startActivity(new Intent(context, PatientListActivity.class));
+                finish();
                 break;
             case R.id.rlRecycle:
-                showIssueList();
+                startActivity(new Intent(context, RecycledListActivity.class));
+                finish();
                 break;
         }
     }

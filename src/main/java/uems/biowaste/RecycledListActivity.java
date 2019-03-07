@@ -31,10 +31,10 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 import uems.biowaste.adapter.GwasteListAdapter;
-import uems.biowaste.async.FetchGWasteListTask;
+import uems.biowaste.async.FetchRecycledListTask;
 import uems.biowaste.utils.DateUtil;
 import uems.biowaste.utils.Utils;
-import uems.biowaste.vo.GWasteItemVo;
+import uems.biowaste.vo.ItemVo;
 import uems.biowaste.vo.TResponse;
 
 public class RecycledListActivity extends BaseActivity {
@@ -54,7 +54,7 @@ public class RecycledListActivity extends BaseActivity {
 
     public void initLayout() {
 
-        new FetchGWasteListTask(context).execute(new String[]{date, me.getEmailID(), ""});
+        new FetchRecycledListTask(context).execute(new String[]{date, me.getEmailID(), ""});
         findViewById(R.id.tvMonth).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,7 +74,7 @@ public class RecycledListActivity extends BaseActivity {
             public void onRefresh() {
                 swipeRefreshLayout.setRefreshing(true);
 
-                new FetchGWasteListTask(context).execute(new String[]{date, me.getEmailID(), ""});
+                new FetchRecycledListTask(context).execute(new String[]{date, me.getEmailID(), ""});
 
 
             }
@@ -101,7 +101,7 @@ public class RecycledListActivity extends BaseActivity {
                         date = DateUtil.dateToString(startDate.getTime(), DateUtil.DATE_START_DATE);
                         TextView textView = (TextView) findViewById(R.id.tvDate);
                         textView.setText(date);
-                        new FetchGWasteListTask(context).execute(new String[]{date, me.getEmailID(), ""});
+                        new FetchRecycledListTask(context).execute(new String[]{date, me.getEmailID(), ""});
 
 
                     }
@@ -127,12 +127,12 @@ public class RecycledListActivity extends BaseActivity {
                 JSONArray jsonArray = jsonObject.getJSONArray("ListGetRecycleditems");
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.enable(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES);
-                List<GWasteItemVo> ad = mapper.readValue(jsonArray.toString(), new TypeReference<List<GWasteItemVo>>() {
+                List<ItemVo> ad = mapper.readValue(jsonArray.toString(), new TypeReference<List<ItemVo>>() {
                 });
 
                 if (ad != null && ad != null && !ad.isEmpty()) {
 
-                    final GwasteListAdapter adapter = new GwasteListAdapter(context, (ArrayList<GWasteItemVo>) ad, ContextCompat.getColor(context, R.color.green));
+                    final GwasteListAdapter adapter = new GwasteListAdapter(context, (ArrayList<ItemVo>) ad, ContextCompat.getColor(context, R.color.green));
                     listView.setAdapter(adapter);
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
@@ -143,7 +143,7 @@ public class RecycledListActivity extends BaseActivity {
                         }
                     });
                 } else {
-                    GwasteListAdapter adapter = new GwasteListAdapter(context, new ArrayList<GWasteItemVo>(),ContextCompat.getColor(context, R.color.green));
+                    GwasteListAdapter adapter = new GwasteListAdapter(context, new ArrayList<ItemVo>(),ContextCompat.getColor(context, R.color.green));
                     listView.setAdapter(adapter);
                     showError("No record found", findViewById(R.id.listView));
                 }
@@ -196,7 +196,7 @@ public class RecycledListActivity extends BaseActivity {
                     @Override
                     public void run() {
                         if (Utils.haveNetworkConnection(context)) {
-                            new FetchGWasteListTask(context).execute(new String[]{date, me.getEmailID(), ""});
+                            new FetchRecycledListTask(context).execute(new String[]{date, me.getEmailID(), ""});
                         }
                     }
                 });
@@ -245,7 +245,7 @@ public class RecycledListActivity extends BaseActivity {
                     date = "";
                 else
                     date = item.getTitle().toString();
-                new FetchGWasteListTask(context).execute(new String[]{date, me.getEmailID(), ""});
+                new FetchRecycledListTask(context).execute(new String[]{date, me.getEmailID(), ""});
 
                 return false;
             }
