@@ -33,7 +33,7 @@ public class FetchCountTask extends
 
 			 try{
 				 RestURLClient client = new RestURLClient(Constants.FETCH_COUNT, true);
- 				 client.addParam("UserID",params[1]);
+ 				 client.addParam("UserEmailID",params[1]);
 
 
 		/*	 client.addParam("userID",params[0]);

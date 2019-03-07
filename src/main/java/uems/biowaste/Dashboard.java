@@ -43,7 +43,7 @@ public class Dashboard extends BaseActivity implements View.OnClickListener {
     public void initLayout() {
 
         String date = DateUtil.dateToString(startDate.getTime(), DateUtil.DATE_START_DATE);
-        new FetchCountTask(context).execute(new String[]{date, me.getUserID()});
+        new FetchCountTask(context).execute(new String[]{date, me.getEmailID()});
 //        findViewById(R.id.tvDate).setOnClickListener(this);
         findViewById(R.id.rlBioWaste).setOnClickListener(this);
         findViewById(R.id.rlRecycle).setOnClickListener(this);
@@ -72,7 +72,7 @@ public class Dashboard extends BaseActivity implements View.OnClickListener {
                         String date = DateUtil.dateToString(startDate.getTime(), DateUtil.DATE_START_DATE);
                         TextView textView = (TextView) findViewById(R.id.tvDate);
                         textView.setText(date);
-                        new FetchCountTask(context).execute(new String[]{date, me.getUserID()});
+                        new FetchCountTask(context).execute(new String[]{date, me.getEmailID()});
 
                     }
                 }, mYear, mMonth, mDay);
@@ -158,7 +158,7 @@ public class Dashboard extends BaseActivity implements View.OnClickListener {
                     public void run() {
                         if (Utils.haveNetworkConnection(context)) {
                             String date = DateUtil.dateToString(startDate.getTime(), DateUtil.DATE_START_DATE);
-                            new FetchCountTask(context).execute(new String[]{date, me.getUserID()});
+                            new FetchCountTask(context).execute(new String[]{date, me.getEmailID()});
                         }
                     }
                 });
