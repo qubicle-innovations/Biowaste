@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -28,7 +29,7 @@ public class GwasteDetailsActivity extends BaseBackActivity {
         setToolbar("Food & General waste");
         vo = (ItemVo) getIntent().getSerializableExtra("vo");
         initLayout();
-        new FetchGWasteDetailsTask(context).execute(new String[]{vo.getItemID(),me.getEmailID()});
+        new FetchGWasteDetailsTask(context).execute(new String[]{vo.getItemID(), me.getEmailID()});
 
     }
 
@@ -38,21 +39,28 @@ public class GwasteDetailsActivity extends BaseBackActivity {
         TextView detailsDateTextView = (TextView) findViewById(R.id.detailsDateTextView);
         TextView detailsNameTextView = (TextView) findViewById(R.id.detailsNameTextView);
 
-        TextView detailsWeightTextView = (TextView) findViewById(R.id.detailsWeightTextView);
-        TextView detailsNoOfHaulageTextView = (TextView) findViewById(R.id.detailsNoOfHaulageTextView);
+        EditText detailsWeightTextView = (EditText) findViewById(R.id.detailsWeightTextView);
+        EditText detailsNoOfHaulageTextView = (EditText) findViewById(R.id.detailsNoOfHaulageTextView);
+
+        EditText detailsDisposalFeeTextView = (EditText) findViewById(R.id.detailsDisposalFeeTextView);
+        EditText detailsHuelageChargeTextView = (EditText) findViewById(R.id.detailsHuelageChargeTextView);
+
         TextView detailsTotalDisposaFeeTextView = (TextView) findViewById(R.id.detailsTotalDisposaFeeTextView);
 
-        TextView detailsDisposalFeeTextView = (TextView) findViewById(R.id.detailsDisposalFeeTextView);
-        TextView detailsHuelageChargeTextView = (TextView) findViewById(R.id.detailsHuelageChargeTextView);
+        detailsWeightTextView.setFocusable(false);
+        detailsNoOfHaulageTextView.setFocusable(false);
+        detailsDisposalFeeTextView.setFocusable(false);
+        detailsHuelageChargeTextView.setFocusable(false);
+
         findViewById(R.id.detailsSubmitButton).setVisibility(View.GONE);
         detailsMonthTextView.setText(vo.getMonth());
         detailsDateTextView.setText(vo.getDate());
         detailsNameTextView.setText(vo.getCreatedBy());
-        detailsWeightTextView.setText(vo.getTotalWeight() );
+        detailsWeightTextView.setText(vo.getTotalWeight());
         detailsNoOfHaulageTextView.setText(vo.getNoOfHaulage());
         detailsDisposalFeeTextView.setText(vo.getDisposalFee());
         detailsHuelageChargeTextView.setText(vo.getHualageCharge());
-        detailsTotalDisposaFeeTextView.setText("$"+vo.getTotalDisposalFee());
+        detailsTotalDisposaFeeTextView.setText("$" + vo.getTotalDisposalFee());
 
     }
 

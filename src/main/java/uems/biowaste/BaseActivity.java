@@ -119,7 +119,7 @@ public class BaseActivity extends AppCompatActivity {
         TextView tvDrawerTitle = (TextView) findViewById(R.id.tvDrawerTitle);
     //    TextView toolbarTitle = (TextView) findViewById(R.id.toolbarTitle);
         tvDrawerTitle.setTextColor(Color.WHITE);
-        SpannableStringBuilder sb = new SpannableStringBuilder("UETrack™ - ic_bio_waste");
+        SpannableStringBuilder sb = new SpannableStringBuilder("UETrack™ - Biowaste");
         StyleSpan iss = new StyleSpan(Typeface.BOLD_ITALIC); //Span to make text italic
         StyleSpan bss = new StyleSpan(Typeface.BOLD); //Span to make text italic
         sb.setSpan(iss, 0, 2, Spannable.SPAN_INCLUSIVE_INCLUSIVE); // make first 4 characters Bold
@@ -223,8 +223,8 @@ public class BaseActivity extends AppCompatActivity {
             }
         });
 
-        tvUsername.setText(Utils.toTitleCase(me.getCustomerName()));
-        tvEmpID.setText(me.getRole());
+        tvUsername.setText(Utils.toTitleCase(me.getUserName()));
+        tvEmpID.setText("");
 
 
     }

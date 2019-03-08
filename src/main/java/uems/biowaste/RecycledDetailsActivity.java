@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -37,13 +38,18 @@ public class RecycledDetailsActivity extends BaseBackActivity {
         TextView detailsMonthTextView = (TextView) findViewById(R.id.detailsMonthTextView);
         TextView detailsDateTextView = (TextView) findViewById(R.id.detailsDateTextView);
         TextView detailsNameTextView = (TextView) findViewById(R.id.detailsNameTextView);
-
         TextView itemDisposalTotalTextView = (TextView) findViewById(R.id.itemDisposalTotalTextView);
-        TextView itemDisposalPlasticTextView = (TextView) findViewById(R.id.itemDisposalPlasticTextView);
-        TextView itemDisposalCansTextView = (TextView) findViewById(R.id.itemDisposalCansTextView);
 
-        TextView itemDisposalPaperTextView = (TextView) findViewById(R.id.itemDisposalPaperTextView);
-        TextView itemDisposalCarbonBoxTextView = (TextView) findViewById(R.id.itemDisposalCarbonBoxTextView);
+        EditText itemDisposalPlasticTextView = (EditText) findViewById(R.id.itemDisposalPlasticTextView);
+        EditText itemDisposalCansTextView = (EditText) findViewById(R.id.itemDisposalCansTextView);
+        EditText itemDisposalPaperTextView = (EditText) findViewById(R.id.itemDisposalPaperTextView);
+        EditText itemDisposalCarbonBoxTextView = (EditText) findViewById(R.id.itemDisposalCarbonBoxTextView);
+
+        itemDisposalPlasticTextView.setFocusable(false);
+        itemDisposalCansTextView.setFocusable(false);
+        itemDisposalPaperTextView.setFocusable(false);
+        itemDisposalCarbonBoxTextView.setFocusable(false);
+
         findViewById(R.id.detailsSubmitButton).setVisibility(View.GONE);
         detailsMonthTextView.setText(vo.getMonth());
         detailsDateTextView.setText(vo.getDate());

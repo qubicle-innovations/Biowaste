@@ -68,7 +68,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="@font/montserrat_regular"
         android:text="@string/month"
         android:textColor="@color/white"
@@ -146,7 +146,7 @@
         app:layout_constraintGuide_begin="20dp"
         app:layout_constraintGuide_percent="0.85" />
 
-    <TextView
+    <EditText
         android:id="@+id/detailsWeightTextView"
         android:layout_width="0dp"
         android:layout_height="20dp"
@@ -155,15 +155,15 @@
         android:background="@color/colorPrimary"
         android:fontFamily="@font/montserrat_semi_bold"
         android:gravity="right"
+        android:inputType="numberDecimal"
         android:paddingRight="20dp"
-        android:text="@string/sample_name_dollar"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/textView6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toTopOf="@+id/textView6" />
 
-    <TextView
+    <EditText
         android:id="@+id/detailsNoOfHaulageTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -171,8 +171,8 @@
         android:background="@color/backgroundGray"
         android:fontFamily="@font/montserrat_semi_bold"
         android:gravity="right"
+        android:inputType="numberDecimal"
         android:paddingRight="20dp"
-        android:text="@string/sample_number"
         android:textColor="@color/textBlack"
         app:layout_constraintBottom_toBottomOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
@@ -231,7 +231,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_toEndOf="@+id/imBack"
-                android:fontFamily="@font/rbold"
+                android:fontFamily="@font/regular"
                 android:gravity="center"
                 android:text="eLinen"
                 android:textColor="@android:color/white"

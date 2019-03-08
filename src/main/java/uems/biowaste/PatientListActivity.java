@@ -1,15 +1,19 @@
 package uems.biowaste;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.PopupMenu;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -48,21 +52,28 @@ public class PatientListActivity extends BaseActivity {
         initLayout();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        new FetchPatientListTask(context).execute(new String[]{date, me.getEmailID(), ""});
+
+    }
 
     public void initLayout() {
 
-        new FetchPatientListTask(context).execute(new String[]{date, me.getEmailID(), ""});
         findViewById(R.id.tvMonth).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showMonthMenu(v);
             }
         });
-        initNavigationMenu("Food & General waste");
+        initNavigationMenu("Monthly Patients");
         findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-             }
+                startActivity(new Intent(context,PatientCreateActivity.class));
+
+            }
         });
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -72,6 +83,32 @@ public class PatientListActivity extends BaseActivity {
 
                 new FetchPatientListTask(context).execute(new String[]{date, me.getEmailID(), ""});
 
+
+            }
+        });
+        EditText etSearch = (EditText) findViewById(R.id.etSearch);
+        etSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (s == null || s.length() < 1) {
+                    date="";
+                    new FetchPatientListTask(context).execute(new String[]{date, me.getEmailID(), ""});
+
+                } else if (s.length() > 1) {
+                    date=s.toString();
+                    new FetchPatientListTask(context).execute(new String[]{date, me.getEmailID(), ""});
+
+                }
 
             }
         });
@@ -133,9 +170,9 @@ public class PatientListActivity extends BaseActivity {
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                            Intent intent = new Intent(context,IssueDetailsActivity.class);
-//                            intent.putExtra("vo",adapter.getProduct(position));
-//                            startActivity(intent);
+                            Intent intent = new Intent(context,PatientDetailsActivity.class);
+                            intent.putExtra("vo",adapter.getProduct(position));
+                            startActivity(intent);
                         }
                     });
                 } else {

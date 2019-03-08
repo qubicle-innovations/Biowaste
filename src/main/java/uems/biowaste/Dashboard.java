@@ -44,7 +44,7 @@ public class Dashboard extends BaseActivity implements View.OnClickListener {
 
         String date = DateUtil.dateToString(startDate.getTime(), DateUtil.DATE_START_DATE);
         new FetchCountTask(context).execute(new String[]{date, me.getEmailID()});
-//        findViewById(R.id.tvDate).setOnClickListener(this);
+        findViewById(R.id.itemTextViewMonth).setVisibility(View.INVISIBLE);
         findViewById(R.id.rlBioWaste).setOnClickListener(this);
         findViewById(R.id.rlRecycle).setOnClickListener(this);
         findViewById(R.id.rlPatients).setOnClickListener(this);

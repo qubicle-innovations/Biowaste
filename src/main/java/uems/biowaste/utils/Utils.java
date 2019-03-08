@@ -35,9 +35,11 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.ArrayList;
 
+import uems.biowaste.vo.UserVo;
 
-;import uems.biowaste.vo.UserVo;
+;
 
 
 /**
@@ -471,4 +473,21 @@ public static UserVo getUser(Context context){
 
 
 
+    public static String getMonths(int pos){
+
+        ArrayList<String> popup = new ArrayList<>();
+        popup.add("January");
+        popup.add("February");
+        popup.add("March");
+        popup.add("April");
+        popup.add("May");
+        popup.add("June");
+        popup.add("July");
+        popup.add("August");
+        popup.add("September");
+        popup.add("October");
+        popup.add("November");
+        popup.add("December");
+        return popup.get(pos);
+    }
 }

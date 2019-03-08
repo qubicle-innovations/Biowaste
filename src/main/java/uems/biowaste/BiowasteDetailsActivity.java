@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -37,9 +38,12 @@ public class BiowasteDetailsActivity extends BaseBackActivity {
         TextView detailsMonthTextView = (TextView) findViewById(R.id.detailsMonthTextView);
         TextView detailsDateTextView = (TextView) findViewById(R.id.detailsDateTextView);
         TextView detailsNameTextView = (TextView) findViewById(R.id.detailsNameTextView);
-        TextView detailsWeightTextView = (TextView) findViewById(R.id.detailsWeightTextView);
-        TextView detailsNoOfHaulageTextView = (TextView) findViewById(R.id.detailsNoOfHaulageTextView);
+
+        EditText detailsWeightTextView = (EditText) findViewById(R.id.detailsWeightTextView);
+        EditText detailsNoOfHaulageTextView = (EditText) findViewById(R.id.detailsNoOfHaulageTextView);
         findViewById(R.id.detailsSubmitButton).setVisibility(View.GONE);
+        detailsWeightTextView.setFocusable(false);
+        detailsNoOfHaulageTextView.setFocusable(false);
         detailsMonthTextView.setText(vo.getMonth());
         detailsDateTextView.setText(vo.getDate());
         detailsNameTextView.setText(vo.getCreatedBy());

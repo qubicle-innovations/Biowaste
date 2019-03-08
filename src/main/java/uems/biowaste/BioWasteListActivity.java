@@ -6,11 +6,14 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.PopupMenu;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -49,10 +52,15 @@ public class BioWasteListActivity extends BaseActivity {
         initLayout();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        new FetchBioWasteListTask(context).execute(new String[]{date, me.getEmailID(), ""});
+
+    }
 
     public void initLayout() {
 
-        new FetchBioWasteListTask(context).execute(new String[]{date, me.getEmailID(), ""});
         findViewById(R.id.tvMonth).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,7 +71,7 @@ public class BioWasteListActivity extends BaseActivity {
         findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-             //   checkPermissions();
+             startActivity(new Intent(context,BiowasteCreateActivity.class));
             }
         });
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
@@ -74,6 +82,32 @@ public class BioWasteListActivity extends BaseActivity {
 
                 new FetchBioWasteListTask(context).execute(new String[]{date, me.getEmailID(), ""});
 
+
+            }
+        });
+        EditText etSearch = (EditText) findViewById(R.id.etSearch);
+        etSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                 if (s == null || s.length() < 1) {
+                     date="";
+                    new FetchBioWasteListTask(context).execute(new String[]{date, me.getEmailID(), ""});
+
+                } else if (s.length() > 1) {
+                         date=s.toString();
+                     new FetchBioWasteListTask(context).execute(new String[]{date, me.getEmailID(), ""});
+
+                }
 
             }
         });
