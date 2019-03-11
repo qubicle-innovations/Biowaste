@@ -24,7 +24,7 @@ public class FetchPatientListTask extends
 
 	@Override
 	protected void onPreExecute() {
-		pd.show();
+		//pd.show();
 	}
 
 	@Override
@@ -59,9 +59,9 @@ public class FetchPatientListTask extends
 	protected void onPostExecute(TResponse<String> result) {
 
 
-		if (pd.isShowing()){
-			pd.dismiss();
-		}
+//		if (pd.isShowing()){
+//			pd.dismiss();
+//		}
 
 		if (ctx instanceof PatientListActivity) {
 			 ((PatientListActivity) ctx).listResponse(result);

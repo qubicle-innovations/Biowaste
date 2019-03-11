@@ -98,10 +98,26 @@ public class Dashboard extends BaseActivity implements View.OnClickListener {
                 JSONArray jsonArray = jsonObject.getJSONArray("MonthlyDetailList");
                 if (jsonArray.length() > 0) {
                     JSONObject jObject = jsonArray.getJSONObject(0);
-                    tvBioCount.setText(jObject.getString("TotalCostBW"));
-                    tvPatientsCount.setText(jObject.getString("TotalPatientsMP"));
-                    tvRecycleCount.setText(jObject.getString("TotalWeightRI"));
-                    tvGwasteCount.setText(jObject.getString("TotalWeightFW"));
+                    if(jObject.getString("TotalCostBW").equalsIgnoreCase(""))
+                        tvBioCount.setText("0");
+                    else
+                        tvBioCount.setText(jObject.getString("TotalCostBW"));
+
+                    if(jObject.getString("TotalPatientsMP").equalsIgnoreCase(""))
+                        tvPatientsCount.setText("0");
+                    else
+                        tvPatientsCount.setText(jObject.getString("TotalPatientsMP"));
+
+                    if(jObject.getString("TotalWeightRI").equalsIgnoreCase(""))
+                        tvRecycleCount.setText("0");
+                    else
+                        tvRecycleCount.setText(jObject.getString("TotalWeightRI"));
+
+                    if(jObject.getString("TotalWeightFW").equalsIgnoreCase(""))
+                        tvGwasteCount.setText("0");
+                    else
+                        tvGwasteCount.setText(jObject.getString("TotalWeightFW"));
+
                 }
 
 

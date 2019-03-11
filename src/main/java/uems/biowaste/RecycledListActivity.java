@@ -62,6 +62,9 @@ public class RecycledListActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         adapter=null;
+        findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
+        findViewById(R.id.imSearch).setVisibility(View.INVISIBLE);
+        swipeRefreshLayout.setRefreshing(true);
         new FetchRecycledListTask(context).execute(new String[]{date, me.getEmailID(), "0"});
 
     }
@@ -88,6 +91,8 @@ public class RecycledListActivity extends BaseActivity {
             public void onRefresh() {
                 swipeRefreshLayout.setRefreshing(true);
 
+                findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
+                findViewById(R.id.imSearch).setVisibility(View.INVISIBLE);
                 new FetchRecycledListTask(context).execute(new String[]{date, me.getEmailID(), lastItem});
 
 
@@ -110,11 +115,15 @@ public class RecycledListActivity extends BaseActivity {
                 if (s == null || s.length() < 1) {
                     date="";
                     adapter=null;
+                    findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
+                    findViewById(R.id.imSearch).setVisibility(View.INVISIBLE);
                     new FetchRecycledListTask(context).execute(new String[]{date, me.getEmailID(), "0"});
 
                 } else if (s.length() > 1) {
                     date=s.toString();
                     adapter=null;
+                    findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
+                    findViewById(R.id.imSearch).setVisibility(View.INVISIBLE);
                     new FetchRecycledListTask(context).execute(new String[]{date, me.getEmailID(), "0"});
 
                 }
@@ -143,6 +152,8 @@ public class RecycledListActivity extends BaseActivity {
                         date = DateUtil.dateToString(startDate.getTime(), DateUtil.DATE_START_DATE);
                         TextView textView = (TextView) findViewById(R.id.tvDate);
                         textView.setText(date);
+                        findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
+                        findViewById(R.id.imSearch).setVisibility(View.INVISIBLE);
                         new FetchRecycledListTask(context).execute(new String[]{date, me.getEmailID(), ""});
 
 
@@ -156,6 +167,8 @@ public class RecycledListActivity extends BaseActivity {
     public void listResponse(TResponse<String> result) {
 
         ((SwipeRefreshLayout) findViewById(R.id.swiperefresh)).setRefreshing(false);
+        findViewById(R.id.progressBar).setVisibility(View.INVISIBLE);
+        findViewById(R.id.imSearch).setVisibility(View.VISIBLE);
 
         if (result == null) {
             showError(" please check network connection", findViewById(R.id.listView));
@@ -301,6 +314,8 @@ public class RecycledListActivity extends BaseActivity {
                     date = item.getTitle().toString();
                 adapter=null;
                 lastItem="0";
+                findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
+                findViewById(R.id.imSearch).setVisibility(View.INVISIBLE);
                 new FetchRecycledListTask(context).execute(new String[]{date, me.getEmailID(), "0"});
 
                 return false;
@@ -332,6 +347,8 @@ public class RecycledListActivity extends BaseActivity {
                 // but you can call any function here.
                 if(adapter!=null) {
                     lastItem=adapter.getItem(adapter.getCount()-1).getItemID();
+                    findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
+                    findViewById(R.id.imSearch).setVisibility(View.INVISIBLE);
                     new FetchRecycledListTask(context).execute(new String[]{date, me.getEmailID(), lastItem});
 
                 }

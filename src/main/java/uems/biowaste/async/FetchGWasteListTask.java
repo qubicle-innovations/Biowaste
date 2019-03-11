@@ -24,7 +24,8 @@ public class FetchGWasteListTask extends
 
 	@Override
 	protected void onPreExecute() {
-		pd.show();
+
+		//pd.show();
 	}
 
 	@Override
@@ -59,9 +60,9 @@ public class FetchGWasteListTask extends
 	protected void onPostExecute(TResponse<String> result) {
 
 
-		if (pd.isShowing()){
-			pd.dismiss();
-		}
+//		if (pd.isShowing()){
+//			pd.dismiss();
+//		}
 
 		if (ctx instanceof GWasteListActivity) {
 			 ((GWasteListActivity) ctx).listResponse(result);

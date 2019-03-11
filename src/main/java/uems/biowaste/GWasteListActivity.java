@@ -59,7 +59,10 @@ public class GWasteListActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         adapter=null;
-         new FetchGWasteListTask(context).execute(new String[]{date, me.getEmailID(), "0"});
+        findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
+        findViewById(R.id.imSearch).setVisibility(View.INVISIBLE);
+        swipeRefreshLayout.setRefreshing(true);
+        new FetchGWasteListTask(context).execute(new String[]{date, me.getEmailID(), "0"});
 
     }
 
@@ -85,6 +88,8 @@ public class GWasteListActivity extends BaseActivity {
             public void onRefresh() {
                 swipeRefreshLayout.setRefreshing(true);
 
+                findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
+                findViewById(R.id.imSearch).setVisibility(View.INVISIBLE);
                 new FetchGWasteListTask(context).execute(new String[]{date, me.getEmailID(), lastItem});
 
 
@@ -107,11 +112,15 @@ public class GWasteListActivity extends BaseActivity {
                 if (s == null || s.length() < 1) {
                     date="";
                     adapter=null;
+                    findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
+                    findViewById(R.id.imSearch).setVisibility(View.INVISIBLE);
                     new FetchGWasteListTask(context).execute(new String[]{date, me.getEmailID(), "0"});
 
                 } else if (s.length() > 1) {
                     date=s.toString();
                     adapter=null;
+                    findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
+                    findViewById(R.id.imSearch).setVisibility(View.INVISIBLE);
                     new FetchGWasteListTask(context).execute(new String[]{date, me.getEmailID(), "0"});
 
                 }
@@ -129,6 +138,8 @@ public class GWasteListActivity extends BaseActivity {
     public void listResponse(TResponse<String> result) {
 
         ((SwipeRefreshLayout) findViewById(R.id.swiperefresh)).setRefreshing(false);
+        findViewById(R.id.progressBar).setVisibility(View.INVISIBLE);
+        findViewById(R.id.imSearch).setVisibility(View.VISIBLE);
 
         if (result == null) {
             showError(" please check network connection", findViewById(R.id.listView));
@@ -250,6 +261,8 @@ public class GWasteListActivity extends BaseActivity {
                 else
                     date = item.getTitle().toString();
                 adapter=null;
+                findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
+                findViewById(R.id.imSearch).setVisibility(View.INVISIBLE);
                 new FetchGWasteListTask(context).execute(new String[]{date, me.getEmailID(), "0"});
 
                 return false;
@@ -281,6 +294,8 @@ public class GWasteListActivity extends BaseActivity {
                 // but you can call any function here.
                 if(adapter!=null) {
                     lastItem=adapter.getItem(adapter.getCount()-1).getItemID();
+                    findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
+                    findViewById(R.id.imSearch).setVisibility(View.INVISIBLE);
                     new FetchGWasteListTask(context).execute(new String[]{date, me.getEmailID(), lastItem});
 
                 }
