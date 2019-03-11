@@ -29,8 +29,8 @@ public class PatientListAdapter extends BaseAdapter {
     }
 
 
-    public void updateList(ArrayList<ItemVo> pList) {
-        this.pList = pList;
+    public void addItems(ArrayList<ItemVo> pList) {
+        this.pList .addAll(pList);
         notifyDataSetChanged();
         notifyDataSetInvalidated();
     }
@@ -43,9 +43,9 @@ public class PatientListAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int position) {
+    public ItemVo getItem(int position) {
         // TODO Auto-generated method stub
-        return null;
+        return pList.get(position);
     }
 
     public ItemVo getProduct(int position) {

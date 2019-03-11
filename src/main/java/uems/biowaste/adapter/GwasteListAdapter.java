@@ -36,6 +36,11 @@ public class GwasteListAdapter extends BaseAdapter {
         notifyDataSetChanged();
         notifyDataSetInvalidated();
     }
+    public void addItems(ArrayList<ItemVo> pList) {
+        this.pList.addAll(pList);
+         notifyDataSetChanged();
+//        notifyDataSetInvalidated();
+    }
 
 
     @Override
@@ -45,9 +50,9 @@ public class GwasteListAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int position) {
+    public ItemVo getItem(int position) {
         // TODO Auto-generated method stub
-        return null;
+        return pList.get(position);
     }
 
     public ItemVo getProduct(int position) {

@@ -34,6 +34,11 @@ public class BiowasteListAdapter extends BaseAdapter {
         notifyDataSetChanged();
         notifyDataSetInvalidated();
     }
+    public void addItems(ArrayList<BioWasteItemVo> pList) {
+        this.pList.addAll(pList)  ;
+        notifyDataSetChanged();
+        notifyDataSetInvalidated();
+    }
 
 
     @Override
@@ -43,9 +48,9 @@ public class BiowasteListAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int position) {
+    public BioWasteItemVo getItem(int position) {
         // TODO Auto-generated method stub
-        return null;
+        return pList.get(position);
     }
 
     public BioWasteItemVo getProduct(int position) {

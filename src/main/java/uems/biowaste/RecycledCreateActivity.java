@@ -63,7 +63,7 @@ public class RecycledCreateActivity extends BaseBackActivity implements View.OnC
         detailsMonthTextView.setText(monthName);
         detailsDateTextView.setText(date);
         detailsNameTextView.setText(me.getUserName());
-
+        itemDisposalCarbonBoxTextView.requestFocus();
 
         itemDisposalPlasticTextView.addTextChangedListener(new TextWatcher() {
             @Override

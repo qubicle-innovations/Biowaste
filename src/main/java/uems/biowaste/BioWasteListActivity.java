@@ -1,6 +1,5 @@
 package uems.biowaste;
 
-import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,8 +10,8 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -33,7 +32,6 @@ import java.util.concurrent.TimeUnit;
 
 import uems.biowaste.adapter.BiowasteListAdapter;
 import uems.biowaste.async.FetchBioWasteListTask;
-import uems.biowaste.utils.DateUtil;
 import uems.biowaste.utils.Utils;
 import uems.biowaste.vo.BioWasteItemVo;
 import uems.biowaste.vo.TResponse;
@@ -43,7 +41,11 @@ public class BioWasteListActivity extends BaseActivity {
     private String date = "";
     private ScheduledExecutorService scheduleTaskExecutor;
     private SwipeRefreshLayout swipeRefreshLayout;
-
+    private int visibleThreshold = 10;
+    private String lastItem = "0";
+    private int previousTotal = 0;
+    private boolean loading = true;
+    private  BiowasteListAdapter adapter;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +57,8 @@ public class BioWasteListActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        new FetchBioWasteListTask(context).execute(new String[]{date, me.getEmailID(), ""});
+        adapter=null;
+        new FetchBioWasteListTask(context).execute(new String[]{date, me.getEmailID(), "0"});
 
     }
 
@@ -80,7 +83,7 @@ public class BioWasteListActivity extends BaseActivity {
             public void onRefresh() {
                 swipeRefreshLayout.setRefreshing(true);
 
-                new FetchBioWasteListTask(context).execute(new String[]{date, me.getEmailID(), ""});
+                new FetchBioWasteListTask(context).execute(new String[]{date, me.getEmailID(), lastItem});
 
 
             }
@@ -101,11 +104,13 @@ public class BioWasteListActivity extends BaseActivity {
             public void afterTextChanged(Editable s) {
                  if (s == null || s.length() < 1) {
                      date="";
-                    new FetchBioWasteListTask(context).execute(new String[]{date, me.getEmailID(), ""});
+                     adapter=null;
+                    new FetchBioWasteListTask(context).execute(new String[]{date, me.getEmailID(), "0"});
 
                 } else if (s.length() > 1) {
                          date=s.toString();
-                     new FetchBioWasteListTask(context).execute(new String[]{date, me.getEmailID(), ""});
+                         adapter=null;
+                     new FetchBioWasteListTask(context).execute(new String[]{date, me.getEmailID(), "0"});
 
                 }
 
@@ -116,31 +121,6 @@ public class BioWasteListActivity extends BaseActivity {
         timerTask();
     }
 
-    public void showStartDate() {
-
-        int mYear = startDate.get(Calendar.YEAR);
-        int mMonth = startDate.get(Calendar.MONTH);
-        int mDay = startDate.get(Calendar.DAY_OF_MONTH);
-
-
-        DatePickerDialog datePickerDialog = new DatePickerDialog(this,
-                new DatePickerDialog.OnDateSetListener() {
-
-                    @Override
-                    public void onDateSet(DatePicker view, int year,
-                                          int monthOfYear, int dayOfMonth) {
-                        startDate.set(year, monthOfYear, dayOfMonth);
-                        date = DateUtil.dateToString(startDate.getTime(), DateUtil.DATE_START_DATE);
-                        TextView textView = (TextView) findViewById(R.id.tvDate);
-                        textView.setText(date);
-                        new FetchBioWasteListTask(context).execute(new String[]{date, me.getEmailID(), ""});
-
-
-                    }
-                }, mYear, mMonth, mDay);
-
-        datePickerDialog.show();
-    }
 
 
     public void listResponse(TResponse<String> result) {
@@ -163,9 +143,17 @@ public class BioWasteListActivity extends BaseActivity {
                 });
 
                 if (ad != null && ad != null && !ad.isEmpty()) {
+                    if(adapter==null) {
+                        previousTotal = 0;
+                        adapter = new BiowasteListAdapter(context, (ArrayList<BioWasteItemVo>) ad);
+                        listView.setAdapter(adapter);
+                        listView.setOnScrollListener(new EndlessScrollListener());
 
-                    final BiowasteListAdapter adapter = new BiowasteListAdapter(context, (ArrayList<BioWasteItemVo>) ad);
-                    listView.setAdapter(adapter);
+                    }else {
+                        if(!lastItem.equalsIgnoreCase(ad.get(ad.size()-1).getItemID()))
+                            adapter.addItems((ArrayList<BioWasteItemVo>) ad);
+                    }
+                    lastItem = ad.get(ad.size()-1).getItemID();
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -174,7 +162,10 @@ public class BioWasteListActivity extends BaseActivity {
                             startActivity(intent);
                         }
                     });
+                }else if(ad != null && ad.isEmpty()&&adapter!=null){
+
                 } else {
+                    previousTotal = 0;
                     BiowasteListAdapter adapter = new BiowasteListAdapter(context, new ArrayList<BioWasteItemVo>());
                     listView.setAdapter(adapter);
                     showError("No record found", findViewById(R.id.listView));
@@ -228,7 +219,7 @@ public class BioWasteListActivity extends BaseActivity {
                     @Override
                     public void run() {
                         if (Utils.haveNetworkConnection(context)) {
-                            new FetchBioWasteListTask(context).execute(new String[]{date, me.getEmailID(), ""});
+                          //  new FetchBioWasteListTask(context).execute(new String[]{date, me.getEmailID(), lastItem});
                         }
                     }
                 });
@@ -277,11 +268,46 @@ public class BioWasteListActivity extends BaseActivity {
                     date = "";
                 else
                     date = item.getTitle().toString();
-                new FetchBioWasteListTask(context).execute(new String[]{date, me.getEmailID(), ""});
+                adapter=null;
+                new FetchBioWasteListTask(context).execute(new String[]{date, me.getEmailID(), "0"});
 
                 return false;
             }
         });
         popup.show();
+    }
+
+
+    public class EndlessScrollListener implements AbsListView.OnScrollListener {
+
+
+        public EndlessScrollListener() {
+        }
+
+
+        @Override
+        public void onScroll(AbsListView view, int firstVisibleItem,
+                             int visibleItemCount, int totalItemCount) {
+            if (loading) {
+                if (totalItemCount > previousTotal) {
+                    loading = false;
+                    previousTotal = totalItemCount;
+                }
+            }
+            if (!loading && (totalItemCount - visibleItemCount) <= (firstVisibleItem + visibleThreshold)) {
+                // I load the next page of gigs using a background task,
+                // but you can call any function here.
+                if(adapter!=null) {
+                    lastItem=adapter.getItem(adapter.getCount()-1).getItemID();
+                    new FetchBioWasteListTask(context).execute(new String[]{date, me.getEmailID(),lastItem});
+                }
+
+                loading = true;
+            }
+        }
+
+        @Override
+        public void onScrollStateChanged(AbsListView view, int scrollState) {
+        }
     }
 }

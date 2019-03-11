@@ -33,7 +33,7 @@ public class FetchBioWasteListTask extends
 
 			 try{
 				 RestURLClient client = new RestURLClient(Constants.GET_BIOWASTE_LIST, true);
-				 client.addParam("ItemID","0");
+				 client.addParam("ItemID",params[2]);
 				 client.addParam("Search",params[0]);
 				 client.addParam("UserEmailID",params[1]);
 

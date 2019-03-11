@@ -1,6 +1,5 @@
 package uems.biowaste;
 
-import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,8 +10,8 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -33,7 +32,6 @@ import java.util.concurrent.TimeUnit;
 
 import uems.biowaste.adapter.PatientListAdapter;
 import uems.biowaste.async.FetchPatientListTask;
-import uems.biowaste.utils.DateUtil;
 import uems.biowaste.utils.Utils;
 import uems.biowaste.vo.ItemVo;
 import uems.biowaste.vo.TResponse;
@@ -43,7 +41,11 @@ public class PatientListActivity extends BaseActivity {
     private String date = "";
     private ScheduledExecutorService scheduleTaskExecutor;
     private SwipeRefreshLayout swipeRefreshLayout;
-
+    private int visibleThreshold = 10;
+    private String lastItem = "0";
+    private int previousTotal = 0;
+    private boolean loading = true;
+    private PatientListAdapter adapter;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +57,8 @@ public class PatientListActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        new FetchPatientListTask(context).execute(new String[]{date, me.getEmailID(), ""});
+        adapter=null;
+        new FetchPatientListTask(context).execute(new String[]{date, me.getEmailID(), "0"});
 
     }
 
@@ -81,7 +84,7 @@ public class PatientListActivity extends BaseActivity {
             public void onRefresh() {
                 swipeRefreshLayout.setRefreshing(true);
 
-                new FetchPatientListTask(context).execute(new String[]{date, me.getEmailID(), ""});
+                new FetchPatientListTask(context).execute(new String[]{date, me.getEmailID(), lastItem});
 
 
             }
@@ -102,11 +105,13 @@ public class PatientListActivity extends BaseActivity {
             public void afterTextChanged(Editable s) {
                 if (s == null || s.length() < 1) {
                     date="";
-                    new FetchPatientListTask(context).execute(new String[]{date, me.getEmailID(), ""});
+                    adapter=null;
+                    new FetchPatientListTask(context).execute(new String[]{date, me.getEmailID(), "0"});
 
                 } else if (s.length() > 1) {
                     date=s.toString();
-                    new FetchPatientListTask(context).execute(new String[]{date, me.getEmailID(), ""});
+                    adapter=null;
+                    new FetchPatientListTask(context).execute(new String[]{date, me.getEmailID(), "0"});
 
                 }
 
@@ -117,31 +122,7 @@ public class PatientListActivity extends BaseActivity {
         timerTask();
     }
 
-    public void showStartDate() {
 
-        int mYear = startDate.get(Calendar.YEAR);
-        int mMonth = startDate.get(Calendar.MONTH);
-        int mDay = startDate.get(Calendar.DAY_OF_MONTH);
-
-
-        DatePickerDialog datePickerDialog = new DatePickerDialog(this,
-                new DatePickerDialog.OnDateSetListener() {
-
-                    @Override
-                    public void onDateSet(DatePicker view, int year,
-                                          int monthOfYear, int dayOfMonth) {
-                        startDate.set(year, monthOfYear, dayOfMonth);
-                        date = DateUtil.dateToString(startDate.getTime(), DateUtil.DATE_START_DATE);
-                        TextView textView = (TextView) findViewById(R.id.tvDate);
-                        textView.setText(date);
-                        new FetchPatientListTask(context).execute(new String[]{date, me.getEmailID(), ""});
-
-
-                    }
-                }, mYear, mMonth, mDay);
-
-        datePickerDialog.show();
-    }
 
 
     public void listResponse(TResponse<String> result) {
@@ -164,9 +145,19 @@ public class PatientListActivity extends BaseActivity {
                 });
 
                 if (ad != null && ad != null && !ad.isEmpty()) {
+                    if(adapter==null) {
+                        previousTotal = 0;
+                        adapter = new PatientListAdapter(context, (ArrayList<ItemVo>) ad);
+                        listView.setAdapter(adapter);
+                        listView.setOnScrollListener(new EndlessScrollListener());
 
-                    final PatientListAdapter adapter = new PatientListAdapter(context, (ArrayList<ItemVo>) ad);
-                    listView.setAdapter(adapter);
+                    }else {
+                        if(!lastItem.equalsIgnoreCase(ad.get(ad.size()-1).getItemID())){
+                            adapter.addItems((ArrayList<ItemVo>) ad);
+
+                        }
+                    }
+                    lastItem = ad.get(ad.size()-1).getItemID();
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -175,7 +166,10 @@ public class PatientListActivity extends BaseActivity {
                             startActivity(intent);
                         }
                     });
+                }else if(ad != null && ad.isEmpty()&&adapter!=null){
+
                 } else {
+                    previousTotal = 0;
                     PatientListAdapter adapter = new PatientListAdapter(context, new ArrayList<ItemVo>());
                     listView.setAdapter(adapter);
                     showError("No record found", findViewById(R.id.listView));
@@ -190,37 +184,6 @@ public class PatientListActivity extends BaseActivity {
         }
     }
 
-    public void showQRCodeScanner() {
-
-        //  Intent i = new Intent(this, SimpleScannerActivity.class);
-        //startActivityForResult(i, 1);
-
-    }
-
-
-   /* public void checkPermissions() {
-        PermissionListener permissionlistener = new PermissionListener() {
-            @Override
-            public void onPermissionGranted() {
-
-                showQRCodeScanner();
-                //   Toast.makeText(GoValetApplication.this, "Permission Granted", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onPermissionDenied(ArrayList<String> deniedPermissions) {
-                //  Toast.makeText(getApplicationContext(), "Permission Denied\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
-            }
-
-
-        };
-        new TedPermission(this)
-                .setPermissionListener(permissionlistener)
-                .setDeniedMessage("If you reject permission,App may not work properly\n\nPlease turn on permissions at [Setting] > [Permission]")
-                .setGotoSettingButtonText("setting")
-                .setPermissions(android.Manifest.permission.INTERNET, android.Manifest.permission.CAMERA, android.Manifest.permission.WAKE_LOCK, android.Manifest.permission.READ_EXTERNAL_STORAGE, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                .check();
-    }*/
 
     public void timerTask() {
         scheduleTaskExecutor.scheduleAtFixedRate(new Runnable() {
@@ -229,7 +192,7 @@ public class PatientListActivity extends BaseActivity {
                     @Override
                     public void run() {
                         if (Utils.haveNetworkConnection(context)) {
-                            new FetchPatientListTask(context).execute(new String[]{date, me.getEmailID(), ""});
+                          //  new FetchPatientListTask(context).execute(new String[]{date, me.getEmailID(), lastItem});
                         }
                     }
                 });
@@ -278,11 +241,45 @@ public class PatientListActivity extends BaseActivity {
                     date = "";
                 else
                     date = item.getTitle().toString();
-                new FetchPatientListTask(context).execute(new String[]{date, me.getEmailID(), ""});
+                adapter=null;
+                new FetchPatientListTask(context).execute(new String[]{date, me.getEmailID(), "0"});
 
                 return false;
             }
         });
         popup.show();
+    }
+
+    public class EndlessScrollListener implements AbsListView.OnScrollListener {
+
+
+        public EndlessScrollListener() {
+        }
+
+
+        @Override
+        public void onScroll(AbsListView view, int firstVisibleItem,
+                             int visibleItemCount, int totalItemCount) {
+            if (loading) {
+                if (totalItemCount > previousTotal) {
+                    loading = false;
+                    previousTotal = totalItemCount;
+                }
+            }
+            if (!loading && (totalItemCount - visibleItemCount) <= (firstVisibleItem + visibleThreshold)) {
+                // I load the next page of gigs using a background task,
+                // but you can call any function here.
+                if(adapter!=null) {
+                    lastItem=adapter.getItem(adapter.getCount()-1).getItemID();
+                    new FetchPatientListTask(context).execute(new String[]{date, me.getEmailID(), lastItem});
+                }
+
+                loading = true;
+            }
+        }
+
+        @Override
+        public void onScrollStateChanged(AbsListView view, int scrollState) {
+        }
     }
 }
