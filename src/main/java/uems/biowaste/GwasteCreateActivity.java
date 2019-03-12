@@ -88,7 +88,7 @@ public class GwasteCreateActivity extends BaseBackActivity implements View.OnCli
                 double halCharge=0;
                 if(!ZValidation.isEmpty(detailsHuelageChargeTextView))
                   halCharge = Double.parseDouble(Utils.getText(detailsHuelageChargeTextView));
-                detailsTotalDisposaFeeTextView.setText((disfee+halCharge)+"");
+                detailsTotalDisposaFeeTextView.setText( Utils.roundOff(disfee+halCharge));
 
             }
         });
@@ -116,7 +116,8 @@ public class GwasteCreateActivity extends BaseBackActivity implements View.OnCli
 
                     if(!ZValidation.isEmpty(detailsDisposalFeeTextView))
                     disfee = Double.parseDouble(Utils.getText(detailsDisposalFeeTextView));
-                detailsTotalDisposaFeeTextView.setText((disfee+halCharge)+"");
+
+                detailsTotalDisposaFeeTextView.setText(  Utils.roundOff(disfee+halCharge));
 
             }
         });

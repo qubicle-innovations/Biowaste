@@ -189,7 +189,7 @@
     <EditText
         android:id="@+id/detailsDisposalFeeTextView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="24dp"
         android:background="@color/backgroundGray"
@@ -206,7 +206,7 @@
     <EditText
         android:id="@+id/detailsHuelageChargeTextView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="24dp"
         android:background="@color/backgroundGray"
@@ -223,7 +223,7 @@
     <EditText
         android:id="@+id/detailsWeightTextView"
         android:layout_width="0dp"
-        android:layout_height="20dp"
+        android:layout_height="30dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="24dp"
         android:background="@color/backgroundGray"
@@ -240,7 +240,7 @@
     <EditText
         android:id="@+id/detailsNoOfHaulageTextView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="24dp"
         android:background="@color/backgroundGray"
