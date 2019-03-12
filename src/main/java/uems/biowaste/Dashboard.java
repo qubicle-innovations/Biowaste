@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.PopupMenu;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
@@ -15,6 +17,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -44,7 +47,7 @@ public class Dashboard extends BaseActivity implements View.OnClickListener {
 
         String date = DateUtil.dateToString(startDate.getTime(), DateUtil.DATE_START_DATE);
         new FetchCountTask(context).execute(new String[]{date, me.getEmailID()});
-        findViewById(R.id.itemTextViewMonth).setVisibility(View.INVISIBLE);
+        findViewById(R.id.itemTextViewMonth).setOnClickListener(this);
         findViewById(R.id.rlBioWaste).setOnClickListener(this);
         findViewById(R.id.rlRecycle).setOnClickListener(this);
         findViewById(R.id.rlPatients).setOnClickListener(this);
@@ -98,22 +101,22 @@ public class Dashboard extends BaseActivity implements View.OnClickListener {
                 JSONArray jsonArray = jsonObject.getJSONArray("MonthlyDetailList");
                 if (jsonArray.length() > 0) {
                     JSONObject jObject = jsonArray.getJSONObject(0);
-                    if(jObject.getString("TotalCostBW").equalsIgnoreCase(""))
+                    if (jObject.getString("TotalCostBW").equalsIgnoreCase(""))
                         tvBioCount.setText("0");
                     else
                         tvBioCount.setText(jObject.getString("TotalCostBW"));
 
-                    if(jObject.getString("TotalPatientsMP").equalsIgnoreCase(""))
+                    if (jObject.getString("TotalPatientsMP").equalsIgnoreCase(""))
                         tvPatientsCount.setText("0");
                     else
                         tvPatientsCount.setText(jObject.getString("TotalPatientsMP"));
 
-                    if(jObject.getString("TotalWeightRI").equalsIgnoreCase(""))
+                    if (jObject.getString("TotalWeightRI").equalsIgnoreCase(""))
                         tvRecycleCount.setText("0");
                     else
                         tvRecycleCount.setText(jObject.getString("TotalWeightRI"));
 
-                    if(jObject.getString("TotalWeightFW").equalsIgnoreCase(""))
+                    if (jObject.getString("TotalWeightFW").equalsIgnoreCase(""))
                         tvGwasteCount.setText("0");
                     else
                         tvGwasteCount.setText(jObject.getString("TotalWeightFW"));
@@ -129,6 +132,34 @@ public class Dashboard extends BaseActivity implements View.OnClickListener {
         }
     }
 
+    public void showMonthMenu(View v) {
+        String month = (String) android.text.format.DateFormat.format("M", new Date());
+        int monthValue = Integer.parseInt(month) - 1;
+
+
+        PopupMenu popup = new PopupMenu(context, v);
+        popup.getMenu().add("Select");
+        if ((monthValue - 1) > 0) {
+            popup.getMenu().add(Utils.getMonths(monthValue - 1));
+
+        } else
+            popup.getMenu().add(Utils.getMonths(12));
+
+        popup.getMenu().add(Utils.getMonths(monthValue));
+
+
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                // TODO Auto-generated method stub
+                TextView tvMonth = (TextView) findViewById(R.id.itemTextViewMonth);
+                tvMonth.setText(item.getTitle());
+                return false;
+            }
+        });
+        popup.show();
+    }
 
     public void showReturnList() {
         //   startActivity(new Intent(context, ReturnListActivity.class));
@@ -144,8 +175,8 @@ public class Dashboard extends BaseActivity implements View.OnClickListener {
     public void onClick(View v) {
 
         switch (v.getId()) {
-            case R.id.tvDate:
-                showStartDate();
+            case R.id.itemTextViewMonth:
+                showMonthMenu(v);
                 break;
             case R.id.rlBioWaste:
                 startActivity(new Intent(context, BioWasteListActivity.class));
