@@ -7,6 +7,7 @@ import android.util.Log;
 import org.json.JSONArray;
 
 import uems.biowaste.BiowasteCreateActivity;
+import uems.biowaste.HomeActivity;
 import uems.biowaste.http.RestURLClient;
 import uems.biowaste.utils.Constants;
 import uems.biowaste.utils.TCustomProgressDailogue;
@@ -64,6 +65,8 @@ public class FetchBioWasteCreateTask extends
 
 		if (ctx instanceof BiowasteCreateActivity) {
 			 ((BiowasteCreateActivity) ctx).saveResponse(result);
+		}else if (ctx instanceof HomeActivity) {
+			((HomeActivity) ctx).saveResponse(result);
 		}
 	
 

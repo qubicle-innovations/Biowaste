@@ -60,6 +60,7 @@ public class Utils {
     public static final String GOOGLE_PROJECT_ID = "1038406780031";
     public static final String SUPPORT_NUMBER = "+97470003200";
 
+    public static Snackbar snackbar ;
 
     public static Bitmap cropCircleBitmap(Bitmap bitmapimg) {
         Bitmap output = Bitmap.createBitmap(bitmapimg.getWidth(),
@@ -82,8 +83,13 @@ public class Utils {
     }
 
     public static void showError(String msg, View view) {
-        Snackbar snackbar = Snackbar.make(view, msg, Snackbar.LENGTH_LONG);
-        snackbar.show();
+        if(snackbar==null) {
+            snackbar = Snackbar.make(view, msg, Snackbar.LENGTH_LONG);
+        }else {
+            snackbar.setText(msg);
+        }
+        if(!snackbar.isShown())
+            snackbar.show();
     }
 
     public static Bitmap getThumbnail(Uri uri, Context context) throws FileNotFoundException, IOException {

@@ -68,8 +68,7 @@ public class PatientListFragment extends Fragment {
     }
 
     public interface OnFragmentInteractionListener {
-        void  startFragment(String fragmentName,boolean addToBackStack,boolean isAdd);
-        void  startFragment(Fragment fragment,boolean addToBackStack,boolean isAdd);
+        void  startFragment(Fragment fragment,String fragmentName,boolean addToBackStack,boolean isAdd);
     }
 
     @Override
@@ -107,8 +106,7 @@ public class PatientListFragment extends Fragment {
         view.findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mListener.startFragment(Constants.FRAGMENT_MONTHLY_PATIENTS_CREATE,true,true);
-
+                mListener.startFragment(new PatientCreateFragment(),Constants.FRAGMENT_MONTHLY_PATIENTS_CREATE,true,true);
             }
         });
         swipeRefreshLayout = view.findViewById(R.id.swiperefresh);
@@ -197,21 +195,19 @@ public class PatientListFragment extends Fragment {
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            Intent intent = new Intent(getContext(), PatientDetailsFragment.class);
-                            intent.putExtra("vo",adapter.getProduct(position));
-                            startActivity(intent);
+
                             ItemVo itemVo = adapter.getProduct(position);
                             PatientDetailsFragment patientDetailsFragment = new PatientDetailsFragment();
                             Bundle bundle = new Bundle();
                             bundle.putSerializable("vo",itemVo);
                             patientDetailsFragment.setArguments(bundle);
-                            mListener.startFragment(patientDetailsFragment,true,true);
+                            mListener.startFragment(patientDetailsFragment,Constants.FRAGMENT_MONTHLSY_PATIENTS_DETAILS,true,true);
                         }
                     });
                 }
-//                else if(ad != null && ad.isEmpty()&&adapter!=null){
-//
-//                }
+                else if(ad != null && ad.isEmpty()&&adapter!=null){
+
+                }
                 else if(getContext() != null){
                     previousTotal = 0;
                     PatientListAdapter adapter = new PatientListAdapter(getContext(), new ArrayList<ItemVo>());

@@ -3,7 +3,6 @@ package uems.biowaste.fragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,12 +18,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import uems.biowaste.BaseBackActivity;
 import uems.biowaste.R;
-import uems.biowaste.async.FetchBioWasteDetailsTask;
 import uems.biowaste.async.FetchRecycledDetailsTask;
 import uems.biowaste.utils.Utils;
-import uems.biowaste.vo.BioWasteItemVo;
 import uems.biowaste.vo.ItemVo;
 import uems.biowaste.vo.TResponse;
 import uems.biowaste.vo.UserVo;
@@ -32,10 +28,9 @@ import uems.biowaste.vo.UserVo;
 public class RecycledDetailsFragment extends Fragment {
 
     private ItemVo vo;
-
-
     public UserVo me;
-    private PatientListFragment.OnFragmentInteractionListener mListener;
+    private RecycledDetailsFragment.OnFragmentInteractionListener mListener;
+
     TextView detailsMonthTextView;
     TextView detailsDateTextView;
     TextView detailsNameTextView ;
@@ -49,8 +44,8 @@ public class RecycledDetailsFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof PatientListFragment.OnFragmentInteractionListener) {
-            mListener = (PatientListFragment.OnFragmentInteractionListener) context;
+        if (context instanceof RecycledDetailsFragment.OnFragmentInteractionListener) {
+            mListener = (RecycledDetailsFragment.OnFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
@@ -58,8 +53,7 @@ public class RecycledDetailsFragment extends Fragment {
     }
 
     public interface OnFragmentInteractionListener {
-        void  startFragment(String fragmentName,boolean addToBackStack,boolean isAdd);
-        void  startFragment(Fragment fragment,boolean addToBackStack,boolean isAdd);
+        void  startFragment(Fragment fragment,String fragmentName,boolean addToBackStack,boolean isAdd);
     }
 
     @Override
@@ -105,8 +99,7 @@ public class RecycledDetailsFragment extends Fragment {
         itemDisposalCansTextView.setText(vo.getCans());
         itemDisposalPaperTextView.setText(vo.getPaper());
         itemDisposalCarbonBoxTextView.setText(vo.getCartonBox());
-        itemDisposalTotalTextView.setText( vo.getTotalWeight()+"Kg");
-
+        itemDisposalTotalTextView.setText(String.format("%sKg", vo.getTotalWeight()));
     }
 
     public void detailsResponse(TResponse<String> result) {

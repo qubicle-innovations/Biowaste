@@ -51,14 +51,13 @@ public class BiowasteDetailsFragment extends Fragment {
     }
 
     public interface OnFragmentInteractionListener {
-        void  startFragment(String fragmentName,boolean addToBackStack,boolean isAdd);
-        void  startFragment(Fragment fragment,boolean addToBackStack,boolean isAdd);
+        void  startFragment(Fragment fragment,String fragmentName,boolean addToBackStack,boolean isAdd);
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.gwaste, container, false);
+        View view = inflater.inflate(R.layout.fragment_biowaste_details, container, false);
         me = Utils.getUser(getContext());
         if(getArguments() != null)
             vo = (BioWasteItemVo) getArguments().getSerializable("vo");
@@ -79,11 +78,19 @@ public class BiowasteDetailsFragment extends Fragment {
         view.findViewById(R.id.detailsSubmitButton).setVisibility(View.GONE);
         detailsWeightTextView.setFocusable(false);
         detailsNoOfHaulageTextView.setFocusable(false);
-        detailsMonthTextView.setText(vo.getMonth());
-        detailsDateTextView.setText(vo.getDate());
-        detailsNameTextView.setText(vo.getCreatedBy());
-        detailsWeightTextView.setText(vo.getTotalBin());
-        detailsNoOfHaulageTextView.setText(vo.getTotalCost());
+
+        setData();
+
+    }
+
+    public void setData(){
+        if(vo != null){
+            detailsMonthTextView.setText(vo.getMonth());
+            detailsDateTextView.setText(vo.getDate());
+            detailsNameTextView.setText(vo.getCreatedBy());
+            detailsWeightTextView.setText(vo.getTotalBin());
+            detailsNoOfHaulageTextView.setText(vo.getTotalCost());
+        }
 
     }
 
@@ -102,8 +109,7 @@ public class BiowasteDetailsFragment extends Fragment {
                 mapper.enable(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES);
                 vo = mapper.readValue(jsonArray.getJSONObject(0).toString(), new TypeReference<BioWasteItemVo>() {
                 });
-                //initLayout();
-
+                setData();
             } catch (Exception e) {
                 Utils.showError("please try later", detailsDateTextView);
                 Log.e("parse order", e.toString());

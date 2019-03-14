@@ -39,7 +39,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener{
     }
 
     public interface OnFragmentInteractionListener {
-        void  startFragment(String fragmentName,boolean addToBackStack,boolean isAdd);
+        void  startFragment(Fragment fragment,String fragmentName,boolean addToBackStack,boolean isAdd);
     }
 
     public DashboardFragment() {
@@ -82,16 +82,16 @@ public class DashboardFragment extends Fragment implements View.OnClickListener{
                 showStartDate();
                 break;
             case R.id.rlBioWaste:
-                mListener.startFragment(Constants.FRAGMENT_BIOWASTE,true,true);
+                mListener.startFragment(new BioWasteListFragment(), Constants.FRAGMENT_BIOWASTE,true,true);
                 break;
             case R.id.rlGwaste:
-                mListener.startFragment(Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE,true,true);
+                mListener.startFragment(new GWasteListFragment(),Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE,true,true);
                 break;
             case R.id.rlPatients:
-                mListener.startFragment(Constants.FRAGMENT_MONTHLY_PATIENTS,true,true);
+                mListener.startFragment(new PatientListFragment(),Constants.FRAGMENT_MONTHLY_PATIENTS,true,true);
                 break;
             case R.id.rlRecycle:
-                mListener.startFragment(Constants.FRAGMENT_RECYCLED_ITEMS,true,true);
+                mListener.startFragment(new RecycledListFragment(),Constants.FRAGMENT_RECYCLED_ITEMS,true,true);
                 break;
         }
     }

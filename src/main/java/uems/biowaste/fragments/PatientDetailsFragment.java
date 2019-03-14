@@ -33,8 +33,7 @@ public class PatientDetailsFragment extends Fragment {
     }
 
     public interface OnFragmentInteractionListener {
-        void  startFragment(String fragmentName,boolean addToBackStack,boolean isAdd);
-        void  startFragment(Fragment fragment,boolean addToBackStack,boolean isAdd);
+        void  startFragment(Fragment fragment,String fragmentName,boolean addToBackStack,boolean isAdd);
     }
 
     @Override

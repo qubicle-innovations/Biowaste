@@ -3,6 +3,7 @@ package uems.biowaste.fragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,7 +48,7 @@ public class LoginFragment extends android.support.v4.app.Fragment {
     }
 
     public interface OnFragmentInteractionListener {
-        void  startFragment(String fragmentName,boolean addToBackStack,boolean isAdd);
+        void  startFragment(Fragment fragment, String fragmentName, boolean addToBackStack, boolean isAdd);
     }
 
     @Override
@@ -122,7 +123,7 @@ public class LoginFragment extends android.support.v4.app.Fragment {
                          Utils.setSharedPreference(getContext(),"url",url);
                      }
                      if (getContext() != null )
-                         mListener.startFragment(Constants.FRAGMENT_DASHBOARD,true,false);
+                         mListener.startFragment(new DashboardFragment(),Constants.FRAGMENT_DASHBOARD,true,false);
                  }else {
                      Utils.showError("Invalid username or password",btLogin);
                  }

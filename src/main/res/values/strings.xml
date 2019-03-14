@@ -43,10 +43,16 @@
     <string name="biowaste">Biowaste</string>
     <string name="recycled_items">Recycled items</string>
     <string name="monthly_payments">Monthly payments</string>
-    <string name="food_and_general_waste_details">Navigation food and general waste details</string>
+
+    <string name="food_and_general_waste_details">Food and general waste details</string>
     <string name="biowaste_details">Biowaste details</string>
     <string name="recycled_items_details">Recycled items details</string>
     <string name="monthly_payments_details">Monthly payments details</string>
+
+    <string name="food_and_general_waste_create">Food and general waste create</string>
+    <string name="biowaste_create">Biowaste create</string>
+    <string name="recycled_items_create">Recycled items create</string>
+    <string name="monthly_payments_create">Monthly payments create</string>
 
     <string name="general_waste">General waste</string>
     <string name="biowaste_disposal_cost">Biowaste disposal cost</string>

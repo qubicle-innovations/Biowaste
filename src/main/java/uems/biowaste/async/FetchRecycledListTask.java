@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import uems.biowaste.HomeActivity;
 import uems.biowaste.RecycledListActivity;
 import uems.biowaste.http.RestURLClient;
 import uems.biowaste.utils.Constants;
@@ -65,6 +66,8 @@ public class FetchRecycledListTask extends
 
 		if (ctx instanceof RecycledListActivity) {
 			 ((RecycledListActivity) ctx).listResponse(result);
+		}else if (ctx instanceof HomeActivity) {
+			((HomeActivity) ctx).listResponse(result);
 		}
 	
 

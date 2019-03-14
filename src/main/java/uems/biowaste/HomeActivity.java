@@ -1,14 +1,11 @@
 package uems.biowaste;
 
-import android.app.Activity;
-import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -28,15 +25,22 @@ import android.widget.Toast;
 import java.util.Calendar;
 import java.util.List;
 
+import uems.biowaste.fragments.BioWasteListFragment;
+import uems.biowaste.fragments.BiowasteCreateFragment;
 import uems.biowaste.fragments.BiowasteDetailsFragment;
 import uems.biowaste.fragments.DashboardFragment;
 import uems.biowaste.fragments.DetailsFragment;
+import uems.biowaste.fragments.GWasteListFragment;
 import uems.biowaste.fragments.GwasteCreateFragments;
 import uems.biowaste.fragments.GwasteDetailsFragment;
 import uems.biowaste.fragments.ItemFragment;
 import uems.biowaste.fragments.LoginFragment;
+import uems.biowaste.fragments.PatientCreateFragment;
 import uems.biowaste.fragments.PatientDetailsFragment;
 import uems.biowaste.fragments.PatientListFragment;
+import uems.biowaste.fragments.RecycledCreateFragment;
+import uems.biowaste.fragments.RecycledDetailsFragment;
+import uems.biowaste.fragments.RecycledListFragment;
 import uems.biowaste.fragments.dummy.DummyContent;
 import uems.biowaste.utils.Constants;
 import uems.biowaste.utils.CustomTypefaceSpan;
@@ -46,9 +50,14 @@ import uems.biowaste.vo.TResponse;
 import uems.biowaste.vo.UserVo;
 
 public class HomeActivity extends AppCompatActivity implements ItemFragment.OnListFragmentInteractionListener, DetailsFragment.OnFragmentInteractionListener,
-        DashboardFragment.OnFragmentInteractionListener,LoginFragment.OnFragmentInteractionListener,GwasteCreateFragments.OnFragmentInteractionListener
+        DashboardFragment.OnFragmentInteractionListener,LoginFragment.OnFragmentInteractionListener,GwasteCreateFragments.OnFragmentInteractionListener,
+        GWasteListFragment.OnFragmentInteractionListener,GwasteDetailsFragment.OnFragmentInteractionListener,PatientListFragment.OnFragmentInteractionListener,
+        PatientDetailsFragment.OnFragmentInteractionListener, PatientCreateFragment.OnFragmentInteractionListener,RecycledListFragment.OnFragmentInteractionListener,
+        RecycledDetailsFragment.OnFragmentInteractionListener, RecycledCreateFragment.OnFragmentInteractionListener,BiowasteDetailsFragment.OnFragmentInteractionListener,
+        BioWasteListFragment.OnFragmentInteractionListener, BiowasteCreateFragment.OnFragmentInteractionListener
         {
 
+    private Long backButtonPressedTime = -1L ;
 
     private DrawerLayout mDrawerLayout;
     private ImageView toolbarMenuImageView;
@@ -72,21 +81,16 @@ public class HomeActivity extends AppCompatActivity implements ItemFragment.OnLi
         fragmentManger = new FragmentManger(getApplicationContext(), this, toolbarMenuImageView, toolbarBackImageView,
                  toolbar,  toolbarTextView,  toolbarUETrackImageView);
         if (me != null && me.getUserID() != null) {
-            startFragment(Constants.FRAGMENT_DASHBOARD,false,true);
+            startFragment(new DashboardFragment(),Constants.FRAGMENT_DASHBOARD,false,true);
         }else{
-            startFragment(Constants.FRAGMENT_LOGIN,false,true);
+            startFragment(new LoginFragment(),Constants.FRAGMENT_LOGIN,false,true);
         }
 
     }
 
     @Override
-    public void startFragment(Fragment fragment,boolean addToBackStack,boolean isAdd){
-        fragmentManger.startFragment(fragment,addToBackStack,isAdd);
-    }
-
-    @Override
-    public void startFragment(String fragmentName,boolean addToBackStack,boolean isAdd){
-        fragmentManger.startFragment(fragmentName,addToBackStack,isAdd);
+    public void startFragment(Fragment fragment,String fragmentName,boolean addToBackStack,boolean isAdd){
+        fragmentManger.startFragment(fragment,fragmentName,addToBackStack,isAdd);
     }
 
     private void init() {
@@ -94,12 +98,31 @@ public class HomeActivity extends AppCompatActivity implements ItemFragment.OnLi
         initToolBar(null);
     }
 
-
-
     @Override
     public void onBackPressed() {
-        fragmentManger.onBackPressedBefore();
-        super.onBackPressed();
+        boolean isBackButtonPressDelayed = false;
+        List<Fragment> fragmentList = getSupportFragmentManager().getFragments();
+        if (!fragmentList.isEmpty() ) {
+            String fragmentName = fragmentList.get(fragmentList.size()-1).getTag();
+            if (fragmentName != null) {
+                if (fragmentName.equals(Constants.FRAGMENT_DASHBOARD)
+                        || fragmentName.equals(Constants.FRAGMENT_BIOWASTE)
+                        || fragmentName.equals(Constants.FRAGMENT_RECYCLED_ITEMS)
+                        || fragmentName.equals(Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE)
+                        || fragmentName.equals(Constants.FRAGMENT_MONTHLY_PATIENTS)) {
+                    Long currentTime = Calendar.getInstance().getTimeInMillis();
+                    if(backButtonPressedTime == -1 || backButtonPressedTime < currentTime - 3000){
+                        backButtonPressedTime = currentTime;
+                        isBackButtonPressDelayed = true;
+                        Toast.makeText(getApplicationContext(), getText(R.string.back_button_delay_message), Toast.LENGTH_SHORT).show();
+                    }else{
+                       finish();
+                    }
+                }
+            }
+        }
+        if(!isBackButtonPressDelayed)
+            super.onBackPressed();
         fragmentManger.onBackPressedAfter();
     }
 
@@ -157,7 +180,6 @@ public class HomeActivity extends AppCompatActivity implements ItemFragment.OnLi
                     }
                 });
 
-
         Menu m = navigationView.getMenu();
         for (int i=0;i<m.size();i++) {
             MenuItem mi = m.getItem(i);
@@ -170,11 +192,9 @@ public class HomeActivity extends AppCompatActivity implements ItemFragment.OnLi
                     applyFontToMenuItem(subMenuItem);
                 }
             }
-
             //the method we have create in activity
             applyFontToMenuItem(mi);
         }
-
 
         tvUsername =  findViewById(R.id.navigationNameTextView);
         tvEmpID =  findViewById(R.id.navigationIdTextView);
@@ -187,42 +207,42 @@ public class HomeActivity extends AppCompatActivity implements ItemFragment.OnLi
             public void onClick(View view) {
                 showMenu();
                 Utils.setUser(getApplicationContext(),null);
-                startFragment(Constants.FRAGMENT_LOGIN,false,false);
+                startFragment(new LoginFragment(),Constants.FRAGMENT_LOGIN,false,false);
             }
         });
         findViewById(R.id.navigationGeneralWasteFrameLayout).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showMenu();
-                startFragment(Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE,false,true);
+                startFragment(new GWasteListFragment(),Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE,true,true);
             }
         });
         findViewById(R.id.navigationBioWasteDisposalFrameLayout).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View ic_view) {
                 showMenu();
-                startFragment(Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE,false,true);
+                startFragment(new BioWasteListFragment(),Constants.FRAGMENT_BIOWASTE,true,true);
             }
         });
         findViewById(R.id.navigationRecycleItemsFrameLayout).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View ic_view) {
                 showMenu();
-                startFragment(Constants.FRAGMENT_RECYCLED_ITEMS,false,true);
+                startFragment(new RecycledListFragment(),Constants.FRAGMENT_RECYCLED_ITEMS,true,true);
             }
         });
         findViewById(R.id.navigationMonthlyPatientFrameLayout).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showMenu();
-                startFragment(Constants.FRAGMENT_MONTHLY_PATIENTS,false,true);
+                startFragment(new PatientListFragment(),Constants.FRAGMENT_MONTHLY_PATIENTS,true,true);
             }
         });
         findViewById(R.id.navigationDashboardFrameLayout).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View ic_view) {
                 showMenu();
-                startFragment(Constants.FRAGMENT_DASHBOARD,false,true);
+                startFragment(new DashboardFragment(),Constants.FRAGMENT_DASHBOARD,false,true);
             }
         });
 
@@ -263,27 +283,68 @@ public class HomeActivity extends AppCompatActivity implements ItemFragment.OnLi
     }
 
     public void saveResponse(TResponse<String> result) {
-        Fragment fragment = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE);
-        if(fragment != null && fragment.isVisible()){
-            ((GwasteCreateFragments)fragment).saveResponse(result);
+        try {
+            Fragment fragment = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE_CREATE);
+            if(fragment != null && fragment.isVisible()){
+                ((GwasteCreateFragments)fragment).saveResponse(result);
+            }
+            fragment = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_MONTHLY_PATIENTS_CREATE);
+            if(fragment != null && fragment.isVisible()){
+                ((PatientCreateFragment)fragment).saveResponse(result);
+            }
+            fragment = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_RECYCLED_ITEMS_CREATE);
+            if(fragment != null && fragment.isVisible()){
+                ((RecycledCreateFragment)fragment).saveResponse(result);
+            }
+            fragment = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_BIOWASTE_CREATE);
+            if(fragment != null && fragment.isVisible()){
+                ((BiowasteCreateFragment)fragment).saveResponse(result);
+            }
+        }catch (ClassCastException ex){
+            ex.printStackTrace();
         }
     }
 
     public void listResponse(TResponse<String> result) {
-        Fragment fragment = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_MONTHLY_PATIENTS);
-        if(fragment != null && fragment.isVisible()){
-            ((PatientListFragment)fragment).listResponse(result);
+        try{
+            Fragment fragment = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_MONTHLY_PATIENTS);
+            if(fragment != null && fragment.isVisible() && fragment.isResumed()){
+                ((PatientListFragment)fragment).listResponse(result);
+            }
+            fragment = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE);
+            if(fragment != null && fragment.isVisible() && fragment.isResumed()){
+                ((GWasteListFragment)fragment).listResponse(result);
+            }
+            fragment = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_BIOWASTE);
+            if(fragment != null && fragment.isVisible() && fragment.isResumed()){
+                ((BioWasteListFragment)fragment).listResponse(result);
+            }
+            fragment = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_RECYCLED_ITEMS);
+            if(fragment != null && fragment.isVisible() && fragment.isResumed()){
+                ((RecycledListFragment)fragment).listResponse(result);
+            }
+        }catch (ClassCastException ex){
+            ex.printStackTrace();
         }
     }
 
     public void detailsResponse(TResponse<String> result) {
-        Fragment fragment = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_BIOWASTE_DETAILS);
-        if(fragment != null && fragment.isVisible()){
-            ((BiowasteDetailsFragment)fragment).detailsResponse(result);
-        }
-        fragment = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE_DETAILS);
-        if(fragment != null && fragment.isVisible()){
-            ((GwasteDetailsFragment)fragment).detailsResponse(result);
+        try{
+            Fragment fragment = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_BIOWASTE_DETAILS);
+            if(fragment != null && fragment.isVisible()){
+                ((BiowasteDetailsFragment)fragment).detailsResponse(result);
+            }
+            fragment = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE_DETAILS);
+            if(fragment != null && fragment.isVisible()){
+                ((GwasteDetailsFragment)fragment).detailsResponse(result);
+            }
+            fragment = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_RECYCLED_ITEMS_DETAILS);
+            if(fragment != null && fragment.isVisible()){
+                ((RecycledDetailsFragment)fragment).detailsResponse(result);
+            }
+        }catch (ClassCastException ex){
+            ex.printStackTrace();
         }
     }
+
 }

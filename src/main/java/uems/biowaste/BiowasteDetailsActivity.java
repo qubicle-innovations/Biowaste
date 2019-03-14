@@ -29,18 +29,18 @@ public class BiowasteDetailsActivity extends BaseBackActivity {
         setToolbar("Biowaste");
         vo = (BioWasteItemVo) getIntent().getSerializableExtra("vo");
         initLayout();
-        new FetchBioWasteDetailsTask(context).execute(new String[]{vo.getItemID(),me.getEmailID()});
+        new FetchBioWasteDetailsTask(context).execute(vo.getItemID(),me.getEmailID());
 
     }
 
     public void initLayout() {
 
-        TextView detailsMonthTextView = (TextView) findViewById(R.id.detailsMonthTextView);
-        TextView detailsDateTextView = (TextView) findViewById(R.id.detailsDateTextView);
-        TextView detailsNameTextView = (TextView) findViewById(R.id.detailsNameTextView);
+        TextView detailsMonthTextView = findViewById(R.id.detailsMonthTextView);
+        TextView detailsDateTextView =  findViewById(R.id.detailsDateTextView);
+        TextView detailsNameTextView =  findViewById(R.id.detailsNameTextView);
 
-        EditText detailsWeightTextView = (EditText) findViewById(R.id.detailsWeightTextView);
-        EditText detailsNoOfHaulageTextView = (EditText) findViewById(R.id.detailsNoOfHaulageTextView);
+        EditText detailsWeightTextView =  findViewById(R.id.detailsWeightTextView);
+        EditText detailsNoOfHaulageTextView =  findViewById(R.id.detailsNoOfHaulageTextView);
         findViewById(R.id.detailsSubmitButton).setVisibility(View.GONE);
         detailsWeightTextView.setFocusable(false);
         detailsNoOfHaulageTextView.setFocusable(false);

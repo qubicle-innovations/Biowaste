@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import uems.biowaste.HomeActivity;
 import uems.biowaste.RecycledDetailsActivity;
 import uems.biowaste.http.RestURLClient;
 import uems.biowaste.utils.Constants;
@@ -64,6 +65,8 @@ public class FetchRecycledDetailsTask extends
 
 		if (ctx instanceof RecycledDetailsActivity) {
 			 ((RecycledDetailsActivity) ctx).detailsResponse(result);
+		}else if (ctx instanceof HomeActivity) {
+			((HomeActivity) ctx).detailsResponse(result);
 		}
 	
 

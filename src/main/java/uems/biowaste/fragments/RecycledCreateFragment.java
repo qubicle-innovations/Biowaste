@@ -64,7 +64,7 @@ public class RecycledCreateFragment extends Fragment implements View.OnClickList
     }
 
     public interface OnFragmentInteractionListener {
-        void  startFragment(String fragmentName,boolean addToBackStack,boolean isAdd);
+        void  startFragment(Fragment fragment,String fragmentName,boolean addToBackStack,boolean isAdd);
     }
 
 

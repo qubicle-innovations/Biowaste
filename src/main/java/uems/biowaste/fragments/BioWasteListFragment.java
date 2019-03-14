@@ -1,7 +1,6 @@
 package uems.biowaste.fragments;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -35,6 +34,7 @@ import java.util.List;
 import uems.biowaste.R;
 import uems.biowaste.adapter.BiowasteListAdapter;
 import uems.biowaste.async.FetchBioWasteListTask;
+import uems.biowaste.utils.Constants;
 import uems.biowaste.utils.Utils;
 import uems.biowaste.vo.BioWasteItemVo;
 import uems.biowaste.vo.TResponse;
@@ -54,13 +54,13 @@ public class BioWasteListFragment extends Fragment {
     TextView tvMonth ;
 
     public UserVo me;
-    private PatientListFragment.OnFragmentInteractionListener mListener;
+    private BioWasteListFragment.OnFragmentInteractionListener mListener;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof PatientListFragment.OnFragmentInteractionListener) {
-            mListener = (PatientListFragment.OnFragmentInteractionListener) context;
+        if (context instanceof BioWasteListFragment.OnFragmentInteractionListener) {
+            mListener = (BioWasteListFragment.OnFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
@@ -68,8 +68,7 @@ public class BioWasteListFragment extends Fragment {
     }
 
     public interface OnFragmentInteractionListener {
-        void  startFragment(String fragmentName,boolean addToBackStack,boolean isAdd);
-        void  startFragment(Fragment fragment,boolean addToBackStack,boolean isAdd);
+        void  startFragment(Fragment fragment,String fragmentName,boolean addToBackStack,boolean isAdd);
     }
 
     @Override
@@ -81,7 +80,6 @@ public class BioWasteListFragment extends Fragment {
         return view;
     }
 
-
     @Override
     public void onResume() {
         super.onResume();
@@ -92,7 +90,6 @@ public class BioWasteListFragment extends Fragment {
             imSearch.setVisibility(View.INVISIBLE);
         swipeRefreshLayout.setRefreshing(true);
         new FetchBioWasteListTask(getActivity()).execute(date, me.getEmailID(), "0");
-
     }
 
     public void initLayout(View view) {
@@ -110,7 +107,8 @@ public class BioWasteListFragment extends Fragment {
         view.findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-             startActivity(new Intent(getContext(), BiowasteCreateFragment.class));
+            mListener.startFragment(new BiowasteCreateFragment(),Constants.FRAGMENT_BIOWASTE_CREATE,true,true);
+
             }
         });
 
@@ -161,8 +159,6 @@ public class BioWasteListFragment extends Fragment {
         });
     }
 
-
-
     public void listResponse(TResponse<String> result) {
 
         swipeRefreshLayout.setRefreshing(false);
@@ -173,7 +169,6 @@ public class BioWasteListFragment extends Fragment {
             Utils.showError(" please check network connection", listView);
         } else if (result.isHasError()) {
             Utils.showError("please try later", listView);
-
         } else if (result.getResponseContent() != null) {
             try {
                 JSONObject jsonObject = new JSONObject(result.getResponseContent());
@@ -200,25 +195,28 @@ public class BioWasteListFragment extends Fragment {
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            Intent intent = new Intent(getContext(), BiowasteDetailsFragment.class);
-                            intent.putExtra("vo",adapter.getProduct(position));
-                            startActivity(intent);
+
+                            Fragment fragment = new BiowasteDetailsFragment();
+                            Bundle bundle = new Bundle();
+                            bundle.putSerializable("vo",adapter.getProduct(position));
+                            fragment.setArguments(bundle);
+
+                            mListener.startFragment(fragment,Constants.FRAGMENT_BIOWASTE_DETAILS,true,true);
+
                         }
                     });
-                }/*
+                }
                 else if(ad != null && ad.isEmpty()&&adapter!=null){
 
-                } */else if(getContext() != null){
+                } else if(getContext() != null){
                     previousTotal = 0;
                     BiowasteListAdapter adapter = new BiowasteListAdapter(getContext(), new ArrayList<BioWasteItemVo>());
                     listView.setAdapter(adapter);
                     Utils.showError("No record found", listView);
                 }
 
-
             } catch (Exception e) {
                 Utils.showError("please try later", listView);
-
                 Log.e("parse order", e.toString());
             }
         }
@@ -308,7 +306,6 @@ public class BioWasteListFragment extends Fragment {
 
         EndlessScrollListener() {
         }
-
 
         @Override
         public void onScroll(AbsListView view, int firstVisibleItem,

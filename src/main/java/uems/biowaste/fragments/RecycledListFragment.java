@@ -39,6 +39,7 @@ import java.util.List;
 import uems.biowaste.R;
 import uems.biowaste.adapter.GwasteListAdapter;
 import uems.biowaste.async.FetchRecycledListTask;
+import uems.biowaste.utils.Constants;
 import uems.biowaste.utils.DateUtil;
 import uems.biowaste.utils.Utils;
 import uems.biowaste.vo.ItemVo;
@@ -75,8 +76,7 @@ public class RecycledListFragment extends Fragment {
     }
 
     public interface OnFragmentInteractionListener {
-        void  startFragment(String fragmentName,boolean addToBackStack,boolean isAdd);
-        void  startFragment(Fragment fragment,boolean addToBackStack,boolean isAdd);
+        void  startFragment(Fragment fragment,String fragmentName,boolean addToBackStack,boolean isAdd);
     }
 
     @Override
@@ -114,7 +114,7 @@ public class RecycledListFragment extends Fragment {
         view.findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getContext(), RecycledCreateFragment.class));
+                mListener.startFragment(new RecycledCreateFragment(), Constants.FRAGMENT_RECYCLED_ITEMS_CREATE,true,true);
 
             }
         });
@@ -128,6 +128,10 @@ public class RecycledListFragment extends Fragment {
                 new FetchRecycledListTask(getContext()).execute(date, me.getEmailID(), lastItem);
             }
         });
+
+        listView = view.findViewById(R.id.listView);
+        progressBar = view.findViewById(R.id.progressBar);
+        imSearch = view.findViewById(R.id.imSearch);
         textView =  view.findViewById(R.id.tvDate);
         etSearch = view.findViewById(R.id.etSearch);
         etSearch.addTextChangedListener(new TextWatcher() {
@@ -228,15 +232,20 @@ public class RecycledListFragment extends Fragment {
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            Intent intent = new Intent(getContext(), RecycledDetailsFragment.class);
-                            intent.putExtra("vo",adapter.getProduct(position));
-                            startActivity(intent);
+
+
+                            Fragment fragment = new RecycledDetailsFragment();
+                            Bundle bundle = new Bundle();
+                            bundle.putSerializable("vo",adapter.getProduct(position));
+                            fragment.setArguments(bundle);
+                            mListener.startFragment(fragment,Constants.FRAGMENT_RECYCLED_ITEMS_DETAILS,true,true);
+
                         }
                     });
                 }
-/*                else if(ad != null && ad.isEmpty()&&adapter!=null){
+                else if(ad != null && ad.isEmpty()&&adapter!=null){
 
-                }*/
+                }
                 else {
                     if(getContext() != null){
                         previousTotal = 0;

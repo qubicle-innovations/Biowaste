@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import uems.biowaste.Dashboard;
+import uems.biowaste.HomeActivity;
 import uems.biowaste.http.RestURLClient;
 import uems.biowaste.utils.Constants;
 import uems.biowaste.utils.TCustomProgressDailogue;
@@ -71,6 +72,8 @@ public class FetchCountTask extends
 
 		if (ctx instanceof Dashboard) {
 			 ((Dashboard) ctx).countResponse(result);
+		}else if (ctx instanceof HomeActivity) {
+			((HomeActivity) ctx).saveResponse(result);
 		}
 	
 

@@ -6,6 +6,7 @@ import android.util.Log;
 
 import org.json.JSONArray;
 
+import uems.biowaste.HomeActivity;
 import uems.biowaste.PatientCreateActivity;
 import uems.biowaste.http.RestURLClient;
 import uems.biowaste.utils.Constants;
@@ -64,6 +65,8 @@ public class CreatePatientTask extends
 
 		if (ctx instanceof PatientCreateActivity) {
 			 ((PatientCreateActivity) ctx).saveResponse(result);
+		}else if (ctx instanceof HomeActivity) {
+			((HomeActivity) ctx).saveResponse(result);
 		}
 	
 

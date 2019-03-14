@@ -1,7 +1,6 @@
 package uems.biowaste.fragments;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -32,10 +31,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-import uems.biowaste.GwasteCreateActivity;
 import uems.biowaste.R;
 import uems.biowaste.adapter.GwasteListAdapter;
 import uems.biowaste.async.FetchGWasteListTask;
+import uems.biowaste.utils.Constants;
 import uems.biowaste.utils.Utils;
 import uems.biowaste.vo.ItemVo;
 import uems.biowaste.vo.TResponse;
@@ -69,8 +68,7 @@ public class GWasteListFragment extends Fragment {
     }
 
     public interface OnFragmentInteractionListener {
-        void  startFragment(String fragmentName,boolean addToBackStack,boolean isAdd);
-        void  startFragment(Fragment fragment,boolean addToBackStack,boolean isAdd);
+        void  startFragment(Fragment fragment,String fragmentName,boolean addToBackStack,boolean isAdd);
     }
 
     @Override
@@ -110,8 +108,7 @@ public class GWasteListFragment extends Fragment {
         view.findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getContext(),GwasteCreateActivity.class));
-
+                mListener.startFragment(new GwasteCreateFragments(), Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE_CREATE,true,true);
             }
         });
         swipeRefreshLayout = view.findViewById(R.id.swiperefresh);
@@ -201,15 +198,17 @@ public class GWasteListFragment extends Fragment {
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            Intent intent = new Intent(getContext(), GwasteDetailsFragment.class);
-                            intent.putExtra("vo",adapter.getProduct(position));
-                            startActivity(intent);
+                            Fragment fragment = new GwasteDetailsFragment();
+                            Bundle bundle = new Bundle();
+                            bundle.putSerializable("vo",adapter.getProduct(position));
+                            fragment.setArguments(bundle);
+                            mListener.startFragment(fragment,Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE_DETAILS,true,true);
                         }
                     });
                 }
-/*                else if(ad != null && ad.isEmpty()&&adapter!=null){
+                else if(ad != null &&adapter!=null){
 
-                }*/
+                }
                 else if(getContext() != null){
                     previousTotal = 0;
                     GwasteListAdapter adapter = new GwasteListAdapter(getContext(), new ArrayList<ItemVo>(), ContextCompat.getColor(getContext(), R.color.orange));
@@ -302,7 +301,6 @@ public class GWasteListFragment extends Fragment {
                     progressBar.setVisibility(View.VISIBLE);
                     imSearch.setVisibility(View.INVISIBLE);
                     new FetchGWasteListTask(getContext()).execute(date, me.getEmailID(), lastItem);
-
                 }
 
                 loading = true;

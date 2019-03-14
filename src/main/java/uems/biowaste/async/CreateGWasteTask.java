@@ -58,17 +58,14 @@ public class CreateGWasteTask extends
 	@Override
 	protected void onPostExecute(TResponse<String> result) {
 
-
 		if (pd.isShowing()){
 			pd.dismiss();
 		}
-
 		if (ctx instanceof GwasteCreateActivity) {
 			 ((GwasteCreateActivity) ctx).saveResponse(result);
 		}else if (ctx instanceof HomeActivity) {
 			((HomeActivity) ctx).saveResponse(result);
 		}
-	
 
 	}
 

@@ -61,8 +61,7 @@ public class GwasteCreateFragments extends Fragment implements View.OnClickListe
     }
 
     public interface OnFragmentInteractionListener {
-        void  startFragment(String fragmentName,boolean addToBackStack,boolean isAdd);
-        void  startFragment(Fragment fragment,boolean addToBackStack,boolean isAdd);
+        void  startFragment(Fragment fragment,String fragmentName,boolean addToBackStack,boolean isAdd);
     }
 
     @Override
@@ -172,7 +171,7 @@ public class GwasteCreateFragments extends Fragment implements View.OnClickListe
                 boolean status = jsonObject.getBoolean("status");
                 if(status){
                     Toast.makeText(getContext(),"Successfully saved item",Toast.LENGTH_SHORT).show();
-                    mListener.startFragment(Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE,false,true);
+                    mListener.startFragment(new GWasteListFragment(),Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE,false,true);
                 }else {
                     Utils.showError("Failed to save item", detailsDateTextView);
                 }

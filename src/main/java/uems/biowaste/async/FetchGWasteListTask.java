@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import uems.biowaste.GWasteListActivity;
+import uems.biowaste.HomeActivity;
 import uems.biowaste.http.RestURLClient;
 import uems.biowaste.utils.Constants;
 import uems.biowaste.utils.TCustomProgressDailogue;
@@ -66,6 +67,8 @@ public class FetchGWasteListTask extends
 
 		if (ctx instanceof GWasteListActivity) {
 			 ((GWasteListActivity) ctx).listResponse(result);
+		}else if (ctx instanceof HomeActivity) {
+			((HomeActivity) ctx).listResponse(result);
 		}
 	
 
