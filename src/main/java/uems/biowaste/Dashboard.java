@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
@@ -181,6 +182,16 @@ public class Dashboard extends BaseActivity implements View.OnClickListener {
 
             }
         }, 1, 1, TimeUnit.MINUTES);
+    }
+
+
+    public void showMenu() {
+        if(mDrawerLayout!=null)
+            if (!mDrawerLayout.isDrawerOpen(Gravity.START)) {
+                mDrawerLayout.openDrawer(Gravity.START);
+            } else {
+                mDrawerLayout.closeDrawer(Gravity.START);
+            }
     }
 
     @Override

@@ -28,7 +28,9 @@
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/constrainLayoutToolbar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="4dp">
 
                 <TextView
                     android:id="@+id/toolbarDetailsTextView"
@@ -51,7 +53,7 @@
                     android:id="@+id/toolbarTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="40dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
                     android:fontFamily="@font/montserrat_bold"
@@ -59,14 +61,14 @@
                     android:textColor="@color/white"
                     android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/toolbarBackImageView"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/toolbarMenuImageView"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="parent"
@@ -80,7 +82,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -100,8 +102,6 @@
                     app:layout_constraintStart_toEndOf="@+id/toolbarMenuImageView"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ic_top_logo" />
-
-
 
 
             </android.support.constraint.ConstraintLayout>

@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import uems.biowaste.BiowasteDetailsActivity;
+import uems.biowaste.HomeActivity;
 import uems.biowaste.http.RestURLClient;
 import uems.biowaste.utils.Constants;
 import uems.biowaste.utils.TCustomProgressDailogue;
@@ -64,6 +65,8 @@ public class FetchBioWasteDetailsTask extends
 
 		if (ctx instanceof BiowasteDetailsActivity) {
 			 ((BiowasteDetailsActivity) ctx).detailsResponse(result);
+		}else if (ctx instanceof HomeActivity) {
+			((HomeActivity) ctx).detailsResponse(result);
 		}
 	
 

@@ -43,17 +43,17 @@ public class GwasteCreateActivity extends BaseBackActivity implements View.OnCli
 
     public void initLayout() {
 
-        TextView detailsMonthTextView = (TextView) findViewById(R.id.detailsMonthTextView);
-        TextView detailsDateTextView = (TextView) findViewById(R.id.detailsDateTextView);
-        TextView detailsNameTextView = (TextView) findViewById(R.id.detailsNameTextView);
+        TextView detailsMonthTextView =  findViewById(R.id.detailsMonthTextView);
+        TextView detailsDateTextView =  findViewById(R.id.detailsDateTextView);
+        TextView detailsNameTextView =  findViewById(R.id.detailsNameTextView);
 
-        EditText detailsWeightTextView = (EditText) findViewById(R.id.detailsWeightTextView);
-        EditText detailsNoOfHaulageTextView = (EditText) findViewById(R.id.detailsNoOfHaulageTextView);
+        EditText detailsWeightTextView =  findViewById(R.id.detailsWeightTextView);
+        EditText detailsNoOfHaulageTextView =  findViewById(R.id.detailsNoOfHaulageTextView);
 
-        EditText detailsDisposalFeeTextView = (EditText) findViewById(R.id.detailsDisposalFeeTextView);
-        EditText detailsHuelageChargeTextView = (EditText) findViewById(R.id.detailsHuelageChargeTextView);
+        EditText detailsDisposalFeeTextView =  findViewById(R.id.detailsDisposalFeeTextView);
+        EditText detailsHuelageChargeTextView =  findViewById(R.id.detailsHuelageChargeTextView);
 
-        TextView detailsTotalDisposaFeeTextView = (TextView) findViewById(R.id.detailsTotalDisposaFeeTextView);
+        TextView detailsTotalDisposaFeeTextView =  findViewById(R.id.detailsTotalDisposaFeeTextView);
 
         findViewById(R.id.detailsSubmitButton).setOnClickListener(this);
         detailsMonthTextView.setOnClickListener(this);
@@ -78,8 +78,8 @@ public class GwasteCreateActivity extends BaseBackActivity implements View.OnCli
 
             @Override
             public void afterTextChanged(Editable s) {
-                EditText detailsHuelageChargeTextView = (EditText) findViewById(R.id.detailsHuelageChargeTextView);
-                TextView detailsTotalDisposaFeeTextView = (TextView) findViewById(R.id.detailsTotalDisposaFeeTextView);
+                EditText detailsHuelageChargeTextView =  findViewById(R.id.detailsHuelageChargeTextView);
+                TextView detailsTotalDisposaFeeTextView =  findViewById(R.id.detailsTotalDisposaFeeTextView);
 
                 double disfee =0;
                 if(s!=null&&s.length()>0){
@@ -138,9 +138,7 @@ public class GwasteCreateActivity extends BaseBackActivity implements View.OnCli
                     finish();
                 }else{
                     showError("Failed to save item", findViewById(R.id.detailsDateTextView));
-
                 }
-
 
             } catch (Exception e) {
                 showError("please try later", findViewById(R.id.detailsDateTextView));

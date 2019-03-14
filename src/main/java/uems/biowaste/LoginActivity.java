@@ -34,8 +34,8 @@ public class LoginActivity extends BaseActivity {
                 login();
             }
         });
-
     }
+
     public void login(){
         EditText etUsername = (EditText) findViewById(R.id.etUsername);
         EditText etPassword = (EditText) findViewById(R.id.etPassword);
@@ -57,6 +57,7 @@ public class LoginActivity extends BaseActivity {
         new LoginTask(context).execute(new String[]{Utils.getText(etUsername),Utils.getText(etPassword)});
 
     }
+
 
 
     public void loginResponse(TResponse<String> result) {

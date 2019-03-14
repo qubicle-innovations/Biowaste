@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import uems.biowaste.HomeActivity;
 import uems.biowaste.PatientListActivity;
 import uems.biowaste.http.RestURLClient;
 import uems.biowaste.utils.Constants;
@@ -64,7 +65,9 @@ public class FetchPatientListTask extends
 //		}
 
 		if (ctx instanceof PatientListActivity) {
-			 ((PatientListActivity) ctx).listResponse(result);
+			((PatientListActivity) ctx).listResponse(result);
+		}else if (ctx instanceof HomeActivity) {
+			((HomeActivity) ctx).listResponse(result);
 		}
 	
 

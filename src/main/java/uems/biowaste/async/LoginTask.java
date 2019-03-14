@@ -14,6 +14,7 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 
+import uems.biowaste.HomeActivity;
 import uems.biowaste.LoginActivity;
 import uems.biowaste.utils.Constants;
 import uems.biowaste.utils.TCustomProgressDailogue;
@@ -92,6 +93,8 @@ public class LoginTask extends
 
         if (ctx instanceof LoginActivity) {
             ((LoginActivity) ctx).loginResponse(result);
+        }else if (ctx instanceof HomeActivity) {
+            ((HomeActivity) ctx).loginResponse(result);
         }
 
 

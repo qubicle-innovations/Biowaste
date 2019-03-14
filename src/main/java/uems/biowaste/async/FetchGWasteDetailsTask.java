@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import uems.biowaste.GwasteDetailsActivity;
+import uems.biowaste.HomeActivity;
 import uems.biowaste.http.RestURLClient;
 import uems.biowaste.utils.Constants;
 import uems.biowaste.utils.TCustomProgressDailogue;
@@ -29,7 +30,7 @@ public class FetchGWasteDetailsTask extends
 
 	@Override
 	protected TResponse<String> doInBackground(String... params) {
-		TResponse<String> response =  new TResponse<String>();
+		TResponse<String> response =  new TResponse<>();
 
 			 try{
 				 RestURLClient client = new RestURLClient(Constants.GET_GWASTE_DETAILS, true);
@@ -64,6 +65,8 @@ public class FetchGWasteDetailsTask extends
 
 		if (ctx instanceof GwasteDetailsActivity) {
 			 ((GwasteDetailsActivity) ctx).detailsResponse(result);
+		}else if (ctx instanceof HomeActivity) {
+			((HomeActivity) ctx).detailsResponse(result);
 		}
 	
 

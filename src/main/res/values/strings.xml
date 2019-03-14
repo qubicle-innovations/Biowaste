@@ -29,6 +29,7 @@
     <string name="biowaste_disposal">Biowaste disposal</string>
     <string name="monthly_patients_forms">Monthly patients form</string>
     <string name="logout">Logout</string>
+    <string name="select">Select</string>
     <string name="total_bin">Total bin</string>
     <string name="total_cost">Total cost $</string>
 
@@ -47,12 +48,13 @@
     <string name="recycled_items_details">Recycled items details</string>
     <string name="monthly_payments_details">Monthly payments details</string>
 
-    <string name="general_waste">General saste</string>
+    <string name="general_waste">General waste</string>
     <string name="biowaste_disposal_cost">Biowaste disposal cost</string>
     <string name="recycle_item_disposal">Recycled items disposal</string>
     <string name="total_patients">Total patients</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="back_button_delay_message">Please click BACK twice to exit</string>
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

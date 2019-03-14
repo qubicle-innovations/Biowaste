@@ -7,6 +7,7 @@ import android.util.Log;
 import org.json.JSONArray;
 
 import uems.biowaste.GwasteCreateActivity;
+import uems.biowaste.HomeActivity;
 import uems.biowaste.http.RestURLClient;
 import uems.biowaste.utils.Constants;
 import uems.biowaste.utils.TCustomProgressDailogue;
@@ -64,6 +65,8 @@ public class CreateGWasteTask extends
 
 		if (ctx instanceof GwasteCreateActivity) {
 			 ((GwasteCreateActivity) ctx).saveResponse(result);
+		}else if (ctx instanceof HomeActivity) {
+			((HomeActivity) ctx).saveResponse(result);
 		}
 	
 

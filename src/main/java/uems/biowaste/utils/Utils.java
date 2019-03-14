@@ -17,6 +17,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -80,6 +81,11 @@ public class Utils {
         return output;
     }
 
+    public static void showError(String msg, View view) {
+        Snackbar snackbar = Snackbar.make(view, msg, Snackbar.LENGTH_LONG);
+        snackbar.show();
+    }
+
     public static Bitmap getThumbnail(Uri uri, Context context) throws FileNotFoundException, IOException {
         InputStream input = context.getContentResolver().openInputStream(uri);
 
@@ -133,7 +139,7 @@ public class Utils {
         }
         return null;
     }
-public static UserVo getUser(Context context){
+    public static UserVo getUser(Context context){
         try{
             String user = getSharedPreference(context, "userObject");
             Log.v("user", user);
@@ -152,10 +158,9 @@ public static UserVo getUser(Context context){
         try{
             if(user==null){
                 deleteSharedPreference(context,"userObject");
-
             }else{
                 ObjectMapper mapper = new ObjectMapper();
-                String result=	mapper.writeValueAsString(user);
+                String result =	mapper.writeValueAsString(user);
                 setSharedPreference(context, "userObject", result);
                 Log.v("user", result);
             }

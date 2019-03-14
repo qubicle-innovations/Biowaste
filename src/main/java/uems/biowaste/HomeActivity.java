@@ -1,12 +1,19 @@
 package uems.biowaste;
 
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.view.Gravity;
@@ -15,61 +22,141 @@ import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import uems.biowaste.fragments.Dashboard;
+import java.util.Calendar;
+import java.util.List;
+
+import uems.biowaste.fragments.BiowasteDetailsFragment;
+import uems.biowaste.fragments.DashboardFragment;
 import uems.biowaste.fragments.DetailsFragment;
+import uems.biowaste.fragments.GwasteCreateFragments;
+import uems.biowaste.fragments.GwasteDetailsFragment;
 import uems.biowaste.fragments.ItemFragment;
+import uems.biowaste.fragments.LoginFragment;
+import uems.biowaste.fragments.PatientDetailsFragment;
+import uems.biowaste.fragments.PatientListFragment;
 import uems.biowaste.fragments.dummy.DummyContent;
+import uems.biowaste.utils.Constants;
 import uems.biowaste.utils.CustomTypefaceSpan;
+import uems.biowaste.utils.FragmentManger;
+import uems.biowaste.utils.Utils;
+import uems.biowaste.vo.TResponse;
+import uems.biowaste.vo.UserVo;
 
-public class HomeActivity extends AppCompatActivity implements ItemFragment.OnListFragmentInteractionListener, DetailsFragment.OnFragmentInteractionListener,Dashboard.OnFragmentInteractionListener {
+public class HomeActivity extends AppCompatActivity implements ItemFragment.OnListFragmentInteractionListener, DetailsFragment.OnFragmentInteractionListener,
+        DashboardFragment.OnFragmentInteractionListener,LoginFragment.OnFragmentInteractionListener,GwasteCreateFragments.OnFragmentInteractionListener
+        {
 
 
-    private DrawerLayout drawerLayout;
+    private DrawerLayout mDrawerLayout;
     private ImageView toolbarMenuImageView;
+    private ImageView toolbarBackImageView;
+    private ImageView toolbarUETrackImageView;
+    public UserVo me;
 
+    Toolbar toolbar ;
+    TextView tvUsername;
+    TextView tvEmpID ;
+    TextView toolbarTextView ;
+
+    FragmentManger fragmentManger;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
-        getSupportFragmentManager().beginTransaction().replace(R.id.container,new Dashboard()).commit();
-
+        me = Utils.getUser(getApplicationContext());
         init();
-        setUpNavigation();
+        fragmentManger = new FragmentManger(getApplicationContext(), this, toolbarMenuImageView, toolbarBackImageView,
+                 toolbar,  toolbarTextView,  toolbarUETrackImageView);
+        if (me != null && me.getUserID() != null) {
+            startFragment(Constants.FRAGMENT_DASHBOARD,false,true);
+        }else{
+            startFragment(Constants.FRAGMENT_LOGIN,false,true);
+        }
 
+    }
+
+    @Override
+    public void startFragment(Fragment fragment,boolean addToBackStack,boolean isAdd){
+        fragmentManger.startFragment(fragment,addToBackStack,isAdd);
+    }
+
+    @Override
+    public void startFragment(String fragmentName,boolean addToBackStack,boolean isAdd){
+        fragmentManger.startFragment(fragmentName,addToBackStack,isAdd);
     }
 
     private void init() {
-        drawerLayout = findViewById(R.id.drawer_layout);
-        toolbarMenuImageView = findViewById(R.id.toolbarMenuImageView);
+        initNavigationMenu();
+        initToolBar(null);
     }
 
-    private void setUpNavigation(){
+
+
+    @Override
+    public void onBackPressed() {
+        fragmentManger.onBackPressedBefore();
+        super.onBackPressed();
+        fragmentManger.onBackPressedAfter();
+    }
+
+    public void initToolBar(String title) {
+
+        toolbarMenuImageView = findViewById(R.id.toolbarMenuImageView);
+        toolbarBackImageView = findViewById(R.id.toolbarBackImageView);
+        toolbarUETrackImageView = findViewById(R.id.toolbarUETrackImageView);
+        toolbarMenuImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDrawerLayout.openDrawer(Gravity.START);
+            }
+        });
+        toolbarBackImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+        toolbar =  findViewById(R.id.toolbar2);
+        toolbarTextView =  findViewById(R.id.toolbarTextView);
+        toolbarTextView.setTextColor(Color.WHITE);
+        setSupportActionBar(toolbar);
+
+        if(title == null){
+            toolbarTextView.setVisibility(View.GONE);
+            toolbarUETrackImageView.setVisibility(View.VISIBLE);
+        }else{
+            toolbarTextView.setVisibility(View.VISIBLE);
+            toolbarUETrackImageView.setVisibility(View.GONE);
+            setTitle(title);
+        }
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showMenu();
+            }
+        });
+
+    }
+
+    public void initNavigationMenu() {
+
+        mDrawerLayout =  findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
-                    public boolean onNavigationItemSelected(MenuItem menuItem) {
-                        // set item as selected to persist highlight
+                    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                         menuItem.setChecked(true);
-                        // close drawer when item is tapped
-                        drawerLayout.closeDrawers();
-
-                        // Add code here to update the UI based on the item selected
-                        // For example, swap UI fragments here
-
+                        mDrawerLayout.closeDrawers();
                         return true;
                     }
                 });
 
-        toolbarMenuImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout.openDrawer(Gravity.START);
-            }
-        });
 
         Menu m = navigationView.getMenu();
         for (int i=0;i<m.size();i++) {
@@ -88,7 +175,68 @@ public class HomeActivity extends AppCompatActivity implements ItemFragment.OnLi
             applyFontToMenuItem(mi);
         }
 
+
+        tvUsername =  findViewById(R.id.navigationNameTextView);
+        tvEmpID =  findViewById(R.id.navigationIdTextView);
+        if(me != null && me.getUserName() != null)
+            tvUsername.setText(Utils.toTitleCase(me.getUserName()));
+        tvEmpID.setText("");
+
+        findViewById(R.id.navigationLogoutFrameLayout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showMenu();
+                Utils.setUser(getApplicationContext(),null);
+                startFragment(Constants.FRAGMENT_LOGIN,false,false);
+            }
+        });
+        findViewById(R.id.navigationGeneralWasteFrameLayout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showMenu();
+                startFragment(Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE,false,true);
+            }
+        });
+        findViewById(R.id.navigationBioWasteDisposalFrameLayout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View ic_view) {
+                showMenu();
+                startFragment(Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE,false,true);
+            }
+        });
+        findViewById(R.id.navigationRecycleItemsFrameLayout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View ic_view) {
+                showMenu();
+                startFragment(Constants.FRAGMENT_RECYCLED_ITEMS,false,true);
+            }
+        });
+        findViewById(R.id.navigationMonthlyPatientFrameLayout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showMenu();
+                startFragment(Constants.FRAGMENT_MONTHLY_PATIENTS,false,true);
+            }
+        });
+        findViewById(R.id.navigationDashboardFrameLayout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View ic_view) {
+                showMenu();
+                startFragment(Constants.FRAGMENT_DASHBOARD,false,true);
+            }
+        });
+
     }
+
+    public void showMenu() {
+        if(mDrawerLayout!=null)
+            if (!mDrawerLayout.isDrawerOpen(Gravity.START)) {
+                mDrawerLayout.openDrawer(Gravity.START);
+            } else {
+                mDrawerLayout.closeDrawer(Gravity.START);
+            }
+    }
+
 
     private void applyFontToMenuItem(MenuItem mi) {
         Typeface font =  ResourcesCompat.getFont(this, R.font.montserrat_semi_bold);
@@ -105,5 +253,37 @@ public class HomeActivity extends AppCompatActivity implements ItemFragment.OnLi
     @Override
     public void onListFragmentInteraction(DummyContent.DummyItem item) {
 
+    }
+
+    public void loginResponse(TResponse<String> result) {
+        Fragment fragment = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_LOGIN);
+        if(fragment != null && fragment.isVisible()){
+            ((LoginFragment)fragment).loginResponse(result);
+        }
+    }
+
+    public void saveResponse(TResponse<String> result) {
+        Fragment fragment = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE);
+        if(fragment != null && fragment.isVisible()){
+            ((GwasteCreateFragments)fragment).saveResponse(result);
+        }
+    }
+
+    public void listResponse(TResponse<String> result) {
+        Fragment fragment = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_MONTHLY_PATIENTS);
+        if(fragment != null && fragment.isVisible()){
+            ((PatientListFragment)fragment).listResponse(result);
+        }
+    }
+
+    public void detailsResponse(TResponse<String> result) {
+        Fragment fragment = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_BIOWASTE_DETAILS);
+        if(fragment != null && fragment.isVisible()){
+            ((BiowasteDetailsFragment)fragment).detailsResponse(result);
+        }
+        fragment = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE_DETAILS);
+        if(fragment != null && fragment.isVisible()){
+            ((GwasteDetailsFragment)fragment).detailsResponse(result);
+        }
     }
 }
