@@ -92,7 +92,7 @@ public class RecycledCreateActivity extends BaseBackActivity implements View.OnC
                     paper = Double.parseDouble(Utils.getText(itemDisposalPaperTextView));
                 if (!ZValidation.isEmpty(itemDisposalCarbonBoxTextView))
                     box = Double.parseDouble(Utils.getText(itemDisposalCarbonBoxTextView));
-                itemDisposalTotalTextView.setText((plastic + cans+paper+box) + "");
+                itemDisposalTotalTextView.setText( Utils.roundOff(plastic + cans+paper+box));
 
             }
         });
@@ -123,7 +123,7 @@ public class RecycledCreateActivity extends BaseBackActivity implements View.OnC
                     paper = Double.parseDouble(Utils.getText(itemDisposalPaperTextView));
                 if (!ZValidation.isEmpty(itemDisposalCarbonBoxTextView))
                     box = Double.parseDouble(Utils.getText(itemDisposalCarbonBoxTextView));
-                itemDisposalTotalTextView.setText((plastic + cans+paper+box) + "");
+                itemDisposalTotalTextView.setText(Utils.roundOff(plastic + cans+paper+box));
 
             }
         });
@@ -155,7 +155,7 @@ public class RecycledCreateActivity extends BaseBackActivity implements View.OnC
                     cans = Double.parseDouble(Utils.getText(itemDisposalCansTextView));
                 if (!ZValidation.isEmpty(itemDisposalCarbonBoxTextView))
                     box = Double.parseDouble(Utils.getText(itemDisposalCarbonBoxTextView));
-                itemDisposalTotalTextView.setText((plastic + cans+paper+box) + "");
+                itemDisposalTotalTextView.setText(Utils.roundOff(plastic + cans+paper+box));
 
             }
         });
@@ -187,7 +187,7 @@ public class RecycledCreateActivity extends BaseBackActivity implements View.OnC
                     cans = Double.parseDouble(Utils.getText(itemDisposalCansTextView));
                 if (!ZValidation.isEmpty(itemDisposalPaperTextView))
                     paper = Double.parseDouble(Utils.getText(itemDisposalPaperTextView));
-                itemDisposalTotalTextView.setText((plastic + cans+paper+box) + "");
+                itemDisposalTotalTextView.setText(Utils.roundOff(plastic + cans+paper+box));
 
             }
         });
