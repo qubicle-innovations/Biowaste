@@ -73,7 +73,7 @@ public class FetchCountTask extends
 		if (ctx instanceof Dashboard) {
 			 ((Dashboard) ctx).countResponse(result);
 		}else if (ctx instanceof HomeActivity) {
-			((HomeActivity) ctx).saveResponse(result);
+			((HomeActivity) ctx).countResponse(result);
 		}
 	
 

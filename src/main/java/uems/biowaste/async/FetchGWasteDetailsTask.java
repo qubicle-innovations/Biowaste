@@ -66,7 +66,7 @@ public class FetchGWasteDetailsTask extends
 		if (ctx instanceof GwasteDetailsActivity) {
 			 ((GwasteDetailsActivity) ctx).detailsResponse(result);
 		}else if (ctx instanceof HomeActivity) {
-			((HomeActivity) ctx).detailsResponse(result);
+			((HomeActivity) ctx).detailsResponseGWaste(result);
 		}
 	
 

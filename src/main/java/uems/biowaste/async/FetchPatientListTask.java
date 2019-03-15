@@ -67,7 +67,7 @@ public class FetchPatientListTask extends
 		if (ctx instanceof PatientListActivity) {
 			((PatientListActivity) ctx).listResponse(result);
 		}else if (ctx instanceof HomeActivity) {
-			((HomeActivity) ctx).listResponse(result);
+			((HomeActivity) ctx).listResponsePatient(result);
 		}
 	
 

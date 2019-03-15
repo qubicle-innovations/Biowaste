@@ -113,7 +113,6 @@ public class BiowasteCreateActivity extends BaseBackActivity implements View.OnC
 
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                // TODO Auto-generated method stub
                 TextView detailsDateTextView = (TextView) findViewById(R.id.detailsDateTextView);
                 TextView tvMonth = (TextView) findViewById(R.id.detailsMonthTextView);
                 tvMonth.setText(item.getTitle());

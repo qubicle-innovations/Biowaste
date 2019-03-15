@@ -3,24 +3,25 @@
   <component name="AndroidLayouts">
     <shared>
       <config>
+        <device id="Nexus 6P" />
+        <device id="3.7in WVGA (Nexus One)" />
+        <device id="Nexus 6" />
+        <device id="pixel" />
+        <device id="4.7in WXGA" />
         <device id="7in WSVGA (Tablet)" />
         <device id="pixel_2_xl" />
-        <device id="pixel" />
         <device id="pixel_xl" />
         <device id="5.1in WVGA" />
-        <device id="Nexus 6" />
         <device id="4.65in 720p (Galaxy Nexus)" />
-        <device id="4.7in WXGA" />
-        <device id="4in WVGA (Nexus S)" />
       </config>
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="debug" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/DashboardFragment.java" description="public UserVo me;" line="25" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/DashboardFragment.java" description="public UserVo me;" line="30" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad14ff7b-8b6e-4dfd-ae26-f3e54efa24ee" name="Default Changelist" comment="">
@@ -166,93 +167,80 @@
         <counts>
           <entry key="class" value="6" />
           <entry key="gradle" value="4" />
-          <entry key="java" value="291" />
+          <entry key="java" value="447" />
           <entry key="properties" value="1" />
-          <entry key="xml" value="66" />
+          <entry key="xml" value="111" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="6" />
           <entry key="Groovy" value="4" />
-          <entry key="JAVA" value="291" />
+          <entry key="JAVA" value="447" />
           <entry key="Properties" value="1" />
-          <entry key="XML" value="66" />
+          <entry key="XML" value="111" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.26" value="1" />
           <entry key="project.open.time.3" value="2" />
+          <entry key="project.open.time.31" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="112" />
           <entry key="gradle" value="3" />
-          <entry key="java" value="4523" />
-          <entry key="txt" value="2" />
-          <entry key="xml" value="95" />
+          <entry key="java" value="6298" />
+          <entry key="txt" value="44" />
+          <entry key="xml" value="188" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="3" />
-          <entry key="JAVA" value="4523" />
-          <entry key="PLAIN_TEXT" value="114" />
-          <entry key="XML" value="95" />
+          <entry key="JAVA" value="6298" />
+          <entry key="PLAIN_TEXT" value="156" />
+          <entry key="XML" value="188" />
         </counts>
       </usages-collector>
     </session>
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Biowaste" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/HomeActivity.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/GwasteDetailsFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="70">
-              <caret line="310" column="53" selection-start-line="310" selection-start-column="44" selection-end-line="310" selection-end-column="53" />
+            <state relative-caret-position="163">
+              <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2739#2764#0" expanded="true" />
+                <element signature="e#5546#5690#0" expanded="true" />
+                <element signature="e#5689#5690#0" expanded="true" />
+                <element signature="e#11660#11684#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/BioWasteListFragment.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/GwasteCreateFragments.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="161" column="21" selection-start-line="161" selection-start-column="21" selection-end-line="161" selection-end-column="21" />
+            <state relative-caret-position="170">
+              <caret line="40" column="24" selection-start-line="40" selection-end-line="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/utils/FragmentManger.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="195" selection-start-line="195" selection-end-line="195" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchBioWasteListTask.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="69" column="42" selection-start-line="69" selection-start-column="42" selection-end-line="69" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -269,36 +257,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>No record found</find>
+      <find>deleteRecord</find>
+      <find>detailsHuelageChargeTextView</find>
+      <find>mListener</find>
       <find>detailsWeightTextView</find>
-      <find>onBac</find>
-      <find>Bio</find>
-      <find>FRAGMENT_BIOWASTE_DE</find>
-      <find>rlGwaste</find>
-      <find>FRAGMENT_FOOD_AND_GENERAL_WASTE</find>
-      <find>onBack</find>
-      <find>rlBioWaste</find>
-      <find>progressBar</find>
-      <find>fab</find>
-      <find>FRAGMENT_FOOD_AND_GENERAL_WASTE_CREATE</find>
-      <find>setTi</find>
-      <find>startAc</find>
-      <find>setOnClickListener</find>
-      <find>frameLayout3</find>
-      <find>detailsSubmitButton</find>
-      <find>startFragment(</find>
-      <find>PATIEN</find>
-      <find>toolbarTitle</find>
-      <find>Fet</find>
-      <find>FetchBioW</find>
-      <find>BioWasteC</find>
-      <find>FetchGWasteListTask</find>
+      <find>detailsNoOfHaulageTextView</find>
+      <find>startFr</find>
+      <find>startf</find>
       <find>FRAGMENT_BIOWASTE</find>
-      <find>BioWasteListFragment</find>
-      <find>Please try later</find>
-      <find>loading</find>
-      <find>snackbar</find>
-      <find>FetchBioWasteListTask</find>
+      <find>startFra</find>
+      <find>startFragment</find>
+      <find>FRAGMENT_FOOD_AND_GENERAL_WASTE</find>
+      <find>getEmailID</find>
+      <find>save</find>
+      <find>Fet</find>
+      <find>startDate</find>
+      <find>me</find>
+      <find>popupFragment</find>
+      <find>detailsSubmitButton</find>
+      <find>le</find>
+      <find>editButtonGwaste</find>
+      <find>editButtonRecycle</find>
+      <find>scheduleTaskExecutor</find>
+      <find>deleteButtonGwaste</find>
+      <find>detailsSubmitButton.setO</find>
+      <find>saveIte</find>
+      <find>date</find>
+      <find>detailsDisposalFeeTextView</find>
+      <find>month</find>
+      <find>detailsDateTextView</find>
+      <find>detailsMonthTextView</find>
     </findStrings>
     <replaceStrings>
       <replace>btLogin</replace>
@@ -319,57 +307,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/Splashscreen.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/SplashScreen.java" />
-        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/res/layout/navigation_layout.xml" />
         <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/BaseActivity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/GwasteCreateActivity.java" />
-        <option value="$PROJECT_DIR$/src/main/res/layout/activity_home.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/utils/Constants.java" />
         <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/RecycledCreateActivity.java" />
         <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/PatientListActivity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchPatientListTask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchBioWasteDetailsTask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchGWasteDetailsTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/Dashboard.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchRecycledDetailsTask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/PatientDetailsFragment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/RecycledCreateFragment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/RecycledDetailsFragment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/DashboardFragment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/GwasteCreateFragments.java" />
         <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/LoginFragment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/PatientCreateFragment.java" />
         <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/BiowasteDetailsActivity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/async/CreatePatientTask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/async/CreateRecycledTask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchBioWasteCreateTask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchCountTask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchGWasteListTask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/async/CreateGWasteTask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/GwasteDetailsFragment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchBioWasteListTask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/PatientListFragment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchRecycledListTask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/BiowasteDetailsFragment.java" />
-        <option value="$PROJECT_DIR$/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/GWasteListActivity.java" />
-        <option value="$PROJECT_DIR$/src/main/res/layout/gwaste.xml" />
-        <option value="$PROJECT_DIR$/src/main/res/layout/fragment_patients_details.xml" />
-        <option value="$PROJECT_DIR$/src/main/res/layout/fragment_biowaste_details.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/fragment_dashboard.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/loginactivity.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/fragment_item.xml" />
-        <option value="$PROJECT_DIR$/src/main/res/layout/fragment_recycle_item_disposal_details.xml" />
-        <option value="$PROJECT_DIR$/src/main/res/layout/fragment_gwastedetails.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/RecycledListFragment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/utils/FragmentManger.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/BiowasteCreateFragment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchBioWasteListTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchGWasteListTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchPatientListTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchRecycledListTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchBioWasteDetailsTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchGWasteDetailsTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchRecycledDetailsTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/async/CreatePatientTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/async/CreateRecycledTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchCountTask.java" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/activity_home.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/BiowasteDetailsFragment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/GwasteCreateActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/PatientDetailsFragment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/RecycledDetailsFragment.java" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/gwaste.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/BiowasteCreateActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/async/DeleteTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/DashboardFragment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchBioWasteCreateTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/GWasteListFragment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/utils/Utils.java" />
         <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/BioWasteListFragment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/RecycledListFragment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/PatientListFragment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/BiowasteCreateFragment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/GwasteCreateFragments.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/utils/FragmentManger.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/RecycledCreateFragment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/PatientCreateFragment.java" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/fragment_gwastedetails.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/fragment_patients_details.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/fragment_biowaste_details.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/fragment_recycle_item_disposal_details.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/BioWasteListActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/utils/Constants.java" />
         <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/HomeActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/async/CreateGWasteTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/utils/Utils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/GwasteDetailsFragment.java" />
       </list>
     </option>
   </component>
@@ -411,36 +399,29 @@
             </path>
             <path>
               <item name="Biowaste" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Biowaste" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="uems" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="biowaste" type="462c0819:PsiDirectoryNode" />
-              <item name="fragments" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Biowaste" type="1abcf292:AndroidViewProjectNode" />
               <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="Bio&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/BioWasteListFragment.java&#10;BiowasteLiF&#9;PSI&#9;JAVA://uems.biowaste.fragments.BioWasteListFragment&#10;Biowal&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/BioWasteListFragment.java&#10;Frag&#9;PSI&#9;JAVA://uems.biowaste.utils.FragmentManger&#10;Frama&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/utils/FragmentManger.java&#10;Gw&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/GwasteDetailsFragment.java&#10;GwC&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/GwasteCreateFragments.java&#10;GWasteC&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/GwasteCreateFragments.java&#10;An&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/AndroidManifest.xml&#10;GwaF&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/GWasteListFragment.java&#10;Fwa&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/async/FetchGWasteListTask.java&#10;PaDe&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/PatientDetailsFragment.java&#10;BioDe&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/BiowasteDetailsActivity.java&#10;ReLi&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/RecycledListFragment.java&#10;Pa&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/PatientListFragment.java&#10;BioF&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/BioWasteListFragment.java&#10;D&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/layout/fragment_dashboard.xml&#10;st&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/values/strings.xml&#10;fra&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/utils/FragmentManger.java&#10;Da&#9;PSI&#9;JAVA://uems.biowaste.fragments.DashboardFragment&#10;FragmentM&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/utils/FragmentManger.java&#10;GwaDe&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/GwasteDetailsActivity.java&#10;Das&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/DashboardFragment.java&#10;PatD&#9;PSI&#9;JAVA://uems.biowaste.PatientDetailsActivity&#10;Home&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/HomeActivity.java&#10;Ho&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/HomeActivity.java&#10;Red&#9;PSI&#9;JAVA://uems.biowaste.RecycledDetailsActivity&#10;GWD&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/GwasteDetailsActivity.java&#10;H&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/HomeActivity.java&#10;BiowasteDetails&#9;PSI&#9;JAVA://uems.biowaste.BiowasteDetailsActivity&#10;PatientDe&#9;PSI&#9;JAVA://uems.biowaste.PatientDetailsActivity&#10;P&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/PatientListActivity.java&#10;F&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/utils/FragmentManger.java&#10;COn&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/utils/Constants.java&#10;GWa&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/GwasteCreateActivity.java&#10;str&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/values/strings.xml&#10;Base&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/BaseActivity.java&#10;LoginF&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/LoginFragment.java&#10;C&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/utils/Constants.java&#10;na&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/layout/navigation_layout.xml&#10;ma&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/AndroidManifest.xml&#10;Lo&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/LoginActivity.java" />
+    <property name="SearchEverywhereHistoryKey" value="GwCre&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/GwasteCreateFragments.java&#10;GWLI&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/GWasteListFragment.java&#10;Gwc&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/GwasteCreateFragments.java&#10;string&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/values/strings.xml&#10;Gw&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/GwasteDetailsFragment.java&#10;GWL&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/GWasteListFragment.java&#10;hOME&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/HomeActivity.java&#10;bASE&#9;PSI&#9;JAVA://uems.biowaste.BaseActivity&#10;CON&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/utils/Constants.java&#10;GC&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/GwasteCreateFragments.java&#10;GWa&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/GwasteDetailsFragment.java&#10;fr&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/layout/fragment_recycle_item_disposal_details.xml&#10;recd&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/layout/fragment_recycle_item_disposal_details.xml&#10;bi&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/layout/fragment_biowaste_details.xml&#10;de&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/layout/fragment_patients_details.xml&#10;det&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/layout/fragment_patients_details.xml&#10;f&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/layout/fragment_gwastedetails.xml&#10;Login&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/res/layout/loginactivity.xml&#10;De&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/async/DeleteTask.java&#10;BioW&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/BiowasteCreateFragment.java&#10;GwCr&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/GwasteCreateFragments.java&#10;Pac&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/PatientCreateFragment.java&#10;Pat&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/PatientListFragment.java&#10;Rec&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/RecycledCreateFragment.java&#10;Fra&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/utils/FragmentManger.java&#10;GWDe&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/GwasteDetailsFragment.java&#10;PaC&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/PatientCreateFragment.java&#10;RC&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/RecycledCreateFragment.java&#10;Crea&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/BiowasteCreateFragment.java&#10;Home&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/HomeActivity.java&#10;GwC&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/GwasteCreateActivity.java&#10;BiC&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/BiowasteCreateFragment.java&#10;Bio&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/BioWasteListFragment.java&#10;GW&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/GwasteCreateFragments.java&#10;Dele&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/async/DeleteTask.java&#10;BiowaC&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/BiowasteCreateFragment.java&#10;Gwa&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/GwasteCreateFragments.java&#10;Gwaste&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/GwasteDetailsFragment.java&#10;Gwd&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/GwasteDetailsFragment.java&#10;Pal&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/PatientListFragment.java&#10;ReL&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/RecycledListFragment.java&#10;B&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/BioWasteListFragment.java&#10;list&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/GWasteListFragment.java&#10;Recyc&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/RecycledCreateFragment.java&#10;p&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/PatientDetailsFragment.java&#10;Det&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/BiowasteDetailsFragment.java&#10;Creat&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/GwasteCreateFragments.java&#10;PaD&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/PatientDetailsFragment.java&#10;ReD&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/RecycledDetailsFragment.java&#10;Gwade&#9;FILE&#9;file://G:/Sachith/BioWaste/Biowaste/src/main/java/uems/biowaste/fragments/GwasteDetailsFragment.java" />
     <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
-    <property name="device.picker.selection" value="Nexus_5_API_28" />
+    <property name="device.picker.selection" value="DRGID18100101180" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="uems.biowaste.async" />
       <recent name="uems.biowaste.fragments" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -547,22 +528,22 @@
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="1" />
-      <window_info content_ui="combo" id="Project" order="2" weight="0.23146747" />
-      <window_info id="Structure" order="3" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="2" weight="0.2344932" />
+      <window_info id="Structure" order="3" side_tool="true" weight="0.32980332" />
       <window_info id="Build Variants" order="4" side_tool="true" weight="0.32980332" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Capture Tool" order="6" />
-      <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info id="Favorites" order="7" side_tool="true" weight="0.32980332" />
       <window_info anchor="bottom" id="Version Control" order="0" weight="0.3295082" />
       <window_info anchor="bottom" id="TODO" order="1" weight="0.3295082" />
       <window_info anchor="bottom" id="Android Profiler" order="2" weight="0.3295082" />
       <window_info anchor="bottom" id="Terminal" order="3" weight="0.3590164" />
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Build" order="5" weight="0.2262295" />
-      <window_info anchor="bottom" id="Logcat" order="6" weight="0.83114755" />
-      <window_info active="true" anchor="bottom" id="Debug" order="7" visible="true" weight="0.25409836" />
+      <window_info anchor="bottom" id="Build" order="5" weight="0.19016394" />
+      <window_info anchor="bottom" id="Logcat" order="6" weight="0.38196722" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.36885247" />
       <window_info anchor="bottom" id="Run" order="8" />
-      <window_info anchor="bottom" id="Find" order="9" weight="0.3295082" />
+      <window_info anchor="bottom" id="Find" order="9" weight="0.24754098" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" weight="0.3290469" />
@@ -575,22 +556,22 @@
     <layout-to-restore>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="1" />
-      <window_info content_ui="combo" id="Project" order="2" weight="0.23146747" />
-      <window_info id="Structure" order="3" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="2" weight="0.2344932" />
+      <window_info id="Structure" order="3" side_tool="true" weight="0.32980332" />
       <window_info id="Build Variants" order="4" side_tool="true" weight="0.32980332" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Capture Tool" order="6" />
-      <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info id="Favorites" order="7" side_tool="true" weight="0.32980332" />
       <window_info anchor="bottom" id="Version Control" order="0" weight="0.3295082" />
       <window_info anchor="bottom" id="TODO" order="1" weight="0.3295082" />
       <window_info anchor="bottom" id="Android Profiler" order="2" weight="0.3295082" />
       <window_info anchor="bottom" id="Terminal" order="3" weight="0.3590164" />
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Build" order="5" weight="0.2262295" />
-      <window_info active="true" anchor="bottom" id="Logcat" order="6" visible="true" weight="0.3262295" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.3229508" />
+      <window_info anchor="bottom" id="Build" order="5" weight="0.19016394" />
+      <window_info anchor="bottom" id="Logcat" order="6" weight="0.38196722" />
+      <window_info anchor="bottom" id="Debug" order="7" visible="true" weight="0.36885247" />
       <window_info anchor="bottom" id="Run" order="8" />
-      <window_info anchor="bottom" id="Find" order="9" weight="0.3295082" />
+      <window_info anchor="bottom" id="Find" order="9" weight="0.24754098" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" weight="0.3290469" />
@@ -608,280 +589,85 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/LoginFragment.java</url>
-          <line>94</line>
+          <url>file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/GwasteCreateFragments.java</url>
+          <line>288</line>
           <properties />
-          <option name="timeStamp" value="5" />
+          <option name="timeStamp" value="79" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/LoginFragment.java</url>
-          <line>100</line>
+          <url>file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchGWasteListTask.java</url>
+          <line>52</line>
           <properties />
-          <option name="timeStamp" value="6" />
+          <option name="timeStamp" value="96" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/LoginFragment.java</url>
-          <line>122</line>
+          <url>file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchBioWasteCreateTask.java</url>
+          <line>43</line>
           <properties />
-          <option name="timeStamp" value="16" />
+          <option name="timeStamp" value="97" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/DashboardFragment.java</url>
-          <line>87</line>
+          <url>file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchBioWasteCreateTask.java</url>
+          <line>45</line>
           <properties />
-          <option name="timeStamp" value="22" />
+          <option name="timeStamp" value="98" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/uems/biowaste/utils/FragmentManger.java</url>
-          <line>69</line>
+          <url>file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/GwasteDetailsFragment.java</url>
+          <line>221</line>
           <properties />
-          <option name="timeStamp" value="25" />
+          <option name="timeStamp" value="99" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/uems/biowaste/HomeActivity.java</url>
-          <line>104</line>
+          <url>file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/CreateGWasteTask.java</url>
+          <line>35</line>
           <properties />
-          <option name="timeStamp" value="29" />
+          <option name="timeStamp" value="100" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/uems/biowaste/HomeActivity.java</url>
-          <line>106</line>
+          <url>file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/CreateGWasteTask.java</url>
+          <line>44</line>
           <properties />
-          <option name="timeStamp" value="30" />
+          <option name="timeStamp" value="101" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/GWasteListFragment.java</url>
-          <line>110</line>
+          <url>file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/GwasteDetailsFragment.java</url>
+          <line>200</line>
           <properties />
-          <option name="timeStamp" value="33" />
+          <option name="timeStamp" value="102" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/BioWasteListFragment.java</url>
-          <line>319</line>
+          <url>file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/GwasteDetailsFragment.java</url>
+          <line>257</line>
           <properties />
-          <option name="timeStamp" value="34" />
+          <option name="timeStamp" value="103" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/BioWasteListFragment.java</url>
-          <line>175</line>
+          <url>file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/GwasteDetailsFragment.java</url>
+          <line>238</line>
           <properties />
-          <option name="timeStamp" value="35" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/BioWasteListFragment.java</url>
-          <line>167</line>
-          <properties />
-          <option name="timeStamp" value="37" />
+          <option name="timeStamp" value="105" />
         </line-breakpoint>
       </breakpoints>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
     </breakpoint-manager>
   </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="breakpointLogExpression">
+      <expression>
+        <expression-string>Fragment fragment = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_BIOWASTE_CREATE);
+                if(fragment != null &amp;&amp; fragment.isVisible()){
+                    ((BiowasteCreateFragment)fragment).saveResponse(result);
+                }
+            }</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/RecycledDetailsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="20" column="36" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchBioWasteDetailsTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="66" column="52" selection-start-line="66" selection-start-column="52" selection-end-line="66" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchCountTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="76" column="9" selection-start-line="76" selection-start-column="9" selection-end-line="76" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchGWasteDetailsTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="68" column="42" lean-forward="true" selection-start-line="68" selection-start-column="42" selection-end-line="68" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchRecycledDetailsTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-560">
-          <caret line="14" column="26" lean-forward="true" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/CreatePatientTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="68" column="38" selection-start-line="68" selection-start-column="38" selection-end-line="68" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/CreateRecycledTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="68" column="39" selection-start-line="68" selection-start-column="39" selection-end-line="68" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/PatientDetailsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/adapter/BiowasteListAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/CreateGWasteTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-424">
-          <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/adapter/GwasteListAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="25" column="11" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/GwasteDetailsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="27" column="54" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchRecycledListTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="69" column="45" selection-start-line="69" selection-start-column="45" selection-end-line="69" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/BiowasteDetailsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="27" column="57" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchPatientListTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="69" column="54" selection-start-line="69" selection-start-column="54" selection-end-line="69" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-357" />
-      </provider>
-      <provider editor-type-id="android-manifest" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="54" column="66" selection-start-line="54" selection-start-column="66" selection-end-line="54" selection-end-column="66" />
-          <folding>
-            <element signature="e#1749#1754#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/GwasteCreateActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="57" column="65" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/GWasteListActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="80" column="59" lean-forward="true" selection-start-line="80" selection-start-column="59" selection-end-line="80" selection-end-column="59" />
-          <folding>
-            <element signature="e#2907#3350#0" expanded="true" />
-            <element signature="e#3349#3350#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/BiowasteDetailsFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="59" column="59" selection-start-line="59" selection-start-column="59" selection-end-line="59" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/DashboardFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="53" column="56" selection-start-line="53" selection-start-column="56" selection-end-line="53" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_dashboard.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/DetailsFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="67" column="55" selection-start-line="67" selection-start-column="55" selection-end-line="67" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/ItemFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/LoginFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="57" column="56" selection-start-line="57" selection-start-column="56" selection-end-line="57" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/loginactivity.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/MyItemRecyclerViewAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="313">
@@ -897,168 +683,154 @@
       </provider>
       <provider editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/PatientDetailsFragment.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchPatientListTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="41" column="60" lean-forward="true" selection-start-line="41" selection-start-column="60" selection-end-line="41" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="347">
+          <caret line="69" column="52" selection-start-line="69" selection-start-column="33" selection-end-line="69" selection-end-column="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_patients_details.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/CreatePatientTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="68" column="52" selection-start-line="68" selection-start-column="52" selection-end-line="68" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/CreateRecycledTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="68" column="53" selection-start-line="68" selection-start-column="53" selection-end-line="68" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchCountTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="73" column="38" selection-start-line="73" selection-start-column="38" selection-end-line="73" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/Dashboard.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
+          <caret line="84" selection-start-line="84" selection-end-line="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_home.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="132" column="50" selection-start-line="132" selection-start-column="50" selection-end-line="132" selection-end-column="50" />
+          <folding>
+            <element signature="e#5830#5849#0" expanded="true" />
+            <element signature="e#6039#6062#0" expanded="true" />
+            <element signature="e#6252#6270#0" expanded="true" />
+            <element signature="e#6460#6484#0" expanded="true" />
+            <element signature="e#6674#6700#0" expanded="true" />
+          </folding>
         </state>
       </provider>
       <provider editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/PatientListFragment.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/http/RestURLClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="76" column="49" selection-start-line="76" selection-start-column="49" selection-end-line="76" selection-end-column="49" />
+        <state relative-caret-position="111">
+          <caret line="35" column="49" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchRecycledDetailsTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="68" column="56" selection-start-line="68" selection-start-column="56" selection-end-line="68" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchRecycledListTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="969">
+          <caret line="69" column="53" selection-start-line="69" selection-start-column="33" selection-end-line="69" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchBioWasteDetailsTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/vo/BioWasteItemVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#907#908#0" expanded="true" />
+            <element signature="e#939#940#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_details_date_view.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="531">
+          <caret line="209" column="20" selection-start-line="209" selection-start-column="20" selection-end-line="209" selection-end-column="20" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/RecycledDetailsFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="61" column="61" lean-forward="true" selection-start-line="61" selection-start-column="61" selection-end-line="61" selection-end-column="61" />
+        <state relative-caret-position="388">
+          <caret line="65" column="74" selection-start-line="65" selection-start-column="74" selection-end-line="65" selection-end-column="74" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_recycle_item_disposal_details.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/PatientDetailsFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/gwaste.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_gwastedetails.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="24" column="60" selection-start-line="24" selection-start-column="60" selection-end-line="24" selection-end-column="60" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/GwasteDetailsFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="57" column="28" selection-start-line="57" selection-start-column="14" selection-end-line="57" selection-end-column="28" />
+        <state relative-caret-position="307">
+          <caret line="52" column="67" selection-start-line="52" selection-start-column="67" selection-end-line="52" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/GwasteCreateFragments.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/PatientCreateFragment.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/BiowasteDetailsFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="347">
-          <caret line="44" selection-start-line="44" selection-end-line="44" />
+          <caret line="64" column="61" lean-forward="true" selection-start-line="64" selection-start-column="61" selection-end-line="64" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/RecycledListFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="942">
-          <caret line="135" column="35" selection-start-line="135" selection-start-column="35" selection-end-line="135" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_biowaste_details.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="-153">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchBioWasteCreateTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-390">
-          <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchGWasteListTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="70" column="41" selection-start-line="70" selection-start-column="41" selection-end-line="70" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/BiowasteCreateFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="117" column="48" selection-start-line="117" selection-start-column="48" selection-end-line="117" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/utils/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/RecycledCreateFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="234" column="21" selection-start-line="234" selection-start-column="21" selection-end-line="234" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/utils/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="92" column="5" selection-start-line="92" selection-start-column="5" selection-end-line="92" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/GWasteListFragment.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/BiowasteCreateActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="31" selection-start-column="22" selection-end-column="31" />
+          <caret column="2" selection-start-column="2" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/DashboardFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="110" column="106" selection-start-line="110" selection-start-column="106" selection-end-line="110" selection-end-column="106" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/LoginFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="860">
+          <caret line="92" column="16" selection-start-line="92" selection-start-column="16" selection-end-line="92" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1067,37 +839,287 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchBioWasteListTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="69" column="42" selection-start-line="69" selection-start-column="42" selection-end-line="69" selection-end-column="42" />
+        <state relative-caret-position="-136">
+          <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/utils/FragmentManger.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchBioWasteCreateTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="195" selection-start-line="195" selection-end-line="195" />
+        <state relative-caret-position="-102">
+          <caret line="33" column="66" lean-forward="true" selection-start-line="33" selection-start-column="66" selection-end-line="33" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/BioWasteListFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-333">
+          <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/BioWasteListFragment.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/RecycledListFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="161" column="21" selection-start-line="161" selection-start-column="21" selection-end-line="161" selection-end-column="21" />
+        <state relative-caret-position="-401">
+          <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/PatientListFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2680">
+          <caret line="75" column="32" selection-start-line="75" selection-start-column="32" selection-end-line="75" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/PatientCreateFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="106" column="69" selection-start-line="106" selection-start-column="69" selection-end-line="106" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/RecycledCreateFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="245" column="70" selection-start-line="245" selection-start-column="70" selection-end-line="245" selection-end-column="70" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/GwasteCreateActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="133" column="17" lean-forward="true" selection-start-line="133" selection-start-column="17" selection-end-line="133" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/BiowasteCreateFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="117" column="68" selection-start-line="117" selection-start-column="48" selection-end-line="117" selection-end-column="68" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/utils/FragmentManger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="178" selection-start-line="178" selection-end-line="178" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#8379#8427#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchGWasteListTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_recycle_item_disposal_details.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="5287">
+          <caret line="311" column="68" selection-start-line="311" selection-start-column="68" selection-end-line="311" selection-end-column="68" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_biowaste_details.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="259" column="61" lean-forward="true" selection-start-line="259" selection-start-column="61" selection-end-line="259" selection-end-column="61" />
+          <folding>
+            <element signature="e#10132#10146#0" expanded="true" />
+            <element signature="e#10936#10952#0" expanded="true" />
+            <element signature="e#11687#11703#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_patients_details.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="206" column="40" lean-forward="true" selection-start-line="206" selection-start-column="40" selection-end-line="206" selection-end-column="40" />
+          <folding>
+            <element signature="e#9395#9409#0" expanded="true" />
+            <element signature="e#10197#10213#0" expanded="true" />
+            <element signature="e#10947#10963#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/loginactivity.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/BioWasteListActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="42" column="31" selection-start-line="42" selection-end-line="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#9089#9619#0" expanded="true" />
+            <element signature="e#9135#9476#0" expanded="true" />
+            <element signature="e#9475#9476#0" expanded="true" />
+            <element signature="e#9618#9619#0" expanded="true" />
+            <element signature="e#9462#10229#0" expanded="true" />
+            <element signature="e#10228#10229#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/BiowasteDetailsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-543">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/PatientDetailsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/BaseActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="48" selection-start-line="48" selection-end-line="52" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/DeleteTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="66" column="60" lean-forward="true" selection-start-line="66" selection-start-column="60" selection-end-line="66" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/gwaste.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="27" column="25" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="25" />
+          <folding>
+            <element signature="e#1749#1754#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/HomeActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="310" column="53" selection-start-line="310" selection-start-column="44" selection-end-line="310" selection-end-column="53" />
+        <state relative-caret-position="187">
+          <caret line="310" column="57" selection-start-line="310" selection-start-column="57" selection-end-line="310" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/utils/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/CreateGWasteTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9">
+          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#876#884#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/utils/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="377" column="3" selection-start-line="377" selection-start-column="3" selection-end-line="377" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_gwastedetails.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="6239">
+          <caret line="367" column="44" selection-start-line="367" selection-start-column="44" selection-end-line="367" selection-end-column="44" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchGWasteDetailsTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-187">
+          <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/GWasteListFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="230" lean-forward="true" selection-start-line="230" selection-end-line="230" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/GwasteCreateFragments.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="40" column="24" selection-start-line="40" selection-end-line="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/GwasteDetailsFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2739#2764#0" expanded="true" />
+            <element signature="e#5546#5690#0" expanded="true" />
+            <element signature="e#5689#5690#0" expanded="true" />
+            <element signature="e#11660#11684#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -4,7 +4,9 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import uems.biowaste.BiowasteDetailsActivity;
+import org.json.JSONArray;
+
+import uems.biowaste.GwasteCreateActivity;
 import uems.biowaste.HomeActivity;
 import uems.biowaste.http.RestURLClient;
 import uems.biowaste.utils.Constants;
@@ -12,12 +14,12 @@ import uems.biowaste.utils.TCustomProgressDailogue;
 import uems.biowaste.vo.TResponse;
 
 
-public class FetchBioWasteDetailsTask extends
+public class DeleteTask extends
         AsyncTask<String, Void, TResponse<String>> {
 
 	private Context ctx;
  	private TCustomProgressDailogue pd;
-	public FetchBioWasteDetailsTask(Context context) {
+	public DeleteTask(Context context) {
 		this.ctx = context;
   		this.pd = new TCustomProgressDailogue(ctx);
 		this.pd.setCancelable(false);
@@ -33,10 +35,8 @@ public class FetchBioWasteDetailsTask extends
 		TResponse<String> response =  new TResponse<String>();
 
 			 try{
-				 RestURLClient client = new RestURLClient(Constants.GET_BIOWASTE_DETAILS, true);
-				 client.addParam("ItemID",params[0]);
- 				 client.addParam("UserEmailID",params[1]);
-
+				 RestURLClient client = new RestURLClient(Constants.DELETE_ITEM, true);
+				 client.addParam("DatafordeleteList",new JSONArray(params[0]));
 				 client.execute(RestURLClient.RequestMethod.POST);
 
 				 String responses = client.getResponseString();
@@ -58,17 +58,14 @@ public class FetchBioWasteDetailsTask extends
 	@Override
 	protected void onPostExecute(TResponse<String> result) {
 
-
 		if (pd.isShowing()){
 			pd.dismiss();
 		}
-
-		if (ctx instanceof BiowasteDetailsActivity) {
-			 ((BiowasteDetailsActivity) ctx).detailsResponse(result);
+		if (ctx instanceof GwasteCreateActivity) {
+			 ((GwasteCreateActivity) ctx).saveResponse(result);
 		}else if (ctx instanceof HomeActivity) {
-			((HomeActivity) ctx).detailsResponseBioWaste(result);
+			((HomeActivity) ctx).saveResponseGWaste(result);
 		}
-	
 
 	}
 

@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -16,9 +17,13 @@ import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Calendar;
+
 import uems.biowaste.R;
+import uems.biowaste.async.FetchBioWasteCreateTask;
 import uems.biowaste.async.FetchBioWasteDetailsTask;
 import uems.biowaste.utils.Utils;
 import uems.biowaste.vo.BioWasteItemVo;
@@ -36,6 +41,9 @@ public class BiowasteDetailsFragment extends Fragment {
     EditText detailsWeightTextView ;
     EditText detailsNoOfHaulageTextView ;
 
+    Button deleteButton,editButton;
+    String month;
+    private Calendar startDate;
     public UserVo me;
     private PatientListFragment.OnFragmentInteractionListener mListener;
 
@@ -66,12 +74,45 @@ public class BiowasteDetailsFragment extends Fragment {
         return view;
     }
 
+    public void deleteRecord(){
+        JSONArray jArray = new JSONArray();
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("Date", Utils.getText(detailsDateTextView));
+            jsonObject.put("Month", Utils.getText(detailsMonthTextView));
+            jsonObject.put("Type", vo.getItemID());
+            jArray.put(jsonObject);
+            new FetchBioWasteCreateTask(getContext()).execute(jArray.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void initLayout(View view) {
 
         detailsMonthTextView = view.findViewById(R.id.detailsMonthTextView);
         detailsDateTextView = view.findViewById(R.id.detailsDateTextView);
         detailsNameTextView = view.findViewById(R.id.detailsNameTextView);
+        editButton = view.findViewById(R.id.editButton);
+        deleteButton = view.findViewById(R.id.deleteButton);
+
+        editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        startDate = Calendar.getInstance();
+        month = (String) android.text.format.DateFormat.format("M", startDate.getTime());
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteRecord();
+            }
+        });
+
+        editButton.setVisibility(View.GONE);
+        deleteButton.setVisibility(View.GONE);
 
         detailsWeightTextView = view.findViewById(R.id.detailsWeightTextView);
         detailsNoOfHaulageTextView = view.findViewById(R.id.detailsNoOfHaulageTextView);
@@ -90,8 +131,11 @@ public class BiowasteDetailsFragment extends Fragment {
             detailsNameTextView.setText(vo.getCreatedBy());
             detailsWeightTextView.setText(vo.getTotalBin());
             detailsNoOfHaulageTextView.setText(vo.getTotalCost());
+            if(vo.getCreatedBy().equals(me.getUserID())){
+                editButton.setVisibility(View.VISIBLE);
+                deleteButton.setVisibility(View.VISIBLE);
+            }
         }
-
     }
 
     public void detailsResponse(TResponse<String> result) {

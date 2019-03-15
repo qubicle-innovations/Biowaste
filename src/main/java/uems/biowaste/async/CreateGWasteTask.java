@@ -19,6 +19,7 @@ public class CreateGWasteTask extends
 
 	private Context ctx;
  	private TCustomProgressDailogue pd;
+
 	public CreateGWasteTask(Context context) {
 		this.ctx = context;
   		this.pd = new TCustomProgressDailogue(ctx);
@@ -34,12 +35,12 @@ public class CreateGWasteTask extends
 	protected TResponse<String> doInBackground(String... params) {
 		TResponse<String> response =  new TResponse<String>();
 
-			 try{
-				 RestURLClient client = new RestURLClient(Constants.CREATE_GWASTE_DETAILS, true);
-				 client.addParam("ListFoodandGeneralwaste",new JSONArray(params[0]));
-				 client.execute(RestURLClient.RequestMethod.POST);
+		 try{
+			 RestURLClient client = new RestURLClient(Constants.CREATE_GWASTE_DETAILS, true);
+			 client.addParam("ListFoodandGeneralwaste",new JSONArray(params[0]));
+			 client.execute(RestURLClient.RequestMethod.POST);
 
-				 String responses = client.getResponseString();
+			 String responses = client.getResponseString();
 			Log.d("success", responses);
 			response.setResponseContent(responses);
 			response.setHasError(false);
@@ -64,7 +65,7 @@ public class CreateGWasteTask extends
 		if (ctx instanceof GwasteCreateActivity) {
 			 ((GwasteCreateActivity) ctx).saveResponse(result);
 		}else if (ctx instanceof HomeActivity) {
-			((HomeActivity) ctx).saveResponse(result);
+			((HomeActivity) ctx).saveResponseGWaste(result);
 		}
 
 	}

@@ -56,7 +56,7 @@ public class PatientCreateFragment extends Fragment implements View.OnClickListe
     }
 
     public interface OnFragmentInteractionListener {
-        void  startFragment(Fragment fragment,String fragmentName,boolean addToBackStack,boolean isAdd);
+        void  popupFragment(Fragment fragment,String fragmentName,boolean addToBackStack,boolean isAdd);
     }
 
 
@@ -104,7 +104,7 @@ public class PatientCreateFragment extends Fragment implements View.OnClickListe
                 boolean status = jsonObject.getBoolean("status");
                 if(status){
                     Toast.makeText(getContext(),"Successfully saved item",Toast.LENGTH_SHORT).show();
-                    mListener.startFragment(new BioWasteListFragment(),Constants.FRAGMENT_BIOWASTE,true,true);
+                    mListener.popupFragment(new PatientListFragment(),Constants.FRAGMENT_MONTHLY_PATIENTS,true,true);
                 }else{
                     Utils.showError("Failed to save item", detailsDateTextView);
 

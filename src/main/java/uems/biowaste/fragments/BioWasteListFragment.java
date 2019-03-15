@@ -29,12 +29,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import uems.biowaste.R;
 import uems.biowaste.adapter.BiowasteListAdapter;
 import uems.biowaste.async.FetchBioWasteListTask;
+import uems.biowaste.async.FetchGWasteListTask;
 import uems.biowaste.utils.Constants;
+import uems.biowaste.utils.DateUtil;
 import uems.biowaste.utils.Utils;
 import uems.biowaste.vo.BioWasteItemVo;
 import uems.biowaste.vo.TResponse;
@@ -92,6 +95,13 @@ public class BioWasteListFragment extends Fragment {
         new FetchBioWasteListTask(getActivity()).execute(date, me.getEmailID(), "0");
     }
 
+
+    public void reload(Context context){
+        me = Utils.getUser(context);
+        String date = DateUtil.dateToString(Calendar.getInstance().getTime(), DateUtil.DATE_START_DATE);
+        new FetchBioWasteListTask(context).execute(date, me.getEmailID(), "0");
+    }
+
     public void initLayout(View view) {
         progressBar = view.findViewById(R.id.progressBar);
         imSearch = view.findViewById(R.id.imSearch);
@@ -108,7 +118,6 @@ public class BioWasteListFragment extends Fragment {
             @Override
             public void onClick(View view) {
             mListener.startFragment(new BiowasteCreateFragment(),Constants.FRAGMENT_BIOWASTE_CREATE,true,true);
-
             }
         });
 
@@ -121,8 +130,6 @@ public class BioWasteListFragment extends Fragment {
                 imSearch.setVisibility(View.INVISIBLE);
 
                 new FetchBioWasteListTask(getContext()).execute(date, me.getEmailID(), lastItem);
-
-
             }
         });
         EditText etSearch =  view.findViewById(R.id.etSearch);
@@ -206,7 +213,7 @@ public class BioWasteListFragment extends Fragment {
                         }
                     });
                 }
-                else if(ad != null && ad.isEmpty()&&adapter!=null){
+                else if(ad != null && adapter!=null){
 
                 } else if(getContext() != null){
                     previousTotal = 0;

@@ -66,7 +66,7 @@ public class FetchRecycledDetailsTask extends
 		if (ctx instanceof RecycledDetailsActivity) {
 			 ((RecycledDetailsActivity) ctx).detailsResponse(result);
 		}else if (ctx instanceof HomeActivity) {
-			((HomeActivity) ctx).detailsResponse(result);
+			((HomeActivity) ctx).detailsResponseRecycled(result);
 		}
 	
 

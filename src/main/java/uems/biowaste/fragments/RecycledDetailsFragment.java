@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -16,9 +17,11 @@ import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import uems.biowaste.R;
+import uems.biowaste.async.FetchBioWasteCreateTask;
 import uems.biowaste.async.FetchRecycledDetailsTask;
 import uems.biowaste.utils.Utils;
 import uems.biowaste.vo.ItemVo;
@@ -40,6 +43,7 @@ public class RecycledDetailsFragment extends Fragment {
     EditText itemDisposalCansTextView;
     EditText itemDisposalPaperTextView;
     EditText itemDisposalCarbonBoxTextView;
+    Button deleteButtonRecycle,editButtonRecycle;
 
     @Override
     public void onAttach(Context context) {
@@ -81,6 +85,25 @@ public class RecycledDetailsFragment extends Fragment {
         itemDisposalPaperTextView = view.findViewById(R.id.itemDisposalPaperTextView);
         itemDisposalCarbonBoxTextView = view.findViewById(R.id.itemDisposalCarbonBoxTextView);
 
+        editButtonRecycle = view.findViewById(R.id.editButtonRecycle);
+        deleteButtonRecycle = view.findViewById(R.id.deleteButtonRecycle);
+
+        editButtonRecycle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        deleteButtonRecycle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteRecord();
+            }
+        });
+        deleteButtonRecycle.setVisibility(View.GONE);
+        editButtonRecycle.setVisibility(View.GONE);
+
         itemDisposalPlasticTextView.setFocusable(false);
         itemDisposalCansTextView.setFocusable(false);
         itemDisposalPaperTextView.setFocusable(false);
@@ -88,6 +111,20 @@ public class RecycledDetailsFragment extends Fragment {
 
         view.findViewById(R.id.detailsSubmitButton).setVisibility(View.GONE);
         setData();
+    }
+
+    public void deleteRecord(){
+        JSONArray jArray = new JSONArray();
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("Date", Utils.getText(detailsDateTextView));
+            jsonObject.put("Month", Utils.getText(detailsMonthTextView));
+            jsonObject.put("Type", vo.getItemID());
+            jArray.put(jsonObject);
+            new FetchBioWasteCreateTask(getContext()).execute(jArray.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     public  void setData(){
@@ -100,6 +137,10 @@ public class RecycledDetailsFragment extends Fragment {
         itemDisposalPaperTextView.setText(vo.getPaper());
         itemDisposalCarbonBoxTextView.setText(vo.getCartonBox());
         itemDisposalTotalTextView.setText(String.format("%sKg", vo.getTotalWeight()));
+        if(vo.getCreatedBy().equals(me.getUserID())){
+            editButtonRecycle.setVisibility(View.VISIBLE);
+            deleteButtonRecycle.setVisibility(View.VISIBLE);
+        }
     }
 
     public void detailsResponse(TResponse<String> result) {

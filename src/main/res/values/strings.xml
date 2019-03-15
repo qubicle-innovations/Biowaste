@@ -25,6 +25,8 @@
     <string name="total_disposal_fee">Total disposal fee</string>
     <string name="submit">Submit</string>
 
+    <string name="updated">Updated</string>
+
     <string name="dashboard">Dashboard</string>
     <string name="biowaste_disposal">Biowaste disposal</string>
     <string name="monthly_patients_forms">Monthly patients form</string>
@@ -62,5 +64,7 @@
     <string name="back_button_delay_message">Please click BACK twice to exit</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
 
 </resources>

@@ -38,6 +38,7 @@ import java.util.List;
 
 import uems.biowaste.R;
 import uems.biowaste.adapter.GwasteListAdapter;
+import uems.biowaste.async.FetchBioWasteListTask;
 import uems.biowaste.async.FetchRecycledListTask;
 import uems.biowaste.utils.Constants;
 import uems.biowaste.utils.DateUtil;
@@ -102,6 +103,11 @@ public class RecycledListFragment extends Fragment {
 
     }
 
+    public void reload(Context context){
+        me = Utils.getUser(context);
+        String date = DateUtil.dateToString(Calendar.getInstance().getTime(), DateUtil.DATE_START_DATE);
+        new FetchRecycledListTask(context).execute(date, me.getEmailID(), "0");
+    }
 
     public void initLayout(View view) {
 

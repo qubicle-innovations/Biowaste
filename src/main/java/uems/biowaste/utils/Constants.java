@@ -31,6 +31,7 @@ public class Constants {
     public static String SAVE_RETURN_ITEMS =SERVER_URL+"SaveReturnItems";
     public static String SAVE_ISSUE_ITEMS =SERVER_URL+"SaveIssueItems";
     public static String METHOD_VALIDATE_USER = "ValidateUser";
+    public static String DELETE_ITEM =SERVER_URL+"/DeleteRecords";
 
     public static final String FRAGMENT_LOGIN = "FRAGMENT_LOGIN";
     public static final String FRAGMENT_DASHBOARD = "FRAGMENT_DASHBOARD";
@@ -46,5 +47,10 @@ public class Constants {
     public static final String FRAGMENT_BIOWASTE_DETAILS = "FRAGMENT_BIOWASTE_DETAILS";
     public static final String FRAGMENT_RECYCLED_ITEMS_DETAILS = "FRAGMENT_RECYCLED_ITEMS_DETAILS";
     public static final String FRAGMENT_MONTHLSY_PATIENTS_DETAILS = "FRAGMENT_MONTHLSY_PATIENTS_DETAILS";
+
+    public static final String FRAGMENT_FOOD_AND_GENERAL_WASTE_TYPE_ID= "1";
+    public static final String FRAGMENT_BIOWASTE_TYPE_ID= "2";
+    public static final String FRAGMENT_RECYCLED_ITEMS_TYPE_ID= "3";
+    public static final String FRAGMENT_MONTHLY_PATIENTS_TYPE_ID= "4";
 
 }

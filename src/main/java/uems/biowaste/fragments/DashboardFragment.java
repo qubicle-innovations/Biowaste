@@ -5,11 +5,15 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.TextView;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.Calendar;
 
@@ -18,6 +22,7 @@ import uems.biowaste.async.FetchCountTask;
 import uems.biowaste.utils.Constants;
 import uems.biowaste.utils.DateUtil;
 import uems.biowaste.utils.Utils;
+import uems.biowaste.vo.TResponse;
 import uems.biowaste.vo.UserVo;
 
 public class DashboardFragment extends Fragment implements View.OnClickListener{
@@ -25,6 +30,11 @@ public class DashboardFragment extends Fragment implements View.OnClickListener{
     private Calendar startDate;
     public UserVo me;
     TextView textView ;
+
+    TextView tvBioCount;
+    TextView tvPatientsCount ;
+    TextView tvRecycleCount;
+    TextView tvGwasteCount;
 
     private OnFragmentInteractionListener mListener;
     @Override
@@ -61,6 +71,13 @@ public class DashboardFragment extends Fragment implements View.OnClickListener{
 
     public void initLayout(View view) {
 
+
+
+        tvBioCount = view.findViewById(R.id.tvBioCount);
+        tvPatientsCount = view.findViewById(R.id.tvPatientsCount);
+        tvRecycleCount = view.findViewById(R.id.tvRecycleCount);
+        tvGwasteCount = view.findViewById(R.id.tvGwasteCount);
+
         String date = DateUtil.dateToString(startDate.getTime(), DateUtil.DATE_START_DATE);
         new FetchCountTask(getContext()).execute(date, me.getEmailID());
         view.findViewById(R.id.itemTextViewMonth).setVisibility(View.INVISIBLE);
@@ -82,17 +99,60 @@ public class DashboardFragment extends Fragment implements View.OnClickListener{
                 showStartDate();
                 break;
             case R.id.rlBioWaste:
-                mListener.startFragment(new BioWasteListFragment(), Constants.FRAGMENT_BIOWASTE,true,true);
+                mListener.startFragment(new BioWasteListFragment(), Constants.FRAGMENT_BIOWASTE,false,false);
                 break;
             case R.id.rlGwaste:
-                mListener.startFragment(new GWasteListFragment(),Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE,true,true);
+                mListener.startFragment(new GWasteListFragment(),Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE,false,false);
                 break;
             case R.id.rlPatients:
-                mListener.startFragment(new PatientListFragment(),Constants.FRAGMENT_MONTHLY_PATIENTS,true,true);
+                mListener.startFragment(new PatientListFragment(),Constants.FRAGMENT_MONTHLY_PATIENTS,false,false);
                 break;
             case R.id.rlRecycle:
-                mListener.startFragment(new RecycledListFragment(),Constants.FRAGMENT_RECYCLED_ITEMS,true,true);
+                mListener.startFragment(new RecycledListFragment(),Constants.FRAGMENT_RECYCLED_ITEMS,false,false);
                 break;
+        }
+    }
+
+    public void countResponse(TResponse<String> result) {
+
+
+        if (result == null) {
+            Utils.showError(" please check network connection", tvGwasteCount);
+        } else if (result.isHasError()) {
+            Utils.showError("please try later", tvGwasteCount);
+
+        } else if (result.getResponseContent() != null) {
+            try {
+                JSONObject jsonObject = new JSONObject(result.getResponseContent());
+                JSONArray jsonArray = jsonObject.getJSONArray("MonthlyDetailList");
+                if (jsonArray.length() > 0) {
+                    JSONObject jObject = jsonArray.getJSONObject(0);
+                    if (jObject.getString("TotalCostBW").equalsIgnoreCase(""))
+                        tvBioCount.setText("0");
+                    else
+                        tvBioCount.setText(jObject.getString("TotalCostBW"));
+
+                    if (jObject.getString("TotalPatientsMP").equalsIgnoreCase(""))
+                        tvPatientsCount.setText("0");
+                    else
+                        tvPatientsCount.setText(jObject.getString("TotalPatientsMP"));
+
+                    if (jObject.getString("TotalWeightRI").equalsIgnoreCase(""))
+                        tvRecycleCount.setText("0");
+                    else
+                        tvRecycleCount.setText(jObject.getString("TotalWeightRI"));
+
+                    if (jObject.getString("TotalWeightFW").equalsIgnoreCase(""))
+                        tvGwasteCount.setText("0");
+                    else
+                        tvGwasteCount.setText(jObject.getString("TotalWeightFW"));
+                }
+
+            } catch (Exception e) {
+                Utils.showError("please try later", tvGwasteCount);
+
+                Log.e("parse order", e.toString());
+            }
         }
     }
 

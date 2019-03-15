@@ -30,11 +30,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import uems.biowaste.R;
 import uems.biowaste.adapter.PatientListAdapter;
 import uems.biowaste.async.FetchPatientListTask;
+import uems.biowaste.async.FetchRecycledListTask;
 import uems.biowaste.utils.Constants;
+import uems.biowaste.utils.DateUtil;
 import uems.biowaste.utils.Utils;
 import uems.biowaste.vo.ItemVo;
 import uems.biowaste.vo.TResponse;
@@ -65,6 +68,12 @@ public class PatientListFragment extends Fragment {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }
+    }
+
+    public void reload(Context context){
+        me = Utils.getUser(context);
+        String date = DateUtil.dateToString(Calendar.getInstance().getTime(), DateUtil.DATE_START_DATE);
+        new FetchPatientListTask(context).execute(date, me.getEmailID(), "0");
     }
 
     public interface OnFragmentInteractionListener {

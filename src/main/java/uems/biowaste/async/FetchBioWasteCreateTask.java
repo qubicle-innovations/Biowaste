@@ -32,11 +32,13 @@ public class FetchBioWasteCreateTask extends
 
 	@Override
 	protected TResponse<String> doInBackground(String... params) {
-		TResponse<String> response =  new TResponse<String>();
+		TResponse<String> response =  new TResponse<>();
 
 			 try{
 				 RestURLClient client = new RestURLClient(Constants.GET_BIOWASTE_CREATE, true);
-				 client.addParam("ListBioWasteDisposal",new JSONArray(params[0]));
+					JSONArray request =  new JSONArray(params[0]);
+
+				 client.addParam("ListBioWasteDisposal",request);
 				 client.execute(RestURLClient.RequestMethod.POST);
 
 				 String responses = client.getResponseString();
@@ -66,7 +68,7 @@ public class FetchBioWasteCreateTask extends
 		if (ctx instanceof BiowasteCreateActivity) {
 			 ((BiowasteCreateActivity) ctx).saveResponse(result);
 		}else if (ctx instanceof HomeActivity) {
-			((HomeActivity) ctx).saveResponse(result);
+			((HomeActivity) ctx).saveResponseBioWaste(result);
 		}
 	
 

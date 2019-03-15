@@ -59,7 +59,7 @@ public class BiowasteCreateFragment extends Fragment implements View.OnClickList
 
 
     public interface OnFragmentInteractionListener {
-        void  startFragment(Fragment fragment,String fragmentName,boolean addToBackStack,boolean isAdd);
+        void  popupFragment(Fragment fragment,String fragmentName,boolean addToBackStack,boolean isAdd);
     }
 
 
@@ -115,7 +115,7 @@ public class BiowasteCreateFragment extends Fragment implements View.OnClickList
                 boolean status = jsonObject.getBoolean("status");
                 if (status) {
                     Toast.makeText(getContext(), "Successfully saved item", Toast.LENGTH_SHORT).show();
-                    mListener.startFragment(new BioWasteListFragment(),Constants.FRAGMENT_BIOWASTE,false,false);
+                    mListener.popupFragment(new BioWasteListFragment(),Constants.FRAGMENT_BIOWASTE,false,false);
                 } else {
                     Utils.showError("Failed to save item", detailsDateTextView);
                 }

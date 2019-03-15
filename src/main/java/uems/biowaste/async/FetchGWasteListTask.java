@@ -68,7 +68,7 @@ public class FetchGWasteListTask extends
 		if (ctx instanceof GWasteListActivity) {
 			 ((GWasteListActivity) ctx).listResponse(result);
 		}else if (ctx instanceof HomeActivity) {
-			((HomeActivity) ctx).listResponse(result);
+			((HomeActivity) ctx).listResponseGWaste(result);
 		}
 	
 

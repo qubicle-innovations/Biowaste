@@ -30,11 +30,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import uems.biowaste.R;
 import uems.biowaste.adapter.GwasteListAdapter;
+import uems.biowaste.async.FetchBioWasteListTask;
 import uems.biowaste.async.FetchGWasteListTask;
 import uems.biowaste.utils.Constants;
+import uems.biowaste.utils.DateUtil;
 import uems.biowaste.utils.Utils;
 import uems.biowaste.vo.ItemVo;
 import uems.biowaste.vo.TResponse;
@@ -67,6 +70,13 @@ public class GWasteListFragment extends Fragment {
         }
     }
 
+    public void reload(Context context){
+        me = Utils.getUser(context);
+        String date = DateUtil.dateToString(Calendar.getInstance().getTime(), DateUtil.DATE_START_DATE);
+        new FetchGWasteListTask(context).execute(date, me.getEmailID(), "0");
+    }
+
+
     public interface OnFragmentInteractionListener {
         void  startFragment(Fragment fragment,String fragmentName,boolean addToBackStack,boolean isAdd);
     }
@@ -92,6 +102,9 @@ public class GWasteListFragment extends Fragment {
         new FetchGWasteListTask(getContext()).execute(date, me.getEmailID(), "0");
 
     }
+
+
+
 
     public void initLayout(View view) {
         progressBar = view.findViewById(R.id.progressBar);

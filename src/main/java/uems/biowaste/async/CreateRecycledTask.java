@@ -66,7 +66,7 @@ public class CreateRecycledTask extends
 		if (ctx instanceof RecycledCreateActivity) {
 			 ((RecycledCreateActivity) ctx).saveResponse(result);
 		}else if (ctx instanceof HomeActivity) {
-			((HomeActivity) ctx).saveResponse(result);
+			((HomeActivity) ctx).saveResponseRecycled(result);
 		}
 	
 

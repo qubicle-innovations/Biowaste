@@ -67,7 +67,7 @@ public class FetchBioWasteListTask extends
 		if (ctx instanceof BioWasteListActivity) {
 			 ((BioWasteListActivity) ctx).listResponse(result);
 		}else if (ctx instanceof HomeActivity) {
-			((HomeActivity) ctx).listResponse(result);
+			((HomeActivity) ctx).listResponseBioWaste(result);
 		}
 	
 

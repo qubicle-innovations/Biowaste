@@ -67,7 +67,7 @@ public class FetchRecycledListTask extends
 		if (ctx instanceof RecycledListActivity) {
 			 ((RecycledListActivity) ctx).listResponse(result);
 		}else if (ctx instanceof HomeActivity) {
-			((HomeActivity) ctx).listResponse(result);
+			((HomeActivity) ctx).listResponseRecycled(result);
 		}
 	
 

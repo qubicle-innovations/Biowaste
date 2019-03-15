@@ -26,6 +26,7 @@ import java.util.Date;
 
 import uems.biowaste.R;
 import uems.biowaste.async.CreateRecycledTask;
+import uems.biowaste.utils.Constants;
 import uems.biowaste.utils.DateUtil;
 import uems.biowaste.utils.Utils;
 import uems.biowaste.utils.ZValidation;
@@ -64,7 +65,7 @@ public class RecycledCreateFragment extends Fragment implements View.OnClickList
     }
 
     public interface OnFragmentInteractionListener {
-        void  startFragment(Fragment fragment,String fragmentName,boolean addToBackStack,boolean isAdd);
+        void  popupFragment(Fragment fragment,String fragmentName,boolean addToBackStack,boolean isAdd);
     }
 
 
@@ -242,6 +243,7 @@ public class RecycledCreateFragment extends Fragment implements View.OnClickList
                 boolean status = jsonObject.getBoolean("status");
                 if (status) {
                     Toast.makeText(getContext(), "Successfully saved item", Toast.LENGTH_SHORT).show();
+                    mListener.popupFragment(new RecycledListFragment(), Constants.FRAGMENT_RECYCLED_ITEMS,true,true);
                 } else {
                     Utils.showError("Failed to save item", detailsDateTextView);
                 }

@@ -26,6 +26,7 @@ import java.util.Date;
 
 import uems.biowaste.R;
 import uems.biowaste.async.CreateGWasteTask;
+import uems.biowaste.async.FetchGWasteListTask;
 import uems.biowaste.utils.Constants;
 import uems.biowaste.utils.DateUtil;
 import uems.biowaste.utils.Utils;
@@ -61,7 +62,7 @@ public class GwasteCreateFragments extends Fragment implements View.OnClickListe
     }
 
     public interface OnFragmentInteractionListener {
-        void  startFragment(Fragment fragment,String fragmentName,boolean addToBackStack,boolean isAdd);
+        void  popupFragment(Fragment fragment,String fragmentName,boolean addToBackStack,boolean isAdd);
     }
 
     @Override
@@ -74,6 +75,7 @@ public class GwasteCreateFragments extends Fragment implements View.OnClickListe
         initLayout(view);
         return view;
     }
+
 
     public void initLayout(View view) {
 
@@ -171,7 +173,7 @@ public class GwasteCreateFragments extends Fragment implements View.OnClickListe
                 boolean status = jsonObject.getBoolean("status");
                 if(status){
                     Toast.makeText(getContext(),"Successfully saved item",Toast.LENGTH_SHORT).show();
-                    mListener.startFragment(new GWasteListFragment(),Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE,false,true);
+                    mListener.popupFragment(new GWasteListFragment(),Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE,false,true);
                 }else {
                     Utils.showError("Failed to save item", detailsDateTextView);
                 }
@@ -279,8 +281,8 @@ public class GwasteCreateFragments extends Fragment implements View.OnClickListe
             jsonObject.put("Month",month);
             jsonObject.put("TotalWeight", Utils.getText(detailsWeightTextView));
             jsonObject.put("NoOfHaulage", Utils.getText(detailsNoOfHaulageTextView));
-            jsonObject.put("HualageCharge", Utils.getText(detailsWeightTextView));
-            jsonObject.put("DisposalFee", Utils.getText(detailsNoOfHaulageTextView));
+            jsonObject.put("HualageCharge", Utils.getText(detailsHuelageChargeTextView));
+            jsonObject.put("DisposalFee", Utils.getText(detailsDisposalFeeTextView));
             jsonObject.put("TotalDisposalFee", Utils.getText(detailsTotalDisposaFeeTextView));
             jsonObject.put("UserEmailID", me.getEmailID());
             jArray.put(jsonObject);

@@ -37,6 +37,7 @@ import uems.biowaste.vo.BioWasteItemVo;
 import uems.biowaste.vo.TResponse;
 
 public class BioWasteListActivity extends BaseActivity {
+
     private Calendar startDate;
     private String date = "";
     private ScheduledExecutorService scheduleTaskExecutor;
@@ -46,6 +47,7 @@ public class BioWasteListActivity extends BaseActivity {
     private int previousTotal = 0;
     private boolean loading = true;
     private  BiowasteListAdapter adapter;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -223,6 +225,7 @@ public class BioWasteListActivity extends BaseActivity {
                 .check();
     }
 */
+
     public void timerTask() {
         scheduleTaskExecutor.scheduleAtFixedRate(new Runnable() {
             public void run() {
@@ -235,7 +238,6 @@ public class BioWasteListActivity extends BaseActivity {
                     }
                 });
                 // If you need update UI, simply do this:
-
             }
         }, 1, 1, TimeUnit.MINUTES);
     }
@@ -245,9 +247,7 @@ public class BioWasteListActivity extends BaseActivity {
         if (scheduleTaskExecutor != null) {
             scheduleTaskExecutor.shutdownNow();
         }
-
         super.onDestroy();
-
     }
 
 
@@ -269,10 +269,8 @@ public class BioWasteListActivity extends BaseActivity {
         popup.getMenu().add("December");
 
         popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                // TODO Auto-generated method stub
                 TextView tvMonth = (TextView) findViewById(R.id.tvMonth);
                 tvMonth.setText(item.getTitle());
                 if (item.getTitle().toString().equalsIgnoreCase("select"))
@@ -290,13 +288,10 @@ public class BioWasteListActivity extends BaseActivity {
         popup.show();
     }
 
-
     public class EndlessScrollListener implements AbsListView.OnScrollListener {
-
 
         public EndlessScrollListener() {
         }
-
 
         @Override
         public void onScroll(AbsListView view, int firstVisibleItem,

@@ -36,6 +36,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import uems.biowaste.vo.UserVo;
@@ -374,6 +375,7 @@ public class Utils {
         System.out.println(new String(data));
         return data;
     }*/
+
 
     public static Bitmap decodeUri(Context c, Uri uri, final int requiredSize)
             throws FileNotFoundException {

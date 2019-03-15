@@ -66,7 +66,7 @@ public class CreatePatientTask extends
 		if (ctx instanceof PatientCreateActivity) {
 			 ((PatientCreateActivity) ctx).saveResponse(result);
 		}else if (ctx instanceof HomeActivity) {
-			((HomeActivity) ctx).saveResponse(result);
+			((HomeActivity) ctx).saveResponsePatient(result);
 		}
 	
 
