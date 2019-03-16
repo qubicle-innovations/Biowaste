@@ -25,14 +25,18 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 import uems.biowaste.R;
 import uems.biowaste.async.CreateGWasteTask;
 import uems.biowaste.async.DeleteTask;
 import uems.biowaste.async.FetchBioWasteCreateTask;
 import uems.biowaste.async.FetchGWasteDetailsTask;
+import uems.biowaste.async.UpdateGWasteTask;
 import uems.biowaste.utils.Constants;
 import uems.biowaste.utils.DateUtil;
 import uems.biowaste.utils.Utils;
@@ -80,6 +84,7 @@ public class GwasteDetailsFragment extends Fragment implements View.OnClickListe
     public void updated(){
         if(getContext() != null){
             Toast.makeText(getContext(),getText(R.string.updated),Toast.LENGTH_SHORT).show();
+            mListener.popupFragment(new GWasteListFragment(),Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE,false,true);
         }
     }
 
@@ -117,12 +122,12 @@ public class GwasteDetailsFragment extends Fragment implements View.OnClickListe
         detailsNoOfHaulageTextView.setFocusable(false);
         detailsDisposalFeeTextView.setFocusable(false);
         detailsHuelageChargeTextView.setFocusable(false);
-        editButtonGwaste = view.findViewById(R.id.editButtonGwaste);
-        deleteButtonGwaste = view.findViewById(R.id.deleteButtonGwaste);
 
         startDate = Calendar.getInstance();
         month = (String) android.text.format.DateFormat.format("M", startDate.getTime());
 
+        editButtonGwaste = view.findViewById(R.id.editButtonGwaste);
+        deleteButtonGwaste = view.findViewById(R.id.deleteButtonGwaste);
         editButtonGwaste.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -194,7 +199,11 @@ public class GwasteDetailsFragment extends Fragment implements View.OnClickListe
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("Date", Utils.getText(detailsDateTextView));
 
-            jsonObject.put("Month",month);
+            if(getMonth(Utils.getText(detailsMonthTextView)).isEmpty()){
+                jsonObject.put("Month",month);
+            }else{
+                jsonObject.put("Month", getMonth(Utils.getText(detailsMonthTextView)));
+            }
             jsonObject.put("TotalWeight", Utils.getText(detailsWeightTextView));
             jsonObject.put("NoOfHaulage", Utils.getText(detailsNoOfHaulageTextView));
             jsonObject.put("HualageCharge", Utils.getText(detailsHuelageChargeTextView));
@@ -202,7 +211,7 @@ public class GwasteDetailsFragment extends Fragment implements View.OnClickListe
             jsonObject.put("TotalDisposalFee", Utils.getText(detailsTotalDisposaFeeTextView).replace("$",""));
             jsonObject.put("UserEmailID", me.getEmailID());
             jArray.put(jsonObject);
-            new CreateGWasteTask(getContext()).execute(jArray.toString());
+            new UpdateGWasteTask(getContext()).execute(jArray.toString());
 
         } catch (Exception e) {
 
@@ -239,12 +248,27 @@ public class GwasteDetailsFragment extends Fragment implements View.OnClickListe
         detailsNoOfHaulageTextView.setText(vo.getNoOfHaulage());
         detailsDisposalFeeTextView.setText(vo.getDisposalFee());
         detailsHuelageChargeTextView.setText(vo.getHualageCharge());
-        detailsTotalDisposaFeeTextView.setText(String.format("$%s", vo.getTotalDisposalFee()));
+        detailsTotalDisposaFeeTextView.setText("$"+ vo.getTotalDisposalFee());
+
         if(vo.getCreatedBy().equals(me.getUserName())){
             editButtonGwaste.setVisibility(View.VISIBLE);
             deleteButtonGwaste.setVisibility(View.VISIBLE);
         }
 
+    }
+
+
+    public String getMonth(String month){
+        Date date = null;
+        try {
+            date = new SimpleDateFormat("MMM", Locale.ENGLISH).parse(month);
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(date);
+            return (cal.get(Calendar.MONTH)+1)+"";
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 
     public void detailsResponse(TResponse<String> result) {

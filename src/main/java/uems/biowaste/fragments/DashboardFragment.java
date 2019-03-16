@@ -35,6 +35,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener{
     TextView tvPatientsCount ;
     TextView tvRecycleCount;
     TextView tvGwasteCount;
+    TextView itemTextViewMonth;
 
     private OnFragmentInteractionListener mListener;
     @Override
@@ -79,13 +80,17 @@ public class DashboardFragment extends Fragment implements View.OnClickListener{
         tvGwasteCount = view.findViewById(R.id.tvGwasteCount);
 
         String date = DateUtil.dateToString(startDate.getTime(), DateUtil.DATE_START_DATE);
-        new FetchCountTask(getContext()).execute(date, me.getEmailID());
-        view.findViewById(R.id.itemTextViewMonth).setVisibility(View.INVISIBLE);
+        startDate = Calendar.getInstance();
+        String month = (String) android.text.format.DateFormat.format("M", startDate.getTime());
+
+        new FetchCountTask(getContext()).execute(month, me.getEmailID());
+//        view.findViewById(R.id.itemTextViewMonth).setVisibility(View.INVISIBLE);
         view.findViewById(R.id.rlBioWaste).setOnClickListener(this);
         view.findViewById(R.id.rlRecycle).setOnClickListener(this);
         view.findViewById(R.id.rlPatients).setOnClickListener(this);
         view.findViewById(R.id.rlGwaste).setOnClickListener(this);
-        textView =  view.findViewById(R.id.tvDate);
+        itemTextViewMonth =  view.findViewById(R.id.itemTextViewMonth);
+        itemTextViewMonth.setOnClickListener(this);
 
     }
 
@@ -95,7 +100,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
 
         switch (v.getId()) {
-            case R.id.tvDate:
+            case R.id.itemTextViewMonth:
                 showStartDate();
                 break;
             case R.id.rlBioWaste:
@@ -172,8 +177,9 @@ public class DashboardFragment extends Fragment implements View.OnClickListener{
                                               int monthOfYear, int dayOfMonth) {
                             startDate.set(year, monthOfYear, dayOfMonth);
                             String date = DateUtil.dateToString(startDate.getTime(), DateUtil.DATE_START_DATE);
-                            textView.setText(date);
-                            new FetchCountTask(getContext()).execute(date, me.getEmailID());
+                            String month = (String) android.text.format.DateFormat.format("M", startDate.getTime());
+                            itemTextViewMonth.setText(date);
+                            new FetchCountTask(getContext()).execute(month, me.getEmailID());
 
                         }
                     }, mYear, mMonth, mDay);

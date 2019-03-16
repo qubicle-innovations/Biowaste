@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import uems.biowaste.GwasteCreateActivity;
 import uems.biowaste.HomeActivity;
@@ -19,6 +20,8 @@ public class DeleteTask extends
 
 	private Context ctx;
  	private TCustomProgressDailogue pd;
+ 	private String typeId;
+
 	public DeleteTask(Context context) {
 		this.ctx = context;
   		this.pd = new TCustomProgressDailogue(ctx);
@@ -35,6 +38,10 @@ public class DeleteTask extends
 		TResponse<String> response =  new TResponse<String>();
 
 			 try{
+			 	 JSONObject jsonObject = new JSONArray(params[0]).getJSONObject(0);
+			 	 typeId = jsonObject.getString("Type");
+
+
 				 RestURLClient client = new RestURLClient(Constants.DELETE_ITEM, true);
 				 client.addParam("DatafordeleteList",new JSONArray(params[0]));
 				 client.execute(RestURLClient.RequestMethod.POST);
@@ -61,10 +68,8 @@ public class DeleteTask extends
 		if (pd.isShowing()){
 			pd.dismiss();
 		}
-		if (ctx instanceof GwasteCreateActivity) {
-			 ((GwasteCreateActivity) ctx).saveResponse(result);
-		}else if (ctx instanceof HomeActivity) {
-			((HomeActivity) ctx).saveResponseGWaste(result);
+		 if (ctx instanceof HomeActivity) {
+			((HomeActivity) ctx).deleteRecord(result,typeId);
 		}
 
 	}

@@ -1,16 +1,21 @@
 package uems.biowaste.fragments;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.PopupMenu;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.MapperFeature;
@@ -20,17 +25,26 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 import uems.biowaste.R;
+import uems.biowaste.async.DeleteTask;
 import uems.biowaste.async.FetchBioWasteCreateTask;
 import uems.biowaste.async.FetchBioWasteDetailsTask;
+import uems.biowaste.async.UpdateFetchBioWasteTask;
+import uems.biowaste.utils.Constants;
+import uems.biowaste.utils.DateUtil;
 import uems.biowaste.utils.Utils;
+import uems.biowaste.utils.ZValidation;
 import uems.biowaste.vo.BioWasteItemVo;
 import uems.biowaste.vo.TResponse;
 import uems.biowaste.vo.UserVo;
 
-public class BiowasteDetailsFragment extends Fragment {
+public class BiowasteDetailsFragment extends Fragment implements View.OnClickListener{
 
     private BioWasteItemVo vo;
 
@@ -43,15 +57,16 @@ public class BiowasteDetailsFragment extends Fragment {
 
     Button deleteButton,editButton;
     String month;
+    Button detailsSubmitButton;
     private Calendar startDate;
     public UserVo me;
-    private PatientListFragment.OnFragmentInteractionListener mListener;
+    private BiowasteDetailsFragment.OnFragmentInteractionListener mListener;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof PatientListFragment.OnFragmentInteractionListener) {
-            mListener = (PatientListFragment.OnFragmentInteractionListener) context;
+        if (context instanceof BiowasteDetailsFragment.OnFragmentInteractionListener) {
+            mListener = (BiowasteDetailsFragment.OnFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
@@ -60,6 +75,7 @@ public class BiowasteDetailsFragment extends Fragment {
 
     public interface OnFragmentInteractionListener {
         void  startFragment(Fragment fragment,String fragmentName,boolean addToBackStack,boolean isAdd);
+        void  popupFragment(Fragment fragment,String fragmentName,boolean addToBackStack,boolean isAdd);
     }
 
     @Override
@@ -80,9 +96,9 @@ public class BiowasteDetailsFragment extends Fragment {
         try {
             jsonObject.put("Date", Utils.getText(detailsDateTextView));
             jsonObject.put("Month", Utils.getText(detailsMonthTextView));
-            jsonObject.put("Type", vo.getItemID());
+            jsonObject.put("Type", Constants.FRAGMENT_BIOWASTE_TYPE_ID);
             jArray.put(jsonObject);
-            new FetchBioWasteCreateTask(getContext()).execute(jArray.toString());
+            new DeleteTask(getContext()).execute(jArray.toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -116,9 +132,39 @@ public class BiowasteDetailsFragment extends Fragment {
 
         detailsWeightTextView = view.findViewById(R.id.detailsWeightTextView);
         detailsNoOfHaulageTextView = view.findViewById(R.id.detailsNoOfHaulageTextView);
-        view.findViewById(R.id.detailsSubmitButton).setVisibility(View.GONE);
+        detailsSubmitButton = view.findViewById(R.id.detailsSubmitButton);
+        detailsSubmitButton.setVisibility(View.GONE);
         detailsWeightTextView.setFocusable(false);
         detailsNoOfHaulageTextView.setFocusable(false);
+
+        editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                detailsWeightTextView.setFocusableInTouchMode(true);
+                detailsNoOfHaulageTextView.setFocusableInTouchMode(true);
+                detailsWeightTextView.setFocusable(true);
+                detailsNoOfHaulageTextView.setFocusable(true);
+
+                editButton.setVisibility(View.GONE);
+                deleteButton.setVisibility(View.GONE);
+                detailsSubmitButton.setVisibility(View.VISIBLE);
+            }
+        });
+
+        detailsSubmitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveItem();
+            }
+        });
+
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteRecord();
+            }
+        });
+
 
         setData();
 
@@ -131,11 +177,24 @@ public class BiowasteDetailsFragment extends Fragment {
             detailsNameTextView.setText(vo.getCreatedBy());
             detailsWeightTextView.setText(vo.getTotalBin());
             detailsNoOfHaulageTextView.setText(vo.getTotalCost());
-            if(vo.getCreatedBy().equals(me.getUserID())){
+            if(vo.getCreatedBy().equals(me.getUserName())){
                 editButton.setVisibility(View.VISIBLE);
                 deleteButton.setVisibility(View.VISIBLE);
             }
         }
+    }
+
+    public String getMonth(String month){
+        Date date = null;
+        try {
+            date = new SimpleDateFormat("MMM", Locale.ENGLISH).parse(month);
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(date);
+            return (cal.get(Calendar.MONTH)+1)+"";
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 
     public void detailsResponse(TResponse<String> result) {
@@ -160,4 +219,136 @@ public class BiowasteDetailsFragment extends Fragment {
             }
         }
     }
+
+    public void showMonthMenu(View v) {
+        String month = (String) android.text.format.DateFormat.format("M", new Date());
+        int monthValue = Integer.parseInt(month)-1;
+
+        if(getContext() != null){
+            PopupMenu popup = new PopupMenu(getContext(), v);
+            popup.getMenu().add("Select");
+            if ((monthValue - 1) > 0) {
+                popup.getMenu().add(Utils.getMonths(monthValue - 1));
+
+            } else
+                popup.getMenu().add(Utils.getMonths(12));
+
+            popup.getMenu().add(Utils.getMonths(monthValue));
+
+
+            popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+
+                @Override
+                public boolean onMenuItemClick(MenuItem item) {
+                    detailsMonthTextView.setText(item.getTitle());
+                    detailsDateTextView.setText(getText(R.string.select));
+                    return false;
+                }
+            });
+            popup.show();
+        }
+    }
+
+    public void updated(){
+        if(getContext() != null){
+            Toast.makeText(getContext(),getText(R.string.updated),Toast.LENGTH_SHORT).show();
+            mListener.popupFragment(new BioWasteListFragment(), Constants.FRAGMENT_BIOWASTE,false,true);
+        }
+    }
+
+
+    public void showStartDate() {
+
+        int mYear = startDate.get(Calendar.YEAR);
+        int mMonth = startDate.get(Calendar.MONTH);
+        int mDay = startDate.get(Calendar.DAY_OF_MONTH);
+
+
+        if(getContext() != null){
+            DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(),
+                    new DatePickerDialog.OnDateSetListener() {
+
+                        @Override
+                        public void onDateSet(DatePicker view, int year,
+                                              int monthOfYear, int dayOfMonth) {
+
+                            startDate.set(year, monthOfYear, dayOfMonth);
+                            String date = DateUtil.dateToString(startDate.getTime(), DateUtil.DATE_START_DATE);
+                            String monthname = (String) android.text.format.DateFormat.format("MMMM", startDate.getTime());
+                            month = (String) android.text.format.DateFormat.format("M", startDate.getTime());
+                            detailsMonthTextView.setText(monthname);
+                            detailsDateTextView.setText(date);
+                        }
+                    }, mYear, mMonth, mDay);
+            datePickerDialog.show();
+        }
+    }
+
+    public void saveItem() {
+        if (Utils.getText(detailsDateTextView).equalsIgnoreCase("select")) {
+            Utils.showError("Please select a date", detailsMonthTextView);
+            return;
+        }
+        if (ZValidation.checkEmpty(detailsWeightTextView)) {
+            Utils.showError("Please enter total bin", detailsMonthTextView);
+            detailsWeightTextView.requestFocus();
+            return;
+
+        }
+        if (ZValidation.checkEmpty(detailsNoOfHaulageTextView)) {
+            Utils.showError("Please enter total cost", detailsMonthTextView);
+            detailsNoOfHaulageTextView.requestFocus();
+            return;
+
+        }
+        try {
+            JSONArray jArray = new JSONArray();
+
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("Date", Utils.getText(detailsDateTextView));
+            if(getMonth(Utils.getText(detailsMonthTextView)).isEmpty()){
+                jsonObject.put("Month",month);
+            }else{
+                jsonObject.put("Month", getMonth(Utils.getText(detailsMonthTextView)));
+            }
+            jsonObject.put("TotalBin", Utils.getText(detailsWeightTextView));
+            jsonObject.put("TotalCost", Utils.getText(detailsNoOfHaulageTextView));
+            jsonObject.put("UserEmailID", me.getEmailID());
+            jArray.put(jsonObject);
+            new UpdateFetchBioWasteTask(getContext()).execute(jArray.toString());
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
+
+
+
+
+
+    /*    SimpleDateFormat inputFormat = new SimpleDateFormat("MMMM");
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(inputFormat.parse(item.getTitle()));
+        SimpleDateFormat outputFormat = new SimpleDateFormat("M"); // 01-12
+        println(outputFormat.format(cal.getTime()));*/
+    }
+
+
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()) {
+            case R.id.detailsMonthTextView:
+                showMonthMenu(v);
+                break;
+            case R.id.detailsDateTextView:
+                showStartDate();
+                break;
+            case R.id.detailsSubmitButton:
+                saveItem();
+                break;
+        }
+    }
+
 }

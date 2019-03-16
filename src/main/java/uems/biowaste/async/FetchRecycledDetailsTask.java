@@ -17,6 +17,7 @@ public class FetchRecycledDetailsTask extends
 
 	private Context ctx;
  	private TCustomProgressDailogue pd;
+
 	public FetchRecycledDetailsTask(Context context) {
 		this.ctx = context;
   		this.pd = new TCustomProgressDailogue(ctx);

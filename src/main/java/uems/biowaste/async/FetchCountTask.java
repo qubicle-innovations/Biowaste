@@ -34,6 +34,7 @@ public class FetchCountTask extends
 
 			 try{
 				 RestURLClient client = new RestURLClient(Constants.FETCH_COUNT, true);
+				 client.addParam("month",params[0]);
  				 client.addParam("UserEmailID",params[1]);
 
 

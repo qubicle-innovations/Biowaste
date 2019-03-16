@@ -112,7 +112,6 @@ public class HomeActivity extends AppCompatActivity implements ItemFragment.OnLi
     }
 
 
-
     @Override
     public void onBackPressed() {
         boolean isBackButtonPressDelayed = false;
@@ -303,33 +302,90 @@ public class HomeActivity extends AppCompatActivity implements ItemFragment.OnLi
 
     public void saveResponseGWaste(TResponse<String> result) {
         Fragment fragment = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE_CREATE);
-        if(fragment != null && fragment.isVisible()){
-            ((GwasteCreateFragments)fragment).saveResponse(result);
+        if (fragment != null && fragment.isVisible()) {
+            ((GwasteCreateFragments) fragment).saveResponse(result);
         }
+    }
+    public void updateResponseGWaste(TResponse<String> result) {
         Fragment fragmentDetails = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE_DETAILS);
         if(fragmentDetails != null && fragmentDetails.isVisible()){
             ((GwasteDetailsFragment)fragmentDetails).updated();
         }
-
     }
     public void saveResponsePatient(TResponse<String> result) {
         Fragment fragment = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_MONTHLY_PATIENTS_CREATE);
-        if(fragment != null && fragment.isVisible()){
-            ((PatientCreateFragment)fragment).saveResponse(result);
+        if (fragment != null && fragment.isVisible()) {
+            ((PatientCreateFragment) fragment).saveResponse(result);
         }
+    }
+
+    public void updateResponsePatient(TResponse<String> result) {
+        Fragment fragmentDetails = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_MONTHLSY_PATIENTS_DETAILS);
+        if(fragmentDetails != null && fragmentDetails.isVisible()){
+            ((PatientDetailsFragment)fragmentDetails).updated();
+        }
+
     }
     public void saveResponseRecycled(TResponse<String> result) {
         Fragment fragment = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_RECYCLED_ITEMS_CREATE);
-        if(fragment != null && fragment.isVisible()){
-            ((RecycledCreateFragment)fragment).saveResponse(result);
+        if (fragment != null && fragment.isVisible()) {
+            ((RecycledCreateFragment) fragment).saveResponse(result);
         }
+    }
+    public void updateResponseRecycled(TResponse<String> result) {
+        Fragment fragmentDetails = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_RECYCLED_ITEMS_DETAILS);
+        if(fragmentDetails != null && fragmentDetails.isVisible()){
+            ((RecycledDetailsFragment)fragmentDetails).updated();
+        }
+
     }
     public void saveResponseBioWaste(TResponse<String> result) {
         Fragment fragment = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_BIOWASTE_CREATE);
-        if(fragment != null && fragment.isVisible()){
-            ((BiowasteCreateFragment)fragment).saveResponse(result);
+        if (fragment != null && fragment.isVisible()) {
+            ((BiowasteCreateFragment) fragment).saveResponse(result);
         }
     }
+    public void updateResponseBioWaste(TResponse<String> result) {
+        Fragment fragmentDetails = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_BIOWASTE_DETAILS);
+        if(fragmentDetails != null && fragmentDetails.isVisible()){
+            ((BiowasteDetailsFragment)fragmentDetails).updated();
+        }
+
+    }
+
+    public void deleteRecord(TResponse<String> result,String type) {
+        switch (type) {
+            case Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE_TYPE_ID: {
+                Fragment fragmentDetails = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE_DETAILS);
+                if (fragmentDetails != null && fragmentDetails.isVisible()) {
+                    ((GwasteDetailsFragment) fragmentDetails).updated();
+                }
+                break;
+            }
+            case Constants.FRAGMENT_BIOWASTE_TYPE_ID: {
+                Fragment fragmentDetails = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_BIOWASTE_DETAILS);
+                if (fragmentDetails != null && fragmentDetails.isVisible()) {
+                    ((BiowasteDetailsFragment) fragmentDetails).updated();
+                }
+                break;
+            }
+            case Constants.FRAGMENT_RECYCLED_ITEMS_TYPE_ID: {
+                Fragment fragmentDetails = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_RECYCLED_ITEMS_DETAILS);
+                if (fragmentDetails != null && fragmentDetails.isVisible()) {
+                    ((RecycledDetailsFragment) fragmentDetails).updated();
+                }
+                break;
+            }
+            case Constants.FRAGMENT_MONTHLY_PATIENTS_TYPE_ID: {
+                Fragment fragmentDetails = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_MONTHLSY_PATIENTS_DETAILS);
+                if (fragmentDetails != null && fragmentDetails.isVisible()) {
+                    ((PatientDetailsFragment) fragmentDetails).updated();
+                }
+                break;
+            }
+        }
+    }
+
 
     public void countResponse(TResponse<String> result) {
         Fragment fragment = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_DASHBOARD);
