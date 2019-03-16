@@ -51,6 +51,7 @@ public class PatientDetailsFragment extends Fragment implements View.OnClickList
     TextView detailsNameTextView ;
     EditText patientDetailsTotalTextView;
     Button detailsSubmitButton;
+    boolean editable = false;
 
     @Override
     public void onAttach(Context context) {
@@ -98,6 +99,8 @@ public class PatientDetailsFragment extends Fragment implements View.OnClickList
 
         editButtonPatient = view.findViewById(R.id.editButtonPatient);
         deleteButtonPatient = view.findViewById(R.id.deleteButtonPatient);
+        detailsMonthTextView.setOnClickListener(this);
+        detailsDateTextView.setOnClickListener(this);
 
 
         editButtonPatient.setVisibility(View.GONE);
@@ -108,7 +111,7 @@ public class PatientDetailsFragment extends Fragment implements View.OnClickList
             public void onClick(View v) {
                 patientDetailsTotalTextView.setFocusableInTouchMode(true);
                 patientDetailsTotalTextView.setFocusable(true);
-
+                editable = true;
                 editButtonPatient.setVisibility(View.GONE);
                 deleteButtonPatient.setVisibility(View.GONE);
                 detailsSubmitButton.setVisibility(View.VISIBLE);
@@ -219,7 +222,24 @@ public class PatientDetailsFragment extends Fragment implements View.OnClickList
                             detailsDateTextView.setText(date);
                         }
                     }, mYear, mMonth, mDay);
-            datePickerDialog.show();
+            try{
+                SimpleDateFormat inputFormat = new SimpleDateFormat("MMMM");
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(inputFormat.parse(detailsMonthTextView.getText().toString()));
+                SimpleDateFormat outputFormat = new SimpleDateFormat("M"); // 01-12
+                int month = Integer.parseInt(outputFormat.format(cal.getTime()));
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(Calendar.MONTH, month-1);
+                calendar.set(Calendar.DAY_OF_MONTH, 1);
+                datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis());
+                calendar.set(Calendar.DAY_OF_MONTH,  cal.getActualMaximum(Calendar.DAY_OF_MONTH));
+                datePickerDialog.getDatePicker().setMaxDate(calendar.getTimeInMillis());
+
+
+
+            }catch (Exception e){
+
+            }datePickerDialog.show();
         }
     }
 
@@ -276,10 +296,12 @@ public class PatientDetailsFragment extends Fragment implements View.OnClickList
 
         switch (v.getId()) {
             case R.id.detailsMonthTextView:
-                showMonthMenu(v);
+                if(editable)
+                    showMonthMenu(v);
                 break;
             case R.id.detailsDateTextView:
-                showStartDate();
+                if(editable)
+                    showStartDate();
                 break;
             case R.id.detailsSubmitButton:
                 saveItem();

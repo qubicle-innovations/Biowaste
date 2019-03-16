@@ -57,13 +57,14 @@ public class GwasteDetailsFragment extends Fragment implements View.OnClickListe
     TextView detailsDateTextView;
     TextView detailsMonthTextView;
     TextView detailsNameTextView;
-    EditText detailsWeightTextView ;
-    EditText detailsNoOfHaulageTextView ;
+    EditText detailsWeightTextView;
+    EditText detailsNoOfHaulageTextView;
     EditText detailsDisposalFeeTextView;
-    EditText detailsHuelageChargeTextView ;
+    EditText detailsHuelageChargeTextView;
     TextView detailsTotalDisposaFeeTextView;
     Button detailsSubmitButton;
-    Button deleteButtonGwaste,editButtonGwaste;
+    Button deleteButtonGwaste, editButtonGwaste;
+    boolean editable = false;
 
     @Override
     public void onAttach(Context context) {
@@ -77,20 +78,22 @@ public class GwasteDetailsFragment extends Fragment implements View.OnClickListe
     }
 
     public interface OnFragmentInteractionListener {
-        void  popupFragment(Fragment fragment,String fragmentName,boolean addToBackStack,boolean isAdd);
-        void  startFragment(Fragment fragment,String fragmentName,boolean addToBackStack,boolean isAdd);
+        void popupFragment(Fragment fragment, String fragmentName, boolean addToBackStack, boolean isAdd);
+
+        void startFragment(Fragment fragment, String fragmentName, boolean addToBackStack, boolean isAdd);
     }
 
-    public void updated(){
-        if(getContext() != null){
-            Toast.makeText(getContext(),getText(R.string.updated),Toast.LENGTH_SHORT).show();
-            mListener.popupFragment(new GWasteListFragment(),Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE,false,true);
+    public void updated() {
+        if (getContext() != null) {
+            Toast.makeText(getContext(), getText(R.string.updated), Toast.LENGTH_SHORT).show();
+            mListener.popupFragment(new GWasteListFragment(), Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE, false, true);
         }
     }
-    public void recordDelete(){
-        if(getContext() != null){
-            Toast.makeText(getContext(),"Successfully deleted",Toast.LENGTH_SHORT).show();
-            mListener.popupFragment(new GWasteListFragment(),Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE,false,true);
+
+    public void recordDelete() {
+        if (getContext() != null) {
+            Toast.makeText(getContext(), "Successfully deleted", Toast.LENGTH_SHORT).show();
+            mListener.popupFragment(new GWasteListFragment(), Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE, false, true);
         }
     }
 
@@ -99,10 +102,10 @@ public class GwasteDetailsFragment extends Fragment implements View.OnClickListe
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_gwastedetails, container, false);
         me = Utils.getUser(getContext());
-        if(getArguments() != null)
+        if (getArguments() != null)
             vo = (ItemVo) getArguments().getSerializable("vo");
         initLayout(view);
-        new FetchGWasteDetailsTask(getContext()).execute(vo.getItemID(),me.getEmailID());
+        new FetchGWasteDetailsTask(getContext()).execute(vo.getItemID(), me.getEmailID());
         return view;
     }
 
@@ -110,7 +113,7 @@ public class GwasteDetailsFragment extends Fragment implements View.OnClickListe
 
         detailsMonthTextView = view.findViewById(R.id.detailsMonthTextView);
         detailsNameTextView = view.findViewById(R.id.detailsNameTextView);
-        detailsMonthTextView.setOnClickListener(this);
+        //  detailsMonthTextView.setOnClickListener(this);
 
         detailsWeightTextView = view.findViewById(R.id.detailsWeightTextView);
         detailsNoOfHaulageTextView = view.findViewById(R.id.detailsNoOfHaulageTextView);
@@ -120,7 +123,7 @@ public class GwasteDetailsFragment extends Fragment implements View.OnClickListe
 
         detailsTotalDisposaFeeTextView = view.findViewById(R.id.detailsTotalDisposaFeeTextView);
         detailsDateTextView = view.findViewById(R.id.detailsDateTextView);
-        detailsDateTextView.setOnClickListener(this);
+        //  detailsDateTextView.setOnClickListener(this);
         detailsSubmitButton = view.findViewById(R.id.detailsSubmitButton);
         detailsSubmitButton.setVisibility(View.GONE);
 
@@ -128,6 +131,8 @@ public class GwasteDetailsFragment extends Fragment implements View.OnClickListe
         detailsNoOfHaulageTextView.setFocusable(false);
         detailsDisposalFeeTextView.setFocusable(false);
         detailsHuelageChargeTextView.setFocusable(false);
+        detailsMonthTextView.setOnClickListener(this);
+        detailsDateTextView.setOnClickListener(this);
 
         startDate = Calendar.getInstance();
         month = (String) android.text.format.DateFormat.format("M", startDate.getTime());
@@ -145,13 +150,12 @@ public class GwasteDetailsFragment extends Fragment implements View.OnClickListe
                 detailsNoOfHaulageTextView.setFocusable(true);
                 detailsDisposalFeeTextView.setFocusable(true);
                 detailsHuelageChargeTextView.setFocusable(true);
-
+                editable = true;
                 editButtonGwaste.setVisibility(View.GONE);
                 deleteButtonGwaste.setVisibility(View.GONE);
                 detailsSubmitButton.setVisibility(View.VISIBLE);
             }
         });
-
 
 
         detailsDisposalFeeTextView.addTextChangedListener(new TextWatcher() {
@@ -169,15 +173,15 @@ public class GwasteDetailsFragment extends Fragment implements View.OnClickListe
                 Double hisCharge = 0D;
 
                 try {
-                    if(s!=null&&s.length()>0)
+                    if (s != null && s.length() > 0)
                         hisCharge = Double.parseDouble(dis);
                     hueCharge = Double.parseDouble(hue);
-                }catch (NumberFormatException e){
+                } catch (NumberFormatException e) {
 
                 }
 
 
-                detailsTotalDisposaFeeTextView.setText(Utils.roundOff(hueCharge + hisCharge ));
+                detailsTotalDisposaFeeTextView.setText(Utils.roundOff(hueCharge + hisCharge));
 
             }
 
@@ -203,14 +207,14 @@ public class GwasteDetailsFragment extends Fragment implements View.OnClickListe
                 Double hisCharge = 0D;
 
                 try {
-                    if(s!=null&&s.length()>0)
-                    hueCharge = Double.parseDouble(hue);
+                    if (s != null && s.length() > 0)
+                        hueCharge = Double.parseDouble(hue);
                     hisCharge = Double.parseDouble(dis);
-                }catch (NumberFormatException e){
+                } catch (NumberFormatException e) {
 
                 }
 
-                detailsTotalDisposaFeeTextView.setText(Utils.roundOff(hueCharge + hisCharge )+"");
+                detailsTotalDisposaFeeTextView.setText(Utils.roundOff(hueCharge + hisCharge) + "");
 
             }
 
@@ -239,7 +243,7 @@ public class GwasteDetailsFragment extends Fragment implements View.OnClickListe
     }
 
     public void saveItem() {
-        if(Utils.getText(detailsDateTextView) != null){
+        if (Utils.getText(detailsDateTextView) != null) {
             if (Utils.getText(detailsDateTextView).equalsIgnoreCase("select")) {
                 Utils.showError("Please select a date", detailsMonthTextView);
                 return;
@@ -273,16 +277,16 @@ public class GwasteDetailsFragment extends Fragment implements View.OnClickListe
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("Date", Utils.getText(detailsDateTextView));
 
-            if(getMonth(Utils.getText(detailsMonthTextView)).isEmpty()){
-                jsonObject.put("Month",month);
-            }else{
+            if (getMonth(Utils.getText(detailsMonthTextView)).isEmpty()) {
+                jsonObject.put("Month", month);
+            } else {
                 jsonObject.put("Month", getMonth(Utils.getText(detailsMonthTextView)));
             }
             jsonObject.put("TotalWeight", Utils.getText(detailsWeightTextView));
             jsonObject.put("NoOfHaulage", Utils.getText(detailsNoOfHaulageTextView));
             jsonObject.put("HualageCharge", Utils.getText(detailsHuelageChargeTextView));
-            jsonObject.put("DisposalFee", Utils.getText(detailsDisposalFeeTextView).replace("$",""));
-            jsonObject.put("TotalDisposalFee", Utils.getText(detailsTotalDisposaFeeTextView).replace("$",""));
+            jsonObject.put("DisposalFee", Utils.getText(detailsDisposalFeeTextView).replace("$", ""));
+            jsonObject.put("TotalDisposalFee", Utils.getText(detailsTotalDisposaFeeTextView).replace("$", ""));
             jsonObject.put("UserEmailID", me.getEmailID());
             jArray.put(jsonObject);
             new UpdateGWasteTask(getContext()).execute(jArray.toString());
@@ -299,7 +303,7 @@ public class GwasteDetailsFragment extends Fragment implements View.OnClickListe
         println(outputFormat.format(cal.getTime()));*/
     }
 
-    public void deleteRecord(){
+    public void deleteRecord() {
         JSONArray jArray = new JSONArray();
         JSONObject jsonObject = new JSONObject();
         try {
@@ -313,7 +317,7 @@ public class GwasteDetailsFragment extends Fragment implements View.OnClickListe
         }
     }
 
-    public void  setData(){
+    public void setData() {
 
         detailsMonthTextView.setText(vo.getMonth());
         detailsDateTextView.setText(vo.getDate());
@@ -322,9 +326,9 @@ public class GwasteDetailsFragment extends Fragment implements View.OnClickListe
         detailsNoOfHaulageTextView.setText(vo.getNoOfHaulage());
         detailsDisposalFeeTextView.setText(vo.getDisposalFee());
         detailsHuelageChargeTextView.setText(vo.getHualageCharge());
-        detailsTotalDisposaFeeTextView.setText("$"+ vo.getTotalDisposalFee());
+        detailsTotalDisposaFeeTextView.setText("$" + vo.getTotalDisposalFee());
 
-        if(vo.getCreatedBy().equals(me.getUserName())){
+        if (vo.getCreatedBy().equals(me.getUserName())) {
             editButtonGwaste.setVisibility(View.VISIBLE);
             deleteButtonGwaste.setVisibility(View.VISIBLE);
         }
@@ -332,13 +336,13 @@ public class GwasteDetailsFragment extends Fragment implements View.OnClickListe
     }
 
 
-    public String getMonth(String month){
+    public String getMonth(String month) {
         Date date = null;
         try {
             date = new SimpleDateFormat("MMM", Locale.ENGLISH).parse(month);
             Calendar cal = Calendar.getInstance();
             cal.setTime(date);
-            return (cal.get(Calendar.MONTH)+1)+"";
+            return (cal.get(Calendar.MONTH) + 1) + "";
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -357,7 +361,8 @@ public class GwasteDetailsFragment extends Fragment implements View.OnClickListe
                 JSONArray jsonArray = jsonObject.getJSONArray("ListGetFoodandGeneralwasteDetails");
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.enable(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES);
-                vo = mapper.readValue(jsonArray.getJSONObject(0).toString(), new TypeReference<ItemVo>() {});
+                vo = mapper.readValue(jsonArray.getJSONObject(0).toString(), new TypeReference<ItemVo>() {
+                });
                 setData();
             } catch (Exception e) {
                 Utils.showError("please try later", detailsDateTextView);
@@ -369,9 +374,9 @@ public class GwasteDetailsFragment extends Fragment implements View.OnClickListe
 
     public void showMonthMenu(View v) {
         String month = (String) android.text.format.DateFormat.format("M", new Date());
-        int monthValue = Integer.parseInt(month)-1;
+        int monthValue = Integer.parseInt(month) - 1;
 
-        if(getContext() != null){
+        if (getContext() != null) {
             PopupMenu popup = new PopupMenu(getContext(), v);
             popup.getMenu().add("Select");
             if ((monthValue - 1) > 0) {
@@ -403,7 +408,7 @@ public class GwasteDetailsFragment extends Fragment implements View.OnClickListe
         int mDay = startDate.get(Calendar.DAY_OF_MONTH);
 
 
-        if(getContext() != null){
+        if (getContext() != null) {
             DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(),
                     new DatePickerDialog.OnDateSetListener() {
 
@@ -419,6 +424,27 @@ public class GwasteDetailsFragment extends Fragment implements View.OnClickListe
                             detailsDateTextView.setText(date);
                         }
                     }, mYear, mMonth, mDay);
+
+
+            try{
+                SimpleDateFormat inputFormat = new SimpleDateFormat("MMMM");
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(inputFormat.parse(detailsMonthTextView.getText().toString()));
+                SimpleDateFormat outputFormat = new SimpleDateFormat("M"); // 01-12
+                int month = Integer.parseInt(outputFormat.format(cal.getTime()));
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(Calendar.MONTH, month-1);
+                calendar.set(Calendar.DAY_OF_MONTH, 1);
+                datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis());
+                calendar.set(Calendar.DAY_OF_MONTH,  cal.getActualMaximum(Calendar.DAY_OF_MONTH));
+                datePickerDialog.getDatePicker().setMaxDate(calendar.getTimeInMillis());
+
+
+
+            }catch (Exception e){
+
+            }
+
             datePickerDialog.show();
         }
     }
@@ -429,10 +455,12 @@ public class GwasteDetailsFragment extends Fragment implements View.OnClickListe
 
         switch (v.getId()) {
             case R.id.detailsMonthTextView:
-                showMonthMenu(v);
+                if (editable)
+                    showMonthMenu(v);
                 break;
             case R.id.detailsDateTextView:
-                showStartDate();
+                if (editable)
+                    showStartDate();
                 break;
             case R.id.detailsSubmitButton:
                 saveItem();

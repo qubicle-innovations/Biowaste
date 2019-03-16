@@ -19,6 +19,7 @@ import android.widget.Toast;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -172,6 +173,24 @@ public class PatientCreateFragment extends Fragment implements View.OnClickListe
 
                         }
                     }, mYear, mMonth, mDay);
+            try{
+                SimpleDateFormat inputFormat = new SimpleDateFormat("MMMM");
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(inputFormat.parse(detailsMonthTextView.getText().toString()));
+                SimpleDateFormat outputFormat = new SimpleDateFormat("M"); // 01-12
+                int month = Integer.parseInt(outputFormat.format(cal.getTime()));
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(Calendar.MONTH, month-1);
+                calendar.set(Calendar.DAY_OF_MONTH, 1);
+                datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis());
+                calendar.set(Calendar.DAY_OF_MONTH,  cal.getActualMaximum(Calendar.DAY_OF_MONTH));
+                datePickerDialog.getDatePicker().setMaxDate(calendar.getTimeInMillis());
+
+
+
+            }catch (Exception e){
+
+            }
             datePickerDialog.show();
         }
     }

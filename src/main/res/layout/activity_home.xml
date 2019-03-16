@@ -92,14 +92,13 @@
                     android:id="@+id/toolbarUETrackImageView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="15dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="32dp"
                     android:layout_marginBottom="8dp"
                     android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/toolbarMenuImageView"
+                     app:layout_constraintStart_toEndOf="@+id/toolbarMenuImageView"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ic_top_logo" />
 

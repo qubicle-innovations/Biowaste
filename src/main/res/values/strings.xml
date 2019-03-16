@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Biowaste</string>
+    <string name="app_name">UETrack™ - Biowaste</string>
     <string name="regex_phone">^\\(?\\d{3}[\\)?|-]\\d{3}[- ]\\d{4}((\\s=?)(ext\\.|x)\\d{1,4})?$</string>
 
     <string name="sample_number">35</string>
@@ -25,11 +25,11 @@
     <string name="total_disposal_fee">Total disposal fee</string>
     <string name="submit">Submit</string>
 
-    <string name="updated">Updated</string>
+    <string name="updated">Updated successfully</string>
 
     <string name="dashboard">Dashboard</string>
     <string name="biowaste_disposal">Biowaste disposal</string>
-    <string name="monthly_patients_forms">Monthly patients form</string>
+    <string name="monthly_patients_forms">Bed occupancy</string>
     <string name="logout">Logout</string>
     <string name="select">Select</string>
     <string name="total_bin">Total bin</string>
@@ -44,24 +44,24 @@
     <string name="food_and_general_waste">Food &amp; general waste</string>
     <string name="biowaste">Biowaste</string>
     <string name="recycled_items">Recycled items</string>
-    <string name="monthly_payments">Monthly payments</string>
+    <string name="monthly_payments">Bed occupancy</string>
 
     <string name="food_and_general_waste_details">Food and general waste details</string>
     <string name="biowaste_details">Biowaste details</string>
     <string name="recycled_items_details">Recycled items details</string>
-    <string name="monthly_payments_details">Monthly payments details</string>
+    <string name="monthly_payments_details">Beds occupied</string>
 
     <string name="food_and_general_waste_create">Food and general waste create</string>
     <string name="biowaste_create">Biowaste create</string>
     <string name="recycled_items_create">Recycled items create</string>
-    <string name="monthly_payments_create">Monthly payments create</string>
+    <string name="monthly_payments_create">Beds occupied</string>
 
     <string name="general_waste">General waste</string>
     <string name="biowaste_disposal_cost">Biowaste disposal cost</string>
     <string name="recycle_item_disposal">Recycled items disposal</string>
     <string name="total_patients">Total patients</string>
 
-    <string name="back_button_delay_message">Please click BACK twice to exit</string>
+    <string name="back_button_delay_message">Press again to exit </string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="delete">Delete</string>

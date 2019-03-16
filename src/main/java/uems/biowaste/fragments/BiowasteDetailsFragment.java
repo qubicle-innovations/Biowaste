@@ -45,22 +45,23 @@ import uems.biowaste.vo.BioWasteItemVo;
 import uems.biowaste.vo.TResponse;
 import uems.biowaste.vo.UserVo;
 
-public class BiowasteDetailsFragment extends Fragment implements View.OnClickListener{
+public class BiowasteDetailsFragment extends Fragment implements View.OnClickListener {
 
     private BioWasteItemVo vo;
 
-    TextView detailsMonthTextView ;
-    TextView detailsDateTextView ;
-    TextView detailsNameTextView ;
+    TextView detailsMonthTextView;
+    TextView detailsDateTextView;
+    TextView detailsNameTextView;
 
-    EditText detailsWeightTextView ;
-    EditText detailsNoOfHaulageTextView ;
+    EditText detailsWeightTextView;
+    EditText detailsNoOfHaulageTextView;
 
-    Button deleteButton,editButton;
+    Button deleteButton, editButton;
     String month;
     Button detailsSubmitButton;
     private Calendar startDate;
     public UserVo me;
+    boolean editable = false;
     private BiowasteDetailsFragment.OnFragmentInteractionListener mListener;
 
     @Override
@@ -75,8 +76,9 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
     }
 
     public interface OnFragmentInteractionListener {
-        void  startFragment(Fragment fragment,String fragmentName,boolean addToBackStack,boolean isAdd);
-        void  popupFragment(Fragment fragment,String fragmentName,boolean addToBackStack,boolean isAdd);
+        void startFragment(Fragment fragment, String fragmentName, boolean addToBackStack, boolean isAdd);
+
+        void popupFragment(Fragment fragment, String fragmentName, boolean addToBackStack, boolean isAdd);
     }
 
     @Override
@@ -84,14 +86,14 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_biowaste_details, container, false);
         me = Utils.getUser(getContext());
-        if(getArguments() != null)
+        if (getArguments() != null)
             vo = (BioWasteItemVo) getArguments().getSerializable("vo");
         initLayout(view);
-        new FetchBioWasteDetailsTask(getContext()).execute(vo.getItemID(),me.getEmailID());
+        new FetchBioWasteDetailsTask(getContext()).execute(vo.getItemID(), me.getEmailID());
         return view;
     }
 
-    public void deleteRecord(){
+    public void deleteRecord() {
         JSONArray jArray = new JSONArray();
         JSONObject jsonObject = new JSONObject();
         try {
@@ -113,12 +115,7 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
         editButton = view.findViewById(R.id.editButton);
         deleteButton = view.findViewById(R.id.deleteButton);
 
-        editButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-            }
-        });
         startDate = Calendar.getInstance();
         month = (String) android.text.format.DateFormat.format("M", startDate.getTime());
         deleteButton.setOnClickListener(new View.OnClickListener() {
@@ -139,6 +136,8 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
         detailsNoOfHaulageTextView.setFocusable(false);
         detailsWeightTextView.setFilters(new InputFilter[]{new MoneyValueFilter()});
 
+        detailsMonthTextView.setOnClickListener(this);
+        detailsDateTextView.setOnClickListener(this);
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -146,10 +145,10 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
                 detailsNoOfHaulageTextView.setFocusableInTouchMode(true);
                 detailsWeightTextView.setFocusable(true);
                 detailsNoOfHaulageTextView.setFocusable(true);
-
                 editButton.setVisibility(View.GONE);
                 deleteButton.setVisibility(View.GONE);
                 detailsSubmitButton.setVisibility(View.VISIBLE);
+                editable = true;
             }
         });
 
@@ -172,27 +171,27 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
 
     }
 
-    public void setData(){
-        if(vo != null){
+    public void setData() {
+        if (vo != null) {
             detailsMonthTextView.setText(vo.getMonth());
             detailsDateTextView.setText(vo.getDate());
             detailsNameTextView.setText(vo.getCreatedBy());
             detailsWeightTextView.setText(vo.getTotalBin());
             detailsNoOfHaulageTextView.setText(vo.getTotalCost());
-            if(vo.getCreatedBy().equals(me.getUserName())){
+            if (vo.getCreatedBy().equals(me.getUserName())) {
                 editButton.setVisibility(View.VISIBLE);
                 deleteButton.setVisibility(View.VISIBLE);
             }
         }
     }
 
-    public String getMonth(String month){
+    public String getMonth(String month) {
         Date date = null;
         try {
             date = new SimpleDateFormat("MMM", Locale.ENGLISH).parse(month);
             Calendar cal = Calendar.getInstance();
             cal.setTime(date);
-            return (cal.get(Calendar.MONTH)+1)+"";
+            return (cal.get(Calendar.MONTH) + 1) + "";
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -202,7 +201,7 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
     public void detailsResponse(TResponse<String> result) {
 
         if (result == null) {
-            Utils.showError(" please check network connection",detailsDateTextView);
+            Utils.showError(" please check network connection", detailsDateTextView);
         } else if (result.isHasError()) {
             Utils.showError("please try later", detailsDateTextView);
 
@@ -224,9 +223,9 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
 
     public void showMonthMenu(View v) {
         String month = (String) android.text.format.DateFormat.format("M", new Date());
-        int monthValue = Integer.parseInt(month)-1;
+        int monthValue = Integer.parseInt(month) - 1;
 
-        if(getContext() != null){
+        if (getContext() != null) {
             PopupMenu popup = new PopupMenu(getContext(), v);
             popup.getMenu().add("Select");
             if ((monthValue - 1) > 0) {
@@ -251,16 +250,17 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
         }
     }
 
-    public void updated(){
-        if(getContext() != null){
-            Toast.makeText(getContext(),getText(R.string.updated),Toast.LENGTH_SHORT).show();
-            mListener.popupFragment(new BioWasteListFragment(), Constants.FRAGMENT_BIOWASTE,false,true);
+    public void updated() {
+        if (getContext() != null) {
+            Toast.makeText(getContext(), getText(R.string.updated), Toast.LENGTH_SHORT).show();
+            mListener.popupFragment(new BioWasteListFragment(), Constants.FRAGMENT_BIOWASTE, false, true);
         }
     }
-    public void recordDelete(){
-        if(getContext() != null){
-            Toast.makeText(getContext(),"Successfully deleted",Toast.LENGTH_SHORT).show();
-            mListener.popupFragment(new BioWasteListFragment(), Constants.FRAGMENT_BIOWASTE,false,true);
+
+    public void recordDelete() {
+        if (getContext() != null) {
+            Toast.makeText(getContext(), "Successfully deleted", Toast.LENGTH_SHORT).show();
+            mListener.popupFragment(new BioWasteListFragment(), Constants.FRAGMENT_BIOWASTE, false, true);
         }
     }
 
@@ -272,7 +272,7 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
         int mDay = startDate.get(Calendar.DAY_OF_MONTH);
 
 
-        if(getContext() != null){
+        if (getContext() != null) {
             DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(),
                     new DatePickerDialog.OnDateSetListener() {
 
@@ -288,6 +288,26 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
                             detailsDateTextView.setText(date);
                         }
                     }, mYear, mMonth, mDay);
+
+            try{
+                SimpleDateFormat inputFormat = new SimpleDateFormat("MMMM");
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(inputFormat.parse(detailsMonthTextView.getText().toString()));
+                SimpleDateFormat outputFormat = new SimpleDateFormat("M"); // 01-12
+                int month = Integer.parseInt(outputFormat.format(cal.getTime()));
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(Calendar.MONTH, month-1);
+                calendar.set(Calendar.DAY_OF_MONTH, 1);
+                datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis());
+                calendar.set(Calendar.DAY_OF_MONTH,  cal.getActualMaximum(Calendar.DAY_OF_MONTH));
+                datePickerDialog.getDatePicker().setMaxDate(calendar.getTimeInMillis());
+
+
+
+            }catch (Exception e){
+
+            }
+
             datePickerDialog.show();
         }
     }
@@ -314,9 +334,9 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
 
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("Date", Utils.getText(detailsDateTextView));
-            if(getMonth(Utils.getText(detailsMonthTextView)).isEmpty()){
-                jsonObject.put("Month",month);
-            }else{
+            if (getMonth(Utils.getText(detailsMonthTextView)).isEmpty()) {
+                jsonObject.put("Month", month);
+            } else {
                 jsonObject.put("Month", getMonth(Utils.getText(detailsMonthTextView)));
             }
             jsonObject.put("TotalBin", Utils.getText(detailsWeightTextView));
@@ -342,16 +362,17 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
     }
 
 
-
     @Override
     public void onClick(View v) {
 
         switch (v.getId()) {
             case R.id.detailsMonthTextView:
-                showMonthMenu(v);
+                if (editable)
+                    showMonthMenu(v);
                 break;
             case R.id.detailsDateTextView:
-                showStartDate();
+                if (editable)
+                    showStartDate();
                 break;
             case R.id.detailsSubmitButton:
                 saveItem();

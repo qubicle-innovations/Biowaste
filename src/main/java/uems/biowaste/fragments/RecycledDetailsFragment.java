@@ -54,6 +54,7 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
     private Calendar startDate;
 
     Button detailsSubmitButton;
+    boolean editable = false;
 
     TextView detailsMonthTextView;
     TextView detailsDateTextView;
@@ -117,6 +118,8 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
         detailsSubmitButton.setVisibility(View.GONE);
         deleteButtonRecycle.setVisibility(View.GONE);
         editButtonRecycle.setVisibility(View.GONE);
+        detailsMonthTextView.setOnClickListener(this);
+        detailsDateTextView.setOnClickListener(this);
 
         editButtonRecycle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,6 +132,7 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
                 itemDisposalCansTextView.setFocusable(true);
                 itemDisposalPaperTextView.setFocusable(true);
                 itemDisposalCarbonBoxTextView.setFocusable(true);
+                editable = true;
 
                 editButtonRecycle.setVisibility(View.GONE);
                 deleteButtonRecycle.setVisibility(View.GONE);
@@ -406,6 +410,25 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
                             detailsDateTextView.setText(date);
                         }
                     }, mYear, mMonth, mDay);
+           try{
+               SimpleDateFormat inputFormat = new SimpleDateFormat("MMMM");
+               Calendar cal = Calendar.getInstance();
+               cal.setTime(inputFormat.parse(detailsMonthTextView.getText().toString()));
+               SimpleDateFormat outputFormat = new SimpleDateFormat("M"); // 01-12
+               int month = Integer.parseInt(outputFormat.format(cal.getTime()));
+               Calendar calendar = Calendar.getInstance();
+               calendar.set(Calendar.MONTH, month-1);
+               calendar.set(Calendar.DAY_OF_MONTH, 1);
+               datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis());
+               calendar.set(Calendar.DAY_OF_MONTH,  cal.getActualMaximum(Calendar.DAY_OF_MONTH));
+               datePickerDialog.getDatePicker().setMaxDate(calendar.getTimeInMillis());
+
+
+
+           }catch (Exception e){
+
+           }
+
             datePickerDialog.show();
         }
     }
@@ -497,10 +520,12 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
 
         switch (v.getId()) {
             case R.id.detailsMonthTextView:
-                showMonthMenu(v);
+                if (editable)
+                    showMonthMenu(v);
                 break;
             case R.id.detailsDateTextView:
-                showStartDate();
+                if (editable)
+                    showStartDate();
                 break;
             case R.id.detailsSubmitButton:
                 saveItem();
