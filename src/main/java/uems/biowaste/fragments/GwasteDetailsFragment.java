@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.PopupMenu;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -143,6 +145,72 @@ public class GwasteDetailsFragment extends Fragment implements View.OnClickListe
                 editButtonGwaste.setVisibility(View.GONE);
                 deleteButtonGwaste.setVisibility(View.GONE);
                 detailsSubmitButton.setVisibility(View.VISIBLE);
+            }
+        });
+
+
+
+        detailsDisposalFeeTextView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String hue = detailsHuelageChargeTextView.getText().toString();
+                String dis = s.toString();
+
+                Double hueCharge = 0D;
+                Double hisCharge = 0D;
+
+                try {
+                    hueCharge = Double.parseDouble(hue);
+                    hisCharge = Double.parseDouble(dis);
+                }catch (NumberFormatException e){
+
+                }
+
+
+                detailsTotalDisposaFeeTextView.setText("$"+ (hueCharge + hisCharge )+"");
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+
+        detailsHuelageChargeTextView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String dis = detailsDisposalFeeTextView.getText().toString();
+                String hue = s.toString();
+
+                Double hueCharge = 0D;
+                Double hisCharge = 0D;
+
+                try {
+                    hueCharge = Double.parseDouble(hue);
+                    hisCharge = Double.parseDouble(dis);
+                }catch (NumberFormatException e){
+
+                }
+
+                detailsTotalDisposaFeeTextView.setText("$"+ (hueCharge + hisCharge )+"");
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
             }
         });
 

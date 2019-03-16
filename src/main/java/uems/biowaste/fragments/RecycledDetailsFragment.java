@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.PopupMenu;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -155,6 +157,131 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
         itemDisposalCansTextView.setFocusable(false);
         itemDisposalPaperTextView.setFocusable(false);
         itemDisposalCarbonBoxTextView.setFocusable(false);
+
+
+        itemDisposalPlasticTextView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+                double plastic = 0;
+                double cans = 0;
+                double paper = 0;
+                double box = 0;
+                if(s!=null&&s.length()>0)
+                    plastic=   Double.parseDouble(s.toString());
+                if (!ZValidation.isEmpty(itemDisposalCansTextView))
+                    cans = Double.parseDouble(Utils.getText(itemDisposalCansTextView));
+                if (!ZValidation.isEmpty(itemDisposalPaperTextView))
+                    paper = Double.parseDouble(Utils.getText(itemDisposalPaperTextView));
+                if (!ZValidation.isEmpty(itemDisposalCarbonBoxTextView))
+                    box = Double.parseDouble(Utils.getText(itemDisposalCarbonBoxTextView));
+                itemDisposalTotalTextView.setText(String.format("%s", plastic + cans + paper + box));
+
+            }
+        });
+        itemDisposalCansTextView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+                double plastic = 0;
+                double cans = 0;
+                double paper = 0;
+                double box = 0;
+                if(s!=null&&s.length()>0)
+                    cans=   Double.parseDouble(s.toString());
+                if (!ZValidation.isEmpty(itemDisposalPlasticTextView))
+                    plastic = Double.parseDouble(Utils.getText(itemDisposalPlasticTextView));
+                if (!ZValidation.isEmpty(itemDisposalPaperTextView))
+                    paper = Double.parseDouble(Utils.getText(itemDisposalPaperTextView));
+                if (!ZValidation.isEmpty(itemDisposalCarbonBoxTextView))
+                    box = Double.parseDouble(Utils.getText(itemDisposalCarbonBoxTextView));
+                itemDisposalTotalTextView.setText((plastic + cans+paper+box) + "");
+
+            }
+        });
+
+        itemDisposalPaperTextView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+                double plastic = 0;
+                double cans = 0;
+                double paper = 0;
+                double box = 0;
+                if(s!=null&&s.length()>0)
+                    paper=   Double.parseDouble(s.toString());
+                if (!ZValidation.isEmpty(itemDisposalPlasticTextView))
+                    plastic = Double.parseDouble(Utils.getText(itemDisposalPlasticTextView));
+                if (!ZValidation.isEmpty(itemDisposalCansTextView))
+                    cans = Double.parseDouble(Utils.getText(itemDisposalCansTextView));
+                if (!ZValidation.isEmpty(itemDisposalCarbonBoxTextView))
+                    box = Double.parseDouble(Utils.getText(itemDisposalCarbonBoxTextView));
+                itemDisposalTotalTextView.setText((plastic + cans+paper+box) + "");
+
+            }
+        });
+
+        itemDisposalCarbonBoxTextView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+                double plastic = 0;
+                double cans = 0;
+                double paper = 0;
+                double box = 0;
+                if(s!=null&&s.length()>0)
+                    box=   Double.parseDouble(s.toString());
+                if (!ZValidation.isEmpty(itemDisposalPlasticTextView))
+                    plastic = Double.parseDouble(Utils.getText(itemDisposalPlasticTextView));
+                if (!ZValidation.isEmpty(itemDisposalCansTextView))
+                    cans = Double.parseDouble(Utils.getText(itemDisposalCansTextView));
+                if (!ZValidation.isEmpty(itemDisposalPaperTextView))
+                    paper = Double.parseDouble(Utils.getText(itemDisposalPaperTextView));
+                itemDisposalTotalTextView.setText((plastic + cans+paper+box) + "");
+
+            }
+        });
+
 
         setData();
     }
