@@ -198,7 +198,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener{
 
         if(getContext() != null){
             PopupMenu popup = new PopupMenu(getContext(), v);
-            popup.getMenu().add("Select");
+          //  popup.getMenu().add("Select");
             if ((monthValue - 1) > 0) {
                 popup.getMenu().add(Utils.getMonths(monthValue - 1));
 
