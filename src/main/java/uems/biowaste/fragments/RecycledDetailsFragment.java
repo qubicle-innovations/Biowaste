@@ -34,9 +34,7 @@ import java.util.Date;
 import java.util.Locale;
 
 import uems.biowaste.R;
-import uems.biowaste.async.CreateRecycledTask;
 import uems.biowaste.async.DeleteTask;
-import uems.biowaste.async.FetchBioWasteCreateTask;
 import uems.biowaste.async.FetchRecycledDetailsTask;
 import uems.biowaste.async.UpdateRecycledTask;
 import uems.biowaste.utils.Constants;
@@ -185,7 +183,7 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
                     paper = Double.parseDouble(Utils.getText(itemDisposalPaperTextView));
                 if (!ZValidation.isEmpty(itemDisposalCarbonBoxTextView))
                     box = Double.parseDouble(Utils.getText(itemDisposalCarbonBoxTextView));
-                itemDisposalTotalTextView.setText(String.format("%s", plastic + cans + paper + box));
+                itemDisposalTotalTextView.setText(Utils.roundOff( plastic + cans + paper + box));
 
             }
         });
@@ -215,7 +213,7 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
                     paper = Double.parseDouble(Utils.getText(itemDisposalPaperTextView));
                 if (!ZValidation.isEmpty(itemDisposalCarbonBoxTextView))
                     box = Double.parseDouble(Utils.getText(itemDisposalCarbonBoxTextView));
-                itemDisposalTotalTextView.setText((plastic + cans+paper+box) + "");
+                itemDisposalTotalTextView.setText(Utils.roundOff(plastic + cans+paper+box) + "");
 
             }
         });
@@ -246,7 +244,7 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
                     cans = Double.parseDouble(Utils.getText(itemDisposalCansTextView));
                 if (!ZValidation.isEmpty(itemDisposalCarbonBoxTextView))
                     box = Double.parseDouble(Utils.getText(itemDisposalCarbonBoxTextView));
-                itemDisposalTotalTextView.setText((plastic + cans+paper+box) + "");
+                itemDisposalTotalTextView.setText(Utils.roundOff(plastic + cans+paper+box) + "");
 
             }
         });
@@ -277,7 +275,7 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
                     cans = Double.parseDouble(Utils.getText(itemDisposalCansTextView));
                 if (!ZValidation.isEmpty(itemDisposalPaperTextView))
                     paper = Double.parseDouble(Utils.getText(itemDisposalPaperTextView));
-                itemDisposalTotalTextView.setText((plastic + cans+paper+box) + "");
+                itemDisposalTotalTextView.setText(Utils.roundOff(plastic + cans+paper+box) + "");
 
             }
         });
@@ -373,6 +371,13 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
     public void updated(){
         if(getContext() != null){
             Toast.makeText(getContext(),getText(R.string.updated),Toast.LENGTH_SHORT).show();
+            mListener.popupFragment(new RecycledListFragment(), Constants.FRAGMENT_RECYCLED_ITEMS,false,true);
+        }
+    }
+
+    public void recordDelete(){
+        if(getContext() != null){
+            Toast.makeText(getContext(),"Successfully deleted",Toast.LENGTH_SHORT).show();
             mListener.popupFragment(new RecycledListFragment(), Constants.FRAGMENT_RECYCLED_ITEMS,false,true);
         }
     }

@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.PopupMenu;
+import android.text.InputFilter;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -27,6 +28,7 @@ import uems.biowaste.R;
 import uems.biowaste.async.FetchBioWasteCreateTask;
 import uems.biowaste.utils.Constants;
 import uems.biowaste.utils.DateUtil;
+import uems.biowaste.utils.MoneyValueFilter;
 import uems.biowaste.utils.Utils;
 import uems.biowaste.utils.ZValidation;
 import uems.biowaste.vo.TResponse;
@@ -99,6 +101,7 @@ public class BiowasteCreateFragment extends Fragment implements View.OnClickList
             detailsWeightTextView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.backgroundGray));
             detailsWeightTextView.setTextColor(ContextCompat.getColor(getContext(), R.color.textBlack));
         }
+        detailsWeightTextView.setFilters(new InputFilter[]{new MoneyValueFilter()});
 
     }
 

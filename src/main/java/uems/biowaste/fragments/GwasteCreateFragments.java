@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.PopupMenu;
 import android.text.Editable;
+import android.text.InputFilter;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -26,9 +27,9 @@ import java.util.Date;
 
 import uems.biowaste.R;
 import uems.biowaste.async.CreateGWasteTask;
-import uems.biowaste.async.FetchGWasteListTask;
 import uems.biowaste.utils.Constants;
 import uems.biowaste.utils.DateUtil;
+import uems.biowaste.utils.MoneyValueFilter;
 import uems.biowaste.utils.Utils;
 import uems.biowaste.utils.ZValidation;
 import uems.biowaste.vo.TResponse;
@@ -101,6 +102,8 @@ public class GwasteCreateFragments extends Fragment implements View.OnClickListe
         detailsDateTextView.setText(date);
         detailsNameTextView.setText(me.getUserName());
         detailsNoOfHaulageTextView.requestFocus();
+        detailsHuelageChargeTextView.setFilters(new InputFilter[]{new MoneyValueFilter()});
+        detailsDisposalFeeTextView.setFilters(new InputFilter[]{new MoneyValueFilter()});
         detailsDisposalFeeTextView.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -125,7 +128,7 @@ public class GwasteCreateFragments extends Fragment implements View.OnClickListe
                     if(detailsHuelageCharge != null)
                     halCharge = Double.parseDouble(detailsHuelageCharge);
                 }
-                detailsTotalDisposaFeeTextView.setText(String.format("%s", disfee + halCharge));
+                detailsTotalDisposaFeeTextView.setText(Utils.roundOff(disfee + halCharge) );
 
             }
         });
@@ -154,7 +157,7 @@ public class GwasteCreateFragments extends Fragment implements View.OnClickListe
                     if(disposalFee != null)
                         disfee = Double.parseDouble(disposalFee);
                 }
-                detailsTotalDisposaFeeTextView.setText(String.format("%s", disfee + halCharge));
+                detailsTotalDisposaFeeTextView.setText(Utils.roundOff(disfee + halCharge));
 
             }
         });

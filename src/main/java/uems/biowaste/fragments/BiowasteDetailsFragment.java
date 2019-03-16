@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.PopupMenu;
+import android.text.InputFilter;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -33,11 +34,11 @@ import java.util.Locale;
 
 import uems.biowaste.R;
 import uems.biowaste.async.DeleteTask;
-import uems.biowaste.async.FetchBioWasteCreateTask;
 import uems.biowaste.async.FetchBioWasteDetailsTask;
 import uems.biowaste.async.UpdateFetchBioWasteTask;
 import uems.biowaste.utils.Constants;
 import uems.biowaste.utils.DateUtil;
+import uems.biowaste.utils.MoneyValueFilter;
 import uems.biowaste.utils.Utils;
 import uems.biowaste.utils.ZValidation;
 import uems.biowaste.vo.BioWasteItemVo;
@@ -136,6 +137,7 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
         detailsSubmitButton.setVisibility(View.GONE);
         detailsWeightTextView.setFocusable(false);
         detailsNoOfHaulageTextView.setFocusable(false);
+        detailsWeightTextView.setFilters(new InputFilter[]{new MoneyValueFilter()});
 
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -252,6 +254,12 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
     public void updated(){
         if(getContext() != null){
             Toast.makeText(getContext(),getText(R.string.updated),Toast.LENGTH_SHORT).show();
+            mListener.popupFragment(new BioWasteListFragment(), Constants.FRAGMENT_BIOWASTE,false,true);
+        }
+    }
+    public void recordDelete(){
+        if(getContext() != null){
+            Toast.makeText(getContext(),"Successfully deleted",Toast.LENGTH_SHORT).show();
             mListener.popupFragment(new BioWasteListFragment(), Constants.FRAGMENT_BIOWASTE,false,true);
         }
     }

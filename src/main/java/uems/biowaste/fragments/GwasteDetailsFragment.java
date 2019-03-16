@@ -34,9 +34,7 @@ import java.util.Date;
 import java.util.Locale;
 
 import uems.biowaste.R;
-import uems.biowaste.async.CreateGWasteTask;
 import uems.biowaste.async.DeleteTask;
-import uems.biowaste.async.FetchBioWasteCreateTask;
 import uems.biowaste.async.FetchGWasteDetailsTask;
 import uems.biowaste.async.UpdateGWasteTask;
 import uems.biowaste.utils.Constants;
@@ -86,6 +84,12 @@ public class GwasteDetailsFragment extends Fragment implements View.OnClickListe
     public void updated(){
         if(getContext() != null){
             Toast.makeText(getContext(),getText(R.string.updated),Toast.LENGTH_SHORT).show();
+            mListener.popupFragment(new GWasteListFragment(),Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE,false,true);
+        }
+    }
+    public void recordDelete(){
+        if(getContext() != null){
+            Toast.makeText(getContext(),"Successfully deleted",Toast.LENGTH_SHORT).show();
             mListener.popupFragment(new GWasteListFragment(),Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE,false,true);
         }
     }
@@ -165,14 +169,15 @@ public class GwasteDetailsFragment extends Fragment implements View.OnClickListe
                 Double hisCharge = 0D;
 
                 try {
+                    if(s!=null&&s.length()>0)
+                        hisCharge = Double.parseDouble(dis);
                     hueCharge = Double.parseDouble(hue);
-                    hisCharge = Double.parseDouble(dis);
                 }catch (NumberFormatException e){
 
                 }
 
 
-                detailsTotalDisposaFeeTextView.setText("$"+ (hueCharge + hisCharge )+"");
+                detailsTotalDisposaFeeTextView.setText(Utils.roundOff(hueCharge + hisCharge ));
 
             }
 
@@ -198,13 +203,14 @@ public class GwasteDetailsFragment extends Fragment implements View.OnClickListe
                 Double hisCharge = 0D;
 
                 try {
+                    if(s!=null&&s.length()>0)
                     hueCharge = Double.parseDouble(hue);
                     hisCharge = Double.parseDouble(dis);
                 }catch (NumberFormatException e){
 
                 }
 
-                detailsTotalDisposaFeeTextView.setText("$"+ (hueCharge + hisCharge )+"");
+                detailsTotalDisposaFeeTextView.setText(Utils.roundOff(hueCharge + hisCharge )+"");
 
             }
 

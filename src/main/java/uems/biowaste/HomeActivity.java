@@ -358,28 +358,28 @@ public class HomeActivity extends AppCompatActivity implements ItemFragment.OnLi
             case Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE_TYPE_ID: {
                 Fragment fragmentDetails = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE_DETAILS);
                 if (fragmentDetails != null && fragmentDetails.isVisible()) {
-                    ((GwasteDetailsFragment) fragmentDetails).updated();
+                    ((GwasteDetailsFragment) fragmentDetails).recordDelete();
                 }
                 break;
             }
             case Constants.FRAGMENT_BIOWASTE_TYPE_ID: {
                 Fragment fragmentDetails = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_BIOWASTE_DETAILS);
                 if (fragmentDetails != null && fragmentDetails.isVisible()) {
-                    ((BiowasteDetailsFragment) fragmentDetails).updated();
+                    ((BiowasteDetailsFragment) fragmentDetails).recordDelete();
                 }
                 break;
             }
             case Constants.FRAGMENT_RECYCLED_ITEMS_TYPE_ID: {
                 Fragment fragmentDetails = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_RECYCLED_ITEMS_DETAILS);
                 if (fragmentDetails != null && fragmentDetails.isVisible()) {
-                    ((RecycledDetailsFragment) fragmentDetails).updated();
+                    ((RecycledDetailsFragment) fragmentDetails).recordDelete();
                 }
                 break;
             }
             case Constants.FRAGMENT_MONTHLY_PATIENTS_TYPE_ID: {
                 Fragment fragmentDetails = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_MONTHLSY_PATIENTS_DETAILS);
                 if (fragmentDetails != null && fragmentDetails.isVisible()) {
-                    ((PatientDetailsFragment) fragmentDetails).updated();
+                    ((PatientDetailsFragment) fragmentDetails).recordDelete();
                 }
                 break;
             }

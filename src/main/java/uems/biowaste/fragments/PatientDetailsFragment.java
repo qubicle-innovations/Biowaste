@@ -27,9 +27,7 @@ import java.util.Date;
 import java.util.Locale;
 
 import uems.biowaste.R;
-import uems.biowaste.async.CreatePatientTask;
 import uems.biowaste.async.DeleteTask;
-import uems.biowaste.async.FetchBioWasteCreateTask;
 import uems.biowaste.async.UpdatePatientTask;
 import uems.biowaste.utils.Constants;
 import uems.biowaste.utils.DateUtil;
@@ -186,6 +184,13 @@ public class PatientDetailsFragment extends Fragment implements View.OnClickList
     public void updated(){
         if(getContext() != null){
             Toast.makeText(getContext(),getText(R.string.updated),Toast.LENGTH_SHORT).show();
+            mListener.popupFragment(new PatientListFragment(), Constants.FRAGMENT_MONTHLY_PATIENTS,false,true);
+        }
+    }
+
+    public void recordDelete(){
+        if(getContext() != null){
+            Toast.makeText(getContext(),"Successfully deleted",Toast.LENGTH_SHORT).show();
             mListener.popupFragment(new PatientListFragment(), Constants.FRAGMENT_MONTHLY_PATIENTS,false,true);
         }
     }

@@ -5,8 +5,10 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.PopupMenu;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
@@ -15,7 +17,9 @@ import android.widget.TextView;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import uems.biowaste.R;
 import uems.biowaste.async.FetchCountTask;
@@ -101,7 +105,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener{
 
         switch (v.getId()) {
             case R.id.itemTextViewMonth:
-                showStartDate();
+                showMonthMenu(v);
                 break;
             case R.id.rlBioWaste:
                 mListener.startFragment(new BioWasteListFragment(), Constants.FRAGMENT_BIOWASTE,false,false);
@@ -188,7 +192,49 @@ public class DashboardFragment extends Fragment implements View.OnClickListener{
 
 
     }
+    public void showMonthMenu(View v) {
+        String month = (String) android.text.format.DateFormat.format("M", new Date());
+        int monthValue = Integer.parseInt(month)-1;
 
+        if(getContext() != null){
+            PopupMenu popup = new PopupMenu(getContext(), v);
+            popup.getMenu().add("Select");
+            if ((monthValue - 1) > 0) {
+                popup.getMenu().add(Utils.getMonths(monthValue - 1));
+
+            } else
+                popup.getMenu().add(Utils.getMonths(12));
+
+            popup.getMenu().add(Utils.getMonths(monthValue));
+
+
+            popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+
+                @Override
+                public boolean onMenuItemClick(MenuItem item) {
+                    itemTextViewMonth.setText(item.getTitle().toString());
+                    try{
+                        if(!item.getTitle().toString().equalsIgnoreCase("select")){
+                            SimpleDateFormat inputFormat = new SimpleDateFormat("MMMM");
+                            Calendar cal = Calendar.getInstance();
+                            cal.setTime(inputFormat.parse(item.getTitle().toString()));
+                            SimpleDateFormat outputFormat = new SimpleDateFormat("M"); // 01-12
+
+                            new FetchCountTask(getContext()).execute(outputFormat.format(cal.getTime()), me.getEmailID());
+                        }else {
+                            new FetchCountTask(getContext()).execute("", me.getEmailID());
+
+                        }
+
+                    }catch (Exception e) {
+
+                    }
+                    return false;
+                }
+            });
+            popup.show();
+        }
+    }
     @Override
     public void onDetach() {
         super.onDetach();

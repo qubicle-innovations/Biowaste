@@ -38,8 +38,7 @@ public class PatientCreateFragment extends Fragment implements View.OnClickListe
     private Calendar startDate;
     TextView detailsMonthTextView;
     TextView detailsDateTextView;
-    TextView tvMonth ;
-    TextView detailsNameTextView;
+     TextView detailsNameTextView;
     public UserVo me;
     EditText patientDetailsTotalTextView;
 
@@ -139,7 +138,7 @@ public class PatientCreateFragment extends Fragment implements View.OnClickListe
 
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                tvMonth.setText(item.getTitle());
+                detailsMonthTextView.setText(item.getTitle());
                 detailsDateTextView.setText(getText(R.string.select));
                 return false;
             }
