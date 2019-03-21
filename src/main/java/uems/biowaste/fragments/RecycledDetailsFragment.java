@@ -138,6 +138,13 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
                 itemDisposalCansTextView.setFocusableInTouchMode(true);
                 itemDisposalPaperTextView.setFocusableInTouchMode(true);
                 itemDisposalCarbonBoxTextView.setFocusableInTouchMode(true);
+
+                itemNonConfDocTextView.setFocusableInTouchMode(true);
+                itemConfDocTextView.setFocusableInTouchMode(true);
+                itemGlassTextView.setFocusableInTouchMode(true);
+                itemNewsPaperTextView.setFocusableInTouchMode(true);
+                itemOthersTextView.setFocusableInTouchMode(true);
+
                 itemDisposalPlasticTextView.setFocusable(true);
                 itemDisposalCansTextView.setFocusable(true);
                 itemDisposalPaperTextView.setFocusable(true);
@@ -197,6 +204,7 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
             public void afterTextChanged(Editable s) {
 
                 double plastic = 0,cans = 0, paper = 0, box = 0;
+                double nonConf = 0,confDoc = 0, glass = 0, newspaper = 0, others = 0;
 
                 if (s != null && s.length() > 0)
                     plastic = Double.parseDouble(s.toString());
@@ -206,7 +214,19 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
                     paper = Double.parseDouble(Utils.getText(itemDisposalPaperTextView));
                 if (!ZValidation.isEmpty(itemDisposalCarbonBoxTextView))
                     box = Double.parseDouble(Utils.getText(itemDisposalCarbonBoxTextView));
-                itemDisposalTotalTextView.setText(Utils.roundOff(plastic + cans + paper + box));
+
+                if (!ZValidation.isEmpty(itemConfDocTextView))
+                    confDoc = Double.parseDouble(Utils.getText(itemConfDocTextView));
+                if (!ZValidation.isEmpty(itemNonConfDocTextView))
+                    nonConf = Double.parseDouble(Utils.getText(itemNonConfDocTextView));
+                if (!ZValidation.isEmpty(itemGlassTextView))
+                    glass = Double.parseDouble(Utils.getText(itemGlassTextView));
+                if (!ZValidation.isEmpty(itemNewsPaperTextView))
+                    newspaper = Double.parseDouble(Utils.getText(itemNewsPaperTextView));
+                if (!ZValidation.isEmpty(itemOthersTextView))
+                    others = Double.parseDouble(Utils.getText(itemOthersTextView));
+
+                itemDisposalTotalTextView.setText(Utils.roundOff(plastic + cans + paper + box+nonConf+confDoc+glass+newspaper+others));
 
             }
         });
@@ -225,6 +245,7 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
             public void afterTextChanged(Editable s) {
 
                 double plastic = 0,cans = 0, paper = 0, box = 0;
+                double nonConf = 0,confDoc = 0, glass = 0, newspaper = 0, others = 0;
 
                 if (s != null && s.length() > 0)
                     cans = Double.parseDouble(s.toString());
@@ -234,7 +255,18 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
                     paper = Double.parseDouble(Utils.getText(itemDisposalPaperTextView));
                 if (!ZValidation.isEmpty(itemDisposalCarbonBoxTextView))
                     box = Double.parseDouble(Utils.getText(itemDisposalCarbonBoxTextView));
-                itemDisposalTotalTextView.setText(Utils.roundOff(plastic + cans + paper + box) + "");
+                if (!ZValidation.isEmpty(itemConfDocTextView))
+                    confDoc = Double.parseDouble(Utils.getText(itemConfDocTextView));
+                if (!ZValidation.isEmpty(itemNonConfDocTextView))
+                    nonConf = Double.parseDouble(Utils.getText(itemNonConfDocTextView));
+                if (!ZValidation.isEmpty(itemGlassTextView))
+                    glass = Double.parseDouble(Utils.getText(itemGlassTextView));
+                if (!ZValidation.isEmpty(itemNewsPaperTextView))
+                    newspaper = Double.parseDouble(Utils.getText(itemNewsPaperTextView));
+                if (!ZValidation.isEmpty(itemOthersTextView))
+                    others = Double.parseDouble(Utils.getText(itemOthersTextView));
+
+                itemDisposalTotalTextView.setText(Utils.roundOff(plastic + cans + paper + box+nonConf+confDoc+glass+newspaper+others));
 
             }
         });
@@ -254,6 +286,7 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
             public void afterTextChanged(Editable s) {
 
                 double plastic = 0,cans = 0, paper = 0, box = 0;
+                double nonConf = 0,confDoc = 0, glass = 0, newspaper = 0, others = 0;
 
                 if (s != null && s.length() > 0)
                     paper = Double.parseDouble(s.toString());
@@ -263,7 +296,18 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
                     cans = Double.parseDouble(Utils.getText(itemDisposalCansTextView));
                 if (!ZValidation.isEmpty(itemDisposalCarbonBoxTextView))
                     box = Double.parseDouble(Utils.getText(itemDisposalCarbonBoxTextView));
-                itemDisposalTotalTextView.setText(Utils.roundOff(plastic + cans + paper + box) + "");
+                if (!ZValidation.isEmpty(itemConfDocTextView))
+                    confDoc = Double.parseDouble(Utils.getText(itemConfDocTextView));
+                if (!ZValidation.isEmpty(itemNonConfDocTextView))
+                    nonConf = Double.parseDouble(Utils.getText(itemNonConfDocTextView));
+                if (!ZValidation.isEmpty(itemGlassTextView))
+                    glass = Double.parseDouble(Utils.getText(itemGlassTextView));
+                if (!ZValidation.isEmpty(itemNewsPaperTextView))
+                    newspaper = Double.parseDouble(Utils.getText(itemNewsPaperTextView));
+                if (!ZValidation.isEmpty(itemOthersTextView))
+                    others = Double.parseDouble(Utils.getText(itemOthersTextView));
+
+                itemDisposalTotalTextView.setText(Utils.roundOff(plastic + cans + paper + box+nonConf+confDoc+glass+newspaper+others));
 
             }
         });
@@ -283,6 +327,7 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
             public void afterTextChanged(Editable s) {
 
                 double plastic = 0,cans = 0, paper = 0, box = 0;
+                double nonConf = 0,confDoc = 0, glass = 0, newspaper = 0, others = 0;
 
                 if (s != null && s.length() > 0)
                     box = Double.parseDouble(s.toString());
@@ -292,12 +337,222 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
                     cans = Double.parseDouble(Utils.getText(itemDisposalCansTextView));
                 if (!ZValidation.isEmpty(itemDisposalPaperTextView))
                     paper = Double.parseDouble(Utils.getText(itemDisposalPaperTextView));
-                itemDisposalTotalTextView.setText(Utils.roundOff(plastic + cans + paper + box) + "");
+                if (!ZValidation.isEmpty(itemConfDocTextView))
+                    confDoc = Double.parseDouble(Utils.getText(itemConfDocTextView));
+                if (!ZValidation.isEmpty(itemNonConfDocTextView))
+                    nonConf = Double.parseDouble(Utils.getText(itemNonConfDocTextView));
+                if (!ZValidation.isEmpty(itemGlassTextView))
+                    glass = Double.parseDouble(Utils.getText(itemGlassTextView));
+                if (!ZValidation.isEmpty(itemNewsPaperTextView))
+                    newspaper = Double.parseDouble(Utils.getText(itemNewsPaperTextView));
+                if (!ZValidation.isEmpty(itemOthersTextView))
+                    others = Double.parseDouble(Utils.getText(itemOthersTextView));
+
+                itemDisposalTotalTextView.setText(Utils.roundOff(plastic + cans + paper + box+nonConf+confDoc+glass+newspaper+others));
+
+            }
+        });
+        itemConfDocTextView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+                double plastic = 0,cans = 0, paper = 0, box = 0;
+                double nonConf = 0,confDoc = 0, glass = 0, newspaper = 0, others = 0;
+
+                if (s != null && s.length() > 0)
+                    confDoc = Double.parseDouble(s.toString());
+                if (!ZValidation.isEmpty(itemDisposalPlasticTextView))
+                    plastic = Double.parseDouble(Utils.getText(itemDisposalPlasticTextView));
+                if (!ZValidation.isEmpty(itemDisposalCansTextView))
+                    cans = Double.parseDouble(Utils.getText(itemDisposalCansTextView));
+                if (!ZValidation.isEmpty(itemDisposalPaperTextView))
+                    paper = Double.parseDouble(Utils.getText(itemDisposalPaperTextView));
+                if (!ZValidation.isEmpty(itemDisposalCarbonBoxTextView))
+                    box = Double.parseDouble(Utils.getText(itemDisposalCarbonBoxTextView));
+                if (!ZValidation.isEmpty(itemNonConfDocTextView))
+                    nonConf = Double.parseDouble(Utils.getText(itemNonConfDocTextView));
+                if (!ZValidation.isEmpty(itemGlassTextView))
+                    glass = Double.parseDouble(Utils.getText(itemGlassTextView));
+                if (!ZValidation.isEmpty(itemNewsPaperTextView))
+                    newspaper = Double.parseDouble(Utils.getText(itemNewsPaperTextView));
+                if (!ZValidation.isEmpty(itemOthersTextView))
+                    others = Double.parseDouble(Utils.getText(itemOthersTextView));
+
+                itemDisposalTotalTextView.setText(Utils.roundOff(plastic + cans + paper + box+nonConf+confDoc+glass+newspaper+others));
 
             }
         });
 
+        itemNonConfDocTextView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+                double plastic = 0,cans = 0, paper = 0, box = 0;
+                double nonConf = 0,confDoc = 0, glass = 0, newspaper = 0, others = 0;
+
+                if (!ZValidation.isEmpty(itemDisposalPlasticTextView))
+                    plastic = Double.parseDouble(Utils.getText(itemDisposalPlasticTextView));
+                if (!ZValidation.isEmpty(itemDisposalCansTextView))
+                    cans = Double.parseDouble(Utils.getText(itemDisposalCansTextView));
+                if (!ZValidation.isEmpty(itemDisposalPaperTextView))
+                    paper = Double.parseDouble(Utils.getText(itemDisposalPaperTextView));
+                if (!ZValidation.isEmpty(itemDisposalCarbonBoxTextView))
+                    box = Double.parseDouble(Utils.getText(itemDisposalCarbonBoxTextView));
+                if (!ZValidation.isEmpty(itemConfDocTextView))
+                    confDoc = Double.parseDouble(Utils.getText(itemConfDocTextView));
+                if (!ZValidation.isEmpty(itemNonConfDocTextView))
+                    nonConf = Double.parseDouble(Utils.getText(itemNonConfDocTextView));
+                if (!ZValidation.isEmpty(itemGlassTextView))
+                    glass = Double.parseDouble(Utils.getText(itemGlassTextView));
+                if (!ZValidation.isEmpty(itemNewsPaperTextView))
+                    newspaper = Double.parseDouble(Utils.getText(itemNewsPaperTextView));
+                if (!ZValidation.isEmpty(itemOthersTextView))
+                    others = Double.parseDouble(Utils.getText(itemOthersTextView));
+
+                itemDisposalTotalTextView.setText(Utils.roundOff(plastic + cans + paper + box+nonConf+confDoc+glass+newspaper+others));
+
+            }
+        });
+        itemGlassTextView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+                double plastic = 0,cans = 0, paper = 0, box = 0;
+                double nonConf = 0,confDoc = 0, glass = 0, newspaper = 0, others = 0;
+
+                if (!ZValidation.isEmpty(itemDisposalPlasticTextView))
+                    plastic = Double.parseDouble(Utils.getText(itemDisposalPlasticTextView));
+                if (!ZValidation.isEmpty(itemDisposalCansTextView))
+                    cans = Double.parseDouble(Utils.getText(itemDisposalCansTextView));
+                if (!ZValidation.isEmpty(itemDisposalPaperTextView))
+                    paper = Double.parseDouble(Utils.getText(itemDisposalPaperTextView));
+                if (!ZValidation.isEmpty(itemDisposalCarbonBoxTextView))
+                    box = Double.parseDouble(Utils.getText(itemDisposalCarbonBoxTextView));
+                if (!ZValidation.isEmpty(itemConfDocTextView))
+                    confDoc = Double.parseDouble(Utils.getText(itemConfDocTextView));
+                if (!ZValidation.isEmpty(itemNonConfDocTextView))
+                    nonConf = Double.parseDouble(Utils.getText(itemNonConfDocTextView));
+                if (!ZValidation.isEmpty(itemGlassTextView))
+                    glass = Double.parseDouble(Utils.getText(itemGlassTextView));
+                if (!ZValidation.isEmpty(itemNewsPaperTextView))
+                    newspaper = Double.parseDouble(Utils.getText(itemNewsPaperTextView));
+                if (!ZValidation.isEmpty(itemOthersTextView))
+                    others = Double.parseDouble(Utils.getText(itemOthersTextView));
+
+                itemDisposalTotalTextView.setText(Utils.roundOff(plastic + cans + paper + box+nonConf+confDoc+glass+newspaper+others));
+
+            }
+        });
+        itemNewsPaperTextView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+                double plastic = 0,cans = 0, paper = 0, box = 0;
+                double nonConf = 0,confDoc = 0, glass = 0, newspaper = 0, others = 0;
+
+                if (!ZValidation.isEmpty(itemDisposalPlasticTextView))
+                    plastic = Double.parseDouble(Utils.getText(itemDisposalPlasticTextView));
+                if (!ZValidation.isEmpty(itemDisposalCansTextView))
+                    cans = Double.parseDouble(Utils.getText(itemDisposalCansTextView));
+                if (!ZValidation.isEmpty(itemDisposalPaperTextView))
+                    paper = Double.parseDouble(Utils.getText(itemDisposalPaperTextView));
+                if (!ZValidation.isEmpty(itemDisposalCarbonBoxTextView))
+                    box = Double.parseDouble(Utils.getText(itemDisposalCarbonBoxTextView));
+                if (!ZValidation.isEmpty(itemConfDocTextView))
+                    confDoc = Double.parseDouble(Utils.getText(itemConfDocTextView));
+                if (!ZValidation.isEmpty(itemNonConfDocTextView))
+                    nonConf = Double.parseDouble(Utils.getText(itemNonConfDocTextView));
+                if (!ZValidation.isEmpty(itemGlassTextView))
+                    glass = Double.parseDouble(Utils.getText(itemGlassTextView));
+                if (!ZValidation.isEmpty(itemNewsPaperTextView))
+                    newspaper = Double.parseDouble(Utils.getText(itemNewsPaperTextView));
+                if (!ZValidation.isEmpty(itemOthersTextView))
+                    others = Double.parseDouble(Utils.getText(itemOthersTextView));
+
+                itemDisposalTotalTextView.setText(Utils.roundOff(plastic + cans + paper + box+nonConf+confDoc+glass+newspaper+others));
+
+            }
+        });
+        itemOthersTextView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+                double plastic = 0,cans = 0, paper = 0, box = 0;
+                double nonConf = 0,confDoc = 0, glass = 0, newspaper = 0, others = 0;
+
+                if (!ZValidation.isEmpty(itemDisposalPlasticTextView))
+                    plastic = Double.parseDouble(Utils.getText(itemDisposalPlasticTextView));
+                if (!ZValidation.isEmpty(itemDisposalCansTextView))
+                    cans = Double.parseDouble(Utils.getText(itemDisposalCansTextView));
+                if (!ZValidation.isEmpty(itemDisposalPaperTextView))
+                    paper = Double.parseDouble(Utils.getText(itemDisposalPaperTextView));
+                if (!ZValidation.isEmpty(itemDisposalCarbonBoxTextView))
+                    box = Double.parseDouble(Utils.getText(itemDisposalCarbonBoxTextView));
+                if (!ZValidation.isEmpty(itemConfDocTextView))
+                    confDoc = Double.parseDouble(Utils.getText(itemConfDocTextView));
+                if (!ZValidation.isEmpty(itemNonConfDocTextView))
+                    nonConf = Double.parseDouble(Utils.getText(itemNonConfDocTextView));
+                if (!ZValidation.isEmpty(itemGlassTextView))
+                    glass = Double.parseDouble(Utils.getText(itemGlassTextView));
+                if (!ZValidation.isEmpty(itemNewsPaperTextView))
+                    newspaper = Double.parseDouble(Utils.getText(itemNewsPaperTextView));
+                if (!ZValidation.isEmpty(itemOthersTextView))
+                    others = Double.parseDouble(Utils.getText(itemOthersTextView));
+
+                itemDisposalTotalTextView.setText(Utils.roundOff(plastic + cans + paper + box+nonConf+confDoc+glass+newspaper+others));
+
+            }
+        });
         setData();
     }
 
@@ -325,6 +580,12 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
         itemDisposalPaperTextView.setText(vo.getPaper());
         itemDisposalCarbonBoxTextView.setText(vo.getCartonBox());
         itemDisposalTotalTextView.setText(String.format("%sKg", vo.getTotalWeight()));
+        itemNonConfDocTextView.setText(vo.getNonConfigDoc());
+        itemConfDocTextView.setText(vo.getConfigDoc());
+        itemGlassTextView.setText(vo.getGlass());
+        itemNewsPaperTextView.setText(vo.getNewspapers());
+        itemOthersTextView.setText(vo.getOthers());
+
         if (vo.getCreatedBy().equals(me.getUserName())) {
             editButtonRecycle.setVisibility(View.VISIBLE);
             deleteButtonRecycle.setVisibility(View.VISIBLE);
@@ -477,6 +738,36 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
             return;
 
         }
+        if (ZValidation.checkEmpty(itemConfDocTextView)) {
+            Utils.showError("Please enter Conf. Doc. weight", detailsMonthTextView);
+            itemConfDocTextView.requestFocus();
+            return;
+
+        }
+        if (ZValidation.checkEmpty(itemNonConfDocTextView)) {
+            Utils.showError("Please enter Non-Conf. Doc weight", detailsMonthTextView);
+            itemNonConfDocTextView.requestFocus();
+            return;
+
+        }
+        if (ZValidation.checkEmpty(itemGlassTextView)) {
+            Utils.showError("Please enter glass weight", detailsMonthTextView);
+            itemGlassTextView.requestFocus();
+            return;
+
+        }
+        if (ZValidation.checkEmpty(itemNewsPaperTextView)) {
+            Utils.showError("Please enter Newspapers weight", detailsMonthTextView);
+            itemNewsPaperTextView.requestFocus();
+            return;
+
+        }
+        if (ZValidation.checkEmpty(itemOthersTextView)) {
+            Utils.showError("Please enter Others ", detailsMonthTextView);
+            itemOthersTextView.requestFocus();
+            return;
+
+        }
         try {
             JSONArray jArray = new JSONArray();
 
@@ -492,7 +783,11 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
             jsonObject.put("Paper", Utils.getText(itemDisposalPaperTextView));
             jsonObject.put("Cans", Utils.getText(itemDisposalCansTextView));
             jsonObject.put("Plastic", Utils.getText(itemDisposalPlasticTextView));
-            jsonObject.put("TotalWeight", Utils.getText(itemDisposalTotalTextView).replace("KgKg", ""));
+            jsonObject.put("ConfigDoc", Utils.getText(itemConfDocTextView));
+            jsonObject.put("NonConfigDoc", Utils.getText(itemNonConfDocTextView));
+            jsonObject.put("Glass", Utils.getText(itemGlassTextView));
+            jsonObject.put("Newspapers", Utils.getText(itemNewsPaperTextView));
+            jsonObject.put("Others", Utils.getText(itemOthersTextView));  jsonObject.put("TotalWeight", Utils.getText(itemDisposalTotalTextView).replace("KgKg", ""));
             jsonObject.put("UserEmailID", me.getEmailID());
             jArray.put(jsonObject);
             new UpdateRecycledTask(getContext()).execute(jArray.toString());
