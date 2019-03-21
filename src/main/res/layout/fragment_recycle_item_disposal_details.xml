@@ -93,9 +93,8 @@
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="8dp">
+            android:layout_height="wrap_content"
+            android:padding="16dp">
 
 
             <EditText
@@ -134,7 +133,7 @@
                 android:id="@+id/itemDisposalPaperTextView"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="32dp"
+                android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp"
                 android:background="@color/backgroundGray"
                 android:fontFamily="@font/montserrat_semi_bold"
@@ -190,11 +189,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="8dp"
                 android:fontFamily="@font/montserrat_semi_bold"
                 android:text="@string/carbon_box"
                 app:layout_constraintStart_toStartOf="@+id/frameLayout3"
-                app:layout_constraintTop_toTopOf="@+id/frameLayout3" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textView6"
