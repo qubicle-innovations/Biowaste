@@ -46,7 +46,6 @@
         android:layout_width="wrap_content"
         android:layout_height="22dp"
         android:fontFamily="@font/montserrat_bold"
-        android:text="@string/sample_name"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/navigationIdTextView"
         app:layout_constraintStart_toStartOf="@+id/navigationIdTextView" />

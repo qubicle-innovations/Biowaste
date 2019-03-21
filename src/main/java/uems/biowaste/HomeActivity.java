@@ -1,5 +1,6 @@
 package uems.biowaste;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
@@ -70,7 +71,7 @@ public class HomeActivity extends AppCompatActivity implements ItemFragment.OnLi
     TextView tvUsername;
     TextView tvEmpID ;
     TextView toolbarTextView ;
-
+    Context context;
     FragmentManger fragmentManger;
     TabLayout tabLayout;
 
@@ -80,6 +81,7 @@ public class HomeActivity extends AppCompatActivity implements ItemFragment.OnLi
         setContentView(R.layout.activity_home);
         me = Utils.getUser(getApplicationContext());
         tabLayout = findViewById(R.id.tabLayout);
+        context=this;
         init();
 
         String url = Utils.getSharedPreference(getApplicationContext(),"url");

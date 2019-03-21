@@ -70,6 +70,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener{
         startDate = Calendar.getInstance();
         me = Utils.getUser(getContext());
         initLayout(view);
+
         return view;
     }
 
@@ -86,6 +87,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener{
         String date = DateUtil.dateToString(startDate.getTime(), DateUtil.DATE_START_DATE);
         startDate = Calendar.getInstance();
         String month = (String) android.text.format.DateFormat.format("M", startDate.getTime());
+        String monthName = (String) android.text.format.DateFormat.format("MMMM", startDate.getTime());
 
         new FetchCountTask(getContext()).execute(month, me.getEmailID());
 //        view.findViewById(R.id.itemTextViewMonth).setVisibility(View.INVISIBLE);
@@ -94,7 +96,12 @@ public class DashboardFragment extends Fragment implements View.OnClickListener{
         view.findViewById(R.id.rlPatients).setOnClickListener(this);
         view.findViewById(R.id.rlGwaste).setOnClickListener(this);
         itemTextViewMonth =  view.findViewById(R.id.itemTextViewMonth);
+        itemTextViewMonth.setText(monthName);
         itemTextViewMonth.setOnClickListener(this);
+
+       TextView tvUsername =  getActivity().findViewById(R.id.navigationNameTextView);
+         if(me != null && me.getUserName() != null)
+            tvUsername.setText(Utils.toTitleCase(me.getUserName()));
 
     }
 

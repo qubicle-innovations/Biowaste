@@ -33,7 +33,8 @@ public class FetchPatientListTask extends
 		TResponse<String> response =  new TResponse<String>();
 
 			 try{
-				 RestURLClient client = new RestURLClient(Constants.GET_PATIENT_LIST, true);
+				 Constants constants = new Constants(ctx);
+				 RestURLClient client = new RestURLClient(constants.GET_PATIENT_LIST, true);
 				 client.addParam("ItemID","0");
 				 client.addParam("Search",params[0]);
 				 client.addParam("UserEmailID",params[1]);

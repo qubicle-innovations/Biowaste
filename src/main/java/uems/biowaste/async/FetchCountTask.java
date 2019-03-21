@@ -33,7 +33,8 @@ public class FetchCountTask extends
 		TResponse<String> response =  new TResponse<String>();
 
 			 try{
-				 RestURLClient client = new RestURLClient(Constants.FETCH_COUNT, true);
+				 Constants constants = new Constants(ctx);
+				 RestURLClient client = new RestURLClient(constants.FETCH_COUNT, true);
 				 client.addParam("month",params[0]);
  				 client.addParam("UserEmailID",params[1]);
 

@@ -329,7 +329,7 @@
                         android:lines="2"
                         android:fontFamily="@font/regular"
                         android:gravity="center"
-                        android:text="Total Patients"
+                        android:text="Beds occupied"
                         android:textColor="@color/textBlack" />
 
                     <RelativeLayout

@@ -123,7 +123,8 @@ public class LoginFragment extends android.support.v4.app.Fragment {
                          Utils.setSharedPreference(getContext(),"url",url);
                      }
                      if (getContext() != null )
-                         mListener.startFragment(new DashboardFragment(),Constants.FRAGMENT_DASHBOARD,true,false);
+
+                         mListener.startFragment(new DashboardFragment( ),Constants.FRAGMENT_DASHBOARD,false,false);
                  }else {
                      Utils.showError("Invalid username or password",btLogin);
                  }

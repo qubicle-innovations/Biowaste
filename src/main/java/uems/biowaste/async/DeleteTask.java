@@ -7,7 +7,6 @@ import android.util.Log;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import uems.biowaste.GwasteCreateActivity;
 import uems.biowaste.HomeActivity;
 import uems.biowaste.http.RestURLClient;
 import uems.biowaste.utils.Constants;
@@ -38,11 +37,12 @@ public class DeleteTask extends
 		TResponse<String> response =  new TResponse<String>();
 
 			 try{
-			 	 JSONObject jsonObject = new JSONArray(params[0]).getJSONObject(0);
+				 Constants constants = new Constants(ctx);
+				 JSONObject jsonObject = new JSONArray(params[0]).getJSONObject(0);
 			 	 typeId = jsonObject.getString("Type");
 
 
-				 RestURLClient client = new RestURLClient(Constants.DELETE_ITEM, true);
+				 RestURLClient client = new RestURLClient(constants.DELETE_ITEM, true);
 				 client.addParam("DatafordeleteList",new JSONArray(params[0]));
 				 client.execute(RestURLClient.RequestMethod.POST);
 

@@ -35,7 +35,8 @@ public class UpdateFetchBioWasteTask extends
 		TResponse<String> response =  new TResponse<>();
 
 			 try{
-				 RestURLClient client = new RestURLClient(Constants.GET_BIOWASTE_CREATE, true);
+				 Constants constants = new Constants(ctx);
+				 RestURLClient client = new RestURLClient(constants.GET_BIOWASTE_CREATE, true);
 					JSONArray request =  new JSONArray(params[0]);
 
 				 client.addParam("ListBioWasteDisposal",request);

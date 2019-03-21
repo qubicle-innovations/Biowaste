@@ -33,7 +33,8 @@ public class FetchBioWasteDetailsTask extends
 		TResponse<String> response =  new TResponse<String>();
 
 			 try{
-				 RestURLClient client = new RestURLClient(Constants.GET_BIOWASTE_DETAILS, true);
+				 Constants constants = new Constants(ctx);
+				 RestURLClient client = new RestURLClient(constants.GET_BIOWASTE_DETAILS, true);
 				 client.addParam("ItemID",params[0]);
  				 client.addParam("UserEmailID",params[1]);
 

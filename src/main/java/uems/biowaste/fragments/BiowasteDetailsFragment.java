@@ -53,8 +53,8 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
     TextView detailsDateTextView;
     TextView detailsNameTextView;
 
-    EditText detailsWeightTextView;
-    EditText detailsNoOfHaulageTextView;
+    EditText detailsTotalCost;
+    EditText detailsTotalBin;
 
     Button deleteButton, editButton;
     String month;
@@ -128,23 +128,23 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
         editButton.setVisibility(View.GONE);
         deleteButton.setVisibility(View.GONE);
 
-        detailsWeightTextView = view.findViewById(R.id.detailsWeightTextView);
-        detailsNoOfHaulageTextView = view.findViewById(R.id.detailsNoOfHaulageTextView);
+        detailsTotalCost = view.findViewById(R.id.detailsWeightTextView);
+        detailsTotalBin = view.findViewById(R.id.detailsNoOfHaulageTextView);
         detailsSubmitButton = view.findViewById(R.id.detailsSubmitButton);
         detailsSubmitButton.setVisibility(View.GONE);
-        detailsWeightTextView.setFocusable(false);
-        detailsNoOfHaulageTextView.setFocusable(false);
-        detailsWeightTextView.setFilters(new InputFilter[]{new MoneyValueFilter()});
+        detailsTotalCost.setFocusable(false);
+        detailsTotalBin.setFocusable(false);
+        detailsTotalCost.setFilters(new InputFilter[]{new MoneyValueFilter()});
 
         detailsMonthTextView.setOnClickListener(this);
         detailsDateTextView.setOnClickListener(this);
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                detailsWeightTextView.setFocusableInTouchMode(true);
-                detailsNoOfHaulageTextView.setFocusableInTouchMode(true);
-                detailsWeightTextView.setFocusable(true);
-                detailsNoOfHaulageTextView.setFocusable(true);
+                detailsTotalCost.setFocusableInTouchMode(true);
+                detailsTotalBin.setFocusableInTouchMode(true);
+                detailsTotalCost.setFocusable(true);
+                detailsTotalBin.setFocusable(true);
                 editButton.setVisibility(View.GONE);
                 deleteButton.setVisibility(View.GONE);
                 detailsSubmitButton.setVisibility(View.VISIBLE);
@@ -176,8 +176,8 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
             detailsMonthTextView.setText(vo.getMonth());
             detailsDateTextView.setText(vo.getDate());
             detailsNameTextView.setText(vo.getCreatedBy());
-            detailsWeightTextView.setText(vo.getTotalBin());
-            detailsNoOfHaulageTextView.setText(vo.getTotalCost());
+            detailsTotalCost.setText(vo.getTotalCost());
+            detailsTotalBin.setText(vo.getTotalBin());
             if (vo.getCreatedBy().equals(me.getUserName())) {
                 editButton.setVisibility(View.VISIBLE);
                 deleteButton.setVisibility(View.VISIBLE);
@@ -317,15 +317,15 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
             Utils.showError("Please select a date", detailsMonthTextView);
             return;
         }
-        if (ZValidation.checkEmpty(detailsWeightTextView)) {
+        if (ZValidation.checkEmpty(detailsTotalCost)) {
             Utils.showError("Please enter total bin", detailsMonthTextView);
-            detailsWeightTextView.requestFocus();
+            detailsTotalCost.requestFocus();
             return;
 
         }
-        if (ZValidation.checkEmpty(detailsNoOfHaulageTextView)) {
+        if (ZValidation.checkEmpty(detailsTotalBin)) {
             Utils.showError("Please enter total cost", detailsMonthTextView);
-            detailsNoOfHaulageTextView.requestFocus();
+            detailsTotalBin.requestFocus();
             return;
 
         }
@@ -339,8 +339,8 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
             } else {
                 jsonObject.put("Month", getMonth(Utils.getText(detailsMonthTextView)));
             }
-            jsonObject.put("TotalBin", Utils.getText(detailsWeightTextView));
-            jsonObject.put("TotalCost", Utils.getText(detailsNoOfHaulageTextView));
+            jsonObject.put("TotalBin", Utils.getText(detailsTotalBin));
+            jsonObject.put("TotalCost", Utils.getText(detailsTotalCost));
             jsonObject.put("UserEmailID", me.getEmailID());
             jArray.put(jsonObject);
             new UpdateFetchBioWasteTask(getContext()).execute(jArray.toString());

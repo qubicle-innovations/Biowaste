@@ -11,17 +11,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.Calendar;
 import java.util.List;
 
 import uems.biowaste.HomeActivity;
 import uems.biowaste.R;
-import uems.biowaste.async.FetchGWasteListTask;
 import uems.biowaste.fragments.BioWasteListFragment;
 import uems.biowaste.fragments.DashboardFragment;
 import uems.biowaste.fragments.GWasteListFragment;
-import uems.biowaste.fragments.GwasteCreateFragments;
-import uems.biowaste.fragments.LoginFragment;
 import uems.biowaste.fragments.PatientListFragment;
 import uems.biowaste.fragments.RecycledListFragment;
 
@@ -348,7 +344,7 @@ public class FragmentManger {
                         tabLayout.setVisibility(View.VISIBLE);
                         break;
                     case Constants.FRAGMENT_MONTHLY_PATIENTS:
-                        switchToolBar(true, true, context.getText(R.string.biowaste).toString());
+                        switchToolBar(true, true, context.getText(R.string.monthly_patients_forms).toString());
                         tabLayout.setVisibility(View.VISIBLE);
                         break;
                     case Constants.FRAGMENT_RECYCLED_ITEMS:
@@ -364,7 +360,7 @@ public class FragmentManger {
                         tabLayout.setVisibility(View.VISIBLE);
                         break;
                     case Constants.FRAGMENT_MONTHLSY_PATIENTS_DETAILS:
-                        switchToolBar(true, false, context.getText(R.string.monthly_payments_details).toString());
+                        switchToolBar(true, false, context.getText(R.string.monthly_payments).toString());
                         tabLayout.setVisibility(View.GONE);
                         break;
                     case Constants.FRAGMENT_RECYCLED_ITEMS_DETAILS:

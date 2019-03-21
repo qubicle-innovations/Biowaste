@@ -36,7 +36,8 @@ public class UpdateGWasteTask extends
 		TResponse<String> response =  new TResponse<String>();
 
 		 try{
-			 RestURLClient client = new RestURLClient(Constants.CREATE_GWASTE_DETAILS, true);
+			 Constants constants = new Constants(ctx);
+			 RestURLClient client = new RestURLClient(constants.CREATE_GWASTE_DETAILS, true);
 			 client.addParam("ListFoodandGeneralwaste",new JSONArray(params[0]));
 			 client.execute(RestURLClient.RequestMethod.POST);
 

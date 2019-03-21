@@ -43,8 +43,8 @@ public class BiowasteCreateFragment extends Fragment implements View.OnClickList
     public UserVo me;
 
     TextView detailsDateTextView ;
-    EditText detailsWeightTextView ;
-    EditText detailsNoOfHaulageTextView ;
+    EditText detailTotalCost;
+    EditText detailsTotalBin;
     TextView detailsMonthTextView ;
     TextView detailsNameTextView ;
 
@@ -83,8 +83,8 @@ public class BiowasteCreateFragment extends Fragment implements View.OnClickList
         detailsMonthTextView = view.findViewById(R.id.detailsMonthTextView);
         detailsDateTextView = view.findViewById(R.id.detailsDateTextView);
         detailsNameTextView = view.findViewById(R.id.detailsNameTextView);
-        detailsWeightTextView = view.findViewById(R.id.detailsWeightTextView);
-        detailsNoOfHaulageTextView = view.findViewById(R.id.detailsNoOfHaulageTextView);
+        detailTotalCost = view.findViewById(R.id.detailsWeightTextView);
+        detailsTotalBin = view.findViewById(R.id.detailsNoOfHaulageTextView);
 
         EditText detailsWeightTextView = view.findViewById(R.id.detailsWeightTextView);
         EditText detailsNoOfHaulageTextView = view.findViewById(R.id.detailsNoOfHaulageTextView);
@@ -215,15 +215,15 @@ public class BiowasteCreateFragment extends Fragment implements View.OnClickList
             Utils.showError("Please select a date", detailsMonthTextView);
             return;
         }
-        if (ZValidation.checkEmpty(detailsWeightTextView)) {
+        if (ZValidation.checkEmpty(detailTotalCost)) {
             Utils.showError("Please enter total bin", detailsMonthTextView);
-            detailsWeightTextView.requestFocus();
+            detailTotalCost.requestFocus();
             return;
 
         }
-        if (ZValidation.checkEmpty(detailsNoOfHaulageTextView)) {
+        if (ZValidation.checkEmpty(detailsTotalBin)) {
             Utils.showError("Please enter total cost", detailsMonthTextView);
-            detailsNoOfHaulageTextView.requestFocus();
+            detailsTotalBin.requestFocus();
             return;
 
         }
@@ -233,8 +233,8 @@ public class BiowasteCreateFragment extends Fragment implements View.OnClickList
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("Date", Utils.getText(detailsDateTextView));
             jsonObject.put("Month", month);
-            jsonObject.put("TotalBin", Utils.getText(detailsWeightTextView));
-            jsonObject.put("TotalCost", Utils.getText(detailsNoOfHaulageTextView));
+            jsonObject.put("TotalBin", Utils.getText(detailsTotalBin));
+            jsonObject.put("TotalCost", Utils.getText(detailTotalCost));
             jsonObject.put("UserEmailID", me.getEmailID());
             jArray.put(jsonObject);
             new FetchBioWasteCreateTask(getContext()).execute(jArray.toString());

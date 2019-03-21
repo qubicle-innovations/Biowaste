@@ -49,17 +49,17 @@
     <string name="food_and_general_waste_details">Food and general waste details</string>
     <string name="biowaste_details">Biowaste details</string>
     <string name="recycled_items_details">Recycled items details</string>
-    <string name="monthly_payments_details">Beds occupied</string>
+    <string name="monthly_payments_details">Bed occupancy</string>
 
     <string name="food_and_general_waste_create">Food and general waste create</string>
     <string name="biowaste_create">Biowaste create</string>
     <string name="recycled_items_create">Recycled items create</string>
-    <string name="monthly_payments_create">Beds occupied</string>
+    <string name="monthly_payments_create">Bed occupancy</string>
 
     <string name="general_waste">General waste</string>
     <string name="biowaste_disposal_cost">Biowaste disposal cost</string>
     <string name="recycle_item_disposal">Recycled items disposal</string>
-    <string name="total_patients">Total patients</string>
+    <string name="total_patients">Beds occupied</string>
 
     <string name="back_button_delay_message">Press again to exit </string>
 

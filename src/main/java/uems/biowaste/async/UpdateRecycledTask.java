@@ -35,7 +35,8 @@ public class UpdateRecycledTask extends
 		TResponse<String> response =  new TResponse<String>();
 
 			 try{
-				 RestURLClient client = new RestURLClient(Constants.CREATE_RECYCLED_DETAILS, true);
+				 Constants constants = new Constants(ctx);
+				 RestURLClient client = new RestURLClient(constants.CREATE_RECYCLED_DETAILS, true);
 				 client.addParam("ListRecycleditems",new JSONArray(params[0]));
 				 client.execute(RestURLClient.RequestMethod.POST);
 

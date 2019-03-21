@@ -33,7 +33,8 @@ public class FetchGWasteDetailsTask extends
 		TResponse<String> response =  new TResponse<>();
 
 			 try{
-				 RestURLClient client = new RestURLClient(Constants.GET_GWASTE_DETAILS, true);
+				 Constants constants = new Constants(ctx);
+				 RestURLClient client = new RestURLClient(constants.GET_GWASTE_DETAILS, true);
 				 client.addParam("ItemID",params[0]);
  				 client.addParam("UserEmailID",params[1]);
 

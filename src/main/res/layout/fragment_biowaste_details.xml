@@ -176,7 +176,7 @@
         android:background="@color/backgroundGray"
         android:fontFamily="@font/montserrat_semi_bold"
         android:gravity="right|center_vertical"
-        android:inputType="numberDecimal"
+        android:inputType="number"
         android:paddingRight="20dp"
         android:textColor="@color/textBlack"
         app:layout_constraintBottom_toBottomOf="@+id/textView5"
