@@ -66,5 +66,10 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="delete">Delete</string>
     <string name="edit">Edit</string>
+    <string name="confDoc">Conf. Doc. (kg)</string>
+    <string name="nonconfDoc">Non-Conf. Doc (kg)</string>
+    <string name="glass">Glass (kg)</string>
+    <string name="newspaper">Newspapers (kg)</string>
+    <string name="others">Others (kg)</string>
 
 </resources>

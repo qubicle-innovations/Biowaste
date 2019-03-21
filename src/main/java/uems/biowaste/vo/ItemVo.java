@@ -27,6 +27,12 @@ public class ItemVo implements Serializable {
 	private String Paper;
 	private String Cans;
 	private String Plastic;
+	private String ConfigDoc;
+	private String NonConfigDoc;
+	private String Glass;
+	private String Newspapers;
+	private String Others;
+
 
 
 	public String getDate() {
@@ -139,5 +145,45 @@ public class ItemVo implements Serializable {
 
 	public void setPlastic(String plastic) {
 		Plastic = plastic;
+	}
+
+	public String getConfigDoc() {
+		return ConfigDoc;
+	}
+
+	public void setConfigDoc(String configDoc) {
+		ConfigDoc = configDoc;
+	}
+
+	public String getNonConfigDoc() {
+		return NonConfigDoc;
+	}
+
+	public void setNonConfigDoc(String nonConfigDoc) {
+		NonConfigDoc = nonConfigDoc;
+	}
+
+	public String getGlass() {
+		return Glass;
+	}
+
+	public void setGlass(String glass) {
+		Glass = glass;
+	}
+
+	public String getNewspapers() {
+		return Newspapers;
+	}
+
+	public void setNewspapers(String newspapers) {
+		Newspapers = newspapers;
+	}
+
+	public String getOthers() {
+		return Others;
+	}
+
+	public void setOthers(String others) {
+		Others = others;
 	}
 }

@@ -45,7 +45,7 @@ import uems.biowaste.vo.ItemVo;
 import uems.biowaste.vo.TResponse;
 import uems.biowaste.vo.UserVo;
 
-public class RecycledDetailsFragment extends Fragment implements View.OnClickListener{
+public class RecycledDetailsFragment extends Fragment implements View.OnClickListener {
 
     private ItemVo vo;
     public UserVo me;
@@ -58,14 +58,19 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
 
     TextView detailsMonthTextView;
     TextView detailsDateTextView;
-    TextView detailsNameTextView ;
+    TextView detailsNameTextView;
     TextView itemDisposalTotalTextView;
 
     EditText itemDisposalPlasticTextView;
     EditText itemDisposalCansTextView;
     EditText itemDisposalPaperTextView;
     EditText itemDisposalCarbonBoxTextView;
-    Button deleteButtonRecycle,editButtonRecycle;
+    EditText itemNonConfDocTextView;
+    EditText itemConfDocTextView;
+    EditText itemGlassTextView;
+    EditText itemNewsPaperTextView;
+    EditText itemOthersTextView;
+    Button deleteButtonRecycle, editButtonRecycle;
 
     @Override
     public void onAttach(Context context) {
@@ -79,8 +84,9 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
     }
 
     public interface OnFragmentInteractionListener {
-        void  startFragment(Fragment fragment,String fragmentName,boolean addToBackStack,boolean isAdd);
-        void  popupFragment(Fragment fragment,String fragmentName,boolean addToBackStack,boolean isAdd);
+        void startFragment(Fragment fragment, String fragmentName, boolean addToBackStack, boolean isAdd);
+
+        void popupFragment(Fragment fragment, String fragmentName, boolean addToBackStack, boolean isAdd);
     }
 
     @Override
@@ -90,10 +96,10 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
         me = Utils.getUser(getContext());
         startDate = Calendar.getInstance();
         month = (String) android.text.format.DateFormat.format("M", startDate.getTime());
-        if(getArguments() != null)
+        if (getArguments() != null)
             vo = (ItemVo) getArguments().getSerializable("vo");
         initLayout(view);
-        new FetchRecycledDetailsTask(getContext()).execute(vo.getItemID(),me.getEmailID());
+        new FetchRecycledDetailsTask(getContext()).execute(vo.getItemID(), me.getEmailID());
         return view;
     }
 
@@ -109,7 +115,11 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
         itemDisposalCansTextView = view.findViewById(R.id.itemDisposalCansTextView);
         itemDisposalPaperTextView = view.findViewById(R.id.itemDisposalPaperTextView);
         itemDisposalCarbonBoxTextView = view.findViewById(R.id.itemDisposalCarbonBoxTextView);
-
+        itemNonConfDocTextView = view.findViewById(R.id.itemNonConfDocTextView);
+        itemConfDocTextView = view.findViewById(R.id.itemConfDocTextView);
+        itemGlassTextView = view.findViewById(R.id.itemGlassTextView);
+        itemNewsPaperTextView = view.findViewById(R.id.itemNewsPaperTextView);
+        itemOthersTextView = view.findViewById(R.id.itemOthersTextView);
         editButtonRecycle = view.findViewById(R.id.editButtonRecycle);
         deleteButtonRecycle = view.findViewById(R.id.deleteButtonRecycle);
         detailsSubmitButton = view.findViewById(R.id.detailsSubmitButton);
@@ -132,6 +142,12 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
                 itemDisposalCansTextView.setFocusable(true);
                 itemDisposalPaperTextView.setFocusable(true);
                 itemDisposalCarbonBoxTextView.setFocusable(true);
+
+                 itemNonConfDocTextView.setFocusable(true);
+                 itemConfDocTextView.setFocusable(true);
+                 itemGlassTextView.setFocusable(true);
+                 itemNewsPaperTextView.setFocusable(true);
+                 itemOthersTextView.setFocusable(true);
                 editable = true;
 
                 editButtonRecycle.setVisibility(View.GONE);
@@ -159,6 +175,11 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
         itemDisposalCansTextView.setFocusable(false);
         itemDisposalPaperTextView.setFocusable(false);
         itemDisposalCarbonBoxTextView.setFocusable(false);
+        itemNonConfDocTextView.setFocusable(false);
+        itemConfDocTextView.setFocusable(false);
+        itemGlassTextView.setFocusable(false);
+        itemNewsPaperTextView.setFocusable(false);
+        itemOthersTextView.setFocusable(false);
 
 
         itemDisposalPlasticTextView.addTextChangedListener(new TextWatcher() {
@@ -175,19 +196,17 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
             @Override
             public void afterTextChanged(Editable s) {
 
-                double plastic = 0;
-                double cans = 0;
-                double paper = 0;
-                double box = 0;
-                if(s!=null&&s.length()>0)
-                    plastic=   Double.parseDouble(s.toString());
+                double plastic = 0,cans = 0, paper = 0, box = 0;
+
+                if (s != null && s.length() > 0)
+                    plastic = Double.parseDouble(s.toString());
                 if (!ZValidation.isEmpty(itemDisposalCansTextView))
                     cans = Double.parseDouble(Utils.getText(itemDisposalCansTextView));
                 if (!ZValidation.isEmpty(itemDisposalPaperTextView))
                     paper = Double.parseDouble(Utils.getText(itemDisposalPaperTextView));
                 if (!ZValidation.isEmpty(itemDisposalCarbonBoxTextView))
                     box = Double.parseDouble(Utils.getText(itemDisposalCarbonBoxTextView));
-                itemDisposalTotalTextView.setText(Utils.roundOff( plastic + cans + paper + box));
+                itemDisposalTotalTextView.setText(Utils.roundOff(plastic + cans + paper + box));
 
             }
         });
@@ -205,19 +224,17 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
             @Override
             public void afterTextChanged(Editable s) {
 
-                double plastic = 0;
-                double cans = 0;
-                double paper = 0;
-                double box = 0;
-                if(s!=null&&s.length()>0)
-                    cans=   Double.parseDouble(s.toString());
+                double plastic = 0,cans = 0, paper = 0, box = 0;
+
+                if (s != null && s.length() > 0)
+                    cans = Double.parseDouble(s.toString());
                 if (!ZValidation.isEmpty(itemDisposalPlasticTextView))
                     plastic = Double.parseDouble(Utils.getText(itemDisposalPlasticTextView));
                 if (!ZValidation.isEmpty(itemDisposalPaperTextView))
                     paper = Double.parseDouble(Utils.getText(itemDisposalPaperTextView));
                 if (!ZValidation.isEmpty(itemDisposalCarbonBoxTextView))
                     box = Double.parseDouble(Utils.getText(itemDisposalCarbonBoxTextView));
-                itemDisposalTotalTextView.setText(Utils.roundOff(plastic + cans+paper+box) + "");
+                itemDisposalTotalTextView.setText(Utils.roundOff(plastic + cans + paper + box) + "");
 
             }
         });
@@ -236,19 +253,17 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
             @Override
             public void afterTextChanged(Editable s) {
 
-                double plastic = 0;
-                double cans = 0;
-                double paper = 0;
-                double box = 0;
-                if(s!=null&&s.length()>0)
-                    paper=   Double.parseDouble(s.toString());
+                double plastic = 0,cans = 0, paper = 0, box = 0;
+
+                if (s != null && s.length() > 0)
+                    paper = Double.parseDouble(s.toString());
                 if (!ZValidation.isEmpty(itemDisposalPlasticTextView))
                     plastic = Double.parseDouble(Utils.getText(itemDisposalPlasticTextView));
                 if (!ZValidation.isEmpty(itemDisposalCansTextView))
                     cans = Double.parseDouble(Utils.getText(itemDisposalCansTextView));
                 if (!ZValidation.isEmpty(itemDisposalCarbonBoxTextView))
                     box = Double.parseDouble(Utils.getText(itemDisposalCarbonBoxTextView));
-                itemDisposalTotalTextView.setText(Utils.roundOff(plastic + cans+paper+box) + "");
+                itemDisposalTotalTextView.setText(Utils.roundOff(plastic + cans + paper + box) + "");
 
             }
         });
@@ -267,19 +282,17 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
             @Override
             public void afterTextChanged(Editable s) {
 
-                double plastic = 0;
-                double cans = 0;
-                double paper = 0;
-                double box = 0;
-                if(s!=null&&s.length()>0)
-                    box=   Double.parseDouble(s.toString());
+                double plastic = 0,cans = 0, paper = 0, box = 0;
+
+                if (s != null && s.length() > 0)
+                    box = Double.parseDouble(s.toString());
                 if (!ZValidation.isEmpty(itemDisposalPlasticTextView))
                     plastic = Double.parseDouble(Utils.getText(itemDisposalPlasticTextView));
                 if (!ZValidation.isEmpty(itemDisposalCansTextView))
                     cans = Double.parseDouble(Utils.getText(itemDisposalCansTextView));
                 if (!ZValidation.isEmpty(itemDisposalPaperTextView))
                     paper = Double.parseDouble(Utils.getText(itemDisposalPaperTextView));
-                itemDisposalTotalTextView.setText(Utils.roundOff(plastic + cans+paper+box) + "");
+                itemDisposalTotalTextView.setText(Utils.roundOff(plastic + cans + paper + box) + "");
 
             }
         });
@@ -288,7 +301,7 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
         setData();
     }
 
-    public void deleteRecord(){
+    public void deleteRecord() {
         JSONArray jArray = new JSONArray();
         JSONObject jsonObject = new JSONObject();
         try {
@@ -302,17 +315,17 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
         }
     }
 
-    public  void setData(){
+    public void setData() {
         detailsMonthTextView.setText(vo.getMonth());
         detailsDateTextView.setText(vo.getDate());
         detailsNameTextView.setText(vo.getCreatedBy());
 
-        itemDisposalPlasticTextView.setText(vo.getPlastic() );
+        itemDisposalPlasticTextView.setText(vo.getPlastic());
         itemDisposalCansTextView.setText(vo.getCans());
         itemDisposalPaperTextView.setText(vo.getPaper());
         itemDisposalCarbonBoxTextView.setText(vo.getCartonBox());
         itemDisposalTotalTextView.setText(String.format("%sKg", vo.getTotalWeight()));
-        if(vo.getCreatedBy().equals(me.getUserName())){
+        if (vo.getCreatedBy().equals(me.getUserName())) {
             editButtonRecycle.setVisibility(View.VISIBLE);
             deleteButtonRecycle.setVisibility(View.VISIBLE);
         }
@@ -345,9 +358,9 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
 
     public void showMonthMenu(View v) {
         String month = (String) android.text.format.DateFormat.format("M", new Date());
-        int monthValue = Integer.parseInt(month)-1;
+        int monthValue = Integer.parseInt(month) - 1;
 
-        if(getContext() != null){
+        if (getContext() != null) {
             PopupMenu popup = new PopupMenu(getContext(), v);
             popup.getMenu().add("Select");
             if ((monthValue - 1) > 0) {
@@ -372,17 +385,17 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
         }
     }
 
-    public void updated(){
-        if(getContext() != null){
-            Toast.makeText(getContext(),getText(R.string.updated),Toast.LENGTH_SHORT).show();
-            mListener.popupFragment(new RecycledListFragment(), Constants.FRAGMENT_RECYCLED_ITEMS,false,true);
+    public void updated() {
+        if (getContext() != null) {
+            Toast.makeText(getContext(), getText(R.string.updated), Toast.LENGTH_SHORT).show();
+            mListener.popupFragment(new RecycledListFragment(), Constants.FRAGMENT_RECYCLED_ITEMS, false, true);
         }
     }
 
-    public void recordDelete(){
-        if(getContext() != null){
-            Toast.makeText(getContext(),"Successfully deleted",Toast.LENGTH_SHORT).show();
-            mListener.popupFragment(new RecycledListFragment(), Constants.FRAGMENT_RECYCLED_ITEMS,false,true);
+    public void recordDelete() {
+        if (getContext() != null) {
+            Toast.makeText(getContext(), "Successfully deleted", Toast.LENGTH_SHORT).show();
+            mListener.popupFragment(new RecycledListFragment(), Constants.FRAGMENT_RECYCLED_ITEMS, false, true);
         }
     }
 
@@ -394,7 +407,7 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
         int mDay = startDate.get(Calendar.DAY_OF_MONTH);
 
 
-        if(getContext() != null){
+        if (getContext() != null) {
             DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(),
                     new DatePickerDialog.OnDateSetListener() {
 
@@ -410,24 +423,23 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
                             detailsDateTextView.setText(date);
                         }
                     }, mYear, mMonth, mDay);
-           try{
-               SimpleDateFormat inputFormat = new SimpleDateFormat("MMMM");
-               Calendar cal = Calendar.getInstance();
-               cal.setTime(inputFormat.parse(detailsMonthTextView.getText().toString()));
-               SimpleDateFormat outputFormat = new SimpleDateFormat("M"); // 01-12
-               int month = Integer.parseInt(outputFormat.format(cal.getTime()));
-               Calendar calendar = Calendar.getInstance();
-               calendar.set(Calendar.MONTH, month-1);
-               calendar.set(Calendar.DAY_OF_MONTH, 1);
-               datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis());
-               calendar.set(Calendar.DAY_OF_MONTH,  cal.getActualMaximum(Calendar.DAY_OF_MONTH));
-               datePickerDialog.getDatePicker().setMaxDate(calendar.getTimeInMillis());
+            try {
+                SimpleDateFormat inputFormat = new SimpleDateFormat("MMMM");
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(inputFormat.parse(detailsMonthTextView.getText().toString()));
+                SimpleDateFormat outputFormat = new SimpleDateFormat("M"); // 01-12
+                int month = Integer.parseInt(outputFormat.format(cal.getTime()));
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(Calendar.MONTH, month - 1);
+                calendar.set(Calendar.DAY_OF_MONTH, 1);
+                datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis());
+                calendar.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
+                datePickerDialog.getDatePicker().setMaxDate(calendar.getTimeInMillis());
 
 
+            } catch (Exception e) {
 
-           }catch (Exception e){
-
-           }
+            }
 
             datePickerDialog.show();
         }
@@ -470,9 +482,9 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
 
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("Date", Utils.getText(detailsDateTextView));
-            if(getMonth(Utils.getText(detailsMonthTextView)).isEmpty()){
-                jsonObject.put("Month",month);
-            }else{
+            if (getMonth(Utils.getText(detailsMonthTextView)).isEmpty()) {
+                jsonObject.put("Month", month);
+            } else {
                 jsonObject.put("Month", getMonth(Utils.getText(detailsMonthTextView)));
             }
 
@@ -480,7 +492,7 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
             jsonObject.put("Paper", Utils.getText(itemDisposalPaperTextView));
             jsonObject.put("Cans", Utils.getText(itemDisposalCansTextView));
             jsonObject.put("Plastic", Utils.getText(itemDisposalPlasticTextView));
-            jsonObject.put("TotalWeight", Utils.getText(itemDisposalTotalTextView).replace("KgKg",""));
+            jsonObject.put("TotalWeight", Utils.getText(itemDisposalTotalTextView).replace("KgKg", ""));
             jsonObject.put("UserEmailID", me.getEmailID());
             jArray.put(jsonObject);
             new UpdateRecycledTask(getContext()).execute(jArray.toString());
@@ -502,13 +514,13 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
     }
 
 
-    public String getMonth(String month){
+    public String getMonth(String month) {
         Date date = null;
         try {
             date = new SimpleDateFormat("MMM", Locale.ENGLISH).parse(month);
             Calendar cal = Calendar.getInstance();
             cal.setTime(date);
-            return (cal.get(Calendar.MONTH)+1)+"";
+            return (cal.get(Calendar.MONTH) + 1) + "";
         } catch (ParseException e) {
             e.printStackTrace();
         }
