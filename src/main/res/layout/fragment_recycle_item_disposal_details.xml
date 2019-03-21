@@ -82,6 +82,270 @@
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="@+id/textView2" />
 
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout2"
+        app:layout_constraintEnd_toEndOf="@+id/frameLayout3"
+        app:layout_constraintStart_toStartOf="@+id/frameLayout3"
+        app:layout_constraintTop_toTopOf="@+id/frameLayout3">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+
+            <EditText
+                android:id="@+id/itemDisposalPlasticTextView"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="24dp"
+                android:background="@color/backgroundGray"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:gravity="right|center_vertical"
+                android:inputType="numberDecimal"
+                android:paddingRight="20dp"
+                android:textColor="@color/textBlack"
+                app:layout_constraintBottom_toBottomOf="@+id/textView8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/itemDisposalCansTextView"
+                app:layout_constraintTop_toTopOf="@+id/textView8" />
+
+            <EditText
+                android:id="@+id/itemDisposalCansTextView"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="24dp"
+                android:background="@color/backgroundGray"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:gravity="right|center_vertical"
+                android:inputType="numberDecimal"
+                android:paddingRight="20dp"
+                android:textColor="@color/textBlack"
+                app:layout_constraintBottom_toBottomOf="@+id/textView7"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/itemDisposalPaperTextView"
+                app:layout_constraintTop_toTopOf="@+id/textView7" />
+
+            <EditText
+                android:id="@+id/itemDisposalPaperTextView"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="24dp"
+                android:background="@color/backgroundGray"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:gravity="right|center_vertical"
+                android:inputType="numberDecimal"
+                android:paddingRight="20dp"
+                android:textColor="@color/textBlack"
+                app:layout_constraintBottom_toBottomOf="@+id/textView6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView5"
+                app:layout_constraintTop_toTopOf="@+id/textView6" />
+
+            <EditText
+                android:id="@+id/itemDisposalCarbonBoxTextView"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="24dp"
+                android:background="@color/backgroundGray"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:gravity="right|center_vertical"
+                android:inputType="numberDecimal"
+                android:paddingRight="20dp"
+                android:textColor="@color/textBlack"
+                app:layout_constraintBottom_toBottomOf="@+id/textView5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/itemDisposalPaperTextView"
+                app:layout_constraintTop_toTopOf="@+id/textView5" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:text="@string/plastic"
+                app:layout_constraintStart_toStartOf="@+id/frameLayout3"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:text="@string/cans"
+                app:layout_constraintStart_toStartOf="@+id/frameLayout3"
+                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:text="@string/carbon_box"
+                app:layout_constraintStart_toStartOf="@+id/frameLayout3"
+                app:layout_constraintTop_toTopOf="@+id/frameLayout3" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:text="@string/paper"
+                app:layout_constraintStart_toStartOf="@+id/frameLayout3"
+                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:text="@string/confDoc"
+                app:layout_constraintStart_toStartOf="@+id/frameLayout3"
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+            <EditText
+                android:id="@+id/itemConfDocTextView"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="24dp"
+                android:background="@color/backgroundGray"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:gravity="right|center_vertical"
+                android:inputType="numberDecimal"
+                android:paddingRight="20dp"
+                android:textColor="@color/textBlack"
+                app:layout_constraintBottom_toBottomOf="@+id/textView9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/itemDisposalCansTextView"
+                app:layout_constraintTop_toTopOf="@+id/textView9" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:text="@string/nonconfDoc"
+                app:layout_constraintStart_toStartOf="@+id/frameLayout3"
+                app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+            <EditText
+                android:id="@+id/itemNonConfDocTextView"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="24dp"
+                android:background="@color/backgroundGray"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:gravity="right|center_vertical"
+                android:inputType="numberDecimal"
+                android:paddingRight="20dp"
+                android:textColor="@color/textBlack"
+                app:layout_constraintBottom_toBottomOf="@+id/textView10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/itemDisposalCansTextView"
+                app:layout_constraintTop_toTopOf="@+id/textView10" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:text="@string/glass"
+                app:layout_constraintStart_toStartOf="@+id/frameLayout3"
+                app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+            <EditText
+                android:id="@+id/itemGlassTextView"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="24dp"
+                android:background="@color/backgroundGray"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:gravity="right|center_vertical"
+                android:inputType="numberDecimal"
+                android:paddingRight="20dp"
+                android:textColor="@color/textBlack"
+                app:layout_constraintBottom_toBottomOf="@+id/textView11"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/itemDisposalCansTextView"
+                app:layout_constraintTop_toTopOf="@+id/textView11" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:text="@string/newspaper"
+                app:layout_constraintStart_toStartOf="@+id/frameLayout3"
+                app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+            <EditText
+                android:id="@+id/itemNewsPaperTextView"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="24dp"
+                android:background="@color/backgroundGray"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:gravity="right|center_vertical"
+                android:inputType="numberDecimal"
+                android:paddingRight="20dp"
+                android:textColor="@color/textBlack"
+                app:layout_constraintBottom_toBottomOf="@+id/textView12"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/itemDisposalCansTextView"
+                app:layout_constraintTop_toTopOf="@+id/textView12" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:text="@string/others"
+                app:layout_constraintStart_toStartOf="@+id/frameLayout3"
+                app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+            <EditText
+                android:id="@+id/itemOthersTextView"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="24dp"
+                android:background="@color/backgroundGray"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:gravity="right|center_vertical"
+                android:inputType="numberDecimal"
+                android:paddingRight="20dp"
+                android:textColor="@color/textBlack"
+                app:layout_constraintBottom_toBottomOf="@+id/textView14"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/itemDisposalCansTextView"
+                app:layout_constraintTop_toTopOf="@+id/textView14" />
+        </android.support.constraint.ConstraintLayout>
+
+
+    </ScrollView>
+
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
@@ -191,253 +455,7 @@
         app:layout_constraintGuide_begin="20dp"
         app:layout_constraintGuide_percent="0.85" />
 
-    <EditText
-        android:id="@+id/itemDisposalPlasticTextView"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="24dp"
-        android:background="@color/backgroundGray"
-        android:fontFamily="@font/montserrat_semi_bold"
-        android:gravity="right|center_vertical"
-        android:inputType="numberDecimal"
-        android:paddingRight="20dp"
-         android:textColor="@color/textBlack"
-        app:layout_constraintBottom_toBottomOf="@+id/textView8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/itemDisposalCansTextView"
-        app:layout_constraintTop_toTopOf="@+id/textView8" />
 
-    <EditText
-        android:id="@+id/itemDisposalCansTextView"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="24dp"
-        android:background="@color/backgroundGray"
-        android:fontFamily="@font/montserrat_semi_bold"
-        android:gravity="right|center_vertical"
-        android:inputType="numberDecimal"
-        android:paddingRight="20dp"
-         android:textColor="@color/textBlack"
-        app:layout_constraintBottom_toBottomOf="@+id/textView7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/itemDisposalPaperTextView"
-        app:layout_constraintTop_toTopOf="@+id/textView7" />
-
-    <EditText
-        android:id="@+id/itemDisposalPaperTextView"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="24dp"
-        android:background="@color/backgroundGray"
-        android:fontFamily="@font/montserrat_semi_bold"
-        android:gravity="right|center_vertical"
-        android:paddingRight="20dp"
-        android:inputType="numberDecimal"
-        android:textColor="@color/textBlack"
-        app:layout_constraintBottom_toBottomOf="@+id/textView6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toTopOf="@+id/textView6" />
-
-    <EditText
-        android:id="@+id/itemDisposalCarbonBoxTextView"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="24dp"
-        android:background="@color/backgroundGray"
-        android:fontFamily="@font/montserrat_semi_bold"
-        android:gravity="right|center_vertical"
-        android:paddingRight="20dp"
-        android:inputType="numberDecimal"
-         android:textColor="@color/textBlack"
-        app:layout_constraintBottom_toBottomOf="@+id/textView5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/itemDisposalPaperTextView"
-        app:layout_constraintTop_toTopOf="@+id/textView5" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/montserrat_semi_bold"
-        android:text="@string/plastic"
-        app:layout_constraintStart_toStartOf="@+id/frameLayout3"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/montserrat_semi_bold"
-        android:text="@string/cans"
-        app:layout_constraintStart_toStartOf="@+id/frameLayout3"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/montserrat_semi_bold"
-        android:text="@string/carbon_box"
-        app:layout_constraintStart_toStartOf="@+id/frameLayout3"
-        app:layout_constraintTop_toTopOf="@+id/frameLayout3" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/montserrat_semi_bold"
-        android:text="@string/paper"
-        app:layout_constraintStart_toStartOf="@+id/frameLayout3"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/montserrat_semi_bold"
-        android:text="@string/confDoc"
-        app:layout_constraintStart_toStartOf="@+id/frameLayout3"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
-
-
-    <EditText
-        android:id="@+id/itemConfDocTextView"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="24dp"
-        android:background="@color/backgroundGray"
-        android:fontFamily="@font/montserrat_semi_bold"
-        android:gravity="right|center_vertical"
-        android:inputType="numberDecimal"
-        android:paddingRight="20dp"
-        android:textColor="@color/textBlack"
-        app:layout_constraintBottom_toBottomOf="@+id/textView9"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/itemDisposalCansTextView"
-        app:layout_constraintTop_toTopOf="@+id/textView9" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/montserrat_semi_bold"
-        android:text="@string/nonconfDoc"
-        app:layout_constraintStart_toStartOf="@+id/frameLayout3"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-
-    <EditText
-        android:id="@+id/itemNonConfDocTextView"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="24dp"
-        android:background="@color/backgroundGray"
-        android:fontFamily="@font/montserrat_semi_bold"
-        android:gravity="right|center_vertical"
-        android:inputType="numberDecimal"
-        android:paddingRight="20dp"
-        android:textColor="@color/textBlack"
-        app:layout_constraintBottom_toBottomOf="@+id/textView10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/itemDisposalCansTextView"
-        app:layout_constraintTop_toTopOf="@+id/textView10" />
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/montserrat_semi_bold"
-        android:text="@string/glass"
-        app:layout_constraintStart_toStartOf="@+id/frameLayout3"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
-
-    <EditText
-        android:id="@+id/itemGlassTextView"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="24dp"
-        android:background="@color/backgroundGray"
-        android:fontFamily="@font/montserrat_semi_bold"
-        android:gravity="right|center_vertical"
-        android:inputType="numberDecimal"
-        android:paddingRight="20dp"
-        android:textColor="@color/textBlack"
-        app:layout_constraintBottom_toBottomOf="@+id/textView11"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/itemDisposalCansTextView"
-        app:layout_constraintTop_toTopOf="@+id/textView11" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/montserrat_semi_bold"
-        android:text="@string/newspaper"
-        app:layout_constraintStart_toStartOf="@+id/frameLayout3"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
-
-
-    <EditText
-        android:id="@+id/itemNewsPaperTextView"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="24dp"
-        android:background="@color/backgroundGray"
-        android:fontFamily="@font/montserrat_semi_bold"
-        android:gravity="right|center_vertical"
-        android:inputType="numberDecimal"
-        android:paddingRight="20dp"
-        android:textColor="@color/textBlack"
-        app:layout_constraintBottom_toBottomOf="@+id/textView12"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/itemDisposalCansTextView"
-        app:layout_constraintTop_toTopOf="@+id/textView12" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/montserrat_semi_bold"
-        android:text="@string/others"
-        app:layout_constraintStart_toStartOf="@+id/frameLayout3"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
-
-    <EditText
-        android:id="@+id/itemOthersTextView"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="24dp"
-        android:background="@color/backgroundGray"
-        android:fontFamily="@font/montserrat_semi_bold"
-        android:gravity="right|center_vertical"
-        android:inputType="numberDecimal"
-        android:paddingRight="20dp"
-        android:textColor="@color/textBlack"
-        app:layout_constraintBottom_toBottomOf="@+id/textView14"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/itemDisposalCansTextView"
-        app:layout_constraintTop_toTopOf="@+id/textView14" />
     <Button
         android:id="@+id/editButtonRecycle"
         android:layout_width="0dp"
