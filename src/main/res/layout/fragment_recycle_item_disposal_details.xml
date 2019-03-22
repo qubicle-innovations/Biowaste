@@ -94,7 +94,7 @@
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp">
+            android:paddingTop="16dp">
 
 
             <EditText
@@ -170,7 +170,7 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/montserrat_semi_bold"
                 android:text="@string/plastic"
-                app:layout_constraintStart_toStartOf="@+id/frameLayout3"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
             <TextView
@@ -181,7 +181,7 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/montserrat_semi_bold"
                 android:text="@string/cans"
-                app:layout_constraintStart_toStartOf="@+id/frameLayout3"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
             <TextView
@@ -192,7 +192,7 @@
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/montserrat_semi_bold"
                 android:text="@string/carbon_box"
-                app:layout_constraintStart_toStartOf="@+id/frameLayout3"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -203,7 +203,7 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/montserrat_semi_bold"
                 android:text="@string/paper"
-                app:layout_constraintStart_toStartOf="@+id/frameLayout3"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
             <TextView
@@ -214,7 +214,7 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/montserrat_semi_bold"
                 android:text="@string/confDoc"
-                app:layout_constraintStart_toStartOf="@+id/frameLayout3"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
             <EditText
@@ -241,7 +241,7 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/montserrat_semi_bold"
                 android:text="@string/nonconfDoc"
-                app:layout_constraintStart_toStartOf="@+id/frameLayout3"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
             <EditText
@@ -268,7 +268,7 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/montserrat_semi_bold"
                 android:text="@string/glass"
-                app:layout_constraintStart_toStartOf="@+id/frameLayout3"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
             <EditText
@@ -295,7 +295,7 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/montserrat_semi_bold"
                 android:text="@string/newspaper"
-                app:layout_constraintStart_toStartOf="@+id/frameLayout3"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
             <EditText
@@ -322,7 +322,7 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/montserrat_semi_bold"
                 android:text="@string/others"
-                app:layout_constraintStart_toStartOf="@+id/frameLayout3"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
             <EditText

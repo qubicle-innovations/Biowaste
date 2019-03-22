@@ -37,10 +37,6 @@ public class BaseBackActivity extends AppCompatActivity {
 
     }
 
-
-
-
-
     public void setToolbar(String title) {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         TextView tvTitle = (TextView) findViewById(R.id.toolbarTitle);
