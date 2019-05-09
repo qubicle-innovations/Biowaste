@@ -89,6 +89,7 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout2"
         app:layout_constraintEnd_toEndOf="@+id/frameLayout3"
+        android:paddingBottom="10dp"
         app:layout_constraintStart_toStartOf="@+id/frameLayout3"
         app:layout_constraintTop_toTopOf="@+id/frameLayout3">
 
