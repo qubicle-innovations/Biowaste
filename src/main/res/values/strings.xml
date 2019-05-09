@@ -71,5 +71,12 @@
     <string name="glass">Glass (kg)</string>
     <string name="newspaper">Newspapers (kg)</string>
     <string name="others">Others (kg)</string>
+    <string name="cytotoxic_waste_bin">Cytotoxic waste bins</string>
+    <string name="radio_active_waste_bin">Radioactive waste bins</string>
+    <string name="chemical_waste_bin">Chemical waste bins</string>
+    <string name="other_biowaste_bins">Other biowaste bins</string>
+    <string name="number">Number</string>
+    <string name="total">Total</string>
+    <string name="cost_bin">Cost/Bin</string>
 
 </resources>

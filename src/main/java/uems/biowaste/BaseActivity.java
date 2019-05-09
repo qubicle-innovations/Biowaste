@@ -52,34 +52,7 @@ public class BaseActivity extends AppCompatActivity {
             Constants.SERVER_URL = url;
         }
          //  checkPermissions();
-
     }
-
-
-
-  /*
-
-    public void setToolbar(String title) {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        TextView tvTitle = (TextView) findViewById(R.id.toolbarTitle);
-        tvTitle.setText(title.toUpperCase());
-        tvTitle.setTextColor(ActivityCompat.getColor(context, R.color.colorPrimary));
-      //  tvTitle.setTypeface(ZTypeface.robotoMedium(context));
-        setSupportActionBar(toolbar);
-        //  tvTitle.setTypeface(ZTypeface.robotoRegular(context));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        getSupportActionBar().setDisplayShowHomeEnabled(false);
-        findViewById(R.id.imBack).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
-        toolbar.setContentInsetsAbsolute(0, 0);
-
-
-    }*/
-
 
     public void dismissKeyboard(EditText myEditText) {
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);

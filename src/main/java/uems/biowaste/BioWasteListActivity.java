@@ -79,7 +79,7 @@ public class BioWasteListActivity extends BaseActivity {
         findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-             startActivity(new Intent(context,BiowasteCreateActivity.class));
+                startActivity(new Intent(context,BiowasteCreateActivity.class));
             }
         });
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);

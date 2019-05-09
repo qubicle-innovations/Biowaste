@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/detailsConstrainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,6 +9,249 @@
     android:clickable="true"
     android:focusable="true">
 
+
+    <FrameLayout
+        android:id="@+id/frameLayout4"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/white_etbg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline5">
+
+    </FrameLayout>
+
+    <EditText
+        android:id="@+id/otherBiowasteTotalEdTxt"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/backgroundGray"
+        android:enabled="false"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:gravity="right|center_vertical"
+        android:inputType="number"
+        android:paddingRight="20dp"
+        android:textColor="@color/textBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/otherBiowasteCountEdTxt"
+        app:layout_constraintEnd_toEndOf="@+id/frameLayout4"
+        app:layout_constraintStart_toStartOf="@+id/guideline10"
+        app:layout_constraintTop_toTopOf="@+id/otherBiowasteCountEdTxt" />
+
+    <EditText
+        android:id="@+id/chemicalWasteTotalEdtTxt"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/backgroundGray"
+        android:enabled="false"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:gravity="right|center_vertical"
+        android:inputType="number"
+        android:paddingRight="20dp"
+        android:textColor="@color/textBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/chemicalWasteBinCountEdTxt"
+        app:layout_constraintEnd_toEndOf="@+id/frameLayout4"
+        app:layout_constraintStart_toStartOf="@+id/guideline10"
+        app:layout_constraintTop_toTopOf="@+id/chemicalWasteBinCountEdTxt" />
+
+    <EditText
+        android:id="@+id/radioActiveWasteTotalEdtTxt"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/backgroundGray"
+        android:enabled="false"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:gravity="right|center_vertical"
+        android:inputType="number"
+        android:paddingRight="20dp"
+        android:textColor="@color/textBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/radioActiveWasteBinCountEdTxt"
+        app:layout_constraintEnd_toEndOf="@+id/frameLayout4"
+        app:layout_constraintStart_toStartOf="@+id/guideline10"
+        app:layout_constraintTop_toTopOf="@+id/radioActiveWasteBinCountEdTxt" />
+
+    <EditText
+        android:id="@+id/cytotoxicWasteTotalEdTxt"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/backgroundGray"
+        android:enabled="false"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:gravity="right|center_vertical"
+        android:inputType="number"
+        android:paddingRight="20dp"
+        android:textColor="@color/textBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/textView17"
+        app:layout_constraintEnd_toEndOf="@+id/frameLayout4"
+        app:layout_constraintStart_toStartOf="@+id/guideline10"
+        app:layout_constraintTop_toTopOf="@+id/textView17" />
+
+    <EditText
+        android:id="@+id/radioActiveWasteBinCountEdTxt"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/backgroundGray"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:gravity="right|center_vertical"
+        android:inputType="number"
+        android:paddingRight="20dp"
+        android:textColor="@color/textBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/textView20"
+        app:layout_constraintEnd_toStartOf="@+id/guideline9"
+        app:layout_constraintStart_toStartOf="@+id/guideline8"
+        app:layout_constraintTop_toTopOf="@+id/textView20" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="@string/number"
+        app:layout_constraintEnd_toEndOf="@+id/cycloneToxicWasteBinsCountEdTxt"
+        app:layout_constraintStart_toStartOf="@+id/cycloneToxicWasteBinsCountEdTxt"
+        app:layout_constraintTop_toTopOf="@+id/frameLayout4" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="@string/cost_bin"
+        app:layout_constraintEnd_toEndOf="@+id/cytotoxicWasteCostEdTxt"
+        app:layout_constraintStart_toStartOf="@+id/cytotoxicWasteCostEdTxt"
+        app:layout_constraintTop_toTopOf="@+id/frameLayout4" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="@string/total"
+        app:layout_constraintEnd_toEndOf="@+id/frameLayout4"
+        app:layout_constraintStart_toStartOf="@+id/guideline10"
+        app:layout_constraintTop_toTopOf="@+id/frameLayout4" />
+
+    <EditText
+        android:id="@+id/chemicalWasteBinCountEdTxt"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/backgroundGray"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:gravity="right|center_vertical"
+        android:inputType="number"
+        android:paddingRight="20dp"
+        android:textColor="@color/textBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/textView19"
+        app:layout_constraintEnd_toStartOf="@+id/guideline9"
+        app:layout_constraintStart_toStartOf="@+id/guideline8"
+        app:layout_constraintTop_toTopOf="@+id/textView19" />
+
+    <EditText
+        android:id="@+id/otherBiowasteCountEdTxt"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/backgroundGray"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:gravity="right|center_vertical"
+        android:inputType="number"
+        android:paddingRight="20dp"
+        android:textColor="@color/textBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/textView18"
+        app:layout_constraintEnd_toStartOf="@+id/guideline9"
+        app:layout_constraintStart_toStartOf="@+id/guideline8"
+        app:layout_constraintTop_toTopOf="@+id/textView18" />
+
+    <EditText
+        android:id="@+id/cytotoxicWasteCostEdTxt"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/backgroundGray"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:gravity="right|center_vertical"
+        android:inputType="number"
+        android:paddingRight="20dp"
+        android:textColor="@color/textBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/textView17"
+        app:layout_constraintEnd_toStartOf="@+id/guideline10"
+        app:layout_constraintStart_toStartOf="@+id/guideline9"
+        app:layout_constraintTop_toTopOf="@+id/textView17" />
+
+    <EditText
+        android:id="@+id/radioActiveWasteCostEdtTxt"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:background="@color/backgroundGray"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:gravity="right|center_vertical"
+        android:inputType="number"
+        android:paddingRight="20dp"
+        android:textColor="@color/textBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/radioActiveWasteBinCountEdTxt"
+        app:layout_constraintEnd_toEndOf="@+id/cytotoxicWasteCostEdTxt"
+        app:layout_constraintStart_toStartOf="@+id/guideline9"
+        app:layout_constraintTop_toTopOf="@+id/radioActiveWasteBinCountEdTxt" />
+
+    <EditText
+        android:id="@+id/chemicalWasteCostEdtTxt"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:background="@color/backgroundGray"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:gravity="right|center_vertical"
+        android:inputType="number"
+        android:paddingRight="20dp"
+        android:textColor="@color/textBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/chemicalWasteBinCountEdTxt"
+        app:layout_constraintEnd_toEndOf="@+id/radioActiveWasteCostEdtTxt"
+        app:layout_constraintStart_toStartOf="@+id/guideline9"
+        app:layout_constraintTop_toTopOf="@+id/chemicalWasteBinCountEdTxt" />
+
+    <EditText
+        android:id="@+id/cycloneToxicWasteBinsCountEdTxt"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/backgroundGray"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:gravity="right|center_vertical"
+        android:inputType="number"
+        android:paddingRight="20dp"
+        android:textColor="@color/textBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/textView17"
+        app:layout_constraintEnd_toStartOf="@+id/guideline9"
+        app:layout_constraintStart_toStartOf="@+id/guideline8"
+        app:layout_constraintTop_toTopOf="@+id/textView17" />
+
+    <EditText
+        android:id="@+id/otherBiowasteCostEdTxt"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/backgroundGray"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:gravity="right|center_vertical"
+        android:inputType="number"
+        android:paddingRight="20dp"
+        android:textColor="@color/textBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/otherBiowasteCountEdTxt"
+        app:layout_constraintEnd_toStartOf="@+id/guideline10"
+        app:layout_constraintStart_toStartOf="@+id/guideline9"
+        app:layout_constraintTop_toTopOf="@+id/otherBiowasteCountEdTxt" />
 
     <FrameLayout
         android:id="@+id/frameLayout3"
@@ -19,7 +263,7 @@
         android:background="@drawable/white_etbg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline5">
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout4">
 
     </FrameLayout>
 
@@ -67,6 +311,50 @@
         app:layout_constraintTop_toTopOf="@+id/textView2" />
 
     <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="@string/chemical_waste_bin"
+        app:layout_constraintStart_toStartOf="@+id/frameLayout4"
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="@string/other_biowaste_bins"
+        app:layout_constraintStart_toStartOf="@+id/frameLayout4"
+        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="@string/radio_active_waste_bin"
+        app:layout_constraintStart_toStartOf="@+id/frameLayout4"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="@string/cytotoxic_waste_bin"
+        app:layout_constraintStart_toStartOf="@+id/frameLayout4"
+        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+
+    <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -86,9 +374,9 @@
         android:background="@drawable/green_light_bg"
         android:drawableEnd="@drawable/ic_date_picker_details"
         android:fontFamily="@font/montserrat_regular"
+        android:gravity="center_vertical"
         android:paddingStart="20dp"
         android:paddingEnd="15dp"
-        android:gravity="center_vertical"
         android:text="@string/sample_date_2"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/textView"
@@ -103,10 +391,10 @@
         android:layout_marginEnd="16dp"
         android:background="@drawable/gray_textview_bg"
         android:fontFamily="@font/montserrat_regular"
+        android:gravity="center_vertical"
         android:paddingStart="20dp"
         android:paddingEnd="15dp"
         android:text="@string/sample_name"
-        android:gravity="center_vertical"
         android:textColor="@color/textBlack"
         app:layout_constraintBottom_toBottomOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
@@ -158,6 +446,7 @@
         android:layout_marginStart="64dp"
         android:layout_marginEnd="24dp"
         android:background="@color/colorPrimary"
+        android:enabled="false"
         android:fontFamily="@font/montserrat_semi_bold"
         android:gravity="right|center_vertical"
         android:inputType="numberDecimal"
@@ -174,6 +463,7 @@
         android:layout_height="30dp"
         android:layout_marginEnd="24dp"
         android:background="@color/backgroundGray"
+        android:enabled="false"
         android:fontFamily="@font/montserrat_semi_bold"
         android:gravity="right|center_vertical"
         android:inputType="number"
@@ -301,6 +591,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline6" />
 
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintGuide_percent="0.663" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintGuide_percent="0.826" />
 
 
 </android.support.constraint.ConstraintLayout>
