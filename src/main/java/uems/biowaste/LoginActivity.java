@@ -83,7 +83,7 @@ public class LoginActivity extends BaseActivity {
                      });
                      String url=null;
                      for(MappingVo vo : pList){
-                         if(vo.getProductName().equalsIgnoreCase("BioWaste")){
+                             if(vo.getProductName().equalsIgnoreCase("BioWaste")){
                              url = vo.getURL();
                          }
                      }

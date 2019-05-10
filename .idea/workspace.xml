@@ -73,17 +73,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/BiowasteCreateFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-6221">
-              <caret line="41" column="16" selection-start-line="41" selection-start-column="11" selection-end-line="41" selection-end-column="16" />
+            <state relative-caret-position="306">
+              <caret line="89" column="57" selection-start-line="89" selection-start-column="57" selection-end-line="89" selection-end-column="57" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/BiowasteDetailsFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
-              <caret line="559" column="9" lean-forward="true" selection-start-line="559" selection-start-column="9" selection-end-line="559" selection-end-column="9" />
+            <state relative-caret-position="-898">
+              <caret line="89" column="5" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -91,8 +91,47 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/LoginTask.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="74">
-              <caret line="45" column="64" selection-start-line="45" selection-start-column="64" selection-end-line="45" selection-end-column="64" />
+            <state relative-caret-position="1258">
+              <caret line="94" column="41" selection-start-line="94" selection-start-column="41" selection-end-line="94" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/LoginActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="867">
+              <caret line="73" column="80" selection-start-line="73" selection-start-column="80" selection-end-line="73" selection-end-column="80" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/LoginFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/HomeActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="122">
+              <caret line="210" column="62" selection-start-line="210" selection-start-column="62" selection-end-line="210" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/utils/Constants.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -100,8 +139,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_biowaste_details.xml">
           <provider editor-type-id="text-editor">
-            <state relative-caret-position="3264">
-              <caret line="192" selection-start-line="192" selection-end-line="192" />
+            <state relative-caret-position="6035">
+              <caret line="355" column="60" selection-start-line="355" selection-start-column="50" selection-end-line="355" selection-end-column="60" />
             </state>
           </provider>
           <provider selected="true" editor-type-id="android-designer2" />
@@ -119,9 +158,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>itemDisposalCansTextView</find>
-      <find>scrollView</find>
-      <find>frameLayout3</find>
       <find>detailsNoOfHaulageTextView2</find>
       <find>detailsNoOfHaulageTextView111</find>
       <find>cycloneToxicWasteBins</find>
@@ -149,6 +185,9 @@
       <find>month</find>
       <find>detailTotalCost</find>
       <find>detailsTotalCost</find>
+      <find>snackbar33</find>
+      <find>snackbar</find>
+      <find>textView22</find>
     </findStrings>
     <replaceStrings>
       <replace>btLogin</replace>
@@ -170,7 +209,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/res/layout/fragment_item.xml" />
         <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchBioWasteListTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchGWasteListTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchPatientListTask.java" />
@@ -216,11 +254,12 @@
         <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/BioWasteListActivity.java" />
         <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/vo/BioWasteItemVo.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/utils/Constants.java" />
         <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchBioWasteDetailsTask.java" />
-        <option value="$PROJECT_DIR$/src/main/res/layout/fragment_biowaste_details.xml" />
         <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/BiowasteCreateFragment.java" />
         <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/BiowasteDetailsFragment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/fragment_biowaste_details.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/uems/biowaste/utils/Constants.java" />
       </list>
     </option>
   </component>
@@ -234,7 +273,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
@@ -244,10 +282,37 @@
               <item name="Biowaste" type="b2602c69:ProjectViewProjectNode" />
               <item name="Biowaste" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
+            <path>
+              <item name="Biowaste" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Biowaste" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Biowaste" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Biowaste" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Biowaste" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Biowaste" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Biowaste" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Biowaste" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="biowaste" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -255,7 +320,7 @@
     <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
-    <property name="device.picker.selection" value="Pixel_API_Q" />
+    <property name="device.picker.selection" value="DRGID18100101180" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../BDMS/DBMS/UETrackDBMS_V2/app" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
@@ -382,9 +447,9 @@
       <window_info anchor="bottom" id="Android Profiler" order="2" weight="0.3295082" />
       <window_info anchor="bottom" id="Terminal" order="3" weight="0.2782324" />
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Build" order="5" weight="0.28477904" />
-      <window_info active="true" anchor="bottom" id="Logcat" order="6" visible="true" weight="0.31914893" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.41080198" />
+      <window_info anchor="bottom" id="Build" order="5" weight="0.19312602" />
+      <window_info active="true" anchor="bottom" id="Logcat" order="6" visible="true" weight="0.29459903" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.27168575" />
       <window_info anchor="bottom" id="Run" order="8" weight="0.32901135" />
       <window_info anchor="bottom" id="Find" order="9" weight="0.24754098" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
@@ -408,12 +473,12 @@
       <window_info id="Resources Explorer" order="8" sideWeight="0.5012854" side_tool="true" weight="0.24583964" />
       <window_info anchor="bottom" id="Version Control" order="0" weight="0.3289689" />
       <window_info anchor="bottom" id="TODO" order="1" weight="0.3289689" />
-      <window_info anchor="bottom" id="Android Profiler" order="2" weight="0.3295082" />
+      <window_info anchor="bottom" id="Android Profiler" order="2" show_stripe_button="false" weight="0.3295082" />
       <window_info anchor="bottom" id="Terminal" order="3" weight="0.2782324" />
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Build" order="5" weight="0.28477904" />
-      <window_info active="true" anchor="bottom" id="Logcat" order="6" visible="true" weight="0.23567921" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.4019449" />
+      <window_info anchor="bottom" id="Build" order="5" visible="true" weight="0.19312602" />
+      <window_info anchor="bottom" id="Logcat" order="6" weight="0.31423897" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.27168575" />
       <window_info anchor="bottom" id="Run" order="8" weight="0.32901135" />
       <window_info anchor="bottom" id="Find" order="9" weight="0.24754098" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
@@ -435,6 +500,18 @@
           <properties />
           <option name="timeStamp" value="142" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/LoginFragment.java</url>
+          <line>112</line>
+          <properties />
+          <option name="timeStamp" value="143" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/LoginTask.java</url>
+          <line>61</line>
+          <properties />
+          <option name="timeStamp" value="144" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -452,14 +529,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/PatientCreateFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="76" column="76" lean-forward="true" selection-start-line="76" selection-start-column="76" selection-end-line="76" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-28/android/os/AsyncTask.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/GWasteListFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="79">
@@ -584,13 +653,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="690">
           <caret line="62" column="38" selection-start-line="62" selection-start-column="8" selection-end-line="62" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/HomeActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="355" column="24" selection-start-line="355" selection-start-column="24" selection-end-line="355" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -834,35 +896,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/LoginTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="45" column="64" selection-start-line="45" selection-start-column="64" selection-end-line="45" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/utils/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/BiowasteCreateFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6221">
-          <caret line="41" column="16" selection-start-line="41" selection-start-column="11" selection-end-line="41" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_biowaste_details.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="3264">
-          <caret line="192" selection-start-line="192" selection-end-line="192" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/FetchBioWasteDetailsTask.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-13">
@@ -870,10 +903,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/async/LoginTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1258">
+          <caret line="94" column="41" selection-start-line="94" selection-start-column="41" selection-end-line="94" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="73" column="80" selection-start-line="73" selection-start-column="80" selection-end-line="73" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/LoginFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/BiowasteDetailsFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="559" column="9" lean-forward="true" selection-start-line="559" selection-start-column="9" selection-end-line="559" selection-end-column="9" />
+        <state relative-caret-position="-898">
+          <caret line="89" column="5" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/fragments/BiowasteCreateFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="89" column="57" selection-start-line="89" selection-start-column="57" selection-end-line="89" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_biowaste_details.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="6035">
+          <caret line="355" column="60" selection-start-line="355" selection-start-column="50" selection-end-line="355" selection-end-column="60" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/HomeActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="210" column="62" selection-start-line="210" selection-start-column="62" selection-end-line="210" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uems/biowaste/utils/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
