@@ -15,11 +15,11 @@ public class Constants {
 
     public static String SERVER_URL = "http://uemssqlvm.cloudapp.net/HPBSBiowaste_WebService/api/Service";
 
-    public static String USER_LOGIN = "http://uemssqlvm.cloudapp.net/HPBSV3-MasterAppService/HPBSMasterAppService.asmx";
- // public static String USER_LOGIN = "https://www.uetracksg.com/hpbs/MasterAppWS/HPBSMasterAppService.asmx";
+    //public static String USER_LOGIN = "http://uemssqlvm.cloudapp.net/HPBSV3-MasterAppService/HPBSMasterAppService.asmx";
+    public static String USER_LOGIN = "https://www.uetracksg.com/hpbs/MasterAppWS/HPBSMasterAppService.asmx";
 
     public static String FETCH_COUNT = SERVER_URL + "/GetMonthlyDetails";
-    ;
+
     public static String GET_GWASTE_LIST = SERVER_URL + "/GetFoodandGeneralwaste";
     public static String GET_GWASTE_DETAILS = SERVER_URL + "/GetFoodandGeneralwasteList";
     public static String CREATE_GWASTE_DETAILS = SERVER_URL + "/SaveFoodandGeneralwaste";

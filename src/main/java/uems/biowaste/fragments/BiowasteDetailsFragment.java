@@ -514,6 +514,7 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
             Utils.showError("Please select a date", detailsMonthTextView);
             return;
         }
+/*
         if (ZValidation.checkEmpty(detailsTotalCost)) {
             Utils.showError("Please enter total bin", detailsMonthTextView);
             detailsTotalCost.requestFocus();
@@ -568,32 +569,88 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
             otherBiowasteCountEdTxt.requestFocus();
             return;
         }
+*/
 
         try {
             JSONArray jArray = new JSONArray();
 
-
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("Date", Utils.getText(detailsDateTextView));
             jsonObject.put("Month", month);
-            jsonObject.put("TotalBin", ((int) Double.parseDouble(Utils.getText(detailsTotalBin)))+"");
-            jsonObject.put("TotalCost",Utils.getText(detailsTotalCost));
 
-            jsonObject.put("CytotoxicWaste",((int) Double.parseDouble(Utils.getText(cycloneToxicWasteBinsCountEdTxt)))+"" );
-            jsonObject.put("RadioactiveWaste",((int) Double.parseDouble(Utils.getText(radioActiveWasteBinCountEdTxt)))+"" );
-            jsonObject.put("ChemicalWaste",((int) Double.parseDouble(Utils.getText(chemicalWasteBinCountEdTxt)))+"" );
-            jsonObject.put("OtherWaste",((int) Double.parseDouble(Utils.getText(otherBiowasteCountEdTxt)))+"" );
+            String totalBin = Utils.getText(detailsTotalBin);
+            if(totalBin == null || totalBin.isEmpty())
+                totalBin = "0";
+            jsonObject.put("TotalBin", ((int) Double.parseDouble(totalBin))+"");
 
-            jsonObject.put("CytotoxicWasteCost", Utils.getText(cytotoxicWasteCostEdTxt));
-            jsonObject.put("RadioactiveWasteCost", Utils.getText(radioActiveWasteCostEdtTxt));
-            jsonObject.put("ChemicalWasteCost", Utils.getText(chemicalWasteCostEdtTxt));
-            jsonObject.put("OtherWasteCost", Utils.getText(otherBiowasteCostEdTxt));
-            jsonObject.put("CytotoxicWasteTotal", Utils.getText(cytotoxicWasteTotalEdTxt));
-            jsonObject.put("RadioactiveWasteTotal",Utils.getText(radioActiveWasteTotalEdtTxt));
-            jsonObject.put("ChemicalWasteTotal", Utils.getText(chemicalWasteEdtTotalTxt));
-            jsonObject.put("OtherWasteTotal", Utils.getText(otherBiowasteTotalEdTxt));
+            String totalCost = Utils.getText(detailsTotalCost);
+            if(totalCost == null || totalCost.isEmpty())
+                totalCost = "0";
+            jsonObject.put("TotalCost",totalCost);
+
+            String CytotoxicWaste = Utils.getText(cycloneToxicWasteBinsCountEdTxt);
+            if(CytotoxicWaste == null || CytotoxicWaste.isEmpty())
+                CytotoxicWaste = "0";
+            jsonObject.put("CytotoxicWaste",((int) Double.parseDouble(CytotoxicWaste))+"" );
+
+            String RadioactiveWaste = Utils.getText(radioActiveWasteBinCountEdTxt);
+            if(RadioactiveWaste == null || RadioactiveWaste.isEmpty())
+                RadioactiveWaste = "0";
+            jsonObject.put("RadioactiveWaste",((int) Double.parseDouble(RadioactiveWaste))+"" );
+
+            String ChemicalWaste = Utils.getText(chemicalWasteBinCountEdTxt);
+            if(ChemicalWaste == null || ChemicalWaste.isEmpty())
+                ChemicalWaste = "0";
+            jsonObject.put("ChemicalWaste",((int) Double.parseDouble(ChemicalWaste))+"" );
+
+            String OtherWaste = Utils.getText(otherBiowasteCountEdTxt);
+            if(OtherWaste == null || OtherWaste.isEmpty())
+                OtherWaste = "0";
+            jsonObject.put("OtherWaste",((int) Double.parseDouble(OtherWaste))+"" );
+
+            String CytotoxicWasteCost = Utils.getText(cytotoxicWasteCostEdTxt);
+            if(CytotoxicWasteCost == null || CytotoxicWasteCost.isEmpty())
+                CytotoxicWasteCost = "0";
+            jsonObject.put("CytotoxicWasteCost", CytotoxicWasteCost);
+
+            String RadioactiveWasteCost = Utils.getText(radioActiveWasteCostEdtTxt);
+            if(RadioactiveWasteCost == null || RadioactiveWasteCost.isEmpty())
+                RadioactiveWasteCost = "0";
+            jsonObject.put("RadioactiveWasteCost", RadioactiveWasteCost);
+
+            String ChemicalWasteCost = Utils.getText(chemicalWasteCostEdtTxt);
+            if(ChemicalWasteCost == null || ChemicalWasteCost.isEmpty())
+                ChemicalWasteCost = "0";
+            jsonObject.put("ChemicalWasteCost", ChemicalWasteCost);
+
+            String OtherWasteCost = Utils.getText(otherBiowasteCostEdTxt);
+            if(OtherWasteCost == null || OtherWasteCost.isEmpty())
+                OtherWasteCost = "0";
+            jsonObject.put("OtherWasteCost", OtherWasteCost);
+
+            String CytotoxicWasteTotal = Utils.getText(cytotoxicWasteTotalEdTxt);
+            if(CytotoxicWasteTotal == null || CytotoxicWasteTotal.isEmpty())
+                CytotoxicWasteTotal = "0";
+            jsonObject.put("CytotoxicWasteTotal", CytotoxicWasteTotal);
+
+            String RadioactiveWasteTotal = Utils.getText(radioActiveWasteTotalEdtTxt);
+            if(RadioactiveWasteTotal == null || RadioactiveWasteTotal.isEmpty())
+                RadioactiveWasteTotal = "0";
+            jsonObject.put("RadioactiveWasteTotal",RadioactiveWasteTotal);
+
+            String ChemicalWasteTotal = Utils.getText(chemicalWasteEdtTotalTxt);
+            if(ChemicalWasteTotal == null || ChemicalWasteTotal.isEmpty())
+                ChemicalWasteTotal = "0";
+            jsonObject.put("ChemicalWasteTotal", ChemicalWasteTotal);
+
+            String OtherWasteTotal = Utils.getText(otherBiowasteTotalEdTxt);
+            if(OtherWasteTotal == null || OtherWasteTotal.isEmpty())
+                OtherWasteTotal = "0";
+            jsonObject.put("OtherWasteTotal", OtherWasteTotal);
             jsonObject.put("UserEmailID", me.getEmailID());
             jArray.put(jsonObject);
+
+            Log.d("JSONARRya",jArray.toString());
             new UpdateFetchBioWasteTask(getContext()).execute(jArray.toString());
 
         } catch (Exception e) {
