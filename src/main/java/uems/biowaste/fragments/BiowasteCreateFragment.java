@@ -434,18 +434,20 @@ public class BiowasteCreateFragment extends Fragment implements View.OnClickList
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("Date", Utils.getText(detailsDateTextView));
             jsonObject.put("Month", month);
-            jsonObject.put("TotalBin", Utils.getText(detailsTotalBin));
-            jsonObject.put("TotalCost", Utils.getText(detailTotalCost));
-            jsonObject.put("CytotoxicWaste", Utils.getText(cycloneToxicWasteBinsCountEdTxt));
-            jsonObject.put("RadioactiveWaste", Utils.getText(radioActiveWasteBinCountEdTxt));
-            jsonObject.put("ChemicalWaste", Utils.getText(chemicalWasteBinCountEdTxt));
-            jsonObject.put("OtherWaste", Utils.getText(otherBiowasteCountEdTxt));
+            jsonObject.put("TotalBin", ((int) Double.parseDouble(Utils.getText(detailsTotalBin)))+"");
+            jsonObject.put("TotalCost",Utils.getText(detailTotalCost));
+
+            jsonObject.put("CytotoxicWaste",((int) Double.parseDouble(Utils.getText(cycloneToxicWasteBinsCountEdTxt)))+"" );
+            jsonObject.put("RadioactiveWaste",((int) Double.parseDouble(Utils.getText(radioActiveWasteBinCountEdTxt)))+"" );
+            jsonObject.put("ChemicalWaste",((int) Double.parseDouble(Utils.getText(chemicalWasteBinCountEdTxt)))+"" );
+            jsonObject.put("OtherWaste",((int) Double.parseDouble(Utils.getText(otherBiowasteCountEdTxt)))+"" );
+
             jsonObject.put("CytotoxicWasteCost", Utils.getText(cytotoxicWasteCostEdTxt));
             jsonObject.put("RadioactiveWasteCost", Utils.getText(radioActiveWasteCostEdtTxt));
             jsonObject.put("ChemicalWasteCost", Utils.getText(chemicalWasteCostEdtTxt));
             jsonObject.put("OtherWasteCost", Utils.getText(otherBiowasteCostEdTxt));
             jsonObject.put("CytotoxicWasteTotal", Utils.getText(cytotoxicWasteTotalEdTxt));
-            jsonObject.put("RadioactiveWasteTotal", Utils.getText(radioActiveWasteTotalEdtTxt));
+            jsonObject.put("RadioactiveWasteTotal",Utils.getText(radioActiveWasteTotalEdtTxt));
             jsonObject.put("ChemicalWasteTotal", Utils.getText(chemicalWasteEdtTotalTxt));
             jsonObject.put("OtherWasteTotal", Utils.getText(otherBiowasteTotalEdTxt));
             jsonObject.put("UserEmailID", me.getEmailID());

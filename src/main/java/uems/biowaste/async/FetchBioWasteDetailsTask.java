@@ -32,21 +32,19 @@ public class FetchBioWasteDetailsTask extends
 	protected TResponse<String> doInBackground(String... params) {
 		TResponse<String> response =  new TResponse<String>();
 
-			 try{
-				 Constants constants = new Constants(ctx);
-				 RestURLClient client = new RestURLClient(constants.GET_BIOWASTE_DETAILS, true);
-				 client.addParam("ItemID",params[0]);
- 				 client.addParam("UserEmailID",params[1]);
+		 try{
+			 Constants constants = new Constants(ctx);
+			 RestURLClient client = new RestURLClient(constants.GET_BIOWASTE_DETAILS, true);
+			 client.addParam("ItemID",params[0]);
+			 client.addParam("UserEmailID",params[1]);
 
-				 client.execute(RestURLClient.RequestMethod.POST);
+			 client.execute(RestURLClient.RequestMethod.POST);
 
-				 String responses = client.getResponseString();
+			 String responses = client.getResponseString();
 			Log.d("success", responses);
 			response.setResponseContent(responses);
 			response.setHasError(false);
-
 		} catch (Exception e) {
-			 
 			response.setResponseContent(e.toString());
 			response.setHasError(true);
 			Log.e("error", e.toString());

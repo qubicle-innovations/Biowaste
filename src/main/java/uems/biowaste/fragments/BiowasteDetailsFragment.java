@@ -65,7 +65,6 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
     public UserVo me;
     boolean editable = false;
     private BiowasteDetailsFragment.OnFragmentInteractionListener mListener;
-    EditText detailTotalCost;
     EditText cycloneToxicWasteBinsCountEdTxt;
     EditText radioActiveWasteBinCountEdTxt;
     EditText chemicalWasteBinCountEdTxt;
@@ -78,8 +77,6 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
     EditText radioActiveWasteTotalEdtTxt;
     EditText chemicalWasteEdtTotalTxt;
     EditText otherBiowasteTotalEdTxt;
-    EditText detailsNoOfHaulageTextView;
-    EditText detailsWeightTextView;
 
     @Override
     public void onAttach(Context context) {
@@ -145,6 +142,16 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
         radioActiveWasteTotalEdtTxt =  view.findViewById(R.id.radioActiveWasteTotalEdtTxt);
         chemicalWasteEdtTotalTxt =  view.findViewById(R.id.chemicalWasteTotalEdtTxt);
         otherBiowasteTotalEdTxt =  view.findViewById(R.id.otherBiowasteTotalEdTxt);
+
+        cycloneToxicWasteBinsCountEdTxt.setFocusable(false);
+        radioActiveWasteBinCountEdTxt.setFocusable(false);
+        chemicalWasteBinCountEdTxt.setFocusable(false);
+        otherBiowasteCountEdTxt.setFocusable(false);
+        cytotoxicWasteCostEdTxt.setFocusable(false);
+        radioActiveWasteCostEdtTxt.setFocusable(false);
+        chemicalWasteCostEdtTxt.setFocusable(false);
+        otherBiowasteCostEdTxt.setFocusable(false);
+
 
         otherBiowasteCountEdTxt.addTextChangedListener(new TextWatcher() {
             @Override
@@ -274,6 +281,23 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
                 detailsTotalBin.setFocusableInTouchMode(true);
                 detailsTotalCost.setFocusable(true);
                 detailsTotalBin.setFocusable(true);
+                cycloneToxicWasteBinsCountEdTxt.setFocusableInTouchMode(true);
+                radioActiveWasteBinCountEdTxt.setFocusableInTouchMode(true);
+                chemicalWasteBinCountEdTxt.setFocusableInTouchMode(true);
+                otherBiowasteCountEdTxt.setFocusableInTouchMode(true);
+                cytotoxicWasteCostEdTxt.setFocusableInTouchMode(true);
+                radioActiveWasteCostEdtTxt.setFocusableInTouchMode(true);
+                chemicalWasteCostEdtTxt.setFocusableInTouchMode(true);
+                otherBiowasteCostEdTxt.setFocusableInTouchMode(true);
+                cycloneToxicWasteBinsCountEdTxt.setFocusable(true);
+                radioActiveWasteBinCountEdTxt.setFocusable(true);
+                chemicalWasteBinCountEdTxt.setFocusable(true);
+                otherBiowasteCountEdTxt.setFocusable(true);
+                cytotoxicWasteCostEdTxt.setFocusable(true);
+                radioActiveWasteCostEdtTxt.setFocusable(true);
+                chemicalWasteCostEdtTxt.setFocusable(true);
+                otherBiowasteCostEdTxt.setFocusable(true);
+
                 editButton.setVisibility(View.GONE);
                 deleteButton.setVisibility(View.GONE);
                 detailsSubmitButton.setVisibility(View.VISIBLE);
@@ -471,7 +495,7 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
         if(otherBiowasteCountEdTxt.getText() != null && !otherBiowasteCountEdTxt.getText().toString().isEmpty())
             totalBin += Double.parseDouble(otherBiowasteCountEdTxt.getText().toString());
 
-        detailsNoOfHaulageTextView.setText(String.format("%s", totalBin));
+        detailsTotalBin.setText(String.format("%s", totalBin));
 
         if(cytotoxicWasteTotalEdTxt.getText() != null && !cytotoxicWasteTotalEdTxt.getText().toString().isEmpty())
             total += Double.parseDouble(cytotoxicWasteTotalEdTxt.getText().toString());
@@ -482,7 +506,7 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
         if(otherBiowasteTotalEdTxt.getText() != null && !otherBiowasteTotalEdTxt.getText().toString().isEmpty())
             total += Double.parseDouble(otherBiowasteTotalEdTxt.getText().toString());
 
-        detailsWeightTextView.setText(String.format("%s", total));
+        detailsTotalCost.setText(String.format("%s", total));
     }
 
     public void saveItem() {
@@ -548,15 +572,26 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
         try {
             JSONArray jArray = new JSONArray();
 
+
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("Date", Utils.getText(detailsDateTextView));
-            if (getMonth(Utils.getText(detailsMonthTextView)).isEmpty()) {
-                jsonObject.put("Month", month);
-            } else {
-                jsonObject.put("Month", getMonth(Utils.getText(detailsMonthTextView)));
-            }
-            jsonObject.put("TotalBin", Utils.getText(detailsTotalBin));
-            jsonObject.put("TotalCost", Utils.getText(detailsTotalCost));
+            jsonObject.put("Month", month);
+            jsonObject.put("TotalBin", ((int) Double.parseDouble(Utils.getText(detailsTotalBin)))+"");
+            jsonObject.put("TotalCost",Utils.getText(detailsTotalCost));
+
+            jsonObject.put("CytotoxicWaste",((int) Double.parseDouble(Utils.getText(cycloneToxicWasteBinsCountEdTxt)))+"" );
+            jsonObject.put("RadioactiveWaste",((int) Double.parseDouble(Utils.getText(radioActiveWasteBinCountEdTxt)))+"" );
+            jsonObject.put("ChemicalWaste",((int) Double.parseDouble(Utils.getText(chemicalWasteBinCountEdTxt)))+"" );
+            jsonObject.put("OtherWaste",((int) Double.parseDouble(Utils.getText(otherBiowasteCountEdTxt)))+"" );
+
+            jsonObject.put("CytotoxicWasteCost", Utils.getText(cytotoxicWasteCostEdTxt));
+            jsonObject.put("RadioactiveWasteCost", Utils.getText(radioActiveWasteCostEdtTxt));
+            jsonObject.put("ChemicalWasteCost", Utils.getText(chemicalWasteCostEdtTxt));
+            jsonObject.put("OtherWasteCost", Utils.getText(otherBiowasteCostEdTxt));
+            jsonObject.put("CytotoxicWasteTotal", Utils.getText(cytotoxicWasteTotalEdTxt));
+            jsonObject.put("RadioactiveWasteTotal",Utils.getText(radioActiveWasteTotalEdtTxt));
+            jsonObject.put("ChemicalWasteTotal", Utils.getText(chemicalWasteEdtTotalTxt));
+            jsonObject.put("OtherWasteTotal", Utils.getText(otherBiowasteTotalEdTxt));
             jsonObject.put("UserEmailID", me.getEmailID());
             jArray.put(jsonObject);
             new UpdateFetchBioWasteTask(getContext()).execute(jArray.toString());
