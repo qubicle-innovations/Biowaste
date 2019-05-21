@@ -317,7 +317,6 @@ public class BiowasteCreateFragment extends Fragment implements View.OnClickList
             popup.show();
         }
 
-
     }
 
     public void showStartDate() {

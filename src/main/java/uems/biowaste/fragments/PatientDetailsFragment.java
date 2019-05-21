@@ -133,7 +133,7 @@ public class PatientDetailsFragment extends Fragment implements View.OnClickList
             }
         });
 
-        if(vo.getCreatedBy().equals(me.getUserName())){
+        if(vo.getCreatedBy().toLowerCase().equals(me.getUserName().toLowerCase())){
             editButtonPatient.setVisibility(View.VISIBLE);
             deleteButtonPatient.setVisibility(View.VISIBLE);
         }

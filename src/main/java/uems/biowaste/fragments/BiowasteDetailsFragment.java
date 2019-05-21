@@ -348,7 +348,7 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
             otherBiowasteCountEdTxt.setText(vo.getOtherWaste());
             otherBiowasteTotalEdTxt.setText(vo.getOtherWasteTotal());
 
-            if (vo.getCreatedBy().equals(me.getUserName())) {
+            if(vo.getCreatedBy().toLowerCase().equals(me.getUserName().toLowerCase())){
                 editButton.setVisibility(View.VISIBLE);
                 deleteButton.setVisibility(View.VISIBLE);
             }

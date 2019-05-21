@@ -111,7 +111,7 @@ public class LoginFragment extends android.support.v4.app.Fragment {
                      });
                      String url=null;
                      for(MappingVo vo : pList){
-                         if(vo.getProductName().equalsIgnoreCase("BioWaste")){
+                             if(vo.getProductName().equalsIgnoreCase("BioWaste")){
                              url = vo.getURL();
                          }
                      }

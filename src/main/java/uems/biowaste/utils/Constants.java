@@ -20,7 +20,7 @@ public class Constants {
 
     public static String FETCH_COUNT = SERVER_URL + "/GetMonthlyDetails";
 
-    public static String GET_GWASTE_LIST = SERVER_URL + "/GetFoodandGeneralwaste";
+    public static String GET_GWASTE_LIST = SERVER_URL + "/GetFoodandG   eneralwaste";
     public static String GET_GWASTE_DETAILS = SERVER_URL + "/GetFoodandGeneralwasteList";
     public static String CREATE_GWASTE_DETAILS = SERVER_URL + "/SaveFoodandGeneralwaste";
     public static String CREATE_RECYCLED_DETAILS = SERVER_URL + "/SaveRecycleditems";

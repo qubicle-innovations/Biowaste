@@ -328,7 +328,7 @@ public class GwasteDetailsFragment extends Fragment implements View.OnClickListe
         detailsHuelageChargeTextView.setText(vo.getHualageCharge());
         detailsTotalDisposaFeeTextView.setText("$" + vo.getTotalDisposalFee());
 
-        if (vo.getCreatedBy().equals(me.getUserName())) {
+        if(vo.getCreatedBy().toLowerCase().equals(me.getUserName().toLowerCase())){
             editButtonGwaste.setVisibility(View.VISIBLE);
             deleteButtonGwaste.setVisibility(View.VISIBLE);
         }

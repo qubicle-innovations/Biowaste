@@ -77,8 +77,6 @@ public class DashboardFragment extends Fragment implements View.OnClickListener{
 
     public void initLayout(View view) {
 
-
-
         tvBioCount = view.findViewById(R.id.tvBioCount);
         tvPatientsCount = view.findViewById(R.id.tvPatientsCount);
         tvRecycleCount = view.findViewById(R.id.tvRecycleCount);
@@ -104,7 +102,6 @@ public class DashboardFragment extends Fragment implements View.OnClickListener{
             tvUsername.setText(Utils.toTitleCase(me.getUserName()));
 
     }
-
 
 
     @Override

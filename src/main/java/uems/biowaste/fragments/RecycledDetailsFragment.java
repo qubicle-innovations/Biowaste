@@ -586,7 +586,7 @@ public class RecycledDetailsFragment extends Fragment implements View.OnClickLis
         itemNewsPaperTextView.setText(vo.getNewspapers());
         itemOthersTextView.setText(vo.getOthers());
 
-        if (vo.getCreatedBy().equals(me.getUserName())) {
+        if(vo.getCreatedBy().toLowerCase().equals(me.getUserName().toLowerCase())){
             editButtonRecycle.setVisibility(View.VISIBLE);
             deleteButtonRecycle.setVisibility(View.VISIBLE);
         }
