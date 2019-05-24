@@ -20,6 +20,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -29,11 +33,13 @@ import java.util.Date;
 
 import uems.biowaste.R;
 import uems.biowaste.async.FetchBioWasteCreateTask;
+import uems.biowaste.async.FetchBioWasteValueTask;
 import uems.biowaste.utils.Constants;
 import uems.biowaste.utils.DateUtil;
 import uems.biowaste.utils.MoneyValueFilter;
 import uems.biowaste.utils.Utils;
-import uems.biowaste.utils.ZValidation;
+import uems.biowaste.vo.BioWasteItemVo;
+import uems.biowaste.vo.BioWasteValueVo;
 import uems.biowaste.vo.TResponse;
 import uems.biowaste.vo.UserVo;
 
@@ -63,7 +69,12 @@ public class BiowasteCreateFragment extends Fragment implements View.OnClickList
     EditText otherBiowasteTotalEdTxt;
     EditText detailsNoOfHaulageTextView;
     EditText detailsWeightTextView;
+    EditText bioHazardWasteBinsCountEdTxt;
+    EditText bioHazardWasteBinsCostEdTxt;
+    EditText bioHazardWasteBinsTotalEdTxt;
 
+
+    BioWasteValueVo vo;
 
     private BiowasteCreateFragment.OnFragmentInteractionListener mListener;
     @Override
@@ -74,6 +85,42 @@ public class BiowasteCreateFragment extends Fragment implements View.OnClickList
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
+        }
+    }
+
+    public void listResponseBioWasteValue(TResponse<String> result) {
+
+        if (result == null) {
+            Utils.showError(" please check network connection", detailsDateTextView);
+        } else if (result.isHasError()) {
+            Utils.showError("please try later", detailsDateTextView);
+        } else if (result.getResponseContent() != null) {
+            try {
+                JSONObject jsonObject = new JSONObject(result.getResponseContent());
+                JSONArray jsonArray = jsonObject.getJSONArray("BIoWasteValList");
+                ObjectMapper mapper = new ObjectMapper();
+                mapper.enable(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES);
+                vo = mapper.readValue(jsonArray.getJSONObject(0).toString(), new TypeReference<BioWasteValueVo>() { });
+                setData();
+            } catch (Exception e) {
+                Utils.showError("please try later", detailsDateTextView);
+                Log.e("parse order", e.toString());
+            }
+        }
+    }
+
+    public void setData(){
+        if(vo != null ){
+            if(cytotoxicWasteCostEdTxt != null)
+                cytotoxicWasteCostEdTxt.setText(vo.getBiowasteValue());
+            if(radioActiveWasteCostEdtTxt != null)
+                radioActiveWasteCostEdtTxt.setText(vo.getBiowasteValue());
+            if(chemicalWasteCostEdtTxt != null)
+                chemicalWasteCostEdtTxt.setText(vo.getBiowasteValue());
+            if(otherBiowasteCostEdTxt != null)
+                otherBiowasteCostEdTxt.setText(vo.getBiowasteValue());
+            if(bioHazardWasteBinsCostEdTxt != null)
+                bioHazardWasteBinsCostEdTxt.setText(vo.getBiowasteValue());
         }
     }
 
@@ -91,6 +138,8 @@ public class BiowasteCreateFragment extends Fragment implements View.OnClickList
         startDate = Calendar.getInstance();
         me = Utils.getUser(getContext());
         initLayout(view);
+        new FetchBioWasteValueTask(getContext()).execute();
+
         return view;
     }
 
@@ -106,6 +155,8 @@ public class BiowasteCreateFragment extends Fragment implements View.OnClickList
             totalBin += Double.parseDouble(chemicalWasteBinCountEdTxt.getText().toString());
         if(otherBiowasteCountEdTxt.getText() != null && !otherBiowasteCountEdTxt.getText().toString().isEmpty())
             totalBin += Double.parseDouble(otherBiowasteCountEdTxt.getText().toString());
+        if(bioHazardWasteBinsCountEdTxt.getText() != null && !bioHazardWasteBinsCountEdTxt.getText().toString().isEmpty())
+            totalBin += Double.parseDouble(bioHazardWasteBinsCountEdTxt.getText().toString());
 
         detailsNoOfHaulageTextView.setText(String.format("%s", totalBin));
 
@@ -117,6 +168,8 @@ public class BiowasteCreateFragment extends Fragment implements View.OnClickList
             total += Double.parseDouble(chemicalWasteEdtTotalTxt.getText().toString());
         if(otherBiowasteTotalEdTxt.getText() != null && !otherBiowasteTotalEdTxt.getText().toString().isEmpty())
             total += Double.parseDouble(otherBiowasteTotalEdTxt.getText().toString());
+        if(bioHazardWasteBinsTotalEdTxt.getText() != null && !bioHazardWasteBinsTotalEdTxt.getText().toString().isEmpty())
+            total += Double.parseDouble(bioHazardWasteBinsTotalEdTxt.getText().toString());
 
         detailsWeightTextView.setText(String.format("%s", total));
     }
@@ -152,17 +205,47 @@ public class BiowasteCreateFragment extends Fragment implements View.OnClickList
         radioActiveWasteBinCountEdTxt =  view.findViewById(R.id.radioActiveWasteBinCountEdTxt);
         chemicalWasteBinCountEdTxt =  view.findViewById(R.id.chemicalWasteBinCountEdTxt);
         otherBiowasteCountEdTxt =  view.findViewById(R.id.otherBiowasteCountEdTxt);
+        bioHazardWasteBinsCountEdTxt = view.findViewById(R.id.bioHazardWasteBinsCountEdTxt);
 
         cytotoxicWasteCostEdTxt =  view.findViewById(R.id.cytotoxicWasteCostEdTxt);
         radioActiveWasteCostEdtTxt =  view.findViewById(R.id.radioActiveWasteCostEdtTxt);
         chemicalWasteCostEdtTxt =  view.findViewById(R.id.chemicalWasteCostEdtTxt);
         otherBiowasteCostEdTxt =  view.findViewById(R.id.otherBiowasteCostEdTxt);
+        bioHazardWasteBinsCostEdTxt = view.findViewById(R.id.bioHazardWasteBinsCostEdTxt);
 
         cytotoxicWasteTotalEdTxt =  view.findViewById(R.id.cytotoxicWasteTotalEdTxt);
         radioActiveWasteTotalEdtTxt =  view.findViewById(R.id.radioActiveWasteTotalEdtTxt);
         chemicalWasteEdtTotalTxt =  view.findViewById(R.id.chemicalWasteTotalEdtTxt);
         otherBiowasteTotalEdTxt =  view.findViewById(R.id.otherBiowasteTotalEdTxt);
+        bioHazardWasteBinsTotalEdTxt = view.findViewById(R.id.bioHazardWasteBinsTotalEdTxt);
 
+        setData();
+
+
+        bioHazardWasteBinsCountEdTxt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(!bioHazardWasteBinsCountEdTxt.getText().toString().isEmpty() && !bioHazardWasteBinsCostEdTxt.getText().toString().isEmpty())
+                    bioHazardWasteBinsTotalEdTxt.setText(String.format("%s", Double.parseDouble(bioHazardWasteBinsCostEdTxt.getText().toString()) * Double.parseDouble(bioHazardWasteBinsCountEdTxt.getText().toString())));
+                setTotal();
+            }
+        });
+        bioHazardWasteBinsCostEdTxt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(!bioHazardWasteBinsCountEdTxt.getText().toString().isEmpty() && !bioHazardWasteBinsCostEdTxt.getText().toString().isEmpty())
+                    bioHazardWasteBinsTotalEdTxt.setText(String.format("%s", Double.parseDouble(bioHazardWasteBinsCostEdTxt.getText().toString()) * Double.parseDouble(bioHazardWasteBinsCountEdTxt.getText().toString())));
+                setTotal();
+            }
+        });
         otherBiowasteCountEdTxt.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
@@ -505,6 +588,23 @@ public class BiowasteCreateFragment extends Fragment implements View.OnClickList
             String OtherWasteTotal = Utils.getText(otherBiowasteTotalEdTxt);
             if(OtherWasteTotal == null || OtherWasteTotal.isEmpty())
                 OtherWasteTotal = "0";
+            jsonObject.put("ChemicalWasteTotal", ChemicalWasteTotal);
+
+            String bioHazardCost = Utils.getText(bioHazardWasteBinsCostEdTxt);
+            if(bioHazardCost == null || bioHazardCost.isEmpty())
+                bioHazardCost = "0";
+            jsonObject.put("BiohazardWasteCost", bioHazardCost);
+
+            String bioHazardCount = Utils.getText(bioHazardWasteBinsCountEdTxt);
+            if(bioHazardCount == null || bioHazardCount.isEmpty())
+                bioHazardCount = "0";
+            jsonObject.put("BiohazardWaste", bioHazardCount);
+
+            String bioHazardTotal = Utils.getText(bioHazardWasteBinsTotalEdTxt);
+            if(bioHazardTotal == null || bioHazardTotal.isEmpty())
+                bioHazardTotal = "0";
+            jsonObject.put("BiohazardWasteTotal", bioHazardTotal);
+
             jsonObject.put("OtherWasteTotal", OtherWasteTotal);
             jsonObject.put("UserEmailID", me.getEmailID());
             jArray.put(jsonObject);

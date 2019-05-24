@@ -42,7 +42,6 @@ import uems.biowaste.utils.Constants;
 import uems.biowaste.utils.DateUtil;
 import uems.biowaste.utils.MoneyValueFilter;
 import uems.biowaste.utils.Utils;
-import uems.biowaste.utils.ZValidation;
 import uems.biowaste.vo.BioWasteItemVo;
 import uems.biowaste.vo.TResponse;
 import uems.biowaste.vo.UserVo;
@@ -77,6 +76,9 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
     EditText radioActiveWasteTotalEdtTxt;
     EditText chemicalWasteEdtTotalTxt;
     EditText otherBiowasteTotalEdTxt;
+    EditText bioHazardWasteBinsCountEdTxt;
+    EditText bioHazardWasteBinsCostEdTxt;
+    EditText bioHazardWasteBinsTotalEdTxt;
 
     @Override
     public void onAttach(Context context) {
@@ -132,27 +134,56 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
         radioActiveWasteBinCountEdTxt =  view.findViewById(R.id.radioActiveWasteBinCountEdTxt);
         chemicalWasteBinCountEdTxt =  view.findViewById(R.id.chemicalWasteBinCountEdTxt);
         otherBiowasteCountEdTxt =  view.findViewById(R.id.otherBiowasteCountEdTxt);
+        bioHazardWasteBinsCountEdTxt =  view.findViewById(R.id.bioHazardWasteBinsCountEdTxt);
 
         cytotoxicWasteCostEdTxt =  view.findViewById(R.id.cytotoxicWasteCostEdTxt);
         radioActiveWasteCostEdtTxt =  view.findViewById(R.id.radioActiveWasteCostEdtTxt);
         chemicalWasteCostEdtTxt =  view.findViewById(R.id.chemicalWasteCostEdtTxt);
         otherBiowasteCostEdTxt =  view.findViewById(R.id.otherBiowasteCostEdTxt);
+        bioHazardWasteBinsCostEdTxt =  view.findViewById(R.id.bioHazardWasteBinsCostEdTxt);
 
         cytotoxicWasteTotalEdTxt =  view.findViewById(R.id.cytotoxicWasteTotalEdTxt);
         radioActiveWasteTotalEdtTxt =  view.findViewById(R.id.radioActiveWasteTotalEdtTxt);
         chemicalWasteEdtTotalTxt =  view.findViewById(R.id.chemicalWasteTotalEdtTxt);
         otherBiowasteTotalEdTxt =  view.findViewById(R.id.otherBiowasteTotalEdTxt);
+        bioHazardWasteBinsTotalEdTxt =  view.findViewById(R.id.bioHazardWasteBinsTotalEdTxt);
 
         cycloneToxicWasteBinsCountEdTxt.setFocusable(false);
         radioActiveWasteBinCountEdTxt.setFocusable(false);
         chemicalWasteBinCountEdTxt.setFocusable(false);
+        chemicalWasteBinCountEdTxt.setFocusable(false);
         otherBiowasteCountEdTxt.setFocusable(false);
+        bioHazardWasteBinsCountEdTxt.setFocusable(false);
         cytotoxicWasteCostEdTxt.setFocusable(false);
         radioActiveWasteCostEdtTxt.setFocusable(false);
         chemicalWasteCostEdtTxt.setFocusable(false);
         otherBiowasteCostEdTxt.setFocusable(false);
+        bioHazardWasteBinsCostEdTxt.setFocusable(false);
 
-
+        bioHazardWasteBinsCountEdTxt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(!bioHazardWasteBinsCountEdTxt.getText().toString().isEmpty() && !bioHazardWasteBinsCostEdTxt.getText().toString().isEmpty())
+                    bioHazardWasteBinsTotalEdTxt.setText(String.format("%s", Double.parseDouble(bioHazardWasteBinsCostEdTxt.getText().toString()) * Double.parseDouble(bioHazardWasteBinsCountEdTxt.getText().toString())));
+                setTotal();
+            }
+        });
+        bioHazardWasteBinsCostEdTxt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(!bioHazardWasteBinsCountEdTxt.getText().toString().isEmpty() && !bioHazardWasteBinsCostEdTxt.getText().toString().isEmpty())
+                    bioHazardWasteBinsTotalEdTxt.setText(String.format("%s", Double.parseDouble(bioHazardWasteBinsCostEdTxt.getText().toString()) * Double.parseDouble(bioHazardWasteBinsCountEdTxt.getText().toString())));
+                setTotal();
+            }
+        });
         otherBiowasteCountEdTxt.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
@@ -270,6 +301,7 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
         detailsSubmitButton.setVisibility(View.GONE);
         detailsTotalCost.setFocusable(false);
         detailsTotalBin.setFocusable(false);
+
         detailsTotalCost.setFilters(new InputFilter[]{new MoneyValueFilter()});
 
         detailsMonthTextView.setOnClickListener(this);
@@ -297,6 +329,12 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
                 radioActiveWasteCostEdtTxt.setFocusable(true);
                 chemicalWasteCostEdtTxt.setFocusable(true);
                 otherBiowasteCostEdTxt.setFocusable(true);
+                bioHazardWasteBinsCostEdTxt.setFocusableInTouchMode(true);
+                bioHazardWasteBinsCountEdTxt.setFocusableInTouchMode(true);
+                bioHazardWasteBinsTotalEdTxt.setFocusableInTouchMode(true);
+                bioHazardWasteBinsCostEdTxt.setFocusable(true);
+                bioHazardWasteBinsCountEdTxt.setFocusable(true);
+                bioHazardWasteBinsTotalEdTxt.setFocusable(true);
 
                 editButton.setVisibility(View.GONE);
                 deleteButton.setVisibility(View.GONE);
@@ -326,11 +364,6 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
 
     public void setData() {
         if (vo != null) {
-            detailsMonthTextView.setText(vo.getMonth());
-            detailsDateTextView.setText(vo.getDate());
-            detailsNameTextView.setText(vo.getCreatedBy());
-            detailsTotalCost.setText(vo.getTotalCost());
-            detailsTotalBin.setText(vo.getTotalBin());
 
             cytotoxicWasteCostEdTxt.setText(vo.getChemicalWasteCost());
             cycloneToxicWasteBinsCountEdTxt.setText(vo.getCytotoxicWaste());
@@ -347,6 +380,21 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
             otherBiowasteCostEdTxt.setText(vo.getOtherWasteCost());
             otherBiowasteCountEdTxt.setText(vo.getOtherWaste());
             otherBiowasteTotalEdTxt.setText(vo.getOtherWasteTotal());
+
+
+            if(vo.getBiohazardWasteCost() != null && !vo.getBiohazardWasteCost().isEmpty())
+                bioHazardWasteBinsCostEdTxt.setText(vo.getBiohazardWasteCost());
+            if(vo.getBiohazardWasteCost() != null && !vo.getBiohazardWaste().isEmpty())
+                bioHazardWasteBinsCountEdTxt.setText(vo.getBiohazardWaste());
+            if(vo.getBiohazardWasteCost() != null && !vo.getOtherWasteTotal().isEmpty())
+                bioHazardWasteBinsTotalEdTxt.setText(vo.getBiohazardWasteTotal());
+
+
+            detailsMonthTextView.setText(vo.getMonth());
+            detailsDateTextView.setText(vo.getDate());
+            detailsNameTextView.setText(vo.getCreatedBy());
+            detailsTotalCost.setText(vo.getTotalCost());
+            detailsTotalBin.setText(vo.getTotalBin());
 
             if(vo.getCreatedBy().toLowerCase().equals(me.getUserName().toLowerCase())){
                 editButton.setVisibility(View.VISIBLE);
@@ -381,7 +429,7 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
                 JSONArray jsonArray = jsonObject.getJSONArray("ListGetBiowasteDetails");
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.enable(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES);
-                vo = mapper.readValue(jsonArray.getJSONObject(0).toString(), new TypeReference<BioWasteItemVo>() {
+                    vo = mapper.readValue(jsonArray.getJSONObject(0).toString(), new TypeReference<BioWasteItemVo>() {
                 });
                 setData();
             } catch (Exception e) {
@@ -472,8 +520,6 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
                 calendar.set(Calendar.DAY_OF_MONTH,  cal.getActualMaximum(Calendar.DAY_OF_MONTH));
                 datePickerDialog.getDatePicker().setMaxDate(calendar.getTimeInMillis());
 
-
-
             }catch (Exception e){
 
             }
@@ -494,8 +540,9 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
             totalBin += Double.parseDouble(chemicalWasteBinCountEdTxt.getText().toString());
         if(otherBiowasteCountEdTxt.getText() != null && !otherBiowasteCountEdTxt.getText().toString().isEmpty())
             totalBin += Double.parseDouble(otherBiowasteCountEdTxt.getText().toString());
+        if(bioHazardWasteBinsCountEdTxt.getText() != null && !bioHazardWasteBinsCountEdTxt.getText().toString().isEmpty())
+            totalBin += Double.parseDouble(bioHazardWasteBinsCountEdTxt.getText().toString());
 
-        detailsTotalBin.setText(String.format("%s", totalBin));
 
         if(cytotoxicWasteTotalEdTxt.getText() != null && !cytotoxicWasteTotalEdTxt.getText().toString().isEmpty())
             total += Double.parseDouble(cytotoxicWasteTotalEdTxt.getText().toString());
@@ -505,7 +552,10 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
             total += Double.parseDouble(chemicalWasteEdtTotalTxt.getText().toString());
         if(otherBiowasteTotalEdTxt.getText() != null && !otherBiowasteTotalEdTxt.getText().toString().isEmpty())
             total += Double.parseDouble(otherBiowasteTotalEdTxt.getText().toString());
+        if(bioHazardWasteBinsTotalEdTxt.getText() != null && !bioHazardWasteBinsTotalEdTxt.getText().toString().isEmpty())
+            total += Double.parseDouble(bioHazardWasteBinsTotalEdTxt.getText().toString());
 
+        detailsTotalBin.setText(String.format("%s", totalBin));
         detailsTotalCost.setText(String.format("%s", total));
     }
 
@@ -642,6 +692,22 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
             if(ChemicalWasteTotal == null || ChemicalWasteTotal.isEmpty())
                 ChemicalWasteTotal = "0";
             jsonObject.put("ChemicalWasteTotal", ChemicalWasteTotal);
+
+
+            String bioHazardCost = Utils.getText(bioHazardWasteBinsCostEdTxt);
+            if(bioHazardCost == null || bioHazardCost.isEmpty())
+                bioHazardCost = "0";
+            jsonObject.put("BiohazardWasteCost", bioHazardCost);
+
+            String bioHazardCount = Utils.getText(bioHazardWasteBinsCountEdTxt);
+            if(bioHazardCount == null || bioHazardCount.isEmpty())
+                bioHazardCount = "0";
+            jsonObject.put("BiohazardWaste", bioHazardCount);
+
+            String bioHazardTotal = Utils.getText(bioHazardWasteBinsTotalEdTxt);
+            if(bioHazardTotal == null || bioHazardTotal.isEmpty())
+                bioHazardTotal = "0";
+            jsonObject.put("BiohazardWasteTotal", bioHazardTotal);
 
             String OtherWasteTotal = Utils.getText(otherBiowasteTotalEdTxt);
             if(OtherWasteTotal == null || OtherWasteTotal.isEmpty())

@@ -154,8 +154,33 @@ public class BioWasteItemVo implements Serializable {
     private String RadioactiveWasteTotal;
     private String ChemicalWasteTotal;
     private String OtherWasteTotal;
+    private String BiohazardWaste;
+    private String BiohazardWasteCost;
+    private String BiohazardWasteTotal;
 
+    public String getBiohazardWaste() {
+        return BiohazardWaste;
+    }
 
+    public void setBiohazardWaste(String biohazardWaste) {
+        BiohazardWaste = biohazardWaste;
+    }
+
+    public String getBiohazardWasteCost() {
+        return BiohazardWasteCost;
+    }
+
+    public void setBiohazardWasteCost(String biohazardWasteCost) {
+        BiohazardWasteCost = biohazardWasteCost;
+    }
+
+    public String getBiohazardWasteTotal() {
+        return BiohazardWasteTotal;
+    }
+
+    public void setBiohazardWasteTotal(String biohazardWasteTotal) {
+        BiohazardWasteTotal = biohazardWasteTotal;
+    }
 
     public String getDate() {
         return Date;

@@ -78,5 +78,8 @@
     <string name="number">Number</string>
     <string name="total">Total</string>
     <string name="cost_bin">Cost/Bin</string>
+    <string name="biohazard_waste_bins">Biohazard Waste Bins</string>
+    <string name="zero">0</string>
+    <string name="zero_decimal" >0.00</string>
 
 </resources>

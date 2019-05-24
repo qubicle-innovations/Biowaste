@@ -13,7 +13,7 @@
     <FrameLayout
         android:id="@+id/frameLayout4"
         android:layout_width="0dp"
-        android:layout_height="200dp"
+        android:layout_height="240dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -25,6 +25,23 @@
     </FrameLayout>
 
     <EditText
+        android:id="@+id/bioHazardWasteBinsTotalEdTxt"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:background="@color/backgroundGray"
+        android:enabled="false"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:gravity="right|center_vertical"
+        android:inputType="number"
+        android:paddingRight="5dp"
+        android:text="@string/zero_decimal"
+        android:textColor="@color/textBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/bioHazardWasteBinsCostEdTxt"
+        app:layout_constraintEnd_toEndOf="@+id/radioActiveWasteTotalEdtTxt"
+        app:layout_constraintStart_toStartOf="@+id/chemicalWasteTotalEdtTxt"
+        app:layout_constraintTop_toTopOf="@+id/bioHazardWasteBinsCostEdTxt" />
+
+    <EditText
         android:id="@+id/otherBiowasteTotalEdTxt"
         android:layout_width="0dp"
         android:layout_height="30dp"
@@ -34,6 +51,7 @@
         android:gravity="right|center_vertical"
         android:inputType="number"
         android:paddingRight="5dp"
+        android:text="@string/zero_decimal"
         android:textColor="@color/textBlack"
         app:layout_constraintBottom_toBottomOf="@+id/otherBiowasteCountEdTxt"
         app:layout_constraintEnd_toEndOf="@+id/radioActiveWasteTotalEdtTxt"
@@ -50,6 +68,7 @@
         android:gravity="right|center_vertical"
         android:inputType="number"
         android:paddingRight="5dp"
+        android:text="@string/zero_decimal"
         android:textColor="@color/textBlack"
         app:layout_constraintBottom_toBottomOf="@+id/chemicalWasteBinCountEdTxt"
         app:layout_constraintEnd_toEndOf="@+id/radioActiveWasteTotalEdtTxt"
@@ -68,6 +87,7 @@
         android:gravity="right|center_vertical"
         android:inputType="number"
         android:paddingRight="5dp"
+        android:text="@string/zero_decimal"
         android:textColor="@color/textBlack"
         app:layout_constraintBottom_toBottomOf="@+id/radioActiveWasteBinCountEdTxt"
         app:layout_constraintEnd_toEndOf="@+id/frameLayout4"
@@ -84,6 +104,7 @@
         android:gravity="right|center_vertical"
         android:inputType="number"
         android:paddingRight="5dp"
+        android:text="@string/zero_decimal"
         android:textColor="@color/textBlack"
         app:layout_constraintBottom_toBottomOf="@+id/textView17"
         app:layout_constraintEnd_toEndOf="@+id/radioActiveWasteTotalEdtTxt"
@@ -100,6 +121,7 @@
         android:gravity="right|center_vertical"
         android:inputType="number"
         android:paddingRight="5dp"
+        android:text="@string/zero"
         android:textColor="@color/textBlack"
         app:layout_constraintBottom_toBottomOf="@+id/textView20"
         app:layout_constraintEnd_toStartOf="@+id/radioActiveWasteCostEdtTxt"
@@ -152,6 +174,7 @@
         android:gravity="right|center_vertical"
         android:inputType="number"
         android:paddingRight="5dp"
+        android:text="@string/zero"
         android:textColor="@color/textBlack"
         app:layout_constraintBottom_toBottomOf="@+id/textView19"
         app:layout_constraintEnd_toEndOf="@+id/radioActiveWasteBinCountEdTxt"
@@ -167,11 +190,28 @@
         android:gravity="right|center_vertical"
         android:inputType="number"
         android:paddingRight="5dp"
+        android:text="@string/zero"
         android:textColor="@color/textBlack"
         app:layout_constraintBottom_toBottomOf="@+id/textView18"
         app:layout_constraintEnd_toEndOf="@+id/chemicalWasteBinCountEdTxt"
         app:layout_constraintStart_toStartOf="@+id/chemicalWasteBinCountEdTxt"
         app:layout_constraintTop_toTopOf="@+id/textView18" />
+
+    <EditText
+        android:id="@+id/bioHazardWasteBinsCountEdTxt"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:background="@color/backgroundGray"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:gravity="right|center_vertical"
+        android:inputType="number"
+        android:paddingRight="5dp"
+        android:text="@string/zero"
+        android:textColor="@color/textBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/textView21"
+        app:layout_constraintEnd_toEndOf="@+id/chemicalWasteBinCountEdTxt"
+        app:layout_constraintStart_toStartOf="@+id/chemicalWasteBinCountEdTxt"
+        app:layout_constraintTop_toTopOf="@+id/textView21" />
 
     <EditText
         android:id="@+id/cytotoxicWasteCostEdTxt"
@@ -182,6 +222,7 @@
         android:gravity="right|center_vertical"
         android:inputType="number|numberDecimal"
         android:paddingRight="5dp"
+        android:text="@string/zero_decimal"
         android:textColor="@color/textBlack"
         app:layout_constraintBottom_toBottomOf="@+id/textView17"
         app:layout_constraintEnd_toEndOf="@+id/radioActiveWasteCostEdtTxt"
@@ -198,6 +239,7 @@
         android:gravity="right|center_vertical"
         android:inputType="number|numberDecimal"
         android:paddingRight="5dp"
+        android:text="@string/zero_decimal"
         android:textColor="@color/textBlack"
         app:layout_constraintBottom_toBottomOf="@+id/radioActiveWasteBinCountEdTxt"
         app:layout_constraintEnd_toStartOf="@+id/radioActiveWasteTotalEdtTxt"
@@ -214,6 +256,7 @@
         android:gravity="right|center_vertical"
         android:inputType="number|numberDecimal"
         android:paddingRight="5dp"
+        android:text="@string/zero_decimal"
         android:textColor="@color/textBlack"
         app:layout_constraintBottom_toBottomOf="@+id/chemicalWasteBinCountEdTxt"
         app:layout_constraintEnd_toEndOf="@+id/radioActiveWasteCostEdtTxt"
@@ -229,6 +272,7 @@
         android:gravity="right|center_vertical"
         android:inputType="number"
         android:paddingRight="5dp"
+        android:text="@string/zero"
         android:textColor="@color/textBlack"
         app:layout_constraintBottom_toBottomOf="@+id/textView17"
         app:layout_constraintEnd_toEndOf="@+id/radioActiveWasteBinCountEdTxt"
@@ -244,11 +288,28 @@
         android:gravity="right|center_vertical"
         android:inputType="number|numberDecimal"
         android:paddingRight="5dp"
+        android:text="@string/zero_decimal"
         android:textColor="@color/textBlack"
         app:layout_constraintBottom_toBottomOf="@+id/otherBiowasteCountEdTxt"
         app:layout_constraintEnd_toEndOf="@+id/chemicalWasteCostEdtTxt"
         app:layout_constraintStart_toStartOf="@+id/chemicalWasteCostEdtTxt"
         app:layout_constraintTop_toTopOf="@+id/otherBiowasteCountEdTxt" />
+
+    <EditText
+        android:id="@+id/bioHazardWasteBinsCostEdTxt"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:background="@color/backgroundGray"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:gravity="right|center_vertical"
+        android:inputType="number|numberDecimal"
+        android:paddingRight="5dp"
+        android:text="@string/zero_decimal"
+        android:textColor="@color/textBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/bioHazardWasteBinsCountEdTxt"
+        app:layout_constraintEnd_toEndOf="@+id/chemicalWasteCostEdtTxt"
+        app:layout_constraintStart_toStartOf="@+id/chemicalWasteCostEdtTxt"
+        app:layout_constraintTop_toTopOf="@+id/bioHazardWasteBinsCountEdTxt" />
 
     <FrameLayout
         android:id="@+id/frameLayout3"
@@ -328,6 +389,17 @@
         android:text="@string/other_biowaste_bins"
         app:layout_constraintStart_toStartOf="@+id/frameLayout4"
         app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="@string/biohazard_waste_bins"
+        app:layout_constraintStart_toStartOf="@+id/frameLayout4"
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
     <TextView
         android:id="@+id/textView20"
@@ -448,7 +520,7 @@
         android:paddingRight="20dp"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/textView6"
-        app:layout_constraintEnd_toEndOf="@+id/otherBiowasteTotalEdTxt"
+        app:layout_constraintEnd_toEndOf="@+id/bioHazardWasteBinsTotalEdTxt"
         app:layout_constraintStart_toStartOf="@+id/detailsNoOfHaulageTextView"
         app:layout_constraintTop_toTopOf="@+id/textView6" />
 
@@ -464,7 +536,7 @@
         android:paddingRight="20dp"
         android:textColor="@color/textBlack"
         app:layout_constraintBottom_toBottomOf="@+id/textView5"
-        app:layout_constraintEnd_toEndOf="@+id/otherBiowasteTotalEdTxt"
+        app:layout_constraintEnd_toEndOf="@+id/bioHazardWasteBinsTotalEdTxt"
         app:layout_constraintStart_toStartOf="@+id/otherBiowasteCountEdTxt"
         app:layout_constraintTop_toTopOf="@+id/textView5" />
 

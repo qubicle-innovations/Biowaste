@@ -62,6 +62,7 @@ public class MoneyValueFilter extends DigitsKeyListener {
 
         // if the dot is after the inserted part,
         // nothing can break
-        return new SpannableStringBuilder(source, start, end);
+        CharSequence sCharSequence = new SpannableStringBuilder(source, start, end);
+        return sCharSequence;
     }
 }

@@ -396,6 +396,7 @@ public class HomeActivity extends AppCompatActivity implements ItemFragment.OnLi
         }
     }
 
+
     public void listResponseBioWaste(TResponse<String> result) {
         Fragment fragment = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_BIOWASTE);
         if(fragment != null && fragment.isVisible() && fragment.isResumed()){
@@ -446,5 +447,11 @@ public class HomeActivity extends AppCompatActivity implements ItemFragment.OnLi
         }
     }
 
+    public void listResponseBioWasteValue(TResponse<String> result) {
+        Fragment fragment = getSupportFragmentManager().findFragmentByTag(Constants.FRAGMENT_BIOWASTE_CREATE);
+        if(fragment != null && fragment.isVisible()){
+            ((BiowasteCreateFragment)fragment).listResponseBioWasteValue(result);
+        }
 
+    }
 }

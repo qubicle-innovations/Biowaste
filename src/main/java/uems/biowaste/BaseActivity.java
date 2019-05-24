@@ -145,12 +145,11 @@ public class BaseActivity extends AppCompatActivity {
             public void onClick(View view) {
                 showMenu();
                 logout();
-               Intent intent =  new Intent(BaseActivity.this,LoginActivity.class);
+                Intent intent =  new Intent(BaseActivity.this,LoginActivity.class);
                 startActivity(intent);
                 mDrawerLayout.closeDrawers();
                 Utils.setUser(context,null);
                 finishAffinity();
-
             }
         });
        findViewById(R.id.llGWaste).setOnClickListener(new View.OnClickListener() {
@@ -159,7 +158,6 @@ public class BaseActivity extends AppCompatActivity {
                 showMenu();
                 startActivity(new Intent(context, GWasteListActivity.class));
                 finish();
-
             }
         });
         findViewById(R.id.llBioWaste).setOnClickListener(new View.OnClickListener() {
@@ -168,7 +166,6 @@ public class BaseActivity extends AppCompatActivity {
                 showMenu();
                 startActivity(new Intent(context, BioWasteListActivity.class));
                 finish();
-
             }
         });
         findViewById(R.id.llRecycled).setOnClickListener(new View.OnClickListener() {
@@ -195,13 +192,11 @@ public class BaseActivity extends AppCompatActivity {
                 showMenu();
                 startActivity(new Intent(context, Dashboard.class));
                 finish();
-
             }
         });
 
         tvUsername.setText(Utils.toTitleCase(me.getUserName()));
         tvEmpID.setText("");
-
 
     }
 
@@ -210,7 +205,7 @@ public class BaseActivity extends AppCompatActivity {
         super.onPostCreate(savedInstanceState);
         // Sync the toggle state after onRestoreInstanceState has occurred.
         if(mDrawerToggle!=null)
-        mDrawerToggle.syncState();
+            mDrawerToggle.syncState();
     }
 
     @Override

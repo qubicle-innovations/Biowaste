@@ -202,7 +202,7 @@ public class BiowasteCreateActivity extends BaseBackActivity implements View.OnC
         cytotoxicWasteTotalEdTxt =  findViewById(R.id.cytotoxicWasteTotalEdTxt);
         radioActiveWasteTotalEdtTxt =  findViewById(R.id.radioActiveWasteTotalEdtTxt);
         chemicalWasteEdtTotalTxt =  findViewById(R.id.chemicalWasteTotalEdtTxt);
-        otherBiowasteTotalEdTxt =  findViewById(R.id.otherBiowasteTotalEdTxt);
+        otherBiowasteTotalEdTxt =  findViewById(R.id.bioHazardWasteBinsTotalEdTxt);
 
         otherBiowasteCountEdTxt.addTextChangedListener(new TextWatcher() {
             @Override
