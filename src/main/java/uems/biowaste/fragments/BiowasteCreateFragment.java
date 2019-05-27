@@ -27,6 +27,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -36,9 +37,7 @@ import uems.biowaste.async.FetchBioWasteCreateTask;
 import uems.biowaste.async.FetchBioWasteValueTask;
 import uems.biowaste.utils.Constants;
 import uems.biowaste.utils.DateUtil;
-import uems.biowaste.utils.MoneyValueFilter;
 import uems.biowaste.utils.Utils;
-import uems.biowaste.vo.BioWasteItemVo;
 import uems.biowaste.vo.BioWasteValueVo;
 import uems.biowaste.vo.TResponse;
 import uems.biowaste.vo.UserVo;
@@ -51,8 +50,6 @@ public class BiowasteCreateFragment extends Fragment implements View.OnClickList
     public UserVo me;
 
     TextView detailsDateTextView ;
-    EditText detailTotalCost;
-    EditText detailsTotalBin;
     TextView detailsMonthTextView ;
     TextView detailsNameTextView ;
     EditText cycloneToxicWasteBinsCountEdTxt;
@@ -72,6 +69,7 @@ public class BiowasteCreateFragment extends Fragment implements View.OnClickList
     EditText bioHazardWasteBinsCountEdTxt;
     EditText bioHazardWasteBinsCostEdTxt;
     EditText bioHazardWasteBinsTotalEdTxt;
+    DecimalFormat format;
 
 
     BioWasteValueVo vo;
@@ -171,7 +169,8 @@ public class BiowasteCreateFragment extends Fragment implements View.OnClickList
         if(bioHazardWasteBinsTotalEdTxt.getText() != null && !bioHazardWasteBinsTotalEdTxt.getText().toString().isEmpty())
             total += Double.parseDouble(bioHazardWasteBinsTotalEdTxt.getText().toString());
 
-        detailsWeightTextView.setText(String.format("%s", total));
+        format = new DecimalFormat("########.##");
+        detailsWeightTextView.setText(format.format(total));
     }
 
     public void initLayout(View view) {
@@ -179,8 +178,6 @@ public class BiowasteCreateFragment extends Fragment implements View.OnClickList
         detailsMonthTextView = view.findViewById(R.id.detailsMonthTextView);
         detailsDateTextView = view.findViewById(R.id.detailsDateTextView);
         detailsNameTextView = view.findViewById(R.id.detailsNameTextView);
-        detailTotalCost = view.findViewById(R.id.detailsWeightTextView);
-        detailsTotalBin = view.findViewById(R.id.detailsNoOfHaulageTextView);
 
         detailsWeightTextView = view.findViewById(R.id.detailsWeightTextView);
         detailsNoOfHaulageTextView = view.findViewById(R.id.detailsNoOfHaulageTextView);
@@ -198,7 +195,7 @@ public class BiowasteCreateFragment extends Fragment implements View.OnClickList
             detailsWeightTextView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.backgroundGray));
             detailsWeightTextView.setTextColor(ContextCompat.getColor(getContext(), R.color.textBlack));
         }
-        detailsWeightTextView.setFilters(new InputFilter[]{new MoneyValueFilter()});
+        //detailsWeightTextView.setFilters(new InputFilter[]{new MoneyValueFilter()});
 
 
         cycloneToxicWasteBinsCountEdTxt =  view.findViewById(R.id.cycloneToxicWasteBinsCountEdTxt);
@@ -463,9 +460,9 @@ public class BiowasteCreateFragment extends Fragment implements View.OnClickList
 
         }
 
-        if (ZValidation.checkEmpty(detailsTotalBin)) {
+        if (ZValidation.checkEmpty(detailsNoOfHaulageTextView)) {
             Utils.showError("Please enter total cost", detailsMonthTextView);
-            detailsTotalBin.requestFocus();
+            detailsNoOfHaulageTextView.requestFocus();
             return;
 
         }
@@ -520,12 +517,12 @@ public class BiowasteCreateFragment extends Fragment implements View.OnClickList
             jsonObject.put("Date", Utils.getText(detailsDateTextView));
             jsonObject.put("Month", month);
 
-            String totalBin = Utils.getText(detailsTotalBin);
+            String totalBin = Utils.getText(detailsNoOfHaulageTextView);
             if(totalBin == null || totalBin.isEmpty())
                 totalBin = "0";
             jsonObject.put("TotalBin", ((int) Double.parseDouble(totalBin))+"");
 
-            String totalCost = Utils.getText(detailTotalCost);
+            String totalCost = Utils.getText(detailsWeightTextView);
             if(totalCost == null || totalCost.isEmpty())
                 totalCost = "0";
             jsonObject.put("TotalCost",totalCost);

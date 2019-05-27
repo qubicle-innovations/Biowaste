@@ -399,7 +399,7 @@
         android:fontFamily="@font/montserrat_semi_bold"
         android:text="@string/biohazard_waste_bins"
         app:layout_constraintStart_toStartOf="@+id/frameLayout4"
-        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+        app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
     <TextView
         android:id="@+id/textView20"
@@ -421,7 +421,7 @@
         android:fontFamily="@font/montserrat_semi_bold"
         android:text="@string/cytotoxic_waste_bin"
         app:layout_constraintStart_toStartOf="@+id/frameLayout4"
-        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+        app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
     <TextView
         android:id="@+id/textView2"

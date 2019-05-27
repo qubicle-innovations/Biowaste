@@ -49,6 +49,7 @@ public class MoneyValueFilter extends DigitsKeyListener {
             }
         }
 
+/*
         for (int i = start; i < end; ++i) {
             if (source.charAt(i) == '.') {
                 // being here means, dot has been inserted
@@ -59,10 +60,12 @@ public class MoneyValueFilter extends DigitsKeyListener {
                     break;  // return new SpannableStringBuilder(source, start, end);
             }
         }
+*/
 
         // if the dot is after the inserted part,
         // nothing can break
         CharSequence sCharSequence = new SpannableStringBuilder(source, start, end);
+
         return sCharSequence;
     }
 }

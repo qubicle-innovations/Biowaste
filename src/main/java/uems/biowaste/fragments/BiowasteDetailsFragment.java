@@ -10,6 +10,7 @@ import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,6 +29,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -40,7 +42,7 @@ import uems.biowaste.async.FetchBioWasteDetailsTask;
 import uems.biowaste.async.UpdateFetchBioWasteTask;
 import uems.biowaste.utils.Constants;
 import uems.biowaste.utils.DateUtil;
-import uems.biowaste.utils.MoneyValueFilter;
+import uems.biowaste.utils.DecimalDigitsInputFilter;
 import uems.biowaste.utils.Utils;
 import uems.biowaste.vo.BioWasteItemVo;
 import uems.biowaste.vo.TResponse;
@@ -79,6 +81,9 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
     EditText bioHazardWasteBinsCountEdTxt;
     EditText bioHazardWasteBinsCostEdTxt;
     EditText bioHazardWasteBinsTotalEdTxt;
+    int decimalCount = 2;
+    boolean isChanged = false;
+    DecimalFormat format;
 
     @Override
     public void onAttach(Context context) {
@@ -159,6 +164,7 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
         chemicalWasteCostEdtTxt.setFocusable(false);
         otherBiowasteCostEdTxt.setFocusable(false);
         bioHazardWasteBinsCostEdTxt.setFocusable(false);
+
 
         bioHazardWasteBinsCountEdTxt.addTextChangedListener(new TextWatcher() {
             @Override
@@ -295,6 +301,7 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
         editButton.setVisibility(View.GONE);
         deleteButton.setVisibility(View.GONE);
 
+
         detailsTotalCost = view.findViewById(R.id.detailsWeightTextView);
         detailsTotalBin = view.findViewById(R.id.detailsNoOfHaulageTextView);
         detailsSubmitButton = view.findViewById(R.id.detailsSubmitButton);
@@ -302,7 +309,8 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
         detailsTotalCost.setFocusable(false);
         detailsTotalBin.setFocusable(false);
 
-        detailsTotalCost.setFilters(new InputFilter[]{new MoneyValueFilter()});
+
+        //detailsTotalCost.setFilters(new InputFilter[]{new MoneyValueFilter()});
 
         detailsMonthTextView.setOnClickListener(this);
         detailsDateTextView.setOnClickListener(this);
@@ -393,7 +401,7 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
             detailsMonthTextView.setText(vo.getMonth());
             detailsDateTextView.setText(vo.getDate());
             detailsNameTextView.setText(vo.getCreatedBy());
-            detailsTotalCost.setText(vo.getTotalCost());
+            detailsTotalCost.setText(String.format(Locale.getDefault(),"%.2f",Double.parseDouble(vo.getTotalCost())));
             detailsTotalBin.setText(vo.getTotalBin());
 
             if(vo.getCreatedBy().toLowerCase().equals(me.getUserName().toLowerCase())){
@@ -556,7 +564,7 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
             total += Double.parseDouble(bioHazardWasteBinsTotalEdTxt.getText().toString());
 
         detailsTotalBin.setText(String.format("%s", totalBin));
-        detailsTotalCost.setText(String.format("%s", total));
+        detailsTotalCost.setText(String.format(Locale.getDefault(),"%.2f",total));
     }
 
     public void saveItem() {
@@ -626,7 +634,7 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
 
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("Date", Utils.getText(detailsDateTextView));
-            jsonObject.put("Month", month);
+            jsonObject.put("Month", Utils.getText(detailsDateTextView).split("/")[1]);
 
             String totalBin = Utils.getText(detailsTotalBin);
             if(totalBin == null || totalBin.isEmpty())
@@ -693,7 +701,6 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
                 ChemicalWasteTotal = "0";
             jsonObject.put("ChemicalWasteTotal", ChemicalWasteTotal);
 
-
             String bioHazardCost = Utils.getText(bioHazardWasteBinsCostEdTxt);
             if(bioHazardCost == null || bioHazardCost.isEmpty())
                 bioHazardCost = "0";
@@ -720,10 +727,8 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
             new UpdateFetchBioWasteTask(getContext()).execute(jArray.toString());
 
         } catch (Exception e) {
-
             e.printStackTrace();
         }
-
 
 
 
