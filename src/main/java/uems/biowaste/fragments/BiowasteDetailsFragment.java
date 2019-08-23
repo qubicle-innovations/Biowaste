@@ -731,9 +731,7 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
         }
 
 
-
-
-    /*    SimpleDateFormat inputFormat = new SimpleDateFormat("MMMM");
+        /*  SimpleDateFormat inputFormat = new SimpleDateFormat("MMMM");
         Calendar cal = Calendar.getInstance();
         cal.setTime(inputFormat.parse(item.getTitle()));
         SimpleDateFormat outputFormat = new SimpleDateFormat("M"); // 01-12

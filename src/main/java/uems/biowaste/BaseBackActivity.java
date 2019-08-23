@@ -38,8 +38,8 @@ public class BaseBackActivity extends AppCompatActivity {
     }
 
     public void setToolbar(String title) {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        TextView tvTitle = (TextView) findViewById(R.id.toolbarTitle);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        TextView tvTitle = findViewById(R.id.toolbarTitle);
         tvTitle.setText(title);
         tvTitle.setTextColor(ActivityCompat.getColor(context, R.color.white));
       //  tvTitle.setTypeface(ZTypeface.robotoMedium(context));

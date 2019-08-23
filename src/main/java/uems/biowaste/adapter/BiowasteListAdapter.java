@@ -76,10 +76,10 @@ public class BiowasteListAdapter extends BaseAdapter {
             TextView tvTitle, tvDate, tvUser;
             ImageView imCal, imArrow, imUser;
             v = new ViewHolder();
-            v.tvMonth = (TextView) convertView.findViewById(R.id.tvMonth);
-            v.tvDate = (TextView) convertView.findViewById(R.id.tvDate);
-            v.tvUser = (TextView) convertView.findViewById(R.id.tvUser);
-            v.tvKg = (TextView) convertView.findViewById(R.id.tvKg);
+            v.tvMonth = convertView.findViewById(R.id.tvMonth);
+            v.tvDate = convertView.findViewById(R.id.tvDate);
+            v.tvUser = convertView.findViewById(R.id.tvUser);
+            v.tvKg = convertView.findViewById(R.id.tvKg);
             v.borderView =  convertView.findViewById(R.id.borderView);
             convertView.setTag(v);
         }

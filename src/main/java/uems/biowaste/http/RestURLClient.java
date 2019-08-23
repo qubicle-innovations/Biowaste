@@ -17,6 +17,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
@@ -145,12 +146,27 @@ public class RestURLClient {
 				}
 				String paramters= getQuery(this.params);
 				Log.v(TAG, paramters);
-				byte[] postData       = paramters.getBytes( StandardCharsets.UTF_8 );
+				byte[] postData       = new byte[0];
+				if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+					postData = paramters.getBytes( StandardCharsets.UTF_8 );
+				} else
+					postData = paramters.getBytes(Charset.forName("UTF-8"));
+
 				urlConnection.setRequestProperty("Content-Length", Integer.toString(postData.length));
 				urlConnection.setUseCaches(false);
 
-				try( DataOutputStream wr = new DataOutputStream( urlConnection.getOutputStream())) {
-					wr.write( postData );
+				if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+					try (DataOutputStream wr = new DataOutputStream(urlConnection.getOutputStream())) {
+						wr.write(postData);
+					}
+				}else{
+					DataOutputStream wr = null;
+					try {
+						wr = new DataOutputStream(urlConnection.getOutputStream()) ;
+						wr.write(postData);
+					} finally {
+						if (wr != null)	 wr.close();
+					}
 				}
 
 
@@ -160,7 +176,7 @@ public class RestURLClient {
 				String message = jobject.toString();
 				Log.e("json",message);
 				OutputStream os = urlConnection.getOutputStream();
-				BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
+				BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, StandardCharsets.UTF_8));
 				writer.write(message);
 				writer.flush();
 				writer.close();
@@ -182,8 +198,8 @@ public class RestURLClient {
 						Log.i(TAG, "ResponseCode: " + statusCode);
 						Log.i(TAG, "Response: " + responseString);
 					}catch (Exception e) {
-						e.printStackTrace();;
-					}
+						e.printStackTrace();
+                    }
 
 				}
 				
@@ -239,8 +255,8 @@ public class RestURLClient {
 						Log.i(TAG, "ResponseCode: " + statusCode);
 						Log.i(TAG, "Response: " + responseString);
 					}catch(Exception e) {
-						e.printStackTrace();;
-					}
+						e.printStackTrace();
+                    }
 
 				}
 			

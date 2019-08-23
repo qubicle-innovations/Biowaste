@@ -105,8 +105,8 @@ public class GwasteCreateActivity extends BaseBackActivity implements View.OnCli
 
             @Override
             public void afterTextChanged(Editable s) {
-                EditText detailsDisposalFeeTextView = (EditText) findViewById(R.id.detailsDisposalFeeTextView);
-                TextView detailsTotalDisposaFeeTextView = (TextView) findViewById(R.id.detailsTotalDisposaFeeTextView);
+                EditText detailsDisposalFeeTextView = findViewById(R.id.detailsDisposalFeeTextView);
+                TextView detailsTotalDisposaFeeTextView = findViewById(R.id.detailsTotalDisposaFeeTextView);
 
                 double disfee = 0;
                 double halCharge=0;
@@ -171,8 +171,8 @@ public class GwasteCreateActivity extends BaseBackActivity implements View.OnCli
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 // TODO Auto-generated method stub
-                TextView detailsDateTextView = (TextView) findViewById(R.id.detailsDateTextView);
-                TextView tvMonth = (TextView) findViewById(R.id.detailsMonthTextView);
+                TextView detailsDateTextView = findViewById(R.id.detailsDateTextView);
+                TextView tvMonth = findViewById(R.id.detailsMonthTextView);
                 tvMonth.setText(item.getTitle());
                 detailsDateTextView.setText("Select");
                 return false;
@@ -194,8 +194,8 @@ public class GwasteCreateActivity extends BaseBackActivity implements View.OnCli
                     @Override
                     public void onDateSet(DatePicker view, int year,
                                           int monthOfYear, int dayOfMonth) {
-                        TextView detailsMonthTextView = (TextView) findViewById(R.id.detailsMonthTextView);
-                        TextView detailsDateTextView = (TextView) findViewById(R.id.detailsDateTextView);
+                        TextView detailsMonthTextView = findViewById(R.id.detailsMonthTextView);
+                        TextView detailsDateTextView = findViewById(R.id.detailsDateTextView);
                         startDate.set(year, monthOfYear, dayOfMonth);
                         String date = DateUtil.dateToString(startDate.getTime(), DateUtil.DATE_START_DATE);
                         String monthname = (String) android.text.format.DateFormat.format("MMMM", startDate.getTime());
@@ -211,14 +211,14 @@ public class GwasteCreateActivity extends BaseBackActivity implements View.OnCli
 
 
     public void saveItem() {
-        TextView detailsDateTextView = (TextView) findViewById(R.id.detailsDateTextView);
-        TextView detailsTotalDisposaFeeTextView = (TextView) findViewById(R.id.detailsTotalDisposaFeeTextView);
+        TextView detailsDateTextView = findViewById(R.id.detailsDateTextView);
+        TextView detailsTotalDisposaFeeTextView = findViewById(R.id.detailsTotalDisposaFeeTextView);
 
-        EditText detailsWeightTextView = (EditText) findViewById(R.id.detailsWeightTextView);
-        EditText detailsNoOfHaulageTextView = (EditText) findViewById(R.id.detailsNoOfHaulageTextView);
+        EditText detailsWeightTextView = findViewById(R.id.detailsWeightTextView);
+        EditText detailsNoOfHaulageTextView = findViewById(R.id.detailsNoOfHaulageTextView);
 
-        EditText detailsDisposalFeeTextView = (EditText) findViewById(R.id.detailsDisposalFeeTextView);
-        EditText detailsHuelageChargeTextView = (EditText) findViewById(R.id.detailsHuelageChargeTextView);
+        EditText detailsDisposalFeeTextView = findViewById(R.id.detailsDisposalFeeTextView);
+        EditText detailsHuelageChargeTextView = findViewById(R.id.detailsHuelageChargeTextView);
         if (Utils.getText(detailsDateTextView).equalsIgnoreCase("select")) {
             showError("Please select a date", findViewById(R.id.detailsMonthTextView));
             return;

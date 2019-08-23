@@ -63,7 +63,7 @@ public class BioWasteListActivity extends BaseActivity {
         findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
         findViewById(R.id.imSearch).setVisibility(View.INVISIBLE);
         swipeRefreshLayout.setRefreshing(true);
-        new FetchBioWasteListTask(context).execute(new String[]{date, me.getEmailID(), "0"});
+        new FetchBioWasteListTask(context).execute(date, me.getEmailID(), "0");
 
     }
 
@@ -82,7 +82,7 @@ public class BioWasteListActivity extends BaseActivity {
                 startActivity(new Intent(context,BiowasteCreateActivity.class));
             }
         });
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
+        swipeRefreshLayout = findViewById(R.id.swiperefresh);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -90,12 +90,12 @@ public class BioWasteListActivity extends BaseActivity {
                 findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
                 findViewById(R.id.imSearch).setVisibility(View.INVISIBLE);
 
-                new FetchBioWasteListTask(context).execute(new String[]{date, me.getEmailID(), lastItem});
+                new FetchBioWasteListTask(context).execute(date, me.getEmailID(), lastItem);
 
 
             }
         });
-        EditText etSearch = (EditText) findViewById(R.id.etSearch);
+        EditText etSearch = findViewById(R.id.etSearch);
         etSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -114,14 +114,14 @@ public class BioWasteListActivity extends BaseActivity {
                      adapter=null;
                      findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
                      findViewById(R.id.imSearch).setVisibility(View.INVISIBLE);
-                     new FetchBioWasteListTask(context).execute(new String[]{date, me.getEmailID(), "0"});
+                     new FetchBioWasteListTask(context).execute(date, me.getEmailID(), "0");
 
                 } else if (s.length() > 1) {
                          date=s.toString();
                          adapter=null;
                      findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
                      findViewById(R.id.imSearch).setVisibility(View.INVISIBLE);
-                     new FetchBioWasteListTask(context).execute(new String[]{date, me.getEmailID(), "0"});
+                     new FetchBioWasteListTask(context).execute(date, me.getEmailID(), "0");
 
                 }
 
@@ -146,7 +146,7 @@ public class BioWasteListActivity extends BaseActivity {
             showError("please try later", findViewById(R.id.listView));
 
         } else if (result.getResponseContent() != null) {
-            ListView listView = (ListView) findViewById(R.id.listView);
+            ListView listView = findViewById(R.id.listView);
             try {
                 JSONObject jsonObject = new JSONObject(result.getResponseContent());
                 JSONArray jsonArray = jsonObject.getJSONArray("ListGetBiowaste");
@@ -271,7 +271,7 @@ public class BioWasteListActivity extends BaseActivity {
         popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                TextView tvMonth = (TextView) findViewById(R.id.tvMonth);
+                TextView tvMonth = findViewById(R.id.tvMonth);
                 tvMonth.setText(item.getTitle());
                 if (item.getTitle().toString().equalsIgnoreCase("select"))
                     date = "";
@@ -280,7 +280,7 @@ public class BioWasteListActivity extends BaseActivity {
                 adapter=null;
                 findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
                 findViewById(R.id.imSearch).setVisibility(View.INVISIBLE);
-                new FetchBioWasteListTask(context).execute(new String[]{date, me.getEmailID(), "0"});
+                new FetchBioWasteListTask(context).execute(date, me.getEmailID(), "0");
 
                 return false;
             }
@@ -309,7 +309,7 @@ public class BioWasteListActivity extends BaseActivity {
                     lastItem=adapter.getItem(adapter.getCount()-1).getItemID();
                     findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
                     findViewById(R.id.imSearch).setVisibility(View.INVISIBLE);
-                    new FetchBioWasteListTask(context).execute(new String[]{date, me.getEmailID(),lastItem});
+                    new FetchBioWasteListTask(context).execute(date, me.getEmailID(),lastItem);
                 }
 
                 loading = true;

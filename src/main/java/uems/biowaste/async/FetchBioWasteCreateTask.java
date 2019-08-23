@@ -36,7 +36,7 @@ public class FetchBioWasteCreateTask extends
 
 			 try{
 				 Constants constants = new Constants(ctx);
-				 RestURLClient client = new RestURLClient(constants.GET_BIOWASTE_CREATE, true);
+				 RestURLClient client = new RestURLClient(Constants.GET_BIOWASTE_CREATE, true);
 					JSONArray request =  new JSONArray(params[0]);
 
 				 client.addParam("ListBioWasteDisposal",request);

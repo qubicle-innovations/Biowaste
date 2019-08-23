@@ -65,8 +65,8 @@ public class LoginTask extends
             HttpTransportSE androidHttpTransport = new HttpTransportSE(Constants.USER_LOGIN);
             if (envelope != null) {
                 androidHttpTransport.call(Constants.SOAP_ACTION + Constants.METHOD_VALIDATE_USER, envelope);
-                response.setResponseContent(((SoapPrimitive) envelope.getResponse()).toString());
-                Log.d("response", ((SoapPrimitive) envelope.getResponse()).toString());
+                response.setResponseContent(envelope.getResponse().toString());
+                Log.d("response", envelope.getResponse().toString());
             } else {
                 Log.d("response", "reponse");
 

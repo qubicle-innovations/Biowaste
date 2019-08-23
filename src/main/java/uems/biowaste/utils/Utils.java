@@ -41,8 +41,6 @@ import java.util.ArrayList;
 
 import uems.biowaste.vo.UserVo;
 
-;
-
 
 /**
  * Created by aswin on 09/12/16.
@@ -93,7 +91,7 @@ public class Utils {
             snackbar.show();
     }
 
-    public static Bitmap getThumbnail(Uri uri, Context context) throws FileNotFoundException, IOException {
+    public static Bitmap getThumbnail(Uri uri, Context context) throws IOException {
         InputStream input = context.getContentResolver().openInputStream(uri);
 
         BitmapFactory.Options onlyBoundsOptions = new BitmapFactory.Options();

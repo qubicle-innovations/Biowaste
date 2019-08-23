@@ -159,11 +159,7 @@ public class DateUtil {
 			return true;
 		}else if(isToday(date1)){
 			return true;
-		}else if(isToday(date2)){
-			return true;
-		}else{
-			return false;
-		}
+		}else return isToday(date2);
     }
     
 

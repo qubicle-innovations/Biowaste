@@ -24,11 +24,11 @@ public class PatientDetailsActivity extends BaseBackActivity {
 
     public void initLayout() {
 
-        TextView detailsMonthTextView = (TextView) findViewById(R.id.detailsMonthTextView);
-        TextView detailsDateTextView = (TextView) findViewById(R.id.detailsDateTextView);
-        TextView detailsNameTextView = (TextView) findViewById(R.id.detailsNameTextView);
+        TextView detailsMonthTextView = findViewById(R.id.detailsMonthTextView);
+        TextView detailsDateTextView = findViewById(R.id.detailsDateTextView);
+        TextView detailsNameTextView = findViewById(R.id.detailsNameTextView);
 
-        EditText patientDetailsTotalTextView = (EditText) findViewById(R.id.patientDetailsTotalTextView);
+        EditText patientDetailsTotalTextView = findViewById(R.id.patientDetailsTotalTextView);
         findViewById(R.id.detailsSubmitButton).setVisibility(View.GONE);
         patientDetailsTotalTextView.setFocusable(false);
         detailsMonthTextView.setText(vo.getMonth());

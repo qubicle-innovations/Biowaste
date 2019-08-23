@@ -65,7 +65,7 @@ public class RecycledListActivity extends BaseActivity {
         findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
         findViewById(R.id.imSearch).setVisibility(View.INVISIBLE);
         swipeRefreshLayout.setRefreshing(true);
-        new FetchRecycledListTask(context).execute(new String[]{date, me.getEmailID(), "0"});
+        new FetchRecycledListTask(context).execute(date, me.getEmailID(), "0");
 
     }
 
@@ -85,7 +85,7 @@ public class RecycledListActivity extends BaseActivity {
 
             }
         });
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
+        swipeRefreshLayout = findViewById(R.id.swiperefresh);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -93,12 +93,12 @@ public class RecycledListActivity extends BaseActivity {
 
                 findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
                 findViewById(R.id.imSearch).setVisibility(View.INVISIBLE);
-                new FetchRecycledListTask(context).execute(new String[]{date, me.getEmailID(), lastItem});
+                new FetchRecycledListTask(context).execute(date, me.getEmailID(), lastItem);
 
 
             }
         });
-        EditText etSearch = (EditText) findViewById(R.id.etSearch);
+        EditText etSearch = findViewById(R.id.etSearch);
         etSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -117,14 +117,14 @@ public class RecycledListActivity extends BaseActivity {
                     adapter=null;
                     findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
                     findViewById(R.id.imSearch).setVisibility(View.INVISIBLE);
-                    new FetchRecycledListTask(context).execute(new String[]{date, me.getEmailID(), "0"});
+                    new FetchRecycledListTask(context).execute(date, me.getEmailID(), "0");
 
                 } else if (s.length() > 1) {
                     date=s.toString();
                     adapter=null;
                     findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
                     findViewById(R.id.imSearch).setVisibility(View.INVISIBLE);
-                    new FetchRecycledListTask(context).execute(new String[]{date, me.getEmailID(), "0"});
+                    new FetchRecycledListTask(context).execute(date, me.getEmailID(), "0");
 
                 }
 
@@ -150,11 +150,11 @@ public class RecycledListActivity extends BaseActivity {
                                           int monthOfYear, int dayOfMonth) {
                         startDate.set(year, monthOfYear, dayOfMonth);
                         date = DateUtil.dateToString(startDate.getTime(), DateUtil.DATE_START_DATE);
-                        TextView textView = (TextView) findViewById(R.id.tvDate);
+                        TextView textView = findViewById(R.id.tvDate);
                         textView.setText(date);
                         findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
                         findViewById(R.id.imSearch).setVisibility(View.INVISIBLE);
-                        new FetchRecycledListTask(context).execute(new String[]{date, me.getEmailID(), ""});
+                        new FetchRecycledListTask(context).execute(date, me.getEmailID(), "");
 
 
                     }
@@ -176,7 +176,7 @@ public class RecycledListActivity extends BaseActivity {
             showError("please try later", findViewById(R.id.listView));
 
         } else if (result.getResponseContent() != null) {
-            ListView listView = (ListView) findViewById(R.id.listView);
+            ListView listView = findViewById(R.id.listView);
             try {
                 JSONObject jsonObject = new JSONObject(result.getResponseContent());
                 JSONArray jsonArray = jsonObject.getJSONArray("ListGetRecycleditems");
@@ -306,7 +306,7 @@ public class RecycledListActivity extends BaseActivity {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 // TODO Auto-generated method stub
-                TextView tvMonth = (TextView) findViewById(R.id.tvMonth);
+                TextView tvMonth = findViewById(R.id.tvMonth);
                 tvMonth.setText(item.getTitle());
                 if (item.getTitle().toString().equalsIgnoreCase("select"))
                     date = "";
@@ -316,7 +316,7 @@ public class RecycledListActivity extends BaseActivity {
                 lastItem="0";
                 findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
                 findViewById(R.id.imSearch).setVisibility(View.INVISIBLE);
-                new FetchRecycledListTask(context).execute(new String[]{date, me.getEmailID(), "0"});
+                new FetchRecycledListTask(context).execute(date, me.getEmailID(), "0");
 
                 return false;
             }
@@ -349,7 +349,7 @@ public class RecycledListActivity extends BaseActivity {
                     lastItem=adapter.getItem(adapter.getCount()-1).getItemID();
                     findViewById(R.id.progressBar).setVisibility(View.VISIBLE);
                     findViewById(R.id.imSearch).setVisibility(View.INVISIBLE);
-                    new FetchRecycledListTask(context).execute(new String[]{date, me.getEmailID(), lastItem});
+                    new FetchRecycledListTask(context).execute(date, me.getEmailID(), lastItem);
 
                 }
 

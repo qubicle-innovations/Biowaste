@@ -43,10 +43,7 @@ public class ZValidation {
 		//String regex = editText.getResources().getString(R.string.regex_password);
 
 		String pass = Utils.getText(editText);
-		if(pass==null||pass.length()<6||pass.contains(" ")){
-			return false;
-		}else
-			return true;
+        return pass != null && pass.length() >= 6 && !pass.contains(" ");
 		//return isValid(editText, regex, required);
 	}
 
@@ -208,11 +205,8 @@ public class ZValidation {
 
 	public static boolean isValidAddress(String address) {
 
-		if (address.length() >= 3) {
-			return true;
-		}
-		return false;
-	}
+        return address.length() >= 3;
+    }
 
 	public static boolean isValidDescription(String description) {
 		String notAllowedAsFirstChar = " ,'-.()[]/\\:;\"*+{}&=!$%?\n";
@@ -229,18 +223,13 @@ public class ZValidation {
 
 	public static boolean isValidPrice(String bookingAmountStr) {
 		long amount = Long.parseLong(bookingAmountStr);
-		if (amount == 0) {
-			return false;
-		} // few more conditions go here
-		return true;
-	}
+        // few more conditions go here
+        return amount != 0;
+    }
 
 	public static boolean isValidArea(double value) {
-		if (value > 0) {
-			return true;
-		}
-		return false;
-	}
+        return value > 0;
+    }
 
 	public boolean validateUserInput(final EditText name, final EditText email,
                                      final EditText mobile) {
@@ -305,29 +294,20 @@ public class ZValidation {
 		return false;
 	}
 	public static boolean isEmpty(EditText myEdit) {
-		if (myEdit.getText().toString() == null
-				|| myEdit.getText().toString().length() < 1) {
-			//setError(myEdit);
-			return true;
-		}
-		return false;
-	}
+        //setError(myEdit);
+        return myEdit.getText().toString() == null
+                || myEdit.getText().toString().length() < 1;
+    }
 
 	public static boolean isEmpty(TextView myEdit) {
-		if (myEdit.getText().toString() == null
-				|| myEdit.getText().toString().length() < 1) {
-			//setError(myEdit);
-			return true;
-		}
-		return false;
-	}
+        //setError(myEdit);
+        return myEdit.getText().toString() == null
+                || myEdit.getText().toString().length() < 1;
+    }
 
 	public static boolean isValidFacingRoad(double width) {
-		if ((width >= 0) && (width <= 999)) {
-			return true;
-		}
-		return false;
-	}
+        return (width >= 0) && (width <= 999);
+    }
 
 	public static void setError(EditText myEdit) {
 		final EditText et = myEdit;

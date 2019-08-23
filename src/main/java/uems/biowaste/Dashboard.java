@@ -47,7 +47,7 @@ public class Dashboard extends BaseActivity implements View.OnClickListener {
     public void initLayout() {
 
         String date = DateUtil.dateToString(startDate.getTime(), DateUtil.DATE_START_DATE);
-        new FetchCountTask(context).execute(new String[]{date, me.getEmailID()});
+        new FetchCountTask(context).execute(date, me.getEmailID());
         findViewById(R.id.itemTextViewMonth).setOnClickListener(this);
         findViewById(R.id.rlBioWaste).setOnClickListener(this);
         findViewById(R.id.rlRecycle).setOnClickListener(this);
@@ -74,9 +74,9 @@ public class Dashboard extends BaseActivity implements View.OnClickListener {
                                           int monthOfYear, int dayOfMonth) {
                         startDate.set(year, monthOfYear, dayOfMonth);
                         String date = DateUtil.dateToString(startDate.getTime(), DateUtil.DATE_START_DATE);
-                        TextView textView = (TextView) findViewById(R.id.tvDate);
+                        TextView textView = findViewById(R.id.tvDate);
                         textView.setText(date);
-                        new FetchCountTask(context).execute(new String[]{date, me.getEmailID()});
+                        new FetchCountTask(context).execute(date, me.getEmailID());
 
                     }
                 }, mYear, mMonth, mDay);
@@ -86,10 +86,10 @@ public class Dashboard extends BaseActivity implements View.OnClickListener {
 
     public void countResponse(TResponse<String> result) {
 
-        TextView tvBioCount = (TextView) findViewById(R.id.tvBioCount);
-        TextView tvPatientsCount = (TextView) findViewById(R.id.tvPatientsCount);
-        TextView tvRecycleCount = (TextView) findViewById(R.id.tvRecycleCount);
-        TextView tvGwasteCount = (TextView) findViewById(R.id.tvGwasteCount);
+        TextView tvBioCount = findViewById(R.id.tvBioCount);
+        TextView tvPatientsCount = findViewById(R.id.tvPatientsCount);
+        TextView tvRecycleCount = findViewById(R.id.tvRecycleCount);
+        TextView tvGwasteCount = findViewById(R.id.tvGwasteCount);
 
         if (result == null) {
             showError(" please check network connection", findViewById(R.id.tvGwasteCount));
@@ -154,7 +154,7 @@ public class Dashboard extends BaseActivity implements View.OnClickListener {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 // TODO Auto-generated method stub
-                TextView tvMonth = (TextView) findViewById(R.id.itemTextViewMonth);
+                TextView tvMonth = findViewById(R.id.itemTextViewMonth);
                 tvMonth.setText(item.getTitle());
                 return false;
             }
@@ -206,7 +206,7 @@ public class Dashboard extends BaseActivity implements View.OnClickListener {
                     public void run() {
                         if (Utils.haveNetworkConnection(context)) {
                             String date = DateUtil.dateToString(startDate.getTime(), DateUtil.DATE_START_DATE);
-                            new FetchCountTask(context).execute(new String[]{date, me.getEmailID()});
+                            new FetchCountTask(context).execute(date, me.getEmailID());
                         }
                     }
                 });

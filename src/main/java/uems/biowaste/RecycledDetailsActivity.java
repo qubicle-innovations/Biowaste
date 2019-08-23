@@ -29,21 +29,21 @@ public class RecycledDetailsActivity extends BaseBackActivity {
         setToolbar("Recycled items disposed");
         vo = (ItemVo) getIntent().getSerializableExtra("vo");
         initLayout();
-        new FetchRecycledDetailsTask(context).execute(new String[]{vo.getItemID(),me.getEmailID()});
+        new FetchRecycledDetailsTask(context).execute(vo.getItemID(),me.getEmailID());
 
     }
 
     public void initLayout() {
 
-        TextView detailsMonthTextView = (TextView) findViewById(R.id.detailsMonthTextView);
-        TextView detailsDateTextView = (TextView) findViewById(R.id.detailsDateTextView);
-        TextView detailsNameTextView = (TextView) findViewById(R.id.detailsNameTextView);
-        TextView itemDisposalTotalTextView = (TextView) findViewById(R.id.itemDisposalTotalTextView);
+        TextView detailsMonthTextView = findViewById(R.id.detailsMonthTextView);
+        TextView detailsDateTextView = findViewById(R.id.detailsDateTextView);
+        TextView detailsNameTextView = findViewById(R.id.detailsNameTextView);
+        TextView itemDisposalTotalTextView = findViewById(R.id.itemDisposalTotalTextView);
 
-        EditText itemDisposalPlasticTextView = (EditText) findViewById(R.id.itemDisposalPlasticTextView);
-        EditText itemDisposalCansTextView = (EditText) findViewById(R.id.itemDisposalCansTextView);
-        EditText itemDisposalPaperTextView = (EditText) findViewById(R.id.itemDisposalPaperTextView);
-        EditText itemDisposalCarbonBoxTextView = (EditText) findViewById(R.id.itemDisposalCarbonBoxTextView);
+        EditText itemDisposalPlasticTextView = findViewById(R.id.itemDisposalPlasticTextView);
+        EditText itemDisposalCansTextView = findViewById(R.id.itemDisposalCansTextView);
+        EditText itemDisposalPaperTextView = findViewById(R.id.itemDisposalPaperTextView);
+        EditText itemDisposalCarbonBoxTextView = findViewById(R.id.itemDisposalCarbonBoxTextView);
 
         itemDisposalPlasticTextView.setFocusable(false);
         itemDisposalCansTextView.setFocusable(false);

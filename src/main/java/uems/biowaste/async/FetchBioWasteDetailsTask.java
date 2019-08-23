@@ -34,7 +34,7 @@ public class FetchBioWasteDetailsTask extends
 
 		 try{
 			 Constants constants = new Constants(ctx);
-			 RestURLClient client = new RestURLClient(constants.GET_BIOWASTE_DETAILS, true);
+			 RestURLClient client = new RestURLClient(Constants.GET_BIOWASTE_DETAILS, true);
 			 client.addParam("ItemID",params[0]);
 			 client.addParam("UserEmailID",params[1]);
 

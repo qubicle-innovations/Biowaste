@@ -45,7 +45,7 @@ public class RestMultipartClient {
         boundary = "===" + System.currentTimeMillis() + "===";
 
         URL url = new URL(requestURL);
-        Log.e("URL", "URL : " + requestURL.toString());
+        Log.e("URL", "URL : " + requestURL);
         httpConn = (HttpURLConnection) url.openConnection();
         httpConn.setUseCaches(false);
         httpConn.setDoOutput(true); // indicates POST method
@@ -67,7 +67,7 @@ public class RestMultipartClient {
         boundary = "===" + System.currentTimeMillis() + "===";
 
         URL url = new URL(requestURL);
-        Log.e("URL", "URL : " + requestURL.toString());
+        Log.e("URL", "URL : " + requestURL);
         httpConn = (HttpURLConnection) url.openConnection();
         httpConn.setUseCaches(false);
         httpConn.setDoOutput(true); // indicates POST method

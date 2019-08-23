@@ -42,7 +42,7 @@ public class DeleteTask extends
 			 	 typeId = jsonObject.getString("Type");
 
 
-				 RestURLClient client = new RestURLClient(constants.DELETE_ITEM, true);
+				 RestURLClient client = new RestURLClient(Constants.DELETE_ITEM, true);
 				 client.addParam("DatafordeleteList",new JSONArray(params[0]));
 				 client.execute(RestURLClient.RequestMethod.POST);
 

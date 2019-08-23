@@ -57,12 +57,12 @@ public class BiowasteCreateActivity extends BaseBackActivity implements View.OnC
 
     public void initLayout() {
 
-        TextView detailsMonthTextView = (TextView) findViewById(R.id.detailsMonthTextView);
-        TextView detailsDateTextView = (TextView) findViewById(R.id.detailsDateTextView);
-        TextView detailsNameTextView = (TextView) findViewById(R.id.detailsNameTextView);
+        TextView detailsMonthTextView = findViewById(R.id.detailsMonthTextView);
+        TextView detailsDateTextView = findViewById(R.id.detailsDateTextView);
+        TextView detailsNameTextView = findViewById(R.id.detailsNameTextView);
 
-        EditText detailsWeightTextView = (EditText) findViewById(R.id.detailsWeightTextView);
-        EditText detailsNoOfHaulageTextView = (EditText) findViewById(R.id.detailsNoOfHaulageTextView);
+        EditText detailsWeightTextView = findViewById(R.id.detailsWeightTextView);
+        EditText detailsNoOfHaulageTextView = findViewById(R.id.detailsNoOfHaulageTextView);
         findViewById(R.id.detailsSubmitButton).setOnClickListener(this);
         detailsNoOfHaulageTextView.requestFocus();
         detailsMonthTextView.setOnClickListener(this);
@@ -120,8 +120,8 @@ public class BiowasteCreateActivity extends BaseBackActivity implements View.OnC
 
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                TextView detailsDateTextView = (TextView) findViewById(R.id.detailsDateTextView);
-                TextView tvMonth = (TextView) findViewById(R.id.detailsMonthTextView);
+                TextView detailsDateTextView = findViewById(R.id.detailsDateTextView);
+                TextView tvMonth = findViewById(R.id.detailsMonthTextView);
                 tvMonth.setText(item.getTitle());
                 detailsDateTextView.setText("Select");
                 return false;
@@ -143,8 +143,8 @@ public class BiowasteCreateActivity extends BaseBackActivity implements View.OnC
                     @Override
                     public void onDateSet(DatePicker view, int year,
                                           int monthOfYear, int dayOfMonth) {
-                        TextView detailsMonthTextView = (TextView) findViewById(R.id.detailsMonthTextView);
-                        TextView detailsDateTextView = (TextView) findViewById(R.id.detailsDateTextView);
+                        TextView detailsMonthTextView = findViewById(R.id.detailsMonthTextView);
+                        TextView detailsDateTextView = findViewById(R.id.detailsDateTextView);
                         startDate.set(year, monthOfYear, dayOfMonth);
                         String date = DateUtil.dateToString(startDate.getTime(), DateUtil.DATE_START_DATE);
                         String monthname = (String) android.text.format.DateFormat.format("MMMM", startDate.getTime());
@@ -344,10 +344,10 @@ public class BiowasteCreateActivity extends BaseBackActivity implements View.OnC
             otherBiowasteCountEdTxt.requestFocus();
             return;
         }
-        TextView detailsDateTextView = (TextView) findViewById(R.id.detailsDateTextView);
+        TextView detailsDateTextView = findViewById(R.id.detailsDateTextView);
 
-        EditText detailsWeightTextView = (EditText) findViewById(R.id.detailsWeightTextView);
-        EditText detailsNoOfHaulageTextView = (EditText) findViewById(R.id.detailsNoOfHaulageTextView);
+        EditText detailsWeightTextView = findViewById(R.id.detailsWeightTextView);
+        EditText detailsNoOfHaulageTextView = findViewById(R.id.detailsNoOfHaulageTextView);
         if (Utils.getText(detailsDateTextView).equalsIgnoreCase("select")) {
             showError("Please select a date", findViewById(R.id.detailsMonthTextView));
             return;

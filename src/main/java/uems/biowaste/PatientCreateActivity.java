@@ -41,11 +41,11 @@ public class PatientCreateActivity extends BaseBackActivity implements View.OnCl
 
     public void initLayout() {
 
-        TextView detailsMonthTextView = (TextView) findViewById(R.id.detailsMonthTextView);
-        TextView detailsDateTextView = (TextView) findViewById(R.id.detailsDateTextView);
-        TextView detailsNameTextView = (TextView) findViewById(R.id.detailsNameTextView);
+        TextView detailsMonthTextView = findViewById(R.id.detailsMonthTextView);
+        TextView detailsDateTextView = findViewById(R.id.detailsDateTextView);
+        TextView detailsNameTextView = findViewById(R.id.detailsNameTextView);
 
-        EditText patientDetailsTotalTextView = (EditText) findViewById(R.id.patientDetailsTotalTextView);
+        EditText patientDetailsTotalTextView = findViewById(R.id.patientDetailsTotalTextView);
         findViewById(R.id.detailsSubmitButton).setOnClickListener(this);
         detailsMonthTextView.setOnClickListener(this);
         detailsDateTextView.setOnClickListener(this);
@@ -107,8 +107,8 @@ public class PatientCreateActivity extends BaseBackActivity implements View.OnCl
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 // TODO Auto-generated method stub
-                TextView detailsDateTextView = (TextView) findViewById(R.id.detailsDateTextView);
-                TextView tvMonth = (TextView) findViewById(R.id.detailsMonthTextView);
+                TextView detailsDateTextView = findViewById(R.id.detailsDateTextView);
+                TextView tvMonth = findViewById(R.id.detailsMonthTextView);
                 tvMonth.setText(item.getTitle());
                 detailsDateTextView.setText("Select");
                 return false;
@@ -131,8 +131,8 @@ public class PatientCreateActivity extends BaseBackActivity implements View.OnCl
                     @Override
                     public void onDateSet(DatePicker view, int year,
                                           int monthOfYear, int dayOfMonth) {
-                        TextView detailsMonthTextView = (TextView) findViewById(R.id.detailsMonthTextView);
-                        TextView detailsDateTextView = (TextView) findViewById(R.id.detailsDateTextView);
+                        TextView detailsMonthTextView = findViewById(R.id.detailsMonthTextView);
+                        TextView detailsDateTextView = findViewById(R.id.detailsDateTextView);
                         startDate.set(year, monthOfYear, dayOfMonth);
                         String date = DateUtil.dateToString(startDate.getTime(), DateUtil.DATE_START_DATE);
                         String monthname = (String) android.text.format.DateFormat.format("MMMM", startDate.getTime());
@@ -148,9 +148,9 @@ public class PatientCreateActivity extends BaseBackActivity implements View.OnCl
 
 
     public void saveItem() {
-        TextView detailsDateTextView = (TextView) findViewById(R.id.detailsDateTextView);
+        TextView detailsDateTextView = findViewById(R.id.detailsDateTextView);
 
-        EditText patientDetailsTotalTextView = (EditText) findViewById(R.id.patientDetailsTotalTextView);
+        EditText patientDetailsTotalTextView = findViewById(R.id.patientDetailsTotalTextView);
         if (Utils.getText(detailsDateTextView).equalsIgnoreCase("select")) {
             showError("Please select a date", findViewById(R.id.detailsMonthTextView));
             return;

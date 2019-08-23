@@ -29,23 +29,23 @@ public class GwasteDetailsActivity extends BaseBackActivity {
         setToolbar("Food & General waste");
         vo = (ItemVo) getIntent().getSerializableExtra("vo");
         initLayout();
-        new FetchGWasteDetailsTask(context).execute(new String[]{vo.getItemID(), me.getEmailID()});
+        new FetchGWasteDetailsTask(context).execute(vo.getItemID(), me.getEmailID());
 
     }
 
     public void initLayout() {
 
-        TextView detailsMonthTextView = (TextView) findViewById(R.id.detailsMonthTextView);
-        TextView detailsDateTextView = (TextView) findViewById(R.id.detailsDateTextView);
-        TextView detailsNameTextView = (TextView) findViewById(R.id.detailsNameTextView);
+        TextView detailsMonthTextView = findViewById(R.id.detailsMonthTextView);
+        TextView detailsDateTextView = findViewById(R.id.detailsDateTextView);
+        TextView detailsNameTextView = findViewById(R.id.detailsNameTextView);
 
-        EditText detailsWeightTextView = (EditText) findViewById(R.id.detailsWeightTextView);
-        EditText detailsNoOfHaulageTextView = (EditText) findViewById(R.id.detailsNoOfHaulageTextView);
+        EditText detailsWeightTextView = findViewById(R.id.detailsWeightTextView);
+        EditText detailsNoOfHaulageTextView = findViewById(R.id.detailsNoOfHaulageTextView);
 
-        EditText detailsDisposalFeeTextView = (EditText) findViewById(R.id.detailsDisposalFeeTextView);
-        EditText detailsHuelageChargeTextView = (EditText) findViewById(R.id.detailsHuelageChargeTextView);
+        EditText detailsDisposalFeeTextView = findViewById(R.id.detailsDisposalFeeTextView);
+        EditText detailsHuelageChargeTextView = findViewById(R.id.detailsHuelageChargeTextView);
 
-        TextView detailsTotalDisposaFeeTextView = (TextView) findViewById(R.id.detailsTotalDisposaFeeTextView);
+        TextView detailsTotalDisposaFeeTextView = findViewById(R.id.detailsTotalDisposaFeeTextView);
 
         detailsWeightTextView.setFocusable(false);
         detailsNoOfHaulageTextView.setFocusable(false);

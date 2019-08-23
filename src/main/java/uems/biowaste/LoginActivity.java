@@ -37,8 +37,8 @@ public class LoginActivity extends BaseActivity {
     }
 
     public void login(){
-        EditText etUsername = (EditText) findViewById(R.id.etUsername);
-        EditText etPassword = (EditText) findViewById(R.id.etPassword);
+        EditText etUsername = findViewById(R.id.etUsername);
+        EditText etPassword = findViewById(R.id.etPassword);
 
         if(ZValidation.checkEmpty(etUsername)|| Utils.getText(etUsername).length()<1){
             showError("Enter valid username", etUsername);
@@ -54,7 +54,7 @@ public class LoginActivity extends BaseActivity {
 
         }
 
-        new LoginTask(context).execute(new String[]{Utils.getText(etUsername),Utils.getText(etPassword)});
+        new LoginTask(context).execute(Utils.getText(etUsername),Utils.getText(etPassword));
 
     }
 

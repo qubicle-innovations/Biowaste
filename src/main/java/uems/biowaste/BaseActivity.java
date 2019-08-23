@@ -89,10 +89,10 @@ public class BaseActivity extends AppCompatActivity {
     public void initNavigationMenu(String title) {
 
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        TextView tvUsername = (TextView) findViewById(R.id.tvUsername);
-        TextView tvEmpID = (TextView) findViewById(R.id.tvEmpID);
-        TextView tvDrawerTitle = (TextView) findViewById(R.id.tvDrawerTitle);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        TextView tvUsername = findViewById(R.id.tvUsername);
+        TextView tvEmpID = findViewById(R.id.tvEmpID);
+        TextView tvDrawerTitle = findViewById(R.id.tvDrawerTitle);
     //    TextView toolbarTitle = (TextView) findViewById(R.id.toolbarTitle);
         tvDrawerTitle.setTextColor(Color.WHITE);
         SpannableStringBuilder sb = new SpannableStringBuilder("UETrack™ - Biowaste");
@@ -107,7 +107,7 @@ public class BaseActivity extends AppCompatActivity {
       }else{
           setTitle(title);
       }
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
                 R.string.app_name, R.string.app_name) {
 

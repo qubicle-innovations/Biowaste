@@ -35,7 +35,7 @@ public class FetchGWasteListTask extends
 
 			 try{
 				 Constants constants = new Constants(ctx);
-				 RestURLClient client = new RestURLClient(constants.GET_GWASTE_LIST, true);
+				 RestURLClient client = new RestURLClient(Constants.GET_GWASTE_LIST, true);
 				 client.addParam("ItemID",params[2]);
 				 client.addParam("Search",params[0]);
 				 client.addParam("UserEmailID",params[1]);

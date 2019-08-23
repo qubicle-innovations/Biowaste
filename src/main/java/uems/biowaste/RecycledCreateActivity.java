@@ -44,14 +44,14 @@ public class RecycledCreateActivity extends BaseBackActivity implements View.OnC
 
     public void initLayout() {
 
-        TextView detailsMonthTextView = (TextView) findViewById(R.id.detailsMonthTextView);
-        TextView detailsDateTextView = (TextView) findViewById(R.id.detailsDateTextView);
-        TextView detailsNameTextView = (TextView) findViewById(R.id.detailsNameTextView);
+        TextView detailsMonthTextView = findViewById(R.id.detailsMonthTextView);
+        TextView detailsDateTextView = findViewById(R.id.detailsDateTextView);
+        TextView detailsNameTextView = findViewById(R.id.detailsNameTextView);
 
-        final EditText itemDisposalPlasticTextView = (EditText) findViewById(R.id.itemDisposalPlasticTextView);
-        final EditText itemDisposalCansTextView = (EditText) findViewById(R.id.itemDisposalCansTextView);
-        final EditText itemDisposalPaperTextView = (EditText) findViewById(R.id.itemDisposalPaperTextView);
-        final EditText itemDisposalCarbonBoxTextView = (EditText) findViewById(R.id.itemDisposalCarbonBoxTextView);
+        final EditText itemDisposalPlasticTextView = findViewById(R.id.itemDisposalPlasticTextView);
+        final EditText itemDisposalCansTextView = findViewById(R.id.itemDisposalCansTextView);
+        final EditText itemDisposalPaperTextView = findViewById(R.id.itemDisposalPaperTextView);
+        final EditText itemDisposalCarbonBoxTextView = findViewById(R.id.itemDisposalCarbonBoxTextView);
 
 
         findViewById(R.id.detailsSubmitButton).setOnClickListener(this);
@@ -78,7 +78,7 @@ public class RecycledCreateActivity extends BaseBackActivity implements View.OnC
 
             @Override
             public void afterTextChanged(Editable s) {
-                TextView itemDisposalTotalTextView = (TextView) findViewById(R.id.itemDisposalTotalTextView);
+                TextView itemDisposalTotalTextView = findViewById(R.id.itemDisposalTotalTextView);
 
                 double plastic = 0;
                 double cans = 0;
@@ -109,7 +109,7 @@ public class RecycledCreateActivity extends BaseBackActivity implements View.OnC
 
             @Override
             public void afterTextChanged(Editable s) {
-                TextView itemDisposalTotalTextView = (TextView) findViewById(R.id.itemDisposalTotalTextView);
+                TextView itemDisposalTotalTextView = findViewById(R.id.itemDisposalTotalTextView);
 
                 double plastic = 0;
                 double cans = 0;
@@ -141,7 +141,7 @@ public class RecycledCreateActivity extends BaseBackActivity implements View.OnC
 
             @Override
             public void afterTextChanged(Editable s) {
-                TextView itemDisposalTotalTextView = (TextView) findViewById(R.id.itemDisposalTotalTextView);
+                TextView itemDisposalTotalTextView = findViewById(R.id.itemDisposalTotalTextView);
 
                 double plastic = 0;
                 double cans = 0;
@@ -173,7 +173,7 @@ public class RecycledCreateActivity extends BaseBackActivity implements View.OnC
 
             @Override
             public void afterTextChanged(Editable s) {
-                TextView itemDisposalTotalTextView = (TextView) findViewById(R.id.itemDisposalTotalTextView);
+                TextView itemDisposalTotalTextView = findViewById(R.id.itemDisposalTotalTextView);
 
                 double plastic = 0;
                 double cans = 0;
@@ -244,8 +244,8 @@ public class RecycledCreateActivity extends BaseBackActivity implements View.OnC
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 // TODO Auto-generated method stub
-                TextView detailsDateTextView = (TextView) findViewById(R.id.detailsDateTextView);
-                TextView tvMonth = (TextView) findViewById(R.id.detailsMonthTextView);
+                TextView detailsDateTextView = findViewById(R.id.detailsDateTextView);
+                TextView tvMonth = findViewById(R.id.detailsMonthTextView);
                 tvMonth.setText(item.getTitle());
                 detailsDateTextView.setText("Select");
                 return false;
@@ -267,8 +267,8 @@ public class RecycledCreateActivity extends BaseBackActivity implements View.OnC
                     @Override
                     public void onDateSet(DatePicker view, int year,
                                           int monthOfYear, int dayOfMonth) {
-                        TextView detailsMonthTextView = (TextView) findViewById(R.id.detailsMonthTextView);
-                        TextView detailsDateTextView = (TextView) findViewById(R.id.detailsDateTextView);
+                        TextView detailsMonthTextView = findViewById(R.id.detailsMonthTextView);
+                        TextView detailsDateTextView = findViewById(R.id.detailsDateTextView);
                         startDate.set(year, monthOfYear, dayOfMonth);
                         String date = DateUtil.dateToString(startDate.getTime(), DateUtil.DATE_START_DATE);
                         String monthname = (String) android.text.format.DateFormat.format("MMMM", startDate.getTime());
@@ -284,12 +284,12 @@ public class RecycledCreateActivity extends BaseBackActivity implements View.OnC
 
 
     public void saveItem() {
-        TextView itemDisposalTotalTextView = (TextView) findViewById(R.id.itemDisposalTotalTextView);
-        TextView detailsDateTextView = (TextView) findViewById(R.id.detailsDateTextView);
-        EditText itemDisposalPlasticTextView = (EditText) findViewById(R.id.itemDisposalPlasticTextView);
-        EditText itemDisposalCansTextView = (EditText) findViewById(R.id.itemDisposalCansTextView);
-        EditText itemDisposalPaperTextView = (EditText) findViewById(R.id.itemDisposalPaperTextView);
-        EditText itemDisposalCarbonBoxTextView = (EditText) findViewById(R.id.itemDisposalCarbonBoxTextView);
+        TextView itemDisposalTotalTextView = findViewById(R.id.itemDisposalTotalTextView);
+        TextView detailsDateTextView = findViewById(R.id.detailsDateTextView);
+        EditText itemDisposalPlasticTextView = findViewById(R.id.itemDisposalPlasticTextView);
+        EditText itemDisposalCansTextView = findViewById(R.id.itemDisposalCansTextView);
+        EditText itemDisposalPaperTextView = findViewById(R.id.itemDisposalPaperTextView);
+        EditText itemDisposalCarbonBoxTextView = findViewById(R.id.itemDisposalCarbonBoxTextView);
 
 
         if (Utils.getText(detailsDateTextView).equalsIgnoreCase("select")) {
