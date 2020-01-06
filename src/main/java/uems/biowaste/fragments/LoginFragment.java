@@ -93,9 +93,9 @@ public class LoginFragment extends android.support.v4.app.Fragment {
     public void loginResponse(TResponse<String> result) {
 
         if (result == null) {
-            Utils.showError(" please check network connection", btLogin);
+            Utils.showError(getContext().getString(R.string.please_check_network_connection), btLogin);
         } else if (result.isHasError()) {
-            Utils.showError("please try later", btLogin);
+            Utils.showError(getContext().getString(R.string.please_try_later), btLogin);
         } else if (result.getResponseContent() != null) {
             try {
                 ObjectMapper mapper = new ObjectMapper();
@@ -116,7 +116,7 @@ public class LoginFragment extends android.support.v4.app.Fragment {
                          }
                      }
                      if (url == null) {
-                         Utils.showError("Product URL not found",btLogin);
+                         Utils.showError(getContext().getString(R.string.product_url_not_found),btLogin);
                             return;
                      }else if (getContext() != null ){
                          Utils.setUser(getContext(),ad);
@@ -126,11 +126,11 @@ public class LoginFragment extends android.support.v4.app.Fragment {
 
                          mListener.startFragment(new DashboardFragment( ),Constants.FRAGMENT_DASHBOARD,false,false);
                  }else {
-                     Utils.showError("Invalid username or password",btLogin);
+                     Utils.showError(getContext().getString(R.string.invalid_username_or_password),btLogin);
                  }
 
             } catch (Exception e) {
-                Utils.showError("please try later", btLogin);
+                Utils.showError(getContext().getString(R.string.please_try_later), btLogin);
 
                 Log.e("parse order", e.toString());
             }

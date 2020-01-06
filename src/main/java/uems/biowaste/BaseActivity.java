@@ -95,7 +95,7 @@ public class BaseActivity extends AppCompatActivity {
         TextView tvDrawerTitle = findViewById(R.id.tvDrawerTitle);
     //    TextView toolbarTitle = (TextView) findViewById(R.id.toolbarTitle);
         tvDrawerTitle.setTextColor(Color.WHITE);
-        SpannableStringBuilder sb = new SpannableStringBuilder("UETrack™ - Biowaste");
+        SpannableStringBuilder sb = new SpannableStringBuilder(context.getString(R.string.app_name));
         StyleSpan iss = new StyleSpan(Typeface.BOLD_ITALIC); //Span to make text italic
         StyleSpan bss = new StyleSpan(Typeface.BOLD); //Span to make text italic
         sb.setSpan(iss, 0, 2, Spannable.SPAN_INCLUSIVE_INCLUSIVE); // make first 4 characters Bold
@@ -239,7 +239,7 @@ public class BaseActivity extends AppCompatActivity {
         }
 
         this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "Please click BACK twice to exit", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, context.getString(R.string.please_tap_back_twice_to_exit), Toast.LENGTH_SHORT).show();
 
         new Handler().postDelayed(new Runnable() {
             @Override

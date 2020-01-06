@@ -26,7 +26,7 @@ public class RecycledDetailsActivity extends BaseBackActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_recycle_item_disposal_details);
-        setToolbar("Recycled items disposed");
+        setToolbar(getApplicationContext().getString(R.string.recycled_items_disposed));
         vo = (ItemVo) getIntent().getSerializableExtra("vo");
         initLayout();
         new FetchRecycledDetailsTask(context).execute(vo.getItemID(),me.getEmailID());
@@ -66,9 +66,9 @@ public class RecycledDetailsActivity extends BaseBackActivity {
     public void detailsResponse(TResponse<String> result) {
 
         if (result == null) {
-            showError(" please check network connection", findViewById(R.id.detailsDateTextView));
+            showError(getApplicationContext().getString(R.string.please_check_network_connection), findViewById(R.id.detailsDateTextView));
         } else if (result.isHasError()) {
-            showError("please try later", findViewById(R.id.detailsDateTextView));
+            showError(getApplicationContext().getString(R.string.please_try_later), findViewById(R.id.detailsDateTextView));
 
         } else if (result.getResponseContent() != null) {
             try {
@@ -81,7 +81,7 @@ public class RecycledDetailsActivity extends BaseBackActivity {
                 initLayout();
 
             } catch (Exception e) {
-                showError("please try later", findViewById(R.id.detailsDateTextView));
+                showError(getApplicationContext().getString(R.string.please_try_later), findViewById(R.id.detailsDateTextView));
 
                 Log.e("parse order", e.toString());
             }

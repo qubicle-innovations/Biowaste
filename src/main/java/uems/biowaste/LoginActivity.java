@@ -41,13 +41,13 @@ public class LoginActivity extends BaseActivity {
         EditText etPassword = findViewById(R.id.etPassword);
 
         if(ZValidation.checkEmpty(etUsername)|| Utils.getText(etUsername).length()<1){
-            showError("Enter valid username", etUsername);
+            showError(getApplicationContext().getString(R.string.please_enter_a_valid_username), etUsername);
             etUsername.requestFocus();
             return;
 
 
         }else  if(ZValidation.checkEmpty(etPassword)|| Utils.getText(etPassword).length()<2){
-            showError("Enter valid password", etUsername);
+            showError(getApplicationContext().getString(R.string.please_enter_a_valid_password), etUsername);
             etPassword.requestFocus();
             return;
 
@@ -64,9 +64,9 @@ public class LoginActivity extends BaseActivity {
 
         // TODO Auto-generated method stub
         if (result == null) {
-            showError(" please check network connection", findViewById(R.id.btLogin));
+            showError(getApplicationContext().getString(R.string.please_check_network_connection), findViewById(R.id.btLogin));
         } else if (result.isHasError()) {
-            showError("please try later", findViewById(R.id.btLogin));
+            showError(getApplicationContext().getString(R.string.please_try_later), findViewById(R.id.btLogin));
 
         } else if (result.getResponseContent() != null) {
             try {
@@ -89,7 +89,7 @@ public class LoginActivity extends BaseActivity {
                      }
                      if (url == null) {
 
-                         showError("Product URL not found",findViewById(R.id.btLogin));
+                         showError(getApplicationContext().getString(R.string.product_url_not_found),findViewById(R.id.btLogin));
                             return;
                      }else {
                          Utils.setUser(context,ad);
@@ -98,13 +98,13 @@ public class LoginActivity extends BaseActivity {
                      startActivity(new Intent(context,Dashboard.class));
                       finish();
                  }else {
-                     showError("Invalid username or password",findViewById(R.id.btLogin));
+                     showError(getApplicationContext().getString(R.string.invalid_username_or_password),findViewById(R.id.btLogin));
                  }
 
 
 
             } catch (Exception e) {
-                showError("please try later", findViewById(R.id.btLogin));
+                showError(getApplicationContext().getString(R.string.please_try_later), findViewById(R.id.btLogin));
 
                 Log.e("parse order", e.toString());
             }

@@ -173,9 +173,9 @@ public class BioWasteListFragment extends Fragment {
         imSearch.setVisibility(View.VISIBLE);
 
         if (result == null) {
-            Utils.showError(" please check network connection", listView);
+            Utils.showError(getContext().getString(R.string.please_check_network_connection), listView);
         } else if (result.isHasError()) {
-            Utils.showError("please try later", listView);
+            Utils.showError(getContext().getString(R.string.please_try_later), listView);
         } else if (result.getResponseContent() != null) {
             try {
                 JSONObject jsonObject = new JSONObject(result.getResponseContent());
@@ -219,11 +219,11 @@ public class BioWasteListFragment extends Fragment {
                     previousTotal = 0;
                     BiowasteListAdapter adapter = new BiowasteListAdapter(getContext(), new ArrayList<BioWasteItemVo>());
                     listView.setAdapter(adapter);
-                    Utils.showError("No record found", listView);
+                    Utils.showError(getContext().getString(R.string.no_records_found), listView);
                 }
 
             } catch (Exception e) {
-                Utils.showError("please try later", listView);
+                Utils.showError(getContext().getString(R.string.please_try_later), listView);
                 Log.e("parse order", e.toString());
             }
         }

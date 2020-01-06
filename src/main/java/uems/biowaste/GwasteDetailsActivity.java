@@ -26,7 +26,7 @@ public class GwasteDetailsActivity extends BaseBackActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_gwastedetails);
-        setToolbar("Food & General waste");
+        setToolbar(getApplicationContext().getString(R.string.food_and_general_waste));
         vo = (ItemVo) getIntent().getSerializableExtra("vo");
         initLayout();
         new FetchGWasteDetailsTask(context).execute(vo.getItemID(), me.getEmailID());
@@ -67,9 +67,9 @@ public class GwasteDetailsActivity extends BaseBackActivity {
     public void detailsResponse(TResponse<String> result) {
 
         if (result == null) {
-            showError(" please check network connection", findViewById(R.id.detailsDateTextView));
+            showError(getApplicationContext().getString(R.string.please_check_network_connection), findViewById(R.id.detailsDateTextView));
         } else if (result.isHasError()) {
-            showError("please try later", findViewById(R.id.detailsDateTextView));
+            showError(getApplicationContext().getString(R.string.please_try_later), findViewById(R.id.detailsDateTextView));
 
         } else if (result.getResponseContent() != null) {
             try {
@@ -82,7 +82,7 @@ public class GwasteDetailsActivity extends BaseBackActivity {
                 initLayout();
 
             } catch (Exception e) {
-                showError("please try later", findViewById(R.id.detailsDateTextView));
+                showError(getApplicationContext().getString(R.string.please_try_later), findViewById(R.id.detailsDateTextView));
 
                 Log.e("parse order", e.toString());
             }

@@ -33,7 +33,7 @@ public class PatientCreateActivity extends BaseBackActivity implements View.OnCl
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_patients_details);
-        setToolbar("Monthly Patient details");
+        setToolbar(getApplicationContext().getString(R.string.monthly_patient_details));
         startDate = Calendar.getInstance();
         initLayout();
 
@@ -61,25 +61,25 @@ public class PatientCreateActivity extends BaseBackActivity implements View.OnCl
     public void saveResponse(TResponse<String> result) {
 
         if (result == null) {
-            showError(" please check network connection", findViewById(R.id.detailsDateTextView));
+            showError(getApplicationContext().getString(R.string.please_check_network_connection), findViewById(R.id.detailsDateTextView));
         } else if (result.isHasError()) {
-            showError("please try later", findViewById(R.id.detailsDateTextView));
+            showError(getApplicationContext().getString(R.string.please_try_later), findViewById(R.id.detailsDateTextView));
 
         } else if (result.getResponseContent() != null) {
             try {
                 JSONObject jsonObject = new JSONObject(result.getResponseContent());
                 boolean status = jsonObject.getBoolean("status");
                 if(status){
-                    Toast.makeText(context,"Successfully saved item",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context,getApplicationContext().getString(R.string.successfully_saved_item),Toast.LENGTH_SHORT).show();
                     finish();
                 }else{
-                    showError("Failed to save item", findViewById(R.id.detailsDateTextView));
+                    showError(getApplicationContext().getString(R.string.failed_to_save_item), findViewById(R.id.detailsDateTextView));
 
                 }
 
 
             } catch (Exception e) {
-                showError("please try later", findViewById(R.id.detailsDateTextView));
+                showError(getApplicationContext().getString(R.string.please_try_later), findViewById(R.id.detailsDateTextView));
 
                 Log.e("parse order", e.toString());
             }
@@ -92,7 +92,7 @@ public class PatientCreateActivity extends BaseBackActivity implements View.OnCl
 
 
         PopupMenu popup = new PopupMenu(context, v);
-        popup.getMenu().add("Select");
+        popup.getMenu().add(getApplicationContext().getString(R.string.select));
         if ((monthValue - 1) > 0) {
             popup.getMenu().add(Utils.getMonths(monthValue - 1));
 
@@ -110,7 +110,7 @@ public class PatientCreateActivity extends BaseBackActivity implements View.OnCl
                 TextView detailsDateTextView = findViewById(R.id.detailsDateTextView);
                 TextView tvMonth = findViewById(R.id.detailsMonthTextView);
                 tvMonth.setText(item.getTitle());
-                detailsDateTextView.setText("Select");
+                detailsDateTextView.setText(getApplicationContext().getString(R.string.select));
                 return false;
             }
         });
@@ -152,11 +152,11 @@ public class PatientCreateActivity extends BaseBackActivity implements View.OnCl
 
         EditText patientDetailsTotalTextView = findViewById(R.id.patientDetailsTotalTextView);
         if (Utils.getText(detailsDateTextView).equalsIgnoreCase("select")) {
-            showError("Please select a date", findViewById(R.id.detailsMonthTextView));
+            showError(getApplicationContext().getString(R.string.please_select_a_date), findViewById(R.id.detailsMonthTextView));
             return;
         }
         if (ZValidation.checkEmpty(patientDetailsTotalTextView)) {
-            showError("Please enter total patients", findViewById(R.id.detailsMonthTextView));
+            showError(getApplicationContext().getString(R.string.please_enter_total_patients), findViewById(R.id.detailsMonthTextView));
             patientDetailsTotalTextView.requestFocus();
             return;
 

@@ -50,7 +50,7 @@ public class BiowasteCreateActivity extends BaseBackActivity implements View.OnC
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_biowaste_details);
-        setToolbar("Biowaste");
+        setToolbar(context.getString(R.string.biowaste));
         startDate = Calendar.getInstance();
         initLayout();
     }
@@ -81,21 +81,21 @@ public class BiowasteCreateActivity extends BaseBackActivity implements View.OnC
     public void saveResponse(TResponse<String> result) {
 
         if (result == null) {
-            showError(" please check network connection", findViewById(R.id.detailsDateTextView));
+            showError(context.getString(R.string.please_check_network_connection), findViewById(R.id.detailsDateTextView));
         } else if (result.isHasError()) {
-            showError("please try later", findViewById(R.id.detailsDateTextView));
+            showError(context.getString(R.string.please_try_later), findViewById(R.id.detailsDateTextView));
         } else if (result.getResponseContent() != null) {
             try {
                 JSONObject jsonObject = new JSONObject(result.getResponseContent());
                 boolean status = jsonObject.getBoolean("status");
                 if (status) {
-                    Toast.makeText(context, "Successfully saved item", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, context.getString(R.string.successfully_saved_item), Toast.LENGTH_SHORT).show();
                     finish();
                 } else {
-                    showError("Failed to save item", findViewById(R.id.detailsDateTextView));
+                    showError(context.getString(R.string.failed_to_save_item), findViewById(R.id.detailsDateTextView));
                 }
             } catch (Exception e) {
-                showError("please try later", findViewById(R.id.detailsDateTextView));
+                showError(context.getString(R.string.please_try_later), findViewById(R.id.detailsDateTextView));
 
                 Log.e("parse order", e.toString());
             }
@@ -107,7 +107,7 @@ public class BiowasteCreateActivity extends BaseBackActivity implements View.OnC
         int monthValue = Integer.parseInt(month)-1;
 
         PopupMenu popup = new PopupMenu(context, v);
-        popup.getMenu().add("Select");
+        popup.getMenu().add(context.getString(R.string.select));
         if ((monthValue - 1) > 0) {
             popup.getMenu().add(Utils.getMonths(monthValue - 1));
         } else
@@ -123,7 +123,7 @@ public class BiowasteCreateActivity extends BaseBackActivity implements View.OnC
                 TextView detailsDateTextView = findViewById(R.id.detailsDateTextView);
                 TextView tvMonth = findViewById(R.id.detailsMonthTextView);
                 tvMonth.setText(item.getTitle());
-                detailsDateTextView.setText("Select");
+                detailsDateTextView.setText(context.getString(R.string.select));
                 return false;
             }
         });
@@ -304,43 +304,43 @@ public class BiowasteCreateActivity extends BaseBackActivity implements View.OnC
 
 
         if (ZValidation.checkEmpty(cytotoxicWasteCostEdTxt)) {
-            showError("Please enter cyclone toxic cost", cytotoxicWasteCostEdTxt);
+            showError(context.getString(R.string.please_enter_cyclone_toxic_cost), cytotoxicWasteCostEdTxt);
             cytotoxicWasteCostEdTxt.requestFocus();
             return;
         }
         if (ZValidation.checkEmpty(radioActiveWasteCostEdtTxt)) {
-            showError("Please enter cyclone toxic cost", radioActiveWasteCostEdtTxt);
+            showError(context.getString(R.string.please_enter_cyclone_toxic_cost), radioActiveWasteCostEdtTxt);
             radioActiveWasteCostEdtTxt.requestFocus();
             return;
         }
         if (ZValidation.checkEmpty(chemicalWasteCostEdtTxt)) {
-            showError("Please enter cyclone toxic cost", chemicalWasteCostEdtTxt);
+            showError(context.getString(R.string.please_enter_cyclone_toxic_cost), chemicalWasteCostEdtTxt);
             chemicalWasteCostEdtTxt.requestFocus();
             return;
         }
         if (ZValidation.checkEmpty(otherBiowasteCostEdTxt)) {
-            showError("Please enter cyclone toxic cost", otherBiowasteCostEdTxt);
+            showError(context.getString(R.string.please_enter_cyclone_toxic_cost), otherBiowasteCostEdTxt);
             otherBiowasteCostEdTxt.requestFocus();
             return;
         }
 
         if (ZValidation.checkEmpty(cycloneToxicWasteBinsCountEdTxt)) {
-            showError("Please enter cyclone toxic number", cycloneToxicWasteBinsCountEdTxt);
+            showError(context.getString(R.string.please_enter_cyclone_toxic_number), cycloneToxicWasteBinsCountEdTxt);
             cycloneToxicWasteBinsCountEdTxt.requestFocus();
             return;
         }
         if (ZValidation.checkEmpty(radioActiveWasteBinCountEdTxt)) {
-            showError("Please enter radio active waste number", radioActiveWasteBinCountEdTxt);
+            showError(context.getString(R.string.please_enter_radio_active_waste_number), radioActiveWasteBinCountEdTxt);
             radioActiveWasteBinCountEdTxt.requestFocus();
             return;
         }
         if (ZValidation.checkEmpty(chemicalWasteBinCountEdTxt)) {
-            showError("Please enter chemical number", chemicalWasteBinCountEdTxt);
+            showError(context.getString(R.string.please_enter_chemical_number), chemicalWasteBinCountEdTxt);
             chemicalWasteBinCountEdTxt.requestFocus();
             return;
         }
         if (ZValidation.checkEmpty(otherBiowasteCountEdTxt)) {
-            showError("Please enter other biowaste number", otherBiowasteCountEdTxt);
+            showError(context.getString(R.string.please_enter_other_biowaste_number), otherBiowasteCountEdTxt);
             otherBiowasteCountEdTxt.requestFocus();
             return;
         }
@@ -349,17 +349,17 @@ public class BiowasteCreateActivity extends BaseBackActivity implements View.OnC
         EditText detailsWeightTextView = findViewById(R.id.detailsWeightTextView);
         EditText detailsNoOfHaulageTextView = findViewById(R.id.detailsNoOfHaulageTextView);
         if (Utils.getText(detailsDateTextView).equalsIgnoreCase("select")) {
-            showError("Please select a date", findViewById(R.id.detailsMonthTextView));
+            showError(context.getString(R.string.please_select_a_date), findViewById(R.id.detailsMonthTextView));
             return;
         }
         if (ZValidation.checkEmpty(detailsWeightTextView)) {
-            showError("Please enter total bin", findViewById(R.id.detailsMonthTextView));
+            showError(context.getString(R.string.please_enter_total_bin), findViewById(R.id.detailsMonthTextView));
             detailsWeightTextView.requestFocus();
             return;
 
         }
         if (ZValidation.checkEmpty(detailsNoOfHaulageTextView)) {
-            showError("Please enter total cost", findViewById(R.id.detailsMonthTextView));
+            showError(context.getString(R.string.please_enter_total_cost), findViewById(R.id.detailsMonthTextView));
             detailsNoOfHaulageTextView.requestFocus();
             return;
         }

@@ -75,7 +75,7 @@ public class BioWasteListActivity extends BaseActivity {
                 showMonthMenu(v);
             }
         });
-        initNavigationMenu("Biowaste");
+        initNavigationMenu(getApplicationContext().getString(R.string.biowaste));
         findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -141,9 +141,9 @@ public class BioWasteListActivity extends BaseActivity {
         findViewById(R.id.imSearch).setVisibility(View.VISIBLE);
 
         if (result == null) {
-            showError(" please check network connection", findViewById(R.id.listView));
+            showError(getApplicationContext().getString(R.string.please_check_network_connection), findViewById(R.id.listView));
         } else if (result.isHasError()) {
-            showError("please try later", findViewById(R.id.listView));
+            showError(getApplicationContext().getString(R.string.please_try_later), findViewById(R.id.listView));
 
         } else if (result.getResponseContent() != null) {
             ListView listView = findViewById(R.id.listView);
@@ -181,12 +181,12 @@ public class BioWasteListActivity extends BaseActivity {
                     previousTotal = 0;
                     BiowasteListAdapter adapter = new BiowasteListAdapter(context, new ArrayList<BioWasteItemVo>());
                     listView.setAdapter(adapter);
-                    showError("No record found", findViewById(R.id.listView));
+                    showError(getApplicationContext().getString(R.string.no_records_found), findViewById(R.id.listView));
                 }
 
 
             } catch (Exception e) {
-                showError("please try later", findViewById(R.id.listView));
+                showError(getApplicationContext().getString(R.string.please_try_later), findViewById(R.id.listView));
 
                 Log.e("parse order", e.toString());
             }

@@ -96,7 +96,7 @@
                         android:background="@drawable/blue_bt_bg"
                         android:fontFamily="@font/medium"
                         android:padding="5dp"
-                        android:text="Login"
+                        android:text="@string/login"
                         android:textColor="@android:color/white" />
 
                 </RelativeLayout>
@@ -110,7 +110,7 @@
                 android:gravity="center"
                 android:fontFamily="@font/rbold"
                 android:background="@color/colorAccent"
-                android:text="LOGIN"
+                android:text="@string/login"
                 android:elevation="5dp"
                 android:textColor="@android:color/white"
                 android:textSize="14sp"
@@ -128,7 +128,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
         android:gravity="center"
-        android:text="A UEMS Product"
+        android:text="@string/a_uems_product"
         android:textColor="@color/white"
         android:textSize="12sp" />
 

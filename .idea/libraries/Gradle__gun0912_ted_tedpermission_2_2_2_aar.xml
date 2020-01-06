@@ -1,10 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: gun0912.ted:tedpermission:2.2.2@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6987c285a41b9afc5091be324da2ad35/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6987c285a41b9afc5091be324da2ad35/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b28b13429d57c96dd6e3bae1071b1b60/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b28b13429d57c96dd6e3bae1071b1b60/res" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/gun0912.ted/tedpermission/2.2.2/227ab3f6a67c4a857736004a433d8c829093e2fe/tedpermission-2.2.2-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/gun0912.ted/tedpermission/2.2.2/af4efec7e041ee468f46c1f2dff6bf76dd449bd1/tedpermission-2.2.2-sources.jar!/" />
     </SOURCES>

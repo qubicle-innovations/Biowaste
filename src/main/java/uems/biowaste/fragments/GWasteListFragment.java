@@ -181,9 +181,9 @@ public class GWasteListFragment extends Fragment {
         imSearch.setVisibility(View.VISIBLE);
 
         if (result == null) {
-            Utils.showError(" please check network connection", listView);
+            Utils.showError(getContext().getString(R.string.please_check_network_connection), listView);
         } else if (result.isHasError()) {
-            Utils.showError("please try later", listView);
+            Utils.showError(getContext().getString(R.string.please_try_later), listView);
 
         } else if (result.getResponseContent() != null) {
             try {
@@ -226,12 +226,12 @@ public class GWasteListFragment extends Fragment {
                     previousTotal = 0;
                     GwasteListAdapter adapter = new GwasteListAdapter(getContext(), new ArrayList<ItemVo>(), ContextCompat.getColor(getContext(), R.color.orange));
                     listView.setAdapter(adapter);
-                    Utils.showError("No record found", listView);
+                    Utils.showError(getContext().getString(R.string.no_records_found), listView);
                 }
 
 
             } catch (Exception e) {
-                Utils.showError("please try later", listView);
+                Utils.showError(getContext().getString(R.string.please_try_later), listView);
 
                 Log.e("parse order", e.toString());
             }
@@ -250,19 +250,19 @@ public class GWasteListFragment extends Fragment {
     public void showMonthMenu(View v) {
         if(getContext() != null){
             PopupMenu popup = new PopupMenu(getContext(), v);
-            popup.getMenu().add("Select");
-            popup.getMenu().add("January");
-            popup.getMenu().add("February");
-            popup.getMenu().add("March");
-            popup.getMenu().add("April");
-            popup.getMenu().add("May");
-            popup.getMenu().add("June");
-            popup.getMenu().add("July");
-            popup.getMenu().add("August");
-            popup.getMenu().add("September");
-            popup.getMenu().add("October");
-            popup.getMenu().add("November");
-            popup.getMenu().add("December");
+            popup.getMenu().add(getContext().getString(R.string.select));
+            popup.getMenu().add(getContext().getString(R.string.january));
+            popup.getMenu().add(getContext().getString(R.string.february));
+            popup.getMenu().add(getContext().getString(R.string.march));
+            popup.getMenu().add(getContext().getString(R.string.april));
+            popup.getMenu().add(getContext().getString(R.string.may));
+            popup.getMenu().add(getContext().getString(R.string.june));
+            popup.getMenu().add(getContext().getString(R.string.july));
+            popup.getMenu().add(getContext().getString(R.string.august));
+            popup.getMenu().add(getContext().getString(R.string.september));
+            popup.getMenu().add(getContext().getString(R.string.october));
+            popup.getMenu().add(getContext().getString(R.string.november));
+            popup.getMenu().add(getContext().getString(R.string.december));
 
             popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
 

@@ -547,7 +547,7 @@
                 android:layout_toEndOf="@+id/imBack"
                 android:fontFamily="@font/regular"
                 android:gravity="center"
-                android:text="eLinen"
+                android:text="@string/eLinen"
                 android:textColor="@android:color/white"
                 android:textSize="20sp" />
 

@@ -16,7 +16,7 @@ public class PatientDetailsActivity extends BaseBackActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_patients_details);
-        setToolbar("Monthly Patient details");
+        setToolbar(getApplicationContext().getString(R.string.monthly_patient_details));
         vo = (ItemVo) getIntent().getSerializableExtra("vo");
         initLayout();
 

@@ -167,22 +167,22 @@ public class GwasteCreateFragments extends Fragment implements View.OnClickListe
     public void saveResponse(TResponse<String> result) {
 
         if (result == null) {
-            Utils.showError(" please check network connection", detailsDateTextView);
+            Utils.showError(getContext().getString(R.string.please_check_network_connection), detailsDateTextView);
         } else if (result.isHasError()) {
-            Utils.showError("please try later", detailsDateTextView);
+            Utils.showError(getContext().getString(R.string.please_try_later), detailsDateTextView);
 
         } else if (result.getResponseContent() != null) {
             try {
                 JSONObject jsonObject = new JSONObject(result.getResponseContent());
                 boolean status = jsonObject.getBoolean("status");
                 if(status){
-                    Toast.makeText(getContext(),"Successfully saved item",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(),getContext().getString(R.string.successfully_saved_item),Toast.LENGTH_SHORT).show();
                     mListener.popupFragment(new GWasteListFragment(),Constants.FRAGMENT_FOOD_AND_GENERAL_WASTE,false,true);
                 }else {
-                    Utils.showError("Failed to save item", detailsDateTextView);
+                    Utils.showError(getContext().getString(R.string.failed_to_save_item), detailsDateTextView);
                 }
             } catch (Exception e) {
-                Utils.showError("please try later", detailsDateTextView);
+                Utils.showError(getContext().getString(R.string.please_try_later), detailsDateTextView);
 
                 Log.e("parse order", e.toString());
             }
@@ -196,7 +196,7 @@ public class GwasteCreateFragments extends Fragment implements View.OnClickListe
 
         if(getContext() != null){
             PopupMenu popup = new PopupMenu(getContext(), v);
-            popup.getMenu().add("Select");
+            popup.getMenu().add(getContext().getString(R.string.select));
             if ((monthValue - 1) > 0) {
                 popup.getMenu().add(Utils.getMonths(monthValue - 1));
 
@@ -268,29 +268,29 @@ public class GwasteCreateFragments extends Fragment implements View.OnClickListe
     public void saveItem() {
         if(Utils.getText(detailsDateTextView) != null){
             if (Utils.getText(detailsDateTextView).equalsIgnoreCase("select")) {
-                Utils.showError("Please select a date", detailsMonthTextView);
+                Utils.showError(getContext().getString(R.string.please_select_a_date), detailsMonthTextView);
                 return;
             }
         }
         if (ZValidation.checkEmpty(detailsWeightTextView)) {
-            Utils.showError("Please enter total weight", detailsMonthTextView);
+            Utils.showError(getContext().getString(R.string.please_enter_total_weight), detailsMonthTextView);
             detailsWeightTextView.requestFocus();
             return;
 
         }
         if (ZValidation.checkEmpty(detailsDisposalFeeTextView)) {
-            Utils.showError("Please enter Disposal Fee $", detailsMonthTextView);
+            Utils.showError(getContext().getString(R.string.please_enter_disposal_fee), detailsMonthTextView);
             detailsDisposalFeeTextView.requestFocus();
             return;
         }
         if (ZValidation.checkEmpty(detailsHuelageChargeTextView)) {
-            Utils.showError("Please enter Hualage Charge $", detailsMonthTextView);
+            Utils.showError(getContext().getString(R.string.please_enter_hualage_charge), detailsMonthTextView);
             detailsHuelageChargeTextView.requestFocus();
             return;
 
         }
         if (ZValidation.checkEmpty(detailsNoOfHaulageTextView)) {
-            Utils.showError("Please enter No of Haulage", detailsMonthTextView);
+            Utils.showError(getContext().getString(R.string.please_enter_no_of_haulage), detailsMonthTextView);
             detailsNoOfHaulageTextView.requestFocus();
             return;
 

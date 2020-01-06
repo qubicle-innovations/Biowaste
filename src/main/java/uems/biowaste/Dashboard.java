@@ -92,9 +92,9 @@ public class Dashboard extends BaseActivity implements View.OnClickListener {
         TextView tvGwasteCount = findViewById(R.id.tvGwasteCount);
 
         if (result == null) {
-            showError(" please check network connection", findViewById(R.id.tvGwasteCount));
+            showError(getApplicationContext().getString(R.string.please_check_network_connection), findViewById(R.id.tvGwasteCount));
         } else if (result.isHasError()) {
-            showError("please try later", findViewById(R.id.tvGwasteCount));
+            showError(getApplicationContext().getString(R.string.please_try_later), findViewById(R.id.tvGwasteCount));
 
         } else if (result.getResponseContent() != null) {
             try {
@@ -126,7 +126,7 @@ public class Dashboard extends BaseActivity implements View.OnClickListener {
 
 
             } catch (Exception e) {
-                showError("please try later", findViewById(R.id.tvGwasteCount));
+                showError(getApplicationContext().getString(R.string.please_try_later), findViewById(R.id.tvGwasteCount));
 
                 Log.e("parse order", e.toString());
             }
@@ -139,7 +139,7 @@ public class Dashboard extends BaseActivity implements View.OnClickListener {
 
 
         PopupMenu popup = new PopupMenu(context, v);
-        popup.getMenu().add("Select");
+        popup.getMenu().add(getApplicationContext().getString(R.string.select));
         if ((monthValue - 1) > 0) {
             popup.getMenu().add(Utils.getMonths(monthValue - 1));
 

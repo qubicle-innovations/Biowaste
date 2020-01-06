@@ -74,7 +74,7 @@ public class GWasteListActivity extends BaseActivity {
                 showMonthMenu(v);
             }
         });
-        initNavigationMenu("Food & General waste");
+        initNavigationMenu(getApplicationContext().getString(R.string.food_and_general_waste));
         findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -139,9 +139,9 @@ public class GWasteListActivity extends BaseActivity {
         findViewById(R.id.imSearch).setVisibility(View.VISIBLE);
 
         if (result == null) {
-            showError(" please check network connection", findViewById(R.id.listView));
+            showError(getApplicationContext().getString(R.string.please_check_network_connection), findViewById(R.id.listView));
         } else if (result.isHasError()) {
-            showError("please try later", findViewById(R.id.listView));
+            showError(getApplicationContext().getString(R.string.please_try_later), findViewById(R.id.listView));
 
         } else if (result.getResponseContent() != null) {
             ListView listView = findViewById(R.id.listView);
@@ -179,12 +179,12 @@ public class GWasteListActivity extends BaseActivity {
                     previousTotal = 0;
                     GwasteListAdapter adapter = new GwasteListAdapter(context, new ArrayList<ItemVo>(), ContextCompat.getColor(context, R.color.orange));
                     listView.setAdapter(adapter);
-                    showError("No record found", findViewById(R.id.listView));
+                    showError(getApplicationContext().getString(R.string.no_records_found), findViewById(R.id.listView));
                 }
 
 
             } catch (Exception e) {
-                showError("please try later", findViewById(R.id.listView));
+                showError(getApplicationContext().getString(R.string.please_try_later), findViewById(R.id.listView));
 
                 Log.e("parse order", e.toString());
             }
@@ -232,19 +232,19 @@ public class GWasteListActivity extends BaseActivity {
     public void showMonthMenu(View v) {
 
         PopupMenu popup = new PopupMenu(context, v);
-        popup.getMenu().add("Select");
-        popup.getMenu().add("January");
-        popup.getMenu().add("February");
-        popup.getMenu().add("March");
-        popup.getMenu().add("April");
-        popup.getMenu().add("May");
-        popup.getMenu().add("June");
-        popup.getMenu().add("July");
-        popup.getMenu().add("August");
-        popup.getMenu().add("September");
-        popup.getMenu().add("October");
-        popup.getMenu().add("November");
-        popup.getMenu().add("December");
+        popup.getMenu().add(getApplicationContext().getString(R.string.select));
+        popup.getMenu().add(getApplicationContext().getString(R.string.january));
+        popup.getMenu().add(getApplicationContext().getString(R.string.february));
+        popup.getMenu().add(getApplicationContext().getString(R.string.march));
+        popup.getMenu().add(getApplicationContext().getString(R.string.april));
+        popup.getMenu().add(getApplicationContext().getString(R.string.may));
+        popup.getMenu().add(getApplicationContext().getString(R.string.june));
+        popup.getMenu().add(getApplicationContext().getString(R.string.july));
+        popup.getMenu().add(getApplicationContext().getString(R.string.august));
+        popup.getMenu().add(getApplicationContext().getString(R.string.september));
+        popup.getMenu().add(getApplicationContext().getString(R.string.october));
+        popup.getMenu().add(getApplicationContext().getString(R.string.november));
+        popup.getMenu().add(getApplicationContext().getString(R.string.december));
 
         popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
 

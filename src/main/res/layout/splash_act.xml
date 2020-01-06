@@ -25,7 +25,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
         android:gravity="center"
-        android:text="A UEMS Product"
+        android:text="@string/a_uems_product"
         android:textColor="@color/white"
         android:textSize="12sp" />
 

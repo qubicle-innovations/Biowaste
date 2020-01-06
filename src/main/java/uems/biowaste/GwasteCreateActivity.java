@@ -35,7 +35,7 @@ public class GwasteCreateActivity extends BaseBackActivity implements View.OnCli
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_gwastedetails);
-        setToolbar("Food & General waste");
+        setToolbar(getApplicationContext().getString(R.string.food_and_general_waste));
         startDate = Calendar.getInstance();
         initLayout();
 
@@ -126,23 +126,23 @@ public class GwasteCreateActivity extends BaseBackActivity implements View.OnCli
     public void saveResponse(TResponse<String> result) {
 
         if (result == null) {
-            showError(" please check network connection", findViewById(R.id.detailsDateTextView));
+            showError(getApplicationContext().getString(R.string.please_check_network_connection), findViewById(R.id.detailsDateTextView));
         } else if (result.isHasError()) {
-            showError("please try later", findViewById(R.id.detailsDateTextView));
+            showError(getApplicationContext().getString(R.string.please_try_later), findViewById(R.id.detailsDateTextView));
 
         } else if (result.getResponseContent() != null) {
             try {
                 JSONObject jsonObject = new JSONObject(result.getResponseContent());
                 boolean status = jsonObject.getBoolean("status");
                 if(status){
-                    Toast.makeText(context,"Successfully saved item",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context,getApplicationContext().getString(R.string.successfully_saved_item),Toast.LENGTH_SHORT).show();
                     finish();
                 }else{
-                    showError("Failed to save item", findViewById(R.id.detailsDateTextView));
+                    showError(getApplicationContext().getString(R.string.failed_to_save_item), findViewById(R.id.detailsDateTextView));
                 }
 
             } catch (Exception e) {
-                showError("please try later", findViewById(R.id.detailsDateTextView));
+                showError(getApplicationContext().getString(R.string.please_try_later), findViewById(R.id.detailsDateTextView));
 
                 Log.e("parse order", e.toString());
             }
@@ -156,7 +156,7 @@ public class GwasteCreateActivity extends BaseBackActivity implements View.OnCli
 
 
         PopupMenu popup = new PopupMenu(context, v);
-        popup.getMenu().add("Select");
+        popup.getMenu().add(getApplicationContext().getString(R.string.select));
         if ((monthValue - 1) > 0) {
             popup.getMenu().add(Utils.getMonths(monthValue - 1));
 
@@ -174,7 +174,7 @@ public class GwasteCreateActivity extends BaseBackActivity implements View.OnCli
                 TextView detailsDateTextView = findViewById(R.id.detailsDateTextView);
                 TextView tvMonth = findViewById(R.id.detailsMonthTextView);
                 tvMonth.setText(item.getTitle());
-                detailsDateTextView.setText("Select");
+                detailsDateTextView.setText(getApplicationContext().getString(R.string.select));
                 return false;
             }
         });
@@ -220,29 +220,29 @@ public class GwasteCreateActivity extends BaseBackActivity implements View.OnCli
         EditText detailsDisposalFeeTextView = findViewById(R.id.detailsDisposalFeeTextView);
         EditText detailsHuelageChargeTextView = findViewById(R.id.detailsHuelageChargeTextView);
         if (Utils.getText(detailsDateTextView).equalsIgnoreCase("select")) {
-            showError("Please select a date", findViewById(R.id.detailsMonthTextView));
+            showError(getApplicationContext().getString(R.string.please_select_a_date), findViewById(R.id.detailsMonthTextView));
             return;
         }
         if (ZValidation.checkEmpty(detailsWeightTextView)) {
-            showError("Please enter total weight", findViewById(R.id.detailsMonthTextView));
+            showError(getApplicationContext().getString(R.string.please_enter_total_weight), findViewById(R.id.detailsMonthTextView));
             detailsWeightTextView.requestFocus();
             return;
 
         }
         if (ZValidation.checkEmpty(detailsDisposalFeeTextView)) {
-            showError("Please enter Disposal Fee $", findViewById(R.id.detailsMonthTextView));
+            showError(getApplicationContext().getString(R.string.please_enter_disposal_fee), findViewById(R.id.detailsMonthTextView));
             detailsDisposalFeeTextView.requestFocus();
             return;
 
         }
         if (ZValidation.checkEmpty(detailsHuelageChargeTextView)) {
-            showError("Please enter Hualage Charge $", findViewById(R.id.detailsMonthTextView));
+            showError(getApplicationContext().getString(R.string.please_enter_hualage_charge), findViewById(R.id.detailsMonthTextView));
             detailsHuelageChargeTextView.requestFocus();
             return;
 
         }
         if (ZValidation.checkEmpty(detailsNoOfHaulageTextView)) {
-            showError("Please enter No of Haulage", findViewById(R.id.detailsMonthTextView));
+            showError(getApplicationContext().getString(R.string.please_enter_no_of_haulage), findViewById(R.id.detailsMonthTextView));
             detailsNoOfHaulageTextView.requestFocus();
             return;
 

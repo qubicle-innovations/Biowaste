@@ -83,7 +83,7 @@
                     android:gravity="center"
                     android:paddingStart="15dp"
                     android:paddingEnd="15dp"
-                    android:text="Month"
+                    android:text="@string/month"
                     android:textColor="@android:color/white"
                     android:visibility="gone" />
 
@@ -109,7 +109,7 @@
                     android:gravity="center"
                     android:paddingStart="15dp"
                     android:paddingEnd="15dp"
-                    android:text="Date"
+                    android:text="@string/date"
                     android:textColor="@android:color/white" />
 
             </RelativeLayout>
@@ -249,7 +249,7 @@
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/regular"
                         android:gravity="center_vertical"
-                        android:text="Dashboard"
+                        android:text="@string/dashboard"
                         android:textColor="@color/textBlack"
                         android:textSize="16sp"
 
@@ -281,7 +281,7 @@
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/regular"
                         android:gravity="center_vertical"
-                        android:text="General waste"
+                        android:text="@string/general_waste"
                         android:textColor="@color/textBlack"
                         android:textSize="16sp"
 
@@ -312,7 +312,7 @@
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/regular"
                         android:gravity="center_vertical"
-                        android:text="Biowaste disposal"
+                        android:text="@string/biowaste_disposal"
                         android:textColor="@color/textBlack"
                         android:textSize="16sp" />
 
@@ -340,7 +340,7 @@
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/regular"
                         android:gravity="center_vertical"
-                        android:text="Recycled items disposal"
+                        android:text="@string/recycle_item_disposal"
                         android:textColor="@color/textBlack"
                         android:textSize="16sp" />
 
@@ -368,7 +368,7 @@
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/regular"
                         android:gravity="center_vertical"
-                        android:text="Monthly patients form"
+                        android:text="@string/monthly_patients_forms"
                         android:textColor="@color/textBlack"
                         android:textSize="16sp" />
 
@@ -397,7 +397,7 @@
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/regular"
                         android:gravity="center_vertical"
-                        android:text="Logout"
+                        android:text="@string/logout"
                         android:textColor="@color/textBlack"
                         android:textSize="16sp"
 
@@ -416,7 +416,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
-                android:text="A UEMS Product"
+                android:text="@string/a_uems_product"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="12sp" />
 

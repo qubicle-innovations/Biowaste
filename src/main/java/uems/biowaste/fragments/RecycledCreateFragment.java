@@ -487,23 +487,23 @@ public class RecycledCreateFragment extends Fragment implements View.OnClickList
     public void saveResponse(TResponse<String> result) {
 
         if (result == null) {
-            Utils.showError(" please check network connection", detailsDateTextView);
+            Utils.showError(getContext().getString(R.string.please_check_network_connection), detailsDateTextView);
         } else if (result.isHasError()) {
-            Utils.showError("please try later", detailsDateTextView);
+            Utils.showError(getContext().getString(R.string.please_try_later), detailsDateTextView);
 
         } else if (result.getResponseContent() != null) {
             try {
                 JSONObject jsonObject = new JSONObject(result.getResponseContent());
                 boolean status = jsonObject.getBoolean("status");
                 if (status) {
-                    Toast.makeText(getContext(), "Successfully saved item", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), getContext().getString(R.string.successfully_saved_item), Toast.LENGTH_SHORT).show();
                     mListener.popupFragment(new RecycledListFragment(), Constants.FRAGMENT_RECYCLED_ITEMS,true,true);
                 } else {
-                    Utils.showError("Failed to save item", detailsDateTextView);
+                    Utils.showError(getContext().getString(R.string.failed_to_save_item), detailsDateTextView);
                 }
 
             } catch (Exception e) {
-                Utils.showError("please try later", detailsDateTextView);
+                Utils.showError(getContext().getString(R.string.please_try_later), detailsDateTextView);
                 Log.e("parse order", e.toString());
             }
         }
@@ -516,7 +516,7 @@ public class RecycledCreateFragment extends Fragment implements View.OnClickList
 
 
         PopupMenu popup = new PopupMenu(getContext(), v);
-        popup.getMenu().add("Select");
+        popup.getMenu().add(getContext().getString(R.string.select));
         if ((monthValue - 1) > 0) {
             popup.getMenu().add(Utils.getMonths(monthValue - 1));
 
@@ -531,7 +531,7 @@ public class RecycledCreateFragment extends Fragment implements View.OnClickList
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 tvMonth.setText(item.getTitle());
-                detailsDateTextView.setText("Select");
+                detailsDateTextView.setText(getContext().getString(R.string.select));
                 return false;
             }
         });
@@ -588,59 +588,59 @@ public class RecycledCreateFragment extends Fragment implements View.OnClickList
 
 
         if (Utils.getText(detailsDateTextView).equalsIgnoreCase("select")) {
-            Utils.showError("Please select a date", detailsMonthTextView);
+            Utils.showError(getContext().getString(R.string.please_select_a_date), detailsMonthTextView);
             return;
         }
         if (ZValidation.checkEmpty(itemDisposalPlasticTextView)) {
-            Utils.showError("Please enter plastic weight", detailsMonthTextView);
+            Utils.showError(getContext().getString(R.string.please_enter_plastic_weight), detailsMonthTextView);
             itemDisposalPlasticTextView.requestFocus();
             return;
 
         }
         if (ZValidation.checkEmpty(itemDisposalCansTextView)) {
-            Utils.showError("Please enter cans weight", detailsMonthTextView);
+            Utils.showError(getContext().getString(R.string.please_enter_cans_weight), detailsMonthTextView);
             itemDisposalCansTextView.requestFocus();
             return;
 
         }
         if (ZValidation.checkEmpty(itemDisposalPaperTextView)) {
-            Utils.showError("Please enter paper weight", detailsMonthTextView);
+            Utils.showError(getContext().getString(R.string.please_enter_paper_weight), detailsMonthTextView);
             itemDisposalPaperTextView.requestFocus();
             return;
 
         }
         if (ZValidation.checkEmpty(itemDisposalCarbonBoxTextView)) {
-            Utils.showError("Please enter carton box weight", detailsMonthTextView);
+            Utils.showError(getContext().getString(R.string.please_enter_carton_box_weight), detailsMonthTextView);
             itemDisposalCarbonBoxTextView.requestFocus();
             return;
 
         }
         if (ZValidation.checkEmpty(itemConfDocTextView)) {
-            Utils.showError("Please enter Conf. Doc. weight", detailsMonthTextView);
+            Utils.showError(getContext().getString(R.string.please_enter_conf_doc_weight), detailsMonthTextView);
             itemConfDocTextView.requestFocus();
             return;
 
         }
         if (ZValidation.checkEmpty(itemNonConfDocTextView)) {
-            Utils.showError("Please enter Non-Conf. Doc weight", detailsMonthTextView);
+            Utils.showError(getContext().getString(R.string.please_enter_non_conf_doc_weight), detailsMonthTextView);
             itemNonConfDocTextView.requestFocus();
             return;
 
         }
         if (ZValidation.checkEmpty(itemGlassTextView)) {
-            Utils.showError("Please enter glass weight", detailsMonthTextView);
+            Utils.showError(getContext().getString(R.string.please_enter_glass_weight), detailsMonthTextView);
             itemGlassTextView.requestFocus();
             return;
 
         }
         if (ZValidation.checkEmpty(itemNewsPaperTextView)) {
-            Utils.showError("Please enter Newspapers weight", detailsMonthTextView);
+            Utils.showError(getContext().getString(R.string.please_enter_newspapers_weight), detailsMonthTextView);
             itemNewsPaperTextView.requestFocus();
             return;
 
         }
         if (ZValidation.checkEmpty(itemOthersTextView)) {
-            Utils.showError("Please enter Others ", detailsMonthTextView);
+            Utils.showError(getContext().getString(R.string.please_enter_others), detailsMonthTextView);
             itemOthersTextView.requestFocus();
             return;
 

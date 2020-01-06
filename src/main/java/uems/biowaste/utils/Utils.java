@@ -275,7 +275,7 @@ public class Utils {
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             context.startActivity(intent);
         }catch (Exception e) {
-            Toast.makeText(context, "Location not found", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(context, "Location not found", Toast.LENGTH_SHORT).show();
         }
     }
 

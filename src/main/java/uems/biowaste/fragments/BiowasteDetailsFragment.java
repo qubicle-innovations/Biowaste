@@ -427,9 +427,9 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
     public void detailsResponse(TResponse<String> result) {
 
         if (result == null) {
-            Utils.showError(" please check network connection", detailsDateTextView);
+            Utils.showError(getActivity().getString(R.string.please_check_network_connection), detailsDateTextView);
         } else if (result.isHasError()) {
-            Utils.showError("please try later", detailsDateTextView);
+            Utils.showError(getActivity().getString(R.string.please_try_later), detailsDateTextView);
 
         } else if (result.getResponseContent() != null) {
             try {
@@ -441,7 +441,7 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
                 });
                 setData();
             } catch (Exception e) {
-                Utils.showError("please try later", detailsDateTextView);
+                Utils.showError(getActivity().getString(R.string.please_try_later), detailsDateTextView);
                 Log.e("parse order", e.toString());
             }
         }
@@ -453,7 +453,7 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
 
         if (getContext() != null) {
             PopupMenu popup = new PopupMenu(getContext(), v);
-            popup.getMenu().add("Select");
+            popup.getMenu().add(getActivity().getString(R.string.select));
             if ((monthValue - 1) > 0) {
                 popup.getMenu().add(Utils.getMonths(monthValue - 1));
 
@@ -485,7 +485,7 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
 
     public void recordDelete() {
         if (getContext() != null) {
-            Toast.makeText(getContext(), "Successfully deleted", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), getContext().getString(R.string.successfully_deleted), Toast.LENGTH_SHORT).show();
             mListener.popupFragment(new BioWasteListFragment(), Constants.FRAGMENT_BIOWASTE, false, true);
         }
     }
@@ -569,7 +569,7 @@ public class BiowasteDetailsFragment extends Fragment implements View.OnClickLis
 
     public void saveItem() {
         if (Utils.getText(detailsDateTextView).equalsIgnoreCase("select")) {
-            Utils.showError("Please select a date", detailsMonthTextView);
+            Utils.showError(getContext().getString(R.string.please_select_a_date), detailsMonthTextView);
             return;
         }
 /*

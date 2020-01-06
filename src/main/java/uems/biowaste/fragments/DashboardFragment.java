@@ -130,9 +130,9 @@ public class DashboardFragment extends Fragment implements View.OnClickListener{
 
 
         if (result == null) {
-            Utils.showError(" please check network connection", tvGwasteCount);
+            Utils.showError(getContext().getString(R.string.please_check_network_connection), tvGwasteCount);
         } else if (result.isHasError()) {
-            Utils.showError("please try later", tvGwasteCount);
+            Utils.showError(getContext().getString(R.string.please_try_later), tvGwasteCount);
 
         } else if (result.getResponseContent() != null) {
             try {
@@ -162,7 +162,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener{
                 }
 
             } catch (Exception e) {
-                Utils.showError("please try later", tvGwasteCount);
+                Utils.showError(getContext().getString(R.string.please_try_later), tvGwasteCount);
 
                 Log.e("parse order", e.toString());
             }
